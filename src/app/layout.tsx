@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import NeuroPhysicsBackground from "@/components/NeuroPhysicsBackground";
+// import NeuroPhysicsBackground from "@/components/NeuroPhysicsBackground";
+import SpacetimeGrid from "@/components/SpacetimeGrid";
 
 export const metadata: Metadata = {
   title: "Bansi Maddali | ML Engineer",
@@ -17,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <NeuroPhysicsBackground />
+        <SpacetimeGrid />
         <div style={{ position: 'relative', zIndex: 1 }}>
           <Navbar />
           <main>{children}</main>
