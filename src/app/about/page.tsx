@@ -6,36 +6,56 @@ export default function About() {
             <section className={styles.profile}>
                 <h1 className={styles.title}>About Me</h1>
                 <p className={styles.text}>
-                    Hello! I'm Bansi Maddali, a Staff Machine Learning Engineer at Micron Technology based in Hyderabad, India.
-                    I specialize in building scalable ML systems and have a deep passion for understanding the fundamental physics behind the algorithms we use.
+                    I am a Staff Machine Learning Engineer at Micron Technology, where I bridge the gap between Proof-of-Concept research and high-availability production systems. My work focuses on building scalable ML solutions that drive efficiency and innovation in the semiconductor industry.
                 </p>
                 <p className={styles.text}>
-                    Previously, I worked as a Machine Learning Engineer at Tata Consultancy Services (TCS), gaining extensive experience in industrial AI applications.
+                    With a deep passion for understanding the "why" behind the "how," I explore the intersection of Physics and Deep Learning. I believe that understanding the fundamental principles—like why a convolution works or how attention mechanisms mirror human cognition—is key to building robust AI systems.
                 </p>
             </section>
 
             <section className={styles.section}>
-                <h2 className={styles.subHeader}>Skills & Certifications</h2>
+                <h2 className={styles.subHeader}>Experience</h2>
+                <div className={styles.timeline}>
+                    <div className={styles.timelineItem}>
+                        <span className={styles.year}>Present</span>
+                        <div className={styles.timelineContent}>
+                            <h3 className={styles.role}>Staff Machine Learning Engineer</h3>
+                            <span className={styles.company}>Micron Technology</span>
+                            <p className={styles.description}>
+                                Driving POC research into high-latency production systems. Architecting scalable ML pipelines and optimizing model inference for industrial applications.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className={styles.timelineItem}>
+                        <span className={styles.year}>2018 - 2022</span>
+                        <div className={styles.timelineContent}>
+                            <h3 className={styles.role}>Machine Learning Engineer</h3>
+                            <span className={styles.company}>Tata Consultancy Services (TCS)</span>
+                            <p className={styles.description}>
+                                Developed and deployed computer vision and predictive maintenance models. Worked on end-to-end ML lifecycles for enterprise clients.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className={styles.section}>
+                <h2 className={styles.subHeader}>Skills & Methodology</h2>
                 <ul className={styles.list}>
-                    <li className={styles.listItem}>Machine Learning Engineering (MLOps, Model Deployment)</li>
-                    <li className={styles.listItem}>Deep Learning (TensorFlow Developer Certified)</li>
-                    <li className={styles.listItem}>Cloud Platforms (Azure, AWS)</li>
-                    <li className={styles.listItem}>Languages: Python, C, C++</li>
+                    <li className={styles.listItem}><strong>Languages:</strong> Python, C, C++, SQL</li>
+                    <li className={styles.listItem}><strong>Frameworks:</strong> PyTorch, TensorFlow, Scikit-learn, FastAI</li>
+                    <li className={styles.listItem}><strong>Cloud & MLOps:</strong> Azure, AWS, Docker, Kubernetes, CI/CD</li>
+                    <li className={styles.listItem}><strong>Focus:</strong> Computer Vision, Deep Learning, Industrial IoT, System Design</li>
                 </ul>
-            </section>
-
-            <section className={styles.section}>
-                <h2 className={styles.subHeader}>Interests</h2>
-                <p className={styles.text}>
-                    Beyond the terminal, I explore the world through my lens. As an avid wildlife photographer, I run <a href="https://bansiwildography.com" target="_blank" className="link">BansiWildography</a>.
-                    I also write about Physics and its intersection with AI.
-                </p>
             </section>
 
             <section className={styles.section}>
                 <h2 className={styles.subHeader}>Connect</h2>
                 <p className={styles.text}>
-                    Find me on <a href="https://github.com/bansi-007">GitHub</a>, <a href="https://medium.com/@bansidath">Medium</a>, or <a href="https://stackoverflow.com/users/9133465/bansi-dath">StackOverflow</a>.
+                    I write about my learnings on <a href="https://bansidath.in" className="link">bansidath.in</a> and <a href="https://medium.com/@bansidath" className="link">Medium</a>.
+                    <br />
+                    Find me on <a href="https://www.linkedin.com/in/iambansi" className="link">LinkedIn</a> or check my code on <a href="https://github.com/bansi-007" className="link">GitHub</a>.
                 </p>
             </section>
         </div>
