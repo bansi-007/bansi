@@ -9,6 +9,7 @@ const Footer = () => {
                 </p>
                 <div className={styles.socials}>
                     <a href="https://github.com/bansi-007" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://www.linkedin.com/in/bansi-maddali" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                     <a href="https://medium.com/@bansidath" target="_blank" rel="noopener noreferrer">Medium</a>
                     <a href="https://bansiwildography.com" target="_blank" rel="noopener noreferrer">Photography</a>
                 </div>
