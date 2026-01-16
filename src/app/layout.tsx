@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import NeuroPhysicsBackground from "@/components/NeuroPhysicsBackground";
 
 export const metadata: Metadata = {
   title: "Bansi Maddali | ML Engineer",
@@ -16,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <NeuroPhysicsBackground />
         <Navbar />
         <main>{children}</main>
         <Footer />
