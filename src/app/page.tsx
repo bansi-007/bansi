@@ -1,25 +1,10 @@
 import Link from 'next/link';
 import Typewriter from '@/components/Typewriter';
 import styles from './page.module.css';
+import { blogPosts } from '@/data/posts';
 
 export default function Home() {
-  const recentPosts = [
-    {
-      title: "DilatedConvBlock: When Convolutions Learn to Breathe",
-      date: "Jan 2026",
-      slug: "dilated-conv-block"
-    },
-    {
-      title: "How 'Attention Is All You Need' Revolutionised AI",
-      date: "Jun 2025",
-      slug: "attention-is-all-you-need"
-    },
-    {
-      title: "Understanding MB Conv Block",
-      date: "May 2025",
-      slug: "mb-conv-block"
-    }
-  ];
+  const recentPosts = blogPosts.slice(0, 3);
 
   return (
     <div className="container">
