@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Typewriter from '@/components/Typewriter';
 import styles from './page.module.css';
 
 export default function Home() {
@@ -26,7 +27,9 @@ export default function Home() {
         {/* Left Column: Hero */}
         <section className={styles.hero}>
           <h1 className={styles.title}>
-            <span className="terminal-cursor">Hello, I'm Bansi.</span>
+            <span className="terminal-cursor">
+              <Typewriter text="Hello, I'm Bansi." delay={75} />
+            </span>
           </h1>
           <p className={styles.subtitle}>
             Staff Machine Learning Engineer @ Micron Technology. <br />

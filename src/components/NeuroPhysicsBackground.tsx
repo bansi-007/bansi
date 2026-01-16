@@ -36,6 +36,16 @@ const NeuroPhysicsBackground = () => {
             });
         }
 
+        let mouseX = -1000;
+        let mouseY = -1000;
+
+        const handleMouseMove = (e: MouseEvent) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        };
+
+        window.addEventListener('mousemove', handleMouseMove);
+
         const animate = () => {
             ctx.clearRect(0, 0, width, height);
 
@@ -43,6 +53,19 @@ const NeuroPhysicsBackground = () => {
             particles.forEach((p, i) => {
                 p.x += p.vx;
                 p.y += p.vy;
+
+                // Mouse interaction (Repulsion/Physics)
+                const dxMouse = p.x - mouseX;
+                const dyMouse = p.y - mouseY;
+                const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+
+                if (distMouse < 200) {
+                    const force = (200 - distMouse) / 200;
+                    const repulsionX = (dxMouse / distMouse) * force * 2;
+                    const repulsionY = (dyMouse / distMouse) * force * 2;
+                    p.x += repulsionX;
+                    p.y += repulsionY;
+                }
 
                 // Bounce off edges
                 if (p.x < 0 || p.x > width) p.vx *= -1;
