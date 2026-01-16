@@ -50,7 +50,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     const post = blogContent[slug];
 
     return (
-        <div className="container" style={{ maxWidth: '800px', marginTop: '4rem' }}>
+        <div className="container" style={{ maxWidth: '100%', marginTop: '4rem' }}>
             <Link href="/blog" style={{ color: 'var(--muted)', marginBottom: '2rem', display: 'inline-block' }}>
                 &lt; Back to Logs
             </Link>
