@@ -98,9 +98,9 @@ const NeuroPhysicsBackground = () => {
                 left: 0,
                 width: '100%',
                 height: '100%',
-                zIndex: -1,
+                zIndex: 0, // Ensure it is not behind the body background 
                 pointerEvents: 'none',
-                opacity: 0.6
+                opacity: 0.4
             }}
         />
     );

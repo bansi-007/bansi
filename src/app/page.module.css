@@ -1,43 +1,67 @@
+.homeContainer {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
+  align-items: center;
+  min-height: 60vh;
+  margin-top: 2rem;
+}
+
 .hero {
-  padding: 4rem 0;
+  padding: 2rem 0;
 }
 
 .title {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
 }
 
 .subtitle {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: var(--muted);
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.ctaContainer {
+  display: flex;
+  gap: 1rem;
 }
 
 .cta {
   display: inline-block;
   border: 1px solid var(--primary);
   color: var(--primary);
-  padding: 0.5rem 1rem;
-  margin-right: 1rem;
+  padding: 0.8rem 1.5rem;
   border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
 .cta:hover {
   background: var(--primary);
   color: var(--background);
-  text-decoration: none;
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
 }
 
-.section {
-  margin-top: 4rem;
+.logsSection {
+  border-left: 1px solid var(--border);
+  padding-left: 2rem;
 }
 
 .sectionTitle {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin-bottom: 1.5rem;
-  border-bottom: 1px solid var(--border);
-  display: inline-block;
-  padding-bottom: 0.5rem;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sectionTitle::before {
+  content: '>';
+  color: var(--primary);
 }
 
 .postList {
@@ -49,18 +73,37 @@
 }
 
 .postDate {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--muted);
   display: block;
-  margin-bottom: 0.2rem;
+  font-family: var(--font-mono);
+  margin-bottom: 0.25rem;
 }
 
 .postTitle {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--foreground);
+  line-height: 1.4;
+  display: block;
+  transition: color 0.2s;
 }
 
 .postTitle:hover {
   color: var(--primary);
+  padding-left: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .homeContainer {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .logsSection {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px dashed var(--border);
+    padding-top: 2rem;
+  }
 }

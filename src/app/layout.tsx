@@ -18,9 +18,11 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <NeuroPhysicsBackground />
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <div style={{ position: 'relative', zIndex: 1 }}>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
