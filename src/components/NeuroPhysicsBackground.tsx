@@ -54,17 +54,30 @@ const NeuroPhysicsBackground = () => {
                 p.x += p.vx;
                 p.y += p.vy;
 
-                // Mouse interaction (Repulsion/Physics)
+
+                // Mouse interaction (Attraction & Connection)
                 const dxMouse = p.x - mouseX;
                 const dyMouse = p.y - mouseY;
                 const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
 
-                if (distMouse < 200) {
-                    const force = (200 - distMouse) / 200;
-                    const repulsionX = (dxMouse / distMouse) * force * 2;
-                    const repulsionY = (dyMouse / distMouse) * force * 2;
-                    p.x += repulsionX;
-                    p.y += repulsionY;
+                // Gentle Attraction (Gravity)
+                if (distMouse < 250) {
+                    const force = (250 - distMouse) / 250;
+                    // Negative for attraction. Small factor for subtle pull.
+                    const attractionX = (dxMouse / distMouse) * force * -0.5;
+                    const attractionY = (dyMouse / distMouse) * force * -0.5;
+                    p.x += attractionX;
+                    p.y += attractionY;
+
+                    // Draw connection to mouse (Interactive Synapse)
+                    if (distMouse < connectionDistance) {
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(mouseX, mouseY);
+                        const alpha = (1 - (distMouse / connectionDistance)) * 0.5; // Slightly stronger
+                        ctx.strokeStyle = `rgba(0, 255, 65, ${alpha})`;
+                        ctx.stroke();
+                    }
                 }
 
                 // Bounce off edges
