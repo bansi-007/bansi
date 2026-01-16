@@ -1,0 +1,58 @@
+import Link from 'next/link';
+import styles from './page.module.css';
+
+export default function Home() {
+  const recentPosts = [
+    {
+      title: "DilatedConvBlock: When Convolutions Learn to Breathe",
+      date: "Jan 2026",
+      slug: "dilated-conv-block"
+    },
+    {
+      title: "How 'Attention Is All You Need' Revolutionised AI",
+      date: "Jun 2025",
+      slug: "attention-is-all-you-need"
+    },
+    {
+      title: "Understanding MB Conv Block",
+      date: "May 2025",
+      slug: "mb-conv-block"
+    }
+  ];
+
+  return (
+    <div className="container">
+      <section className={styles.hero}>
+        <h1 className={styles.title}>
+          <span className="terminal-cursor">Hello, I'm Bansi.</span>
+        </h1>
+        <p className={styles.subtitle}>
+          Staff Machine Learning Engineer @ Micron Technology. <br />
+          Physics Enthusiast. Photographer.
+        </p>
+        <div>
+          <Link href="/about" className={styles.cta}>
+            Init(About_Me)
+          </Link>
+          <Link href="/blog" className={styles.cta}>
+            Read(Blog)
+          </Link>
+        </div>
+      </section>
+
+      <section className={styles.section}>
+        <h2 className={styles.sectionTitle}>Latest Logs</h2>
+        <ul className={styles.postList}>
+          {recentPosts.map((post) => (
+            <li key={post.slug} className={styles.postItem}>
+              <Link href={`/blog/${post.slug}`}>
+                <span className={styles.postDate}>// {post.date}</span>
+                <span className={styles.postTitle}>{post.title}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </div>
+  );
+}

@@ -1,0 +1,20 @@
+.footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0;
+    margin-top: 4rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.text {
+    margin-bottom: 0.5rem;
+}
+
+.socials {
+    display: flex;
+    gap: 1rem;
+}
+
+.socials a:hover {
+    color: var(--primary);
+}

@@ -1,0 +1,66 @@
+.hero {
+  padding: 4rem 0;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+
+.cta {
+  display: inline-block;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  padding: 0.5rem 1rem;
+  margin-right: 1rem;
+  border-radius: 4px;
+}
+
+.cta:hover {
+  background: var(--primary);
+  color: var(--background);
+  text-decoration: none;
+}
+
+.section {
+  margin-top: 4rem;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+.postList {
+  list-style: none;
+}
+
+.postItem {
+  margin-bottom: 1.5rem;
+}
+
+.postDate {
+  font-size: 0.8rem;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.postTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.postTitle:hover {
+  color: var(--primary);
+}
