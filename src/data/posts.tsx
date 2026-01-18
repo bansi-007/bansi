@@ -24,20 +24,6 @@ export const blogPosts: BlogPost[] = [
                 </p>
                 <br />
 
-                <div style={{ background: '#1a1a1a', padding: '1.5rem', borderRadius: '8px', margin: '2rem 0', border: '1px solid var(--border)' }}>
-                    <h3 style={{ marginTop: 0, marginBottom: '1rem', fontSize: '1.1rem' }}>📑 Table of Contents</h3>
-                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontFamily: 'monospace', fontSize: '0.95rem' }}>
-                        <li style={{ marginBottom: '0.5rem' }}>→ What is Engram?</li>
-                        <li style={{ marginBottom: '0.5rem' }}>→ Why Do We Need This?</li>
-                        <li style={{ marginBottom: '0.5rem' }}>→ How Does Engram Work?</li>
-                        <li style={{ marginBottom: '0.5rem' }}>→ The U-Shaped Scaling Law</li>
-                        <li style={{ marginBottom: '0.5rem' }}>→ Performance Results</li>
-                        <li style={{ marginBottom: '0.5rem' }}>→ Why It Boosts Reasoning</li>
-                        <li style={{ marginBottom: '0.5rem' }}>→ Infrastructure Efficiency</li>
-                        <li style={{ marginBottom: '0.5rem' }}>→ Future Applications</li>
-                    </ul>
-                </div>
-
                 <h2>What is Engram? The TL;DR</h2>
                 <div style={{ background: '#1a1a1a', padding: '1.5rem', borderRadius: '8px', margin: '1.5rem 0', borderLeft: '4px solid var(--primary)' }}>
                     <strong>Engram is a smart memory module that lets AI models instantly "look up" common patterns and facts instead of wasting time recomputing them.</strong>
