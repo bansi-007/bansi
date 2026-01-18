@@ -5,7 +5,7 @@ const Footer = () => {
         <footer className={styles.footer}>
             <div className="container">
                 <p className={styles.text}>
-                    &copy; {new Date().getFullYear()} Bansi Maddali. Built with Next.js & Code.
+                    &copy; {new Date().getFullYear()} Bansi Maddali.
                 </p>
                 <div className={styles.socials}>
                     <a href="https://github.com/bansi-007" target="_blank" rel="noopener noreferrer">GitHub</a>
