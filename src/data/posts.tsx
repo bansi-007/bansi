@@ -370,26 +370,5 @@ export const blogPosts: BlogPost[] = [
                 </p>
             </>
         )
-    },
-    {
-        slug: "attention-is-all-you-need",
-        title: "How 'Attention Is All You Need' Revolutionised AI",
-        date: "Jun 2025",
-        excerpt: "A deep dive into the Transformer architecture and its paradigm-shifting influence on NLP and Computer Vision.",
-        mediumLink: "https://medium.com/@bansidath"
-    },
-    {
-        slug: "mb-conv-block",
-        title: "Understanding MB Conv Block",
-        date: "May 2025",
-        excerpt: "Deconstructing the EfficientNet building block: Mobile Inverted Bottleneck Convolution.",
-        mediumLink: "https://medium.com/@bansidath"
-    },
-    {
-        slug: "opc-ua-industrial-iot",
-        title: "Understanding OPC UA and Industrial IoT",
-        date: "March 2022",
-        excerpt: "Connecting the dots in Industry 4.0 with OPC Unified Architecture.",
-        mediumLink: "https://medium.com/@bansidath"
     }
 ];
