@@ -43,15 +43,6 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 </div>
             </article>
 
-            {post && (
-                <div style={{ marginTop: '4rem', padding: '2rem', background: '#111', border: '1px solid var(--border)', borderRadius: '8px' }}>
-                    <p style={{ color: 'var(--muted)', marginBottom: '0.5rem' }}>Want to read the full technical deep dive?</p>
-                    <a href="https://bansidath.in" target="_blank" style={{ color: 'var(--primary)', fontWeight: 'bold' }}>
-                        Read original on bansidath.in &rarr;
-                    </a>
-                </div>
-            )}
-
             <div style={{ marginTop: '4rem', color: 'var(--muted)', fontFamily: 'monospace' }}>
                 <p>EOF</p>
             </div>
