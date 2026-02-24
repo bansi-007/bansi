@@ -106,25 +106,29 @@
 
 .introGrid {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr 260px;
     gap: 2.5rem;
     align-items: start;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 .introPhoto {
-    flex-shrink: 0;
+    width: 260px;
 }
 
 .introPhoto .photo {
-    width: 200px;
-    max-width: 200px;
+    width: 260px;
     border-radius: 8px;
+    display: block;
 }
 
 @media (max-width: 640px) {
     .introGrid {
         grid-template-columns: 1fr;
+    }
+
+    .introPhoto {
+        width: 100%;
     }
 
     .introPhoto .photo {
@@ -134,12 +138,12 @@
 }
 
 .photoFigure {
-    margin: 1.5rem 0 2rem;
+    margin: 1rem 0 2rem;
 }
 
 .photo {
     width: 100%;
-    max-width: 480px;
+    max-width: 420px;
     border-radius: 8px;
     display: block;
 }
