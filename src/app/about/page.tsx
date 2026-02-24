@@ -21,7 +21,7 @@ export default function About() {
                         <img
                             src="/bansi-trophy.jpg"
                             alt="Bansi holding a cricket tournament winner's trophy"
-                            className={styles.photo}
+                            className={styles.cricketPhoto}
                         />
                         <figcaption className={styles.photoCaption}>
                             Tournament winner — cricket
