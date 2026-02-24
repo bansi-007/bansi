@@ -6,8 +6,8 @@ import Footer from "@/components/Footer";
 import SpacetimeGrid from "@/components/SpacetimeGrid";
 
 export const metadata: Metadata = {
-  title: "Bansi Maddali | ML Engineer",
-  description: "Personal website and blog of Bansi Maddali, Staff Machine Learning Engineer.",
+  title: "Bansi Maddali",
+  description: "Personal website of Bansi Maddali — Physics enthusiast, photographer, and ML engineer.",
 };
 
 export default function RootLayout({

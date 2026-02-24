@@ -6,38 +6,11 @@ export default function About() {
             <section className={styles.profile}>
                 <h1 className={styles.title}>About Me</h1>
                 <p className={styles.text}>
-                    I am a Staff Machine Learning Engineer at Micron Technology, where I bridge the gap between Proof-of-Concept research and high-availability production systems. My work focuses on building scalable ML solutions that drive efficiency and innovation in the semiconductor industry.
+                    I bridge the gap between research and production systems, building scalable ML solutions that solve real-world problems.
                 </p>
                 <p className={styles.text}>
                     With a deep passion for understanding the "why" behind the "how," I explore the intersection of Physics and Deep Learning. I believe that understanding the fundamental principles—like why a convolution works or how attention mechanisms mirror human cognition—is key to building robust AI systems.
                 </p>
-            </section>
-
-            <section className={styles.section}>
-                <h2 className={styles.subHeader}>Experience</h2>
-                <div className={styles.timeline}>
-                    <div className={styles.timelineItem}>
-                        <span className={styles.year}>Present</span>
-                        <div className={styles.timelineContent}>
-                            <h3 className={styles.role}>Staff Machine Learning Engineer</h3>
-                            <span className={styles.company}>Micron Technology</span>
-                            <p className={styles.description}>
-                                Driving POC research into high-latency production systems. Architecting scalable ML pipelines and optimizing model inference for industrial applications.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className={styles.timelineItem}>
-                        <span className={styles.year}>2018 - 2022</span>
-                        <div className={styles.timelineContent}>
-                            <h3 className={styles.role}>Machine Learning Engineer</h3>
-                            <span className={styles.company}>Tata Consultancy Services (TCS)</span>
-                            <p className={styles.description}>
-                                Developed and deployed computer vision and predictive maintenance models. Worked on end-to-end ML lifecycles for enterprise clients.
-                            </p>
-                        </div>
-                    </div>
-                </div>
             </section>
 
             <section className={styles.section}>

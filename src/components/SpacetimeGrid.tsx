@@ -46,10 +46,6 @@ const SpacetimeGrid = () => {
         const animate = () => {
             ctx.clearRect(0, 0, width, height);
 
-            // Physics settings
-            const dampening = 0.1; // Restoring force
-            const tension = 0.05; // Stiffness
-
             time += 0.01;
 
             points.forEach(p => {
@@ -65,8 +61,6 @@ const SpacetimeGrid = () => {
 
                 if (dist < maxDist) {
                     const angle = Math.atan2(dy, dx);
-                    // Push away or Pull in? Let's do a "Mass" effect (Pull in/Warp)
-                    // Actually, a ripple push is often more visually detectable
                     const force = (maxDist - dist) / maxDist;
                     const displacement = force * force * 40;
 
@@ -74,28 +68,23 @@ const SpacetimeGrid = () => {
                     targetY -= Math.sin(angle) * displacement;
                 }
 
-                // Add sublte floating wave (Quantum fluctuations)
+                // Subtle floating wave (quantum fluctuations)
                 targetX += Math.sin(time + p.basePathY * 0.05) * 2;
                 targetY += Math.cos(time + p.basePathX * 0.05) * 2;
 
-                // Simple Lerp (Linear Interpolation) for smoothness
+                // Lerp for smooth motion
                 p.x += (targetX - p.x) * 0.1;
                 p.y += (targetY - p.y) * 0.1;
 
                 // Draw Point
-                ctx.fillStyle = 'rgba(0, 255, 65, 0.3)';
+                ctx.fillStyle = 'rgba(37, 99, 235, 0.35)';
                 ctx.fillRect(p.x, p.y, 2, 2);
             });
 
             // Draw Grid Lines
-            // Note: Drawing full lines each frame is expensive. We'll draw only connections to neighbors.
-            // Optimization: Only draw lines if we can handle it. 800x600 grid is manageable.
-
-            ctx.strokeStyle = 'rgba(0, 255, 65, 0.08)';
+            ctx.strokeStyle = 'rgba(37, 99, 235, 0.13)';
+            ctx.lineWidth = 1;
             ctx.beginPath();
-
-            // Since points array is flat, we need to index correctly.
-            // i = col, j = row. index = i * (rows + 1) + j
 
             for (let i = 0; i <= cols; i++) {
                 for (let j = 0; j <= rows; j++) {
@@ -133,7 +122,6 @@ const SpacetimeGrid = () => {
         const handleResize = () => {
             width = canvas.width = window.innerWidth;
             height = canvas.height = window.innerHeight;
-            // Ideally we re-init points here, but for simplicity we'll just let it be or reload page
         };
 
         window.addEventListener('resize', handleResize);
@@ -156,7 +144,7 @@ const SpacetimeGrid = () => {
                 height: '100%',
                 zIndex: 0,
                 pointerEvents: 'none',
-                opacity: 0.6
+                opacity: 1
             }}
         />
     );
