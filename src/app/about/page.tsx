@@ -6,29 +6,25 @@ export default function About() {
             <section className={styles.profile}>
                 <h1 className={styles.title}>About Me</h1>
                 <p className={styles.text}>
-                    I bridge the gap between research and production systems, building scalable ML solutions that solve real-world problems.
+                    I'm Bansi. I spend a lot of time thinking about how the universe works and why things are the way they are.
                 </p>
                 <p className={styles.text}>
-                    With a deep passion for understanding the "why" behind the "how," I explore the intersection of Physics and Deep Learning. I believe that understanding the fundamental principles—like why a convolution works or how attention mechanisms mirror human cognition—is key to building robust AI systems.
+                    Physics is the thing I keep coming back to — not just as a subject, but as a way of asking questions. Why does this happen? What's actually going on underneath? Is there a simpler way to see it? Those questions feel more interesting to me than the answers.
+                </p>
+                <p className={styles.text}>
+                    I also photograph wildlife. Mostly birds and landscapes — anything that requires patience and the right light. It's the slowest thing I do, and I think that's exactly why I like it.
+                </p>
+                <p className={styles.text}>
+                    Here I write whatever I feel like — things I notice, questions I can't shake, stuff that seems worth saying. Technical writing goes on <a href="https://medium.com/@bansimaddali" className="link">Medium</a>.
                 </p>
             </section>
 
             <section className={styles.section}>
-                <h2 className={styles.subHeader}>Skills & Methodology</h2>
-                <ul className={styles.list}>
-                    <li className={styles.listItem}><strong>Languages:</strong> Python, C, C++, SQL</li>
-                    <li className={styles.listItem}><strong>Frameworks:</strong> PyTorch, TensorFlow, Scikit-learn, FastAI</li>
-                    <li className={styles.listItem}><strong>Cloud & MLOps:</strong> Azure, AWS, Docker, Kubernetes, CI/CD</li>
-                    <li className={styles.listItem}><strong>Focus:</strong> Computer Vision, Deep Learning, Industrial IoT, System Design</li>
-                </ul>
-            </section>
-
-            <section className={styles.section}>
-                <h2 className={styles.subHeader}>Connect</h2>
+                <h2 className={styles.subHeader}>Find me</h2>
                 <p className={styles.text}>
-                    I write about my learnings on <a href="https://medium.com/@bansimaddali" className="link">Medium</a>.
-                    <br />
-                    Find me on <a href="https://www.linkedin.com/in/iambansi" className="link">LinkedIn</a> or check my code on <a href="https://github.com/bansi-007" className="link">GitHub</a>.
+                    Technical writing on <a href="https://medium.com/@bansimaddali" className="link">Medium</a>.
+                    Photos on <a href="https://www.instagram.com/bansi.wildography/" className="link">Instagram</a> and <a href="https://bansiwildography.com" className="link">bansiwildography.com</a>.
+                    On <a href="https://www.linkedin.com/in/iambansi" className="link">LinkedIn</a> if you need the professional version.
                 </p>
             </section>
         </div>

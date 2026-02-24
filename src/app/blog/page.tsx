@@ -14,7 +14,7 @@ export default function BlogIndex() {
         <div className="container">
             <header className={styles.header}>
                 <h1 className={styles.title}>Writing</h1>
-                <p>Things I find fascinating enough to write down.</p>
+                <p>Whatever I feel like. Technical stuff goes on <a href="https://medium.com/@bansimaddali" target="_blank" rel="noopener noreferrer">Medium</a>.</p>
             </header>
 
             <div className={styles.grid}>

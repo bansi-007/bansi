@@ -1,7 +1,10 @@
-.heroContainer {
-  display: flex;
+.homeContainer {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 4rem;
   align-items: center;
   min-height: 70vh;
+  margin-top: 2rem;
 }
 
 .hero {
@@ -40,6 +43,89 @@
 .cta:hover {
   background: var(--primary);
   color: #ffffff;
-  box-shadow: 0 0 20px rgba(37, 99, 235, 0.25);
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.2);
   text-decoration: none;
+}
+
+.writingSection {
+  border-left: 1px solid var(--border);
+  padding-left: 2rem;
+}
+
+.sectionTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--foreground);
+}
+
+.postList {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+
+.postItem {
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: slideIn 0.5s ease forwards;
+}
+
+.postItem:nth-child(1) { animation-delay: 0.1s; }
+.postItem:nth-child(2) { animation-delay: 0.2s; }
+.postItem:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.postDate {
+  font-size: 0.75rem;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.postTitle {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--foreground);
+  line-height: 1.4;
+  display: block;
+  transition: color 0.2s;
+}
+
+.postItem:hover .postTitle {
+  color: var(--primary);
+}
+
+.seeAll {
+  font-size: 0.9rem;
+  color: var(--primary);
+  transition: opacity 0.2s;
+}
+
+.seeAll:hover {
+  opacity: 0.7;
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .homeContainer {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .writingSection {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+  }
 }
