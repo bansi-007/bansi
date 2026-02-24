@@ -32,6 +32,10 @@ const SpacetimeGrid = () => {
             }
         }
 
+        const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const dotColor = isDark ? 'rgba(96, 165, 250, 0.45)' : 'rgba(37, 99, 235, 0.35)';
+        const lineColor = isDark ? 'rgba(96, 165, 250, 0.18)' : 'rgba(37, 99, 235, 0.13)';
+
         let mouseX = -1000;
         let mouseY = -1000;
         let time = 0;
@@ -77,12 +81,12 @@ const SpacetimeGrid = () => {
                 p.y += (targetY - p.y) * 0.1;
 
                 // Draw Point
-                ctx.fillStyle = 'rgba(37, 99, 235, 0.35)';
+                ctx.fillStyle = dotColor;
                 ctx.fillRect(p.x, p.y, 2, 2);
             });
 
             // Draw Grid Lines
-            ctx.strokeStyle = 'rgba(37, 99, 235, 0.13)';
+            ctx.strokeStyle = lineColor;
             ctx.lineWidth = 1;
             ctx.beginPath();
 

@@ -79,13 +79,18 @@ export const blogPosts: BlogPost[] = [
                     In about 4.5 billion years, the two galaxies will collide. Scientists have simulated what it'll look like:
                 </p>
                 <figure style={{ margin: '2rem 0', textAlign: 'center' }}>
-                    <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Andromeda%E2%80%93Milky_Way_collision.jpg/1280px-Andromeda%E2%80%93Milky_Way_collision.jpg"
-                        alt="Artist's simulation of the Andromeda–Milky Way collision"
+                    <iframe
+                        width="800"
+                        height="450"
+                        loading="lazy"
+                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; web-share"
+                        allowFullScreen
+                        src="https://commons.wikimedia.org/wiki/File:Andromeda_and_Milky_Way_collision.ogv?embedplayer=true"
                         style={{ width: '100%', maxWidth: '800px', borderRadius: '8px', border: '1px solid var(--border)' }}
                     />
                     <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
-                        Simulation of the merger, roughly 3.75 billion years from now. Credit: NASA, ESA, Z. Levay and R. van der Marel (STScI), T. Hallas, A. Mellinger
+                        Simulation of the Milky Way–Andromeda merger over the next ~4 billion years.<br />
+                        Visualization: NASA, ESA, F. Summers (STScI) · Simulation: NASA, ESA, G. Besla (Columbia University), R. van der Marel (STScI) · Public domain, via Wikimedia Commons
                     </figcaption>
                 </figure>
                 <p>
