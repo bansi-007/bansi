@@ -27,11 +27,11 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     </div>
                 </header>
 
-                <div style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#d0d0d0' }}>
+                <div style={{ fontSize: '1.1rem', lineHeight: '1.8', color: 'var(--foreground)' }}>
                     {post ? (
                         post.content
                     ) : (
-                        <div style={{ padding: '2rem', border: '1px dashed var(--border)', background: '#151515', borderRadius: '8px' }}>
+                        <div style={{ padding: '2rem', border: '1px dashed var(--border)', background: 'var(--background)', borderRadius: '8px' }}>
                             <p style={{ marginBottom: '1rem' }}>
                                 This specific entry is being restored from the archives.
                             </p>

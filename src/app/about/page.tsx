@@ -26,7 +26,7 @@ export default function About() {
             <section className={styles.section}>
                 <h2 className={styles.subHeader}>Connect</h2>
                 <p className={styles.text}>
-                    I write about my learnings on <a href="https://bansidath.in" className="link">bansidath.in</a> and <a href="https://medium.com/@bansimaddali" className="link">Medium</a>.
+                    I write about my learnings on <a href="https://medium.com/@bansimaddali" className="link">Medium</a>.
                     <br />
                     Find me on <a href="https://www.linkedin.com/in/iambansi" className="link">LinkedIn</a> or check my code on <a href="https://github.com/bansi-007" className="link">GitHub</a>.
                 </p>

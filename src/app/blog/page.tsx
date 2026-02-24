@@ -13,8 +13,8 @@ export default function BlogIndex() {
     return (
         <div className="container">
             <header className={styles.header}>
-                <h1 className={styles.title}> Technical Logs </h1>
-                <p>Thoughts on ML Engineering, Systems, and Code.</p>
+                <h1 className={styles.title}>Writing</h1>
+                <p>Things I find fascinating enough to write down.</p>
             </header>
 
             <div className={styles.grid}>
