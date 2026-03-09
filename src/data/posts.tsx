@@ -9,6 +9,131 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "how-small-we-are",
+        title: "You Are Worried About Your Tuesday Meeting",
+        date: "Mar 2026",
+        excerpt: "Right now, somewhere 400 kilometres above your head, astronauts are watching sixteen sunrises a day. They sleep strapped to a wall. Meanwhile, you're stressed about a Tuesday meeting. Let's pull the camera back. Way, way back.",
+        content: (
+            <>
+                <p>
+                    Right now, somewhere above your head — about 400 kilometres above it, to be precise — astronauts are floating in a metal tube, watching sixteen sunrises a day. They brush their teeth with water that doesn't fall. They sleep strapped to a wall.
+                </p>
+                <p>Meanwhile, you're stressed about a Tuesday meeting.</p>
+                <p>
+                    I don't say that to be dismissive. The meeting matters. The deadline matters. The fight you had yesterday matters. I just want to spend a few minutes pulling the camera back. Way, way back.
+                </p>
+
+                <h2>Start with the basics</h2>
+                <p>
+                    Earth is a rock. A very nice rock — it has oceans and trees and coffee and people who invented jazz — but a rock. It's about 12,700 kilometres wide. The Sun, the thing that keeps all of us alive, is so large that you could fit 1.3 million Earths inside it.
+                </p>
+                <p>
+                    And the Sun is not special. There are stars so large that if you swapped one in for our Sun, it would swallow Mercury, Venus, Earth, Mars, and extend past Jupiter. Our Sun is a small, quiet, unremarkable star in a pretty average part of its galaxy.
+                </p>
+                <figure style={{ margin: '2rem 0', textAlign: 'center' }}>
+                    <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Star-sizes.jpg/1280px-Star-sizes.jpg"
+                        alt="Star size comparison — from Earth to the largest known stars"
+                        style={{ width: '100%', maxWidth: '700px', borderRadius: '8px', border: '1px solid var(--border)' }}
+                    />
+                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
+                        Left to right: Earth, the Sun, some bigger stars, and then stars so large the Sun becomes invisible. This chart goes on further than what fits here. Credit: Dave Jarvis, Wikimedia Commons (CC BY-SA 3.0)
+                    </figcaption>
+                </figure>
+
+                <h2>The neighborhood</h2>
+                <p>
+                    Our solar system stretches about 100 astronomical units from the Sun. One astronomical unit is the distance from Earth to the Sun — about 150 million kilometres. Voyager 1, launched in 1977, has been flying at 17 kilometres <em>per second</em> since then. It's only just now leaving the solar system.
+                </p>
+                <p>
+                    That's our neighborhood. After nearly fifty years of travel, at 17 kilometres per second, we've barely left the driveway.
+                </p>
+                <p>
+                    In 1990, as Voyager 1 was heading out, Carl Sagan convinced NASA to turn its camera around for one last photograph. From 6 billion kilometres away, Earth shows up as a single pixel — barely that — a pale blue dot in a beam of scattered sunlight. Sagan wrote about that image, and there's one line that's never left me: <em>"That's here. That's home. That's us."</em>
+                </p>
+                <figure style={{ margin: '2rem 0', textAlign: 'center' }}>
+                    <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/7/71/PaleBlueDot.jpg"
+                        alt="The Pale Blue Dot — Earth photographed by Voyager 1 from 6 billion kilometres away, 1990"
+                        style={{ width: '100%', maxWidth: '500px', borderRadius: '8px', border: '1px solid var(--border)' }}
+                    />
+                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
+                        Earth. From 6 billion kilometres away. The tiny speck in the beam of light. Every human who ever lived, every war ever fought, every love story ever written — on that dot. Credit: NASA/JPL-Caltech
+                    </figcaption>
+                </figure>
+
+                <h2>The galaxy</h2>
+                <p>
+                    Our solar system is inside the Milky Way, which is about 100,000 light-years across. A light-year is how far light travels in a year. Light moves at 300,000 kilometres per second — in one second it goes around the Earth seven and a half times. At that speed, crossing just our galaxy takes a hundred thousand years.
+                </p>
+                <p>
+                    We sit in a quiet suburb about 26,000 light-years from the center. We're not special in our placement either. Just somewhere in the middle, orbiting the galactic center once every 225 million years. The last time we were in this exact spot in our orbit, dinosaurs were just getting started.
+                </p>
+                <figure style={{ margin: '2rem 0', textAlign: 'center' }}>
+                    <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/ESO-VLT-Laser-phot-0a-99.jpg/1280px-ESO-VLT-Laser-phot-0a-99.jpg"
+                        alt="The Milky Way as seen from the ESO Very Large Telescope site in Chile"
+                        style={{ width: '100%', maxWidth: '760px', borderRadius: '8px', border: '1px solid var(--border)' }}
+                    />
+                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
+                        The Milky Way from the ESO telescope site in Chile. Every single dot is a star. We are somewhere inside this. Credit: ESO/Y. Beletsky (CC BY 4.0)
+                    </figcaption>
+                </figure>
+
+                <h2>Beyond the Milky Way</h2>
+                <p>
+                    The Milky Way has somewhere between 100 and 400 billion stars. The observable universe — the part we can see with our best telescopes — contains roughly two trillion galaxies. Each one with hundreds of billions of stars.
+                </p>
+                <p>
+                    In 1995, astronomers pointed the Hubble telescope at a completely dark patch of sky — a region so empty it looked like nothing. They left the shutter open for ten days. Here is what came back:
+                </p>
+                <figure style={{ margin: '2rem 0', textAlign: 'center' }}>
+                    <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/6/69/NASA-HS201427a-HubbleUltraDeepField2014-20140603.jpg"
+                        alt="Hubble Ultra Deep Field — nearly 10,000 galaxies visible in a tiny patch of sky"
+                        style={{ width: '100%', maxWidth: '760px', borderRadius: '8px', border: '1px solid var(--border)' }}
+                    />
+                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
+                        Hubble Ultra Deep Field, 2014. Nearly 10,000 galaxies in one photograph. Each galaxy has billions of stars. This was a tiny patch of sky that looked completely empty. Credit: NASA, ESA, H. Teplitz and M. Rafelski (IPAC/Caltech), A. Koekemoer (STScI), R. Windhorst (ASU), Z. Levay (STScI)
+                    </figcaption>
+                </figure>
+                <p>
+                    Almost every dot in that image is a galaxy. Not a star — a galaxy. Billions of suns, each. And this is from a patch of sky so small you'd need to hold a grain of sand at arm's length to cover it.
+                </p>
+                <p>
+                    The numbers stop meaning anything at some point. Our brains aren't built for this scale. Two trillion galaxies, each with hundreds of billions of stars, many with planets — we don't even have a word for what that adds up to.
+                </p>
+
+                <h2>The part that gets me</h2>
+                <p>
+                    Some of the stars you can see tonight with your bare eyes are already dead. They burned out thousands of years ago. You're looking at ghosts — light that left those stars before cities existed, arriving right now, into your eye, as you stand outside.
+                </p>
+                <p>
+                    The light from the Andromeda galaxy, our nearest large neighbor, left before humans existed. When those photons began their journey, there were no cities, no agriculture, no language. Our ancestors were figuring out fire. And that light, two and a half million years in transit, lands in your eye on a clear night.
+                </p>
+                <p>
+                    Every time you look at the night sky you are looking back in time.
+                </p>
+
+                <h2>So what does any of this mean for your Tuesday?</h2>
+                <p>
+                    Here's the thing — I don't think the point is that nothing matters because we're small. That's the lazy conclusion. The universe is indifferent to your Tuesday meeting, yes. But it's also indifferent to everything else. Entire galaxies colliding. Stars exploding. None of it means anything at a cosmic level.
+                </p>
+                <p>
+                    What's strange and worth holding onto is this: on this one tiny rock, in this unremarkable corner of one of two trillion galaxies, some matter arranged itself into forms that became curious about all of it. We built telescopes. We figured out the math. We pointed a camera at empty sky for ten days just to see what was there.
+                </p>
+                <p>
+                    You are made of atoms forged in stars that died before the Earth existed. The iron in your blood was made in a supernova. You are, quite literally, star stuff that learned to worry about presentations.
+                </p>
+                <p>Maybe carry that with you into the meeting.</p>
+
+                <p style={{ fontSize: '0.9rem', color: 'var(--muted)', paddingTop: '1.5rem', marginTop: '2rem' }}>
+                    <em>If you want your sense of scale completely destroyed in a good way — look up "Hubble Ultra Deep Field" and spend five minutes with it. Also worth reading: Carl Sagan's Pale Blue Dot, specifically the chapter about the photograph above. It's short. It'll stay with you.</em>
+                </p>
+            </>
+        )
+    },
+    {
         slug: "andromeda",
         title: "That Smudge in the Sky is a Trillion Stars. And It's Heading Here.",
         date: "Feb 2026",
