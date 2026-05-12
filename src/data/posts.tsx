@@ -9,6 +9,168 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "ramayana-from-space",
+        title: "The Ramayana, From Space",
+        date: "May 2026",
+        excerpt: "NASA's satellites can see a 48-kilometre chain of limestone shoals between India and Sri Lanka — sitting exactly where the Ramayana says Rama's army built a bridge. Meanwhile, planetary positions written into the same epic can be checked against modern astronomy software. Here's what holds up, and what doesn't.",
+        content: (
+            <>
+                <p>
+                    A friend told me once, with the WhatsApp-forward kind of confidence, that NASA had confirmed Rama's bridge was real and man-made. I went looking. The truth turned out to be more interesting than the rumour, and a lot less tidy.
+                </p>
+                <p>
+                    The Ramayana is at least two and a half thousand years old as a written text, and probably much older as an oral tradition. It names places you can still walk to. It records planetary positions you can still check. And from orbit, it points at a chain of limestone shoals 48 kilometres long, sitting just below the Indian Ocean between Rameswaram and Mannar.
+                </p>
+                <p>
+                    I want to walk through what's actually known. What the satellites see. What the sky says when you feed Valmiki's verses into planetarium software. And where the evidence runs out and belief takes over.
+                </p>
+
+                <h2>A bridge you can see from space</h2>
+                <p>
+                    In the strait between southeastern India and northwestern Sri Lanka, there's a chain of limestone shoals about 48 kilometres long. Most of it sits one to ten metres below sea level. The British named it Adam's Bridge. In India it's been called Setubandhanam, Rama Setu, or simply Rama's bridge for centuries.
+                </p>
+                <figure style={{ margin: '2rem 0', textAlign: 'center' }}>
+                    <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/AdamsBridge02-NASA.jpg/1280px-AdamsBridge02-NASA.jpg"
+                        alt="Adam's Bridge / Rama Setu photographed from Space Shuttle Endeavour, STS-59, 1994 — India at top, Sri Lanka at bottom, a continuous chain of shoals between them"
+                        style={{ width: '100%', maxWidth: '760px', borderRadius: '8px', border: '1px solid var(--border)' }}
+                    />
+                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
+                        Adam's Bridge from Space Shuttle Endeavour, 1994. India at top, Sri Lanka at bottom, the chain of shoals running between them. Credit: NASA Johnson Space Center, STS-59 (public domain)
+                    </figcaption>
+                </figure>
+                <p>
+                    NASA's Terra satellite has photographed it. Gemini and Apollo astronauts saw it from orbit. In 2024, ISRO and NASA used ICESat-2 — a satellite that bounces laser pulses off the seafloor — to produce the first complete underwater map of the structure. The technique uses the green-laser photons that can punch through clear shallow water, hit the seabed, and bounce back. The team accumulated roughly 0.2 million geolocated returns to build a 10-metre-resolution bathymetric model. The result, published in <em>Scientific Reports</em> in 2024: 99.8 percent of the structure is submerged, but it is a single, continuous submarine ridge — a "submarine continuation of Dhanushkodi and Talaimannar Island," as the authors put it. Not a coincidence of separate sandbars. One feature, end to end.
+                </p>
+                <p>
+                    The crest of the ridge is sharply undulating within a narrow 1.5-kilometre band on either side, and the scientists noted an asymmetry in the slopes flowing away from the crest — the Gulf of Mannar side deposits sediment differently than the Palk Strait side. That kind of detail matters: it tells you the structure has been shaped by currents over long stretches of time, in ways consistent with a natural shoal.
+                </p>
+                <p>
+                    Until around 1480 CE, much of it was reportedly walkable above the waterline. Tamil temple records describe pilgrims crossing on foot. A cyclone that year is believed to have broken it down to roughly what we see now. Local Sri Lankan oral history records the same event — same century, same description of the sea swallowing the path.
+                </p>
+
+                <h2>What NASA actually said (and didn't)</h2>
+                <p>
+                    The pop version of this story is that NASA released images "proving" the bridge is man-made and 1.7 million years old. That isn't true, and NASA has explicitly said so. The substance of their statement: a satellite picture can show you the shape of something. It cannot tell you the age or whether humans were involved. Shape isn't intent.
+                </p>
+                <p>
+                    What the imagery does confirm is that the structure exists, and that it's unusual — a continuous, narrow chain in shallow water, running between two land masses. That's it. Interpretation is left to whoever's reading.
+                </p>
+                <p>
+                    The Geological Survey of India has done more patient work. Their "Project Rameswaram" study found that Rameswaram Island itself began forming around 125,000 years ago, and the land masses at both ends were exposed as a continuous connection somewhere between 7,000 and 18,000 years ago — within the window of modern humans being around to walk across it. Thermoluminescence dating of coral fragments on the bridge proper points to roughly 500 to 600 years for the surface material, with older substrate underneath.
+                </p>
+                <p>
+                    The honest reading: this is a natural geological feature. Whether some of the shoals were modified or actively used by humans as a crossing in deep antiquity is an open question that satellites alone won't answer. The bridge is real. Its origin story is still being written.
+                </p>
+
+                <h2>The route, mapped</h2>
+                <p>
+                    The Ramayana is unusually specific about geography too. It names rivers, hills, forests, ashrams, and villages along Rama's journey south from Ayodhya. In the 1980s and 1990s, a researcher named Dr. Ram Avtar Sharma did something straightforward: he took Valmiki's text and tried to walk it. Starting from Ayodhya, following the order in which Valmiki names places, he travelled south through what is now Uttar Pradesh, Madhya Pradesh, Maharashtra, Karnataka, and Tamil Nadu — and ended at Rameswaram.
+                </p>
+                <p>
+                    He documented around 195 sites along the way that still bear memorials, place names, or oral traditions tied to the exact events Valmiki describes. Some of the names you'd recognise immediately: Tamsa Tal at Mandah, where Rama first stopped after leaving Ayodhya. Shringverpur (modern Singraur) on the Ganga, where the boatman Guha ferried him across. The Bharadwaja Ashram near present-day Prayagraj. Chitrakoot. The Panchavati grove near Nashik. Shabari's Ashram. Kishkindha near Hampi. Dhanushkodi at the very tip of Rameswaram, named for the bow that, in the epic, marked the spot where the bridge was built.
+                </p>
+                <p>
+                    This isn't proof that the epic is literal history. Place names can be assigned retroactively — a town can decide it was once Shringverpur even if there's no archaeological reason it was. But the consistency is striking. The route Valmiki describes corresponds to a real geography: south-southeast from the Gangetic plain, into the Vindhyas, down the Deccan, ending where the land actually does end. You can travel it. The order works. That tells you whoever wrote the Ramayana had walked, or at least carefully heard about, the country it describes.
+                </p>
+
+                <h2>Reading planets from a 2,500-year-old poem</h2>
+                <p>
+                    The other thing the Ramayana left us is astronomy. Valmiki was unusually specific. He didn't say "it was a clear night." He named planets, zodiac signs, and lunar mansions — over a hundred such references across the epic.
+                </p>
+                <p>
+                    The most famous is the birth of Rama. Valmiki places it in the month of Chaitra, on the ninth day of the bright fortnight, with this configuration overhead:
+                </p>
+                <ul>
+                    <li>Sun in Aries (Mesha)</li>
+                    <li>Moon near the Punarvasu lunar mansion, in Cancer</li>
+                    <li>Jupiter in Cancer (Karkata)</li>
+                    <li>Saturn in Libra (Tula)</li>
+                    <li>Venus in Pisces (Meena)</li>
+                    <li>Mars in Capricorn (Makara)</li>
+                </ul>
+                <p>
+                    That's not vague. It's a specific configuration of six bodies. In the early 2000s, an Indian Revenue Service officer named Pushkar Bhatnagar — not an astronomer, but a careful reader — fed those positions into Planetarium Gold, an off-the-shelf astronomy program normally used to back-calculate eclipses and orbits. His result: the matching date is around noon on the 10th of January, 5114 BCE.
+                </p>
+                <p>
+                    He kept going. The Ramayana describes the start of the exile under a specific lunar configuration — Bhatnagar's software returned January 5, 5089 BCE, which would have made Rama 25 at the time, matching Valmiki's stated age. The Aranya Kanda describes a total solar eclipse during the battle with the demon Khara: a sudden darkening, animals confused, a halo around a black disc. Astronomical back-calculation places a total eclipse over central India on October 7, 5077 BCE — exactly when the timeline says Rama would have been in the Dandaka forest. The return to Ayodhya, marked by another full set of planetary references, calculates to January 2, 5075 BCE. Birth, exile, eclipse, return — four separate astronomical anchors, all from independent passages in the text, all landing on a self-consistent timeline spanning fifty years.
+                </p>
+                <p>
+                    Take that seriously for a second. If you trust Valmiki on the sky, the sky points at a single sequence of mornings in deep history.
+                </p>
+
+                <h2>On the other coast</h2>
+                <p>
+                    Sri Lanka has its own parallel set of sites. Not borrowed from India recently — recorded in Sinhalese and Tamil tradition for centuries, in some cases millennia, and tied to Ravana's side of the story rather than Rama's. There are around 50 of them, grouped into what locals call the Ramayana Trail.
+                </p>
+                <p>
+                    The Hakgala Botanical Garden near Nuwara Eliya, sitting at almost 1,700 metres in the central highlands, is identified in local tradition as Ashoka Vatika — the garden where Sita was held captive. A small Sita Amman temple is built beside a stream that runs through it, and large rock impressions nearby are pointed out as Hanuman's footprints. At Ella, on the eastern flank of the highlands, there's a cave system (Ravana Cave) and a tall waterfall (Ravana Falls) named in the same tradition. Divurumpola, in central Sri Lanka, takes its name from the Sinhalese for "place of oath" — and is identified as the spot where Sita's agni pariksha took place before the return to Ayodhya.
+                </p>
+                <p>
+                    None of these are archaeologically dated to the time of the Ramayana. They are sites of long-standing oral tradition, layered with more recent temple-building. But the pattern is the same as on the Indian side: a geography that fits the story, named for the story, in places that match the story's logic. A captive queen taken south across the sea and held in highland gardens. A return that crosses water. Whatever the literal truth of any of it, the Ramayana isn't just an Indian narrative — it's a story two countries kept, in parallel, for thousands of years.
+                </p>
+
+                <h2>The catch</h2>
+                <p>
+                    But there are good reasons not to walk away yet.
+                </p>
+                <p>
+                    First — precession. Earth wobbles on its axis once every ~26,000 years, slowly shifting how zodiac signs map onto the sky. A configuration that looks like "Jupiter in Cancer" today wouldn't have looked that way 7,000 years ago, unless you correct for it carefully. Different researchers correct differently, which is part of why Bhatnagar lands on 5114 BCE while another popular dating attempt by Nilesh Oak places Rama's birth around 12,000 BCE. Both can't be right. The fact that the answer depends so heavily on the assumption is a tell.
+                </p>
+                <p>
+                    Second, even very specific planetary configurations recur. The full pattern isn't unique to one date — it's unique to a small set of dates across thousands of years. Picking between matches requires extra assumptions about what "Punarvasu" or "Mesha" meant in Valmiki's frame.
+                </p>
+                <p>
+                    Third — and this is the mainstream Indology point — the Valmiki Ramayana as we have it was compiled over centuries. The written text most scholars work from probably took its current shape between 500 BCE and 100 CE, with older oral tradition behind it. Some astronomical references may have been added or polished by later editors, who could have written in the sky of their own time rather than the original moment.
+                </p>
+                <p>
+                    Fourth, and this is the one I find hardest to wave away: 5114 BCE predates the Indus Valley civilisation by about 1,800 years. Mature urban Harappan culture begins around 2600 BCE, and even its formative phase only stretches back to around 3300 BCE. If Rama lived in 5114 BCE, his Ayodhya — described in the text as a great city with paved streets, gates, palaces, ramparts, and a literate court — exists 2,000 years before any comparable urban settlement we have dug up anywhere in South Asia. That's a heavy load for archaeology to carry. So far it hasn't. Either the date is wrong, or the urban descriptions in the text are anachronisms grafted on by later compilers, or there is a pre-Harappan layer of Indian urbanism we genuinely have not found yet. None of those options are easy.
+                </p>
+                <p>
+                    None of this kills the project. The astronomical references are still there, they're still detailed, and the dating attempts are real intellectual work. But "Planetarium Gold returned 5114 BCE" isn't the same as "we have proven the date of a historical person's birth."
+                </p>
+
+                <h2>And the flying chariot?</h2>
+                <p>
+                    A word about the Pushpaka Vimana, because it's the part everyone wants to ask about. The Ramayana describes it as a self-moving aerial vehicle, originally belonging to Kubera, taken by Ravana, and finally used by Rama and Sita to fly home to Ayodhya. The Yuddha Kanda describes the view from inside it — looking down at the bridge, the ocean, the forests of central India unrolling beneath. It's a startling passage. It reads like aerial observation.
+                </p>
+                <p>
+                    There is zero archaeological evidence for it. No remains, no schematics, no parts. The "Vaimanika Shastra" sometimes invoked as a technical manual was actually composed in the early 1900s by a man named Subbaraya Shastry, who attributed it to ancient revelation; it is not an old text. So when you see headlines claiming ancient Indians flew, the honest answer is that the Ramayana describes flight, vividly and repeatedly, and we don't know what to make of that. It could be metaphor for divine travel. It could be a literary device. It could be a memory of something we can't recover. We don't know. People who are very confident either way are not being honest about what the evidence supports.
+                </p>
+                <p>
+                    What's interesting isn't that the text proves anything technological. It's that a poem from antiquity bothered to describe a perspective from above — what coastlines, rivers, and forests look like seen from height. Whatever its origin, the imagination was there.
+                </p>
+
+                <h2>What we can honestly say</h2>
+                <p>Strip away the certainty on either side, and what's left is genuinely good:</p>
+                <p>
+                    There is a long, narrow chain of limestone shoals between two coasts that an old epic names by name. The structure is real, almost entirely submerged, continuous from end to end, mostly natural in origin, and its precise human history is unsettled. The Geological Survey has its coral dates; the 2024 ICESat-2 study has the bathymetry; the question of whether humans ever walked or worked on the shoals at the moment they were exposed is open in the way real questions are open.
+                </p>
+                <p>
+                    There is an ancient text with over a hundred specific astronomical observations, detailed enough that you can run them through software and get a date. The date you get depends on assumptions about precession and zodiac frames, and competing researchers land thousands of years apart. But the fact that the observations are consistent within the text — birth, exile, an eclipse during the war, the return to Ayodhya — is itself a striking feature of the source material. Whoever composed those verses cared about getting the sky right.
+                </p>
+                <p>
+                    There is an oral tradition that names places — Ayodhya, Chitrakoot, Panchavati, Kishkindha, Rameswaram, Lanka, Hakgala, Divurumpola — that still exist on both sides of a sea, and broadly match the geography in the poem. Dr. Ram Avtar Sharma walked the Indian half of that route and found 195 of those memory-sites still there. Sri Lankan oral tradition keeps another fifty.
+                </p>
+                <p>
+                    None of that is theological proof. None of it tells you Rama was a historical person, and none of it tells you he wasn't. What it tells you is that the Ramayana was written by people who looked carefully — at the land, at the sky, at where things were. That carefulness is what makes it possible, three thousand years later, to walk to Rameswaram, open a satellite image, run a star chart, and check.
+                </p>
+
+                <h2>Closing</h2>
+                <p>
+                    You don't have to decide whether Rama was a historical person to find this interesting. There's a chain of limestone two ships wide running across an ocean, and a poem from antiquity that puts a bridge in exactly that spot. There are six planets sitting in the sky exactly where one verse says they are, on some specific morning that may or may not be seven thousand years ago. There are 245 places, between India and Sri Lanka, that have remembered being a part of the story for so long the memory itself is now part of the landscape.
+                </p>
+                <p>
+                    The space between myth and evidence isn't always empty. Sometimes there's a chain of shoals in it, photographed from orbit. A poem on a palm leaf. A planetarium running quietly in the background. And a long, long memory, on both sides of a narrow strait, that survived three thousand years and a cyclone in 1480 to still have something to say.
+                </p>
+
+                <p style={{ fontSize: '0.9rem', color: 'var(--muted)', borderTop: '1px solid var(--border)', paddingTop: '1.5rem', marginTop: '2rem' }}>
+                    <em>Sources worth your time: NASA/JPL imagery of Adam's Bridge (public); the Geological Survey of India's "Project Rameswaram" coral dating notes; Pushkar Bhatnagar's "Dating the Era of Lord Rama" for the 5114 BCE argument; and the Nature paper by Sengupta et al. (2024) on ICESat-2 bathymetry of the structure. Read all of them. Decide for yourself.</em>
+                </p>
+            </>
+        )
+    },
+    {
         slug: "how-small-we-are",
         title: "You Are Worried About Your Tuesday Meeting",
         date: "Mar 2026",
