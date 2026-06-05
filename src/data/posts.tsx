@@ -10,19 +10,19 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
     {
         slug: "for-mahesh-babu",
-        title: "For Mahesh Babu",
+        title: "Why Mahesh Babu Is the Most Versatile Actor in the Country",
         date: "Jun 2026",
         excerpt: "A fan letter, twenty-three years after a kabaddi line in Okkadu landed on an eight-year-old in a Rajahmundry theatre. On why he is the most versatile actor in the country, and why Varanasi is the frame he has been waiting for.",
         content: (
             <>
                 <figure style={{ margin: '0 0 2.5rem', textAlign: 'center' }}>
                     <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Mahesh_Babu_in_Spyder_%28cropped%29.jpg"
+                        src="/mahesh_babu.jpeg"
                         alt="Mahesh Babu"
                         style={{ width: '100%', maxWidth: '520px', borderRadius: '10px', border: '1px solid var(--border)' }}
                     />
                     <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
-                        Mahesh Babu. Credit: princemahesh.com, via Wikimedia Commons (CC BY-SA 4.0)
+                        Mahesh Babu.
                     </figcaption>
                 </figure>
 
@@ -41,6 +41,17 @@ export const blogPosts: BlogPost[] = [
                 <p>
                     Twenty-three years later, that cut, from the line to the breath, is still the cleanest piece of acting I have ever seen in Indian cinema. That is the moment Mahesh Babu became my hero, and it has not stopped.
                 </p>
+
+                <figure style={{ margin: '2rem 0', textAlign: 'center' }}>
+                    <img
+                        src="/okkadu.jpg"
+                        alt="Mahesh Babu in Okkadu (2003)"
+                        style={{ width: '100%', maxWidth: '720px', borderRadius: '10px', border: '1px solid var(--border)' }}
+                    />
+                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
+                        Okkadu (2003). Where, for a lot of us, it started.
+                    </figcaption>
+                </figure>
                 <p>
                     This is a fan letter. I am not going to compare him to anybody. I do not need to. I just want to write down, properly, why I think he is the most versatile actor in this country, and why I am quietly losing my mind about what Varanasi is about to do.
                 </p>
