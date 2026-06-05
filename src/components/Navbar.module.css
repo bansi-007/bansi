@@ -2,13 +2,24 @@
     border-bottom: 1px solid var(--border);
     padding: 1.1rem 0;
     margin-bottom: 2rem;
-    backdrop-filter: blur(6px);
+    background: rgba(7, 9, 26, 0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    gap: 2.25rem;
+    flex-wrap: wrap;
 }
 
 .logo {
@@ -18,7 +29,6 @@
     letter-spacing: 0.02em;
     display: inline-flex;
     align-items: center;
-    gap: 0.1rem;
 }
 
 .star {
@@ -35,7 +45,7 @@
 
 .links {
     display: flex;
-    gap: 1.75rem;
+    gap: 1.5rem;
 }
 
 .link {
@@ -49,4 +59,33 @@
     color: var(--primary);
     text-shadow: var(--glow-soft);
     text-decoration: none;
+}
+
+.socials {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.social {
+    color: var(--muted);
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.social:hover {
+    color: var(--primary);
+    text-shadow: var(--glow-soft);
+    text-decoration: none;
+}
+
+@media (max-width: 720px) {
+    .content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    .socials {
+        gap: 1rem;
+    }
 }

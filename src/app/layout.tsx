@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import Starfield from "@/components/Starfield";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -24,7 +23,6 @@ export default function RootLayout({
         <div style={{ position: 'relative', zIndex: 1 }}>
           <Navbar />
           <main>{children}</main>
-          <Footer />
         </div>
       </body>
     </html>

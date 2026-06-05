@@ -12,7 +12,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     const post = blogPosts.find(p => p.slug === slug);
 
     return (
-        <div style={{ maxWidth: '760px', margin: '3rem auto', padding: '0 clamp(1.25rem, 4vw, 2rem)' }}>
+        <div style={{ maxWidth: '920px', margin: '3rem auto 4rem', padding: '0 clamp(1.25rem, 4vw, 2rem)' }}>
             <Link
                 href="/blog"
                 style={{
@@ -28,12 +28,13 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
             <article
                 style={{
-                    background: 'rgba(7, 9, 26, 0.72)',
-                    backdropFilter: 'blur(10px)',
-                    WebkitBackdropFilter: 'blur(10px)',
+                    background: 'rgba(7, 9, 26, 0.88)',
+                    backdropFilter: 'blur(16px)',
+                    WebkitBackdropFilter: 'blur(16px)',
                     border: '1px solid var(--border)',
                     borderRadius: '14px',
-                    padding: 'clamp(1.75rem, 4vw, 2.75rem)',
+                    padding: 'clamp(2rem, 4.5vw, 3.25rem)',
+                    boxShadow: '0 30px 80px -40px rgba(0, 0, 0, 0.6)',
                 }}
             >
                 <header style={{ marginBottom: '2.5rem', borderBottom: '1px solid var(--border)', paddingBottom: '1.75rem' }}>
