@@ -7,13 +7,13 @@ export default function About() {
                 <h1 className={styles.title}>About</h1>
 
                 <p className={styles.text}>
-                    I&apos;m Bansi. This site is a place to put things down — work, walks, books, the night sky, anything that holds my attention long enough.
+                    I&apos;m Bansi. This site is a place to put things down, work, walks, books, the night sky, anything that holds my attention long enough.
                 </p>
                 <p className={styles.text}>
-                    Physics is the thing I keep coming back to — not just as a subject, but as a way of asking questions. <em>Why does this happen? What&apos;s actually going on underneath? Is there a simpler way to see it?</em> Those questions feel more interesting to me than the answers.
+                    Physics is the thing I keep coming back to, not just as a subject, but as a way of asking questions. <em>Why does this happen? What&apos;s actually going on underneath? Is there a simpler way to see it?</em> Those questions feel more interesting to me than the answers.
                 </p>
                 <p className={styles.text}>
-                    I also play cricket and photograph wildlife — mostly birds and big cats, anything that requires patience and the right light.
+                    I also play cricket and photograph wildlife, mostly birds and big cats, anything that requires patience and the right light.
                 </p>
 
                 <figure className={styles.photoFigure}>
@@ -23,7 +23,7 @@ export default function About() {
                         className={styles.photo}
                     />
                     <figcaption className={styles.photoCaption}>
-                        Chota Matka — Tadoba Andhari Tiger Reserve, Maharashtra
+                        Chota Matka, Tadoba Andhari Tiger Reserve, Maharashtra
                     </figcaption>
                 </figure>
 

@@ -87,7 +87,7 @@ const Starfield = () => {
             canvas.style.height = `${h}px`;
             ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
             centerX = w * 0.5;
-            centerY = h * 0.58;
+            centerY = h * 0.78;
             const shorter = Math.min(w, h);
             scale = shorter / 1100;
             if (scale < 0.55) scale = 0.55;
@@ -109,7 +109,7 @@ const Starfield = () => {
             });
         }
 
-        // Distant galaxies — placed in viewport margins, static, soft glow
+        // Distant galaxies, placed in viewport margins, static, soft glow
         const galaxies: Galaxy[] = [
             {
                 x: w * 0.08, y: h * 0.18,
@@ -142,7 +142,7 @@ const Starfield = () => {
             { name: 'Neptune', a: 485, sizeR: 5.2, color: '#3c5aa6', haloColor: '60, 90, 166',   period: 320, phase: Math.random() * Math.PI * 2 },
         ];
 
-        // Asteroid belt — between Mars (210) and Jupiter (290)
+        // Asteroid belt, between Mars (210) and Jupiter (290)
         const asteroids: Asteroid[] = [];
         const beltCount = 130;
         for (let i = 0; i < beltCount; i++) {
@@ -156,7 +156,7 @@ const Starfield = () => {
             });
         }
 
-        // Comets — highly elliptical
+        // Comets, highly elliptical
         const comets: Comet[] = [
             { a: 360, e: 0.78, argP: 0.6,  period: 180, phase: Math.random() * Math.PI * 2, size: 1.6, tailColor: '210, 230, 255' },
             { a: 470, e: 0.86, argP: -1.1, period: 260, phase: Math.random() * Math.PI * 2, size: 1.4, tailColor: '255, 230, 200' },
@@ -178,7 +178,7 @@ const Starfield = () => {
             });
         };
 
-        // Static galaxy buffer — pre-render to offscreen so animation is cheap
+        // Static galaxy buffer, pre-render to offscreen so animation is cheap
         const galaxyCanvas = document.createElement('canvas');
         galaxyCanvas.width = canvas.width;
         galaxyCanvas.height = canvas.height;
@@ -205,7 +205,7 @@ const Starfield = () => {
                 gctx.fill();
 
                 if (g.type === 'spiral') {
-                    // Two faint arms — slightly offset ellipses
+                    // Two faint arms, slightly offset ellipses
                     gctx.globalAlpha = 0.35;
                     for (let arm = 0; arm < 2; arm++) {
                         gctx.rotate(Math.PI);
@@ -305,7 +305,7 @@ const Starfield = () => {
                 drawOrbit(rx, ry);
             }
 
-            // Asteroid belt — faint ring band hint
+            // Asteroid belt, faint ring band hint
             drawOrbit(250 * scale, 250 * scale * tiltY, 0.03);
 
             // Sun
@@ -358,7 +358,7 @@ const Starfield = () => {
                 ctx.fill();
             }
 
-            // Comets — elliptical orbit with Sun at one focus, tail points away from Sun
+            // Comets, elliptical orbit with Sun at one focus, tail points away from Sun
             for (const c of comets) {
                 const rx = c.a * scale;
                 const ry = rx * Math.sqrt(1 - c.e * c.e);

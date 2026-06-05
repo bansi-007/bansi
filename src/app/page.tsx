@@ -17,7 +17,7 @@ export default function Home() {
             </span>
           </h1>
           <p className={styles.subtitle}>
-            A personal blog. Notes on whatever holds my attention long enough to write down — work, walks, books, the night sky.
+            A personal blog. Notes on whatever holds my attention long enough to write down, work, walks, books, the night sky.
           </p>
           <div className={styles.ctaContainer}>
             <Link href="/about" className={styles.cta}>

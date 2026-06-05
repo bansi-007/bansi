@@ -7,8 +7,8 @@ import Starfield from "@/components/Starfield";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Long Exposure — Bansi Maddali",
-  description: "Long Exposure — a personal blog by Bansi Maddali. Notes on whatever holds my attention long enough to write down.",
+  title: "Long Exposure, Bansi Maddali",
+  description: "Long Exposure, a personal blog by Bansi Maddali. Notes on whatever holds my attention long enough to write down.",
 };
 
 export default function RootLayout({
