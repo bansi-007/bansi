@@ -4,7 +4,7 @@
 }
 
 .panel {
-    background: rgba(7, 9, 26, 0.88);
+    background: rgba(3, 4, 10, 0.88);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--border);

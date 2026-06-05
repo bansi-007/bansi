@@ -1,7 +1,7 @@
 /* Deep-space astrophysical theme, always dark */
 :root {
-  --background: #07091a;
-  --background-alt: #0e1230;
+  --background: #03040a;
+  --background-alt: #0a0c18;
   --foreground: #e6ebf5;
   --primary: #7dd3fc;
   --accent: #fbbf24;
@@ -31,6 +31,15 @@ body {
   color: var(--foreground);
   line-height: 1.7;
   font-size: 16px;
+  cursor: url('/cursor-star.svg') 14 14, default;
+}
+
+a,
+button,
+[role="button"],
+.link,
+input[type="submit"] {
+  cursor: url('/cursor-star-blue.svg') 14 14, pointer;
 }
 
 body {

@@ -28,7 +28,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
             <article
                 style={{
-                    background: 'rgba(7, 9, 26, 0.88)',
+                    background: 'rgba(3, 4, 10, 0.88)',
                     backdropFilter: 'blur(16px)',
                     WebkitBackdropFilter: 'blur(16px)',
                     border: '1px solid var(--border)',
