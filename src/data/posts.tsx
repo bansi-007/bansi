@@ -30,7 +30,7 @@ export const blogPosts: BlogPost[] = [
                     I was eight years old in April 2003 when I walked into Swamy Cinema Hall in Rajahmundry with my brother and my cousin brother. The film had released in January. We were watching it in April, in summer holidays, and the show was still housefull. The film was Okkadu.
                 </p>
                 <p>
-                    I had no idea what versatile meant. I had no idea what restraint in acting was. I just knew the villains were chasing the hero, he had been cornered, and somewhere inside that he turned to them and said this:
+                    I had no idea what versatile meant. I had no idea what restraint in acting was. I just knew Ajay had reached Swapna ahead of the villains, was getting her out of their way, and somewhere inside saving her he said this to her:
                 </p>
                 <blockquote style={{ borderLeft: '2px solid var(--primary)', paddingLeft: '1.25rem', margin: '1.5rem 0', fontStyle: 'italic', color: 'var(--foreground)' }}>
                     Nenu mee ooru kabaddi aadataniki vachanu. Kaani aadalsindi ground lo kaadu, ikkada ani ardham ayindi.
