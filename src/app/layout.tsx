@@ -3,13 +3,13 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import SpacetimeGrid from "@/components/SpacetimeGrid";
+import Starfield from "@/components/Starfield";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Bansi Maddali",
-  description: "Bansi Maddali — physics, photography, and the long view of the universe.",
+  title: "Long Exposure — Bansi Maddali",
+  description: "Long Exposure — a personal blog by Bansi Maddali. Notes on whatever holds my attention long enough to write down.",
 };
 
 export default function RootLayout({
@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <SpacetimeGrid />
+        <Starfield />
         <div style={{ position: 'relative', zIndex: 1 }}>
           <Navbar />
           <main>{children}</main>

@@ -2,19 +2,16 @@ import Link from 'next/link';
 import styles from './page.module.css';
 import { blogPosts } from '@/data/posts';
 
-interface BlogPost {
-    slug: string;
-    title: string;
-    date: string;
-    excerpt: string;
-}
-
 export default function BlogIndex() {
     return (
         <div className="container">
             <header className={styles.header}>
-                <h1 className={styles.title}>Writing</h1>
-                <p>Whatever I feel like. Technical stuff goes on <a href="https://medium.com/@bansimaddali" target="_blank" rel="noopener noreferrer">Medium</a>.</p>
+                <p className={styles.eyebrow}>Long Exposure</p>
+                <h1 className={styles.title}>A personal blog.</h1>
+                <p className={styles.lede}>
+                    New entries when something catches my attention long enough to write it down. Technical stuff still goes on{' '}
+                    <a href="https://medium.com/@bansimaddali" target="_blank" rel="noopener noreferrer">Medium</a>.
+                </p>
             </header>
 
             <div className={styles.grid}>

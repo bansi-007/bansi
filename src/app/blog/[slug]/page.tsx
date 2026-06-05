@@ -12,14 +12,40 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     const post = blogPosts.find(p => p.slug === slug);
 
     return (
-        <div className="container" style={{ maxWidth: '100%', marginTop: '4rem' }}>
-            <Link href="/blog" style={{ color: 'var(--muted)', marginBottom: '2rem', display: 'inline-block' }}>
-                ← Back to writing
+        <div style={{ maxWidth: '760px', margin: '3rem auto', padding: '0 clamp(1.25rem, 4vw, 2rem)' }}>
+            <Link
+                href="/blog"
+                style={{
+                    color: 'var(--muted)',
+                    marginBottom: '1.5rem',
+                    display: 'inline-block',
+                    fontSize: '0.9rem',
+                    letterSpacing: '0.01em',
+                }}
+            >
+                ← Long Exposure
             </Link>
 
-            <article>
-                <header style={{ marginBottom: '3rem', borderBottom: '1px solid var(--border)', paddingBottom: '2rem' }}>
-                    <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: 'var(--foreground)', lineHeight: '1.2', letterSpacing: '-0.02em' }}>
+            <article
+                style={{
+                    background: 'rgba(7, 9, 26, 0.72)',
+                    backdropFilter: 'blur(10px)',
+                    WebkitBackdropFilter: 'blur(10px)',
+                    border: '1px solid var(--border)',
+                    borderRadius: '14px',
+                    padding: 'clamp(1.75rem, 4vw, 2.75rem)',
+                }}
+            >
+                <header style={{ marginBottom: '2.5rem', borderBottom: '1px solid var(--border)', paddingBottom: '1.75rem' }}>
+                    <h1
+                        style={{
+                            fontSize: 'clamp(1.75rem, 4vw, 2.4rem)',
+                            marginBottom: '0.75rem',
+                            color: 'var(--foreground)',
+                            lineHeight: '1.2',
+                            letterSpacing: '-0.02em',
+                        }}
+                    >
                         {post ? post.title : slug}
                     </h1>
                     {post && (
@@ -29,23 +55,16 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     )}
                 </header>
 
-                <div style={{ fontSize: '1.1rem', lineHeight: '1.8', color: 'var(--foreground)' }}>
+                <div style={{ fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--foreground)' }}>
                     {post ? (
                         post.content
                     ) : (
-                        <div style={{ padding: '2rem', border: '1px solid var(--border)', background: 'rgba(14, 18, 48, 0.35)', borderRadius: '10px' }}>
-                            <p style={{ marginBottom: '1rem' }}>
-                                This piece isn&apos;t up yet.
-                            </p>
-                            <p>
-                                In the meantime, see <Link href="/blog" style={{ textDecoration: 'underline', color: 'var(--primary)' }}>the rest of the writing</Link>.
-                            </p>
-                        </div>
+                        <p>This piece isn&apos;t up yet. See <Link href="/blog" style={{ textDecoration: 'underline', color: 'var(--primary)' }}>the rest</Link>.</p>
                     )}
                 </div>
             </article>
 
-            <div style={{ marginTop: '4rem', color: 'var(--muted)', textAlign: 'center', fontSize: '0.9rem' }}>
+            <div style={{ marginTop: '3rem', textAlign: 'center', fontSize: '0.9rem' }}>
                 <span style={{ color: 'var(--primary)' }}>✦</span>
             </div>
         </div>
