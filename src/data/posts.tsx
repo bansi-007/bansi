@@ -9,6 +9,164 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: "where-did-all-this-come-from",
+        title: "Where Did All This Come From?",
+        date: "Jun 2026",
+        excerpt: "A bedtime question with a real answer. The hand you're reading with. The Moon. The dog. The Sun. All of it used to fit in a space smaller than a marble. Here's how that turned into everything — told slowly enough that a curious kid can follow.",
+        content: (
+            <>
+                <p>
+                    Hold up your hand. Look at it. It's made of stuff. The table is made of stuff. The window, the dog, the Moon, the Sun, every star in every galaxy — all of it, stuff. The universe is just stuff, arranged in interesting ways.
+                </p>
+                <p>
+                    Here's a question that sounds like a kid's question, because it is one. Where did all this stuff come from?
+                </p>
+                <p>
+                    I don't mean your hand specifically. I mean originally. The atoms in your hand are very, very old. Older than the dinosaurs. Older than the Earth. Where were they before they were you?
+                </p>
+                <p>
+                    Here's the wild answer. About <strong>13.8 billion years ago</strong>, everything in the universe — every atom that would one day become a star, a moon, a fish, a flower, your eyelashes — all of it fit into a space smaller than a marble. Smaller than a grain of sand, actually. And it was very, very hot. Hotter than anything you've ever heard of.
+                </p>
+                <p>
+                    Then it started getting bigger. It's still getting bigger. That's basically the whole story. But the details are amazing.
+                </p>
+
+                <figure style={{ margin: '2rem 0', textAlign: 'center' }}>
+                    <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/History-of-the-Universe.jpg/1280px-History-of-the-Universe.jpg"
+                        alt="NASA timeline of the universe — from inflation right after the Big Bang, through the formation of the cosmic microwave background, the first stars, and galaxies, to today"
+                        style={{ width: '100%', maxWidth: '820px', borderRadius: '10px', border: '1px solid var(--border)' }}
+                    />
+                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
+                        13.8 billion years on one chart. Big Bang on the left, today on the right. Credit: NASA / WMAP Science Team (CC BY 4.0)
+                    </figcaption>
+                </figure>
+
+                <h2>The first second</h2>
+                <p>
+                    In the first <em>second</em> after the universe started growing, more happened than in the next billion years combined.
+                </p>
+                <p>
+                    In the first tiny fraction of a second, the universe doubled in size. Then doubled again. Then doubled again. Many, many times. Space itself was stretching — not the stuff inside it racing through space, but the space itself getting bigger, the way a balloon's surface stretches when you blow it up. We call that part inflation.
+                </p>
+                <p>
+                    By the time one second had passed, the universe was already huge, but absolutely packed with the building blocks of matter — quarks and electrons and tiny packets of light called photons. No atoms yet. It was too hot for atoms. Atoms are delicate. They don't survive in furnaces.
+                </p>
+                <p>
+                    To give you a sense: today, the inside of the Sun is about 15 million degrees. One second after the Big Bang, the entire universe was about <strong>10 billion degrees</strong>. Everywhere. All at once. The whole sky was a furnace.
+                </p>
+
+                <h2>The fog</h2>
+                <p>
+                    For the next <strong>380,000 years</strong>, the universe was a fog. Light couldn't travel. There were too many loose electrons bouncing around, and they kept bumping into photons and scattering them. Imagine a room so full of bouncing ping-pong balls you can't shine a flashlight through it. That was the universe.
+                </p>
+                <p>
+                    Then, finally, things cooled down enough — to a few thousand degrees — that the electrons calmed down and started orbiting around protons, making the first hydrogen atoms. The fog cleared. Light could finally fly free.
+                </p>
+                <p>
+                    That moment — when the universe first became see-through — is the oldest thing anybody can ever see. We see it as a faint glow coming from every direction, called the <em>Cosmic Microwave Background</em>. In the 2010s, a satellite called Planck spent years carefully measuring it. Here's the result:
+                </p>
+
+                <figure style={{ margin: '2rem 0', textAlign: 'center' }}>
+                    <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Cosmic_Microwave_Background_%28CMB%29.jpeg/1280px-Cosmic_Microwave_Background_%28CMB%29.jpeg"
+                        alt="The Cosmic Microwave Background — a temperature map of the entire sky, showing tiny variations in the universe's first light"
+                        style={{ width: '100%', maxWidth: '820px', borderRadius: '10px', border: '1px solid var(--border)' }}
+                    />
+                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
+                        The universe at 380,000 years old. A baby photo. Every speck is a tiny temperature wobble in the ancient fog. From those wobbles, eventually, came everything. Credit: ESA / Planck Collaboration (CC BY 4.0)
+                    </figcaption>
+                </figure>
+
+                <p>
+                    Take a second with that picture. It's the most important photo ever taken, and almost nobody has it on their wall.
+                </p>
+
+                <h2>The dark ages</h2>
+                <p>
+                    For about <strong>100 million years</strong> after the fog cleared, there was nothing to see. No stars yet. Just hydrogen and a little helium, drifting in cold dark space, slowly being pulled into clumps by gravity. Nothing was glowing. Nothing was burning. The entire universe was dark.
+                </p>
+                <p>
+                    Scientists call this stretch the Dark Ages. I always thought that name was a bit dramatic. Then again — it really was dark.
+                </p>
+
+                <h2>The first stars</h2>
+                <p>
+                    In the densest clumps of hydrogen, gravity kept squeezing. And squeezing. And squeezing. Eventually the gas in the middle of a clump got so squeezed it became millions of degrees hot — hot enough that hydrogen atoms started crashing into each other so hard they stuck together and made helium. That crashing-together releases a huge amount of light and heat. We call it nuclear fusion. And a ball of gas that's doing it is called a star.
+                </p>
+                <p>
+                    So a star is just a giant ball of gas that's been squeezed by its own gravity until it can't help but make light. Our Sun is one. You can see plenty more on a clear night.
+                </p>
+                <p>
+                    The very first stars were enormous — hundreds of times bigger than our Sun. They were blue-white and brilliant. They lived fast and died young, burning through their fuel in just a few million years. And then they exploded.
+                </p>
+                <p>
+                    The exploding part matters. When a really big star runs out of fuel, it collapses in on itself and then blows up. We call it a supernova. And in the heat of that explosion, the simple atoms inside the star get smashed together into heavier atoms. Carbon. Oxygen. Iron. Calcium. Gold. Everything heavier than helium gets made this way.
+                </p>
+                <p>
+                    So the heavy stuff that makes up your body — the iron in your blood, the calcium in your bones, the carbon in everything you eat — all of it was cooked inside a giant star, billions of years ago, and then scattered across space when the star died.
+                </p>
+                <p>
+                    You are made of star explosion. So is your dog.
+                </p>
+
+                <h2>Galaxies and the long settling</h2>
+                <p>
+                    Supernova by supernova, the universe seasoned itself with the heavier elements. New stars formed from the leftover gas and dust, made from the recycled bits of older stars. Gravity pulled stars together into great spinning groups. We call those groups galaxies. Each one has hundreds of billions of stars.
+                </p>
+                <p>
+                    In one of those galaxies — a fairly average spiral one called the Milky Way — about <strong>4.6 billion years ago</strong>, a cloud of gas and dust started collapsing on itself. The middle got hot and dense enough to ignite a new star: our Sun. The leftover crumbs spinning around it cooled and stuck together into planets. One of those planets ended up just the right distance from the Sun for water to be liquid on its surface.
+                </p>
+                <p>
+                    That planet is the floor under your feet.
+                </p>
+
+                <h2>Where the story leads</h2>
+                <p>So when a kid asks <em>"where did everything come from?"</em>, the honest answer is something like this:</p>
+                <p>
+                    It started really small and really hot. It got huge, very fast. After 380,000 years, it became see-through. After 100 million years, the first stars started shining. They lived, died, and made the heavy stuff. From the heavy stuff, more stars formed, and planets, and eventually — on at least one of those planets — atoms got arranged into shapes that could ask questions.
+                </p>
+                <p>
+                    Shapes like you.
+                </p>
+                <p>
+                    That's not a story anyone made up. Every piece of it has been checked by telescopes and experiments. We even have the baby photo. It's the one a few paragraphs up.
+                </p>
+
+                <h2>The really strange part</h2>
+                <p>
+                    Here's something to think about before you sleep.
+                </p>
+                <p>
+                    The universe is still getting bigger. Right now. Every distant galaxy is sliding away from us, and away from every other galaxy, faster and faster. The space between things is growing.
+                </p>
+                <p>
+                    Nobody quite knows why. We have a name for whatever is causing it — <em>Dark Energy</em> — but the name is mostly a sticker we've put on a thing we don't understand yet. It's about 68% of everything in the universe, and we have no idea what it actually is.
+                </p>
+                <p>
+                    Whoever figures out what Dark Energy is will probably win a Nobel Prize.
+                </p>
+                <p>
+                    It might be you, eventually.
+                </p>
+
+                <h2>What to remember</h2>
+                <p>If you only keep one idea from all of this:</p>
+                <p>
+                    Everything you can see — your room, the sky, the stars, the galaxies — was once in the same place. It got huge. It's still getting huger. The atoms in your hand are 13.8 billion years old. Most of them were made inside a star that died long before the Sun was born.
+                </p>
+                <p>
+                    You're not separate from the universe. You're the universe, sitting up and reading about itself.
+                </p>
+                <p>How strange is that.</p>
+
+                <p style={{ fontSize: '0.9rem', color: 'var(--muted)', borderTop: '1px solid var(--border)', paddingTop: '1.5rem', marginTop: '2rem' }}>
+                    <em>If any of this caught you and you want more: look up the Hubble Ultra Deep Field, the COBE/WMAP/Planck CMB pictures, and a YouTube clip of the supernova that left behind the Crab Nebula. Each one is a real photograph of something in this story. None of it is made up.</em>
+                </p>
+            </>
+        )
+    },
+    {
         slug: "ramayana-from-space",
         title: "The Ramayana, From Space",
         date: "May 2026",

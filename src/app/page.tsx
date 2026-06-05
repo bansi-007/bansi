@@ -12,12 +12,12 @@ export default function Home() {
         {/* Left: Hero */}
         <section className={styles.hero}>
           <h1 className={styles.title}>
-            <span className="terminal-cursor">
+            <span className="star-cursor">
               <Typewriter text="Hello, I'm Bansi." delay={75} />
             </span>
           </h1>
           <p className={styles.subtitle}>
-            Physics Enthusiast. Photographer.
+            Looking up, mostly. Physics, photography, the long view.
           </p>
           <div className={styles.ctaContainer}>
             <Link href="/about" className={styles.cta}>

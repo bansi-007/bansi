@@ -42,16 +42,7 @@ export default function About() {
                     </figcaption>
                 </figure>
                 <p className={styles.text}>
-                    Technical writing goes on <a href="https://medium.com/@bansimaddali" className="link">Medium</a>. Here I write whatever I feel like.
-                </p>
-            </section>
-
-            <section className={styles.section}>
-                <h2 className={styles.subHeader}>Find me</h2>
-                <p className={styles.text}>
-                    Technical writing on <a href="https://medium.com/@bansimaddali" className="link">Medium</a>.
-                    Photos on <a href="https://www.instagram.com/bansiinthewild/" className="link">Instagram</a>.
-                    On <a href="https://www.linkedin.com/in/iambansi" className="link">LinkedIn</a> if you need the professional version.
+                    Technical writing lives on <a href="https://medium.com/@bansimaddali" className="link">Medium</a>. Photos live on <a href="https://www.instagram.com/bansiinthewild/" className="link">Instagram</a>. This page is for everything that doesn't fit either.
                 </p>
             </section>
         </div>

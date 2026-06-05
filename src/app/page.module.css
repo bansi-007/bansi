@@ -13,9 +13,11 @@
 
 .title {
   font-size: 3rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   line-height: 1.2;
   color: var(--foreground);
+  letter-spacing: -0.02em;
+  text-shadow: 0 0 32px rgba(125, 211, 252, 0.18);
 }
 
 .subtitle {
@@ -34,16 +36,18 @@
   display: inline-block;
   border: 1px solid var(--primary);
   color: var(--primary);
-  padding: 0.8rem 1.5rem;
-  border-radius: 4px;
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
   font-weight: 500;
-  transition: all 0.2s ease;
+  letter-spacing: 0.02em;
+  transition: all 0.25s ease;
+  box-shadow: var(--glow-soft);
 }
 
 .cta:hover {
   background: var(--primary);
-  color: #ffffff;
-  box-shadow: 0 0 20px rgba(37, 99, 235, 0.2);
+  color: var(--background);
+  box-shadow: var(--glow);
   text-decoration: none;
 }
 

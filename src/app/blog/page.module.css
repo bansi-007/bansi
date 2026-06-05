@@ -16,14 +16,16 @@
 .card {
     border: 1px solid var(--border);
     padding: 1.5rem;
-    border-radius: 8px;
-    transition: border-color 0.2s, transform 0.2s;
-    background: transparent;
+    border-radius: 10px;
+    transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    background: rgba(14, 18, 48, 0.35);
+    backdrop-filter: blur(4px);
 }
 
 .card:hover {
     border-color: var(--primary);
     transform: translateY(-2px);
+    box-shadow: var(--glow-soft);
 }
 
 .date {

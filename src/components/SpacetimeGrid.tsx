@@ -32,9 +32,8 @@ const SpacetimeGrid = () => {
             }
         }
 
-        const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const dotColor = isDark ? 'rgba(96, 165, 250, 0.45)' : 'rgba(37, 99, 235, 0.35)';
-        const lineColor = isDark ? 'rgba(96, 165, 250, 0.18)' : 'rgba(37, 99, 235, 0.13)';
+        const dotColor = 'rgba(125, 211, 252, 0.55)';
+        const lineColor = 'rgba(125, 211, 252, 0.14)';
 
         let mouseX = -1000;
         let mouseY = -1000;

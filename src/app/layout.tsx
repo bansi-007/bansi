@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Bansi Maddali",
-  description: "Personal website of Bansi Maddali — Physics enthusiast, photographer, and ML engineer.",
+  description: "Bansi Maddali — physics, photography, and the long view of the universe.",
 };
 
 export default function RootLayout({
