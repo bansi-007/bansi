@@ -30,7 +30,7 @@ export const blogPosts: BlogPost[] = [
                     I was eight years old in April 2003 when I walked into Swamy Cinema Hall in Rajahmundry with my brother and my cousin brother. The film had released in January. We were watching it in April, in summer holidays, and the show was still housefull. The film was Okkadu.
                 </p>
                 <p>
-                    I had no idea what versatile meant. I had no idea what restraint in acting was. I just knew the kabaddi scene was happening on screen, and somewhere inside it, the hero said this:
+                    I had no idea what versatile meant. I had no idea what restraint in acting was. I just knew the villains were chasing the hero, he had been cornered, and somewhere inside that he turned to them and said this:
                 </p>
                 <blockquote style={{ borderLeft: '2px solid var(--primary)', paddingLeft: '1.25rem', margin: '1.5rem 0', fontStyle: 'italic', color: 'var(--foreground)' }}>
                     Nenu mee ooru kabaddi aadataniki vachanu. Kaani aadalsindi ground lo kaadu, ikkada ani ardham ayindi.
@@ -67,7 +67,7 @@ export const blogPosts: BlogPost[] = [
                     The next year, <strong>Nani (2004)</strong>, S.J. Surya&apos;s film. The premise alone is a dare. A boy who dies and is reborn as a grown man, with a child&apos;s mind and a child&apos;s heart still inside him. Mahesh played it without ever winking at the audience. He let the character be a child, fully, without making it cute. The film didn&apos;t land commercially in Telugu, but the performance is still the cleanest example of what he is willing to risk for a part.
                 </p>
                 <p>
-                    <strong>Athadu (2005)</strong>, his first film with Trivikram. A hired assassin on the run, sheltering with a village family that mistakes him for their long-lost son. Most actors would play that gap with anguish, internal monologue, ten kinds of expressive doubt. Mahesh plays it with patience. With waiting. With one small step at a time of letting the village in. There is a moment where the grandmother is fussing over him and his face breaks for half a second and resets. The whole film is in that half second. Second Nandi Best Actor.
+                    <strong>Athadu (2005)</strong>, his first film with Trivikram. A hired assassin on the run, sheltering with a village family that mistakes him for their long-lost son. Most actors would play that gap with anguish, internal monologue, ten kinds of expressive doubt. Mahesh plays it with patience. With waiting. With one small step at a time of letting the village in. There is a moment in the second-half climax with the grandfather where his face breaks for half a second and resets. The whole film is in that half second. Second Nandi Best Actor.
                 </p>
                 <p>
                     <strong>Pokiri (2006)</strong>, the loudest, swaggeriest part he has ever played. A goon who is actually a cop, double life inside a triple life. Most actors would smear it with attitude. Mahesh underplays even the punch lines. His Pandu stillness is the reason the role became a template the entire industry copied for the next ten years. Without him, that script is just words. With him, it is a movement.
@@ -91,7 +91,7 @@ export const blogPosts: BlogPost[] = [
                     <strong>Maharshi (2019)</strong>, a tech billionaire walks away from everything to save his childhood friend&apos;s farming community. Same arc family as Srimanthudu, but Mahesh does not repeat himself. The CEO in Maharshi carries the burden differently, older, lonelier, less certain. There is a moment of him sitting alone in his glass office after he has decided to leave, and he does not say a word. The film could have ended there.
                 </p>
                 <p>
-                    That is ten roles, sprawling across action, dark drama, fantasy, comedy, psychological thriller, social drama, political drama. Across them, five Filmfare Best Actor wins, nine Nandi Awards including three Best Actors, four SIIMA Best Actors. He has done thirty-odd films. Every single one has something nobody else is trying.
+                    That is ten roles, sprawling across action, dark drama, fantasy, comedy, psychological thriller, social drama, political drama. Across them, five Filmfare Best Actor wins, nine Nandi Awards including three Best Actors, four SIIMA Best Actors. He has done twenty-eight films. Varanasi will be his twenty-ninth, the first with Rajamouli. Every single one of the twenty-eight has something nobody else is trying.
                 </p>
 
                 <h2>The mercury</h2>
@@ -137,13 +137,10 @@ export const blogPosts: BlogPost[] = [
 
                 <figure style={{ margin: '2rem 0', textAlign: 'center' }}>
                     <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Dashawamedha_Ghat_in_Varanasi_2.jpg"
-                        alt="Dashashwamedh Ghat, Varanasi, at dusk"
+                        src="/varanasi-title.png"
+                        alt="Varanasi (Rajamouli x Mahesh Babu) title card"
                         style={{ width: '100%', maxWidth: '820px', borderRadius: '10px', border: '1px solid var(--border)' }}
                     />
-                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
-                        Dashashwamedh Ghat, Varanasi. Credit: Santosh Kumar Velamala, via Wikimedia Commons (CC BY-SA 4.0)
-                    </figcaption>
                 </figure>
 
                 <p>
