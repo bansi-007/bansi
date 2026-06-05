@@ -12,7 +12,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     const post = blogPosts.find(p => p.slug === slug);
 
     return (
-        <div style={{ maxWidth: '920px', margin: '3rem auto 4rem', padding: '0 clamp(1.25rem, 4vw, 2rem)' }}>
+        <div style={{ margin: '3rem 0 4rem', padding: '0 clamp(1.5rem, 4vw, 4rem)' }}>
             <Link
                 href="/blog"
                 style={{

@@ -17,7 +17,6 @@ const Navbar = () => {
                         </div>
                     </div>
                     <div className={styles.socials}>
-                        <a href="https://github.com/bansi-007" target="_blank" rel="noopener noreferrer" className={styles.social}>GitHub</a>
                         <a href="https://medium.com/@bansimaddali" target="_blank" rel="noopener noreferrer" className={styles.social}>Medium</a>
                         <a href="https://www.instagram.com/bansiinthewild/" target="_blank" rel="noopener noreferrer" className={styles.social}>Instagram</a>
                     </div>
