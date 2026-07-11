@@ -124,7 +124,7 @@ export const blogPosts: BlogPost[] = [
 
                 <h2>He stayed</h2>
                 <p>
-                    While almost every other pan-India hero was leaving for Bombay, learning Hindi, chasing the bigger market, Mahesh stayed. He has done one Hindi-language role as a child actor and that is it. He let his work be in Telugu, and trusted that if it was good enough, the country would come to it.
+                    While almost every other pan-India hero was leaving for Bombay, learning Hindi, chasing the bigger market, Mahesh stayed. He has not done a single Hindi film in his entire career. He let his work be in Telugu, and trusted that if it was good enough, the country would come to it.
                 </p>
                 <p>
                     The country came. Baahubali opened the door. RRR walked it through. Pushpa pushed it open in the masala lanes. And now the country, and parts of the world, are watching Telugu films the way the world watches Korean films after Parasite. Mahesh did not need to migrate. He waited, and the centre of gravity in Indian cinema came to him.
