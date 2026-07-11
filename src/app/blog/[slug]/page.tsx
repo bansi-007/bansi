@@ -56,7 +56,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     )}
                 </header>
 
-                <div style={{ fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--foreground)' }}>
+                <div className="prose">
                     {post ? (
                         post.content
                     ) : (

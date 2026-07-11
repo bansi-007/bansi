@@ -11,6 +11,7 @@ export default function Home() {
       <div className={styles.homeContainer}>
         {/* Left: Hero */}
         <section className={styles.hero}>
+          <span className={styles.eyebrow}>✦ Long Exposure</span>
           <h1 className={styles.title}>
             <span className="star-cursor">
               <Typewriter text="Hello, I'm Bansi." delay={75} />
@@ -40,7 +41,7 @@ export default function Home() {
             ))}
           </ul>
           <Link href="/blog" className={styles.seeAll}>
-            See all writing →
+            See all writing <span>→</span>
           </Link>
         </section>
       </div>
