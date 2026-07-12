@@ -87,7 +87,7 @@ const Starfield = () => {
             canvas.style.height = `${h}px`;
             ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
             centerX = w * 0.5;
-            centerY = h * 0.78;
+            centerY = h * 0.5;
             const shorter = Math.min(w, h);
             scale = shorter / 1100;
             if (scale < 0.55) scale = 0.55;

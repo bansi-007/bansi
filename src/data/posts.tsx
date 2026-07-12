@@ -3,15 +3,134 @@ export interface BlogPost {
     title: string;
     date: string;
     excerpt: string;
+    tag?: string;
+    draft?: boolean;
     content?: React.ReactNode;
+    contentEn?: React.ReactNode;
     mediumLink?: string;
 }
 
-export const blogPosts: BlogPost[] = [
+const allPosts: BlogPost[] = [
+    {
+        slug: "low-heat",
+        title: "Low Heat",
+        date: "Jul 2026",
+        tag: "Cinema",
+        draft: true,
+        excerpt: "Breaking Bad and Better Call Saul never ask you to watch a man become a monster. They make you become one with him, slowly enough that you never feel it happen. On the characters, and the trick they play on you.",
+        content: (
+            <>
+                <figure style={{ margin: '0 0 2.5rem', textAlign: 'center' }}>
+                    <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/9/95/BryanCranston-byPhilipRomano_%28cropped%29.jpg"
+                        alt="Bryan Cranston, who played Walter White"
+                        style={{ width: '100%', maxWidth: '520px', borderRadius: '10px', border: '1px solid var(--border)' }}
+                    />
+                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
+                        Bryan Cranston, who played Walter White. Credit: PhilipRomano, via Wikimedia Commons (CC BY-SA 4.0)
+                    </figcaption>
+                </figure>
+
+                <p>
+                    There is a shot at the start of every Better Call Saul season that most people fast-forward past. Black and white. A man named Gene manages a Cinnabon in a mall in Omaha. He is alone. He is afraid of being recognised. And when a stranger so much as glances at him too long, you watch the old instinct twitch back to life behind his eyes, the con man, still in there, still running, with no one left to run on.
+                </p>
+                <p>
+                    That is Saul Goodman now. That is what is left of Jimmy McGill. And the reason it wrecks you is that you knew Jimmy before he was this. You liked Jimmy. You would have vouched for him. Which means the sadness in that Cinnabon is not happening to a stranger on a screen. It is happening to someone you signed off on.
+                </p>
+                <p>
+                    That is the whole trick of these two shows, and almost nobody names it. They are not about men who become bad. They are about getting <em>you</em> to care about a man, completely, before you are allowed to see what he does. The bond gets set first. The darkness comes after. And by then it is too late to pretend you are just watching.
+                </p>
+
+                <h2>The bond comes first</h2>
+                <p>
+                    Think about how you met Walter White. Not the drug lord. The other one. A high-school chemistry teacher working a second job at a car wash, wiping down the hubcaps of a student who smirks at him. Fifty years old, brilliant, invisible. A wife who has stopped seeing him. A body that has just been handed a death sentence. Before Walt cooks a single gram, the show spends an hour making sure you feel the specific humiliation of being a smart man the world decided not to need.
+                </p>
+                <p>
+                    You do not bond with Heisenberg. Nobody bonds with Heisenberg. You bond with the man in the pilot, and that is the hook the show buries under everything that follows. Because a hundred hours later, when Walt is poisoning a child and watching a woman choke to death and doing nothing, some stubborn part of you still remembers rooting for him when all he wanted was to matter before he died. The show never lets you fully cut that cord. It made you like him first, on purpose, so that his guilt would have somewhere to land: on you.
+                </p>
+                <p>
+                    Every major character in both shows is built on this same order of operations. Attach, then reveal. You are always given the person before you are given the evidence.
+                </p>
+
+                <h2>Two men, two directions</h2>
+
+                <figure style={{ margin: '2rem 0', textAlign: 'center' }}>
+                    <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/8/84/Bob_Odenkirk_at_53rd_Saturn_Awards_2026-02.jpg"
+                        alt="Bob Odenkirk, who played Jimmy McGill and Saul Goodman"
+                        style={{ width: '100%', maxWidth: '520px', borderRadius: '10px', border: '1px solid var(--border)' }}
+                    />
+                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
+                        Bob Odenkirk, who played Jimmy McGill and Saul Goodman. Credit: Kevin Paul, via Wikimedia Commons (CC BY 4.0)
+                    </figcaption>
+                </figure>
+
+                <p>
+                    Walt and Jimmy are the same story run in opposite directions, and watching them side by side is the closest thing television has to a controlled experiment.
+                </p>
+                <p>
+                    Walt breaks bad by choosing. Every escalation is a door he walks through, and the show&apos;s cruellest, cleverest move is making each door look reasonable from the inside. Killing Krazy-8 is self-defence. Letting Jane die is just, not intervening. The poisoning is chess. Each step is small enough to justify, so you justify it with him, and you never catch the exact moment your sympathy curdled into complicity. That is the design. Walt did not notice becoming a monster, and neither did you, because you were cooking at the same low heat.
+                </p>
+                <p>
+                    And then, in the final hour, after five years of <em>everything I did, I did for this family</em>, he finally says the true thing to Skyler: <em>I did it for me. I liked it. I was good at it. I was really, I was alive.</em> It lands like a confession because it is one, and it is yours too. You believed the family story a little. He needed you to. The Gray Matter wound underneath all of it, the company he built and sold for a few thousand dollars while his old partners got billions, was never really about money. It was about being, one time, in one room, the smartest man there and having it count. Meth just let him feel it.
+                </p>
+                <p>
+                    Jimmy McGill breaks bad the opposite way: he does not choose it, he gets convinced of it. Here is a warm, funny, quick man who wants exactly one thing, for his brilliant older brother to be proud of him, and who keeps reaching for the honest, legitimate life and finding the door quietly locked from the other side. Chuck, the brother, is the tragedy engine. He is completely right that Jimmy cannot be trusted, and completely monstrous in how he wields that truth, and the show refuses to tell you which of those facts damns Jimmy more. In their last real conversation Chuck tells him the truth: you never mattered all that much to me. You can hear the exact thing break. Saul Goodman is what rushes in to fill the hole where a brother&apos;s approval was supposed to be.
+                </p>
+                <p>
+                    Walt&apos;s fall is thrilling because he is climbing. Jimmy&apos;s is unbearable because he is being pushed. One is a man discovering he was always this. The other is a good man being talked out of himself, degree by degree, until he decides fine, if this is who you all insist I am, I will be it, and I will be better at it than you can stand.
+                </p>
+
+                <h2>The ones who make it hurt</h2>
+
+                <figure style={{ margin: '2rem 0', textAlign: 'center' }}>
+                    <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/6/60/Giancarlo_Esposito_at_Comic_Con_Oakland_2026_-_2_%28cropped%29.jpg"
+                        alt="Giancarlo Esposito, who played Gustavo Fring"
+                        style={{ width: '100%', maxWidth: '520px', borderRadius: '10px', border: '1px solid var(--border)' }}
+                    />
+                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
+                        Giancarlo Esposito, who played Gustavo Fring. Credit: Aditya Ramachandran, via Wikimedia Commons (CC BY-SA 4.0)
+                    </figcaption>
+                </figure>
+
+                <p>
+                    Around those two are the characters who exist to make you feel the cost, and each one bonds you a different way.
+                </p>
+                <p>
+                    <strong>Jesse Pinkman</strong> is your conscience, outsourced. He is the screw-up with the one thing Walt lacks, a heart that will not switch off, and the show uses him as a gauge. When something terrible happens, the camera does not linger on the body, it holds on Jesse&apos;s face, and you read the horror off him because he is feeling it for you. That is why hurting Jesse hurts us: he is carrying our capacity to still be appalled. Every time Walt uses him, the show is spending our own attachment against us.
+                </p>
+                <p>
+                    <strong>Kim Wexler</strong> is the character you are most afraid for, and the fear is the bond. She is the disciplined one, the principled one, the self-made one, and the slow horror of Better Call Saul is realising she is also the one with a secret taste for the con, and that she is not being dragged down by Jimmy so much as running alongside him, sometimes ahead. She is the proof he could have been fine, which is exactly what makes her the saddest thing in either show. When she finally leaves, it is not weakness. It is the one clear-eyed moral act left: she sees that she is an accelerant, and she removes herself from the reaction. You spend six seasons braced for something to happen to Kim. The dread is the attachment.
+                </p>
+                <p>
+                    <strong>Gustavo Fring</strong> does not bond you with warmth. He bonds you with a locked door you cannot stop trying to see behind. For episodes he gives you nothing, soft voice, pressed shirt, a manager&apos;s smile, five percent of a face, and the effort of reading him is the intimacy. Then Better Call Saul finally shows you the wound: a partner named Max, shot dead beside a pool while a young Gustavo was made to watch, and twenty years of immaculate patience built on top of that grief like a coffin lid. After you have seen it, you can never read his composure as calm again. You read it as a man holding something down. You do not love Gus. You come to understand exactly what his stillness is costing, and that understanding is its own kind of loyalty.
+                </p>
+                <p>
+                    <strong>Mike Ehrmantraut</strong> is the one who seems like the adult in the room, and the bond is trust, the same trust Jesse puts in him. Steady, competent, tired, working a private code: I did it right, I did it clean. Then the show detonates the whole granite exterior in a single unbroken take, when Mike talks about his son, the good cop he pushed to take dirty money to fit in, who got killed for it. I broke my boy. Suddenly the most together man in the story is just a father who cannot forgive himself, laundering his guilt through his granddaughter&apos;s future. You trusted Mike because he looked like he had it handled. The show waits, and then shows you precisely what handled costs.
+                </p>
+
+                <h2>Why you cannot shake them</h2>
+                <p>
+                    Here is what I think it actually is.
+                </p>
+                <p>
+                    We do not change the way flashy characters change, in a lightning strike, a montage, one decisive scene. We change the way these people change. Slowly. Through small permissions we do not call decisions. Through the widening gap between the story we tell about ourselves and the life we are actually living. Walt&apos;s <em>I did it for my family</em> is not a meth cook&apos;s lie. It is the most ordinary lie there is, scaled up. Jimmy&apos;s certainty that the next win will finally make his brother see him, that is not a con man&apos;s delusion. It is yours, and mine, wearing a cheap suit.
+                </p>
+                <p>
+                    So when these characters finally confess, or crack, or twitch behind the eyes in a black-and-white Cinnabon, it does not land as plot. It lands as recognition. You are not watching them. You are being shown yourself at a slightly worse temperature.
+                </p>
+                <p>
+                    That is the art both shows share, and it is the reason they do not leave. They never asked you to watch a man break bad. They cooked you at low heat, the same as him, until you looked down and realised you had been on his side the whole time, and could no longer quite explain why you thought you were not.
+                </p>
+            </>
+        )
+    },
     {
         slug: "oh-sundari",
         title: "ఓ సుందరి..",
         date: "Jul 2026",
+        tag: "తెలుగు",
         excerpt: "రావు బహదూర్ చిత్రంలోని \"ఓ సుందరి\" పాట, ఎన్నో సంవత్సరాల తర్వాత తెలుగు సినీ సాహిత్యంలోకి తిరిగి వచ్చిన అరుదైన పదసౌందర్యం గురించి.",
         content: (
             <div className="te">
@@ -49,6 +168,22 @@ export const blogPosts: BlogPost[] = [
                 <p>
                     కానీ ఈ పాట అసలు బలం సంగీతం కాదు. సాహిత్యం.
                 </p>
+
+                <figure style={{ margin: '2rem 0' }}>
+                    <div style={{ position: 'relative', width: '100%', paddingBottom: '56.25%', borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--border)' }}>
+                        <iframe
+                            src="https://www.youtube-nocookie.com/embed/EU8ct98ZvCg"
+                            title="ఓ సుందరి, రావు బహదూర్"
+                            loading="lazy"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
+                        />
+                    </div>
+                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)', textAlign: 'center' }}>
+                        పాట వింటూ కింది సాహిత్యం చదవండి.
+                    </figcaption>
+                </figure>
 
                 <hr />
 
@@ -139,12 +274,156 @@ export const blogPosts: BlogPost[] = [
                     ఈ వ్యాసం కేవలం ఒక పాటను ప్రశంసించడం కాదు; మంచి తెలుగు సాహిత్యం మళ్లీ ప్రధాన ప్రవాహంలోకి రావాలనే ఆకాంక్షను కూడా వ్యక్తం చేస్తుంది.
                 </p>
             </div>
+        ),
+        contentEn: (
+            <>
+                <figure style={{ margin: '0 0 2.5rem', textAlign: 'center' }}>
+                    <img
+                        src="/rao-bahadur-song.png"
+                        alt="Rao Bahadur"
+                        style={{ width: '100%', maxWidth: '780px', borderRadius: '10px', border: '1px solid var(--border)' }}
+                    />
+                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
+                        Rao Bahadur
+                    </figcaption>
+                </figure>
+
+                <p><em>After many years, a genuinely good Telugu love song.</em></p>
+
+                <p>
+                    Some songs are pleasant to listen to. Some songs stay with you. But very rarely, a song comes along that reminds you all over again how beautiful the Telugu language can be.
+                </p>
+                <p>
+                    The last time I heard a song like that was &ldquo;Sirivennela&rdquo; from Shyam Singha Roy, written by Sirivennela Seetharama Sastry. After that, I hadn&apos;t heard a love song with that richness of words, that depth of feeling.
+                </p>
+                <p>
+                    Filling that emptiness, &ldquo;Oh Sundari&rdquo; from Rao Bahadur has now arrived.
+                </p>
+                <p>
+                    For much of the film the story moves gently at its own pace. In the exact moment you begin to feel, as a viewer, that something more is needed, this song begins. And what appears on screen after that is not merely a song, it is a visual poem of love.
+                </p>
+                <p>
+                    The director never portrays the hero&apos;s love as exaggeration, nor does he treat it as a formality. He captures the change taking place inside a person who has fallen in love with real tenderness. Add to that Vijay Yesudas&apos;s voice, the soft music, and the delicate cinematography, and these three together hold the song up like a small film.
+                </p>
+                <p>
+                    I noticed something interesting in the theatre. The audience, until then talking and shifting in their seats, fell silent the moment this song began. Unexpectedly, the song drew everyone into itself. For a good song, what greater praise could there be?
+                </p>
+                <p>
+                    But the real strength of this song is not the music. It is the writing.
+                </p>
+
+                <figure style={{ margin: '2rem 0' }}>
+                    <div style={{ position: 'relative', width: '100%', paddingBottom: '56.25%', borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--border)' }}>
+                        <iframe
+                            src="https://www.youtube-nocookie.com/embed/EU8ct98ZvCg"
+                            title="Oh Sundari, Rao Bahadur"
+                            loading="lazy"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
+                        />
+                    </div>
+                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)', textAlign: 'center' }}>
+                        Play the song while you read the lyrics below.
+                    </figcaption>
+                </figure>
+
+                <hr />
+
+                <div className="verse-pair">
+                    <blockquote>&ldquo;పసిడి వన్నె పూల తీగలా… అల్లుకుంది నన్నిలా…&rdquo;</blockquote>
+                    <p>Just as a golden flowering vine winds itself around a tree and grows, she has wound herself around my life and my heart, the poet says.</p>
+                </div>
+
+                <div className="verse-pair">
+                    <blockquote>&ldquo;తరానికే తరుణీమణి, తరించనీ నయనాలనీ…&rdquo;</blockquote>
+                    <p>A young woman who stands as an ideal for an entire generation. It is impossible to turn your eyes away from the beauty of hers.</p>
+                </div>
+
+                <div className="verse-pair">
+                    <blockquote>&ldquo;వినువీధిలో నితారా, ఇల చేరే కాంతిధారా…&rdquo;</blockquote>
+                    <p>As if a star shining in the sky came down to earth and stepped into my life like a stream of light.</p>
+                </div>
+
+                <div className="verse-pair">
+                    <blockquote>&ldquo;చూస్తే చాలు వదనం… లోలో ఏదో మధనం…&rdquo;</blockquote>
+                    <p>One look at her face is enough. An indescribable, sweet turmoil begins in the heart. That itself is the first definition of love.</p>
+                </div>
+
+                <div className="verse-pair">
+                    <blockquote>&ldquo;సంచారినై ఎటో ఎటో తిరిగే నన్నే అధికారంగా…&rdquo;</blockquote>
+                    <p>Me, who had wandered aimlessly here and there through life…</p>
+                </div>
+
+                <div className="verse-pair">
+                    <blockquote>&ldquo;నీ కళ్ల సంకెళ్లతో బంధించిన సఖీ…&rdquo;</blockquote>
+                    <p>Your eyes themselves became chains and bound me. But it is not bondage. It is the sweet bond called love.</p>
+                </div>
+
+                <div className="verse-pair">
+                    <blockquote>&ldquo;పో పొమ్మన్న పోలేనులే నిను దాటి ఎన్నటికి…&rdquo;</blockquote>
+                    <p>Even if you tell me to leave, I can never go past you, not ever.</p>
+                </div>
+
+                <div className="verse-pair">
+                    <blockquote>&ldquo;ఏదో ఏదో వెతికి ఏం కావాలో తెలిసింది ఇపుడే…&rdquo;</blockquote>
+                    <p>All this time I searched for something. But now I understand that what I was truly searching for was you.</p>
+                </div>
+
+                <div className="verse-pair">
+                    <blockquote>&ldquo;ఏకాంతంలో నలిగే ఆ తపనేంటో తెలిసింది ఇపుడే…&rdquo;</blockquote>
+                    <p>The longing that troubled the heart in solitude, I now understand what it was. It was a heart waiting for you.</p>
+                </div>
+
+                <div className="verse-pair">
+                    <blockquote>&ldquo;నీ చెంతనే నిలిచే క్షణం మగజన్మకు మరుజన్మే…&rdquo;</blockquote>
+                    <p>A single moment spent beside you is as precious as being granted another lifetime.</p>
+                </div>
+
+                <div className="verse-pair">
+                    <blockquote>&ldquo;నీవాసనే తగిలే క్షణం తలొంచింది నాలోని గర్వం…&rdquo;</blockquote>
+                    <p>The very moment your fragrance touched me, my pride bowed its head. Pride cannot stand before love.</p>
+                </div>
+
+                <div className="verse-pair">
+                    <blockquote>&ldquo;ఏ వీరుడైనా గానీ దాసోహమైపోడా…&rdquo;</blockquote>
+                    <p>However brave, however proud a man may be, before a love like this he has no choice but to surrender.</p>
+                </div>
+
+                <div className="verse-pair">
+                    <blockquote>&ldquo;ఓ సుందరి మనోహరి మనసే నిన్నే తిలకించగా…&rdquo;</blockquote>
+                    <p>My heart now looks only at you. It contemplates only you.</p>
+                </div>
+
+                <div className="verse-pair">
+                    <blockquote>&ldquo;ప్రశాంతమో ప్రవాహమై వస్తుంది నా దరికి…&rdquo;</blockquote>
+                    <p>Every time I think of you, a calm river seems to flow toward me, through my heart.</p>
+                </div>
+
+                <h2>In the end</h2>
+                <p>
+                    There was a time in our Telugu film music when poets like Veturi, Aatreya, and Sirivennela shaped every song into a poem. In recent years, that kind of beauty of words has become rare.
+                </p>
+                <p>
+                    &ldquo;Oh Sundari&rdquo; reminded us of that tradition again.
+                </p>
+                <p>
+                    Describing love is nothing new. But describing love with the beauty of the Telugu language is very rare. This song joins that rare list.
+                </p>
+                <p>
+                    We need more songs like this. Not only to listen to, but to remind us how beautifully the Telugu language can still be written.
+                </p>
+                <p>
+                    This piece is not merely praise for one song; it is also a wish that good Telugu writing find its way back into the mainstream.
+                </p>
+            </>
         )
     },
     {
         slug: "for-mahesh-babu",
         title: "Why Mahesh Babu Is the Most Versatile Actor in the Country",
         date: "Jun 2026",
+        tag: "Cinema",
         excerpt: "A fan letter, twenty-three years after a kabaddi line in Okkadu landed on an eight-year-old in a summer matinee. On why he is the most versatile actor in the country, and why Varanasi is the frame he has been waiting for.",
         content: (
             <>
@@ -342,6 +621,7 @@ export const blogPosts: BlogPost[] = [
         slug: "how-small-we-are",
         title: "You Are Worried About Your Tuesday Meeting",
         date: "Mar 2026",
+        tag: "Cosmos",
         excerpt: "Right now, somewhere 400 kilometres above your head, astronauts are watching sixteen sunrises a day. They sleep strapped to a wall. Meanwhile, you're stressed about a Tuesday meeting. Let's pull the camera back. Way, way back.",
         content: (
             <>
@@ -465,6 +745,7 @@ export const blogPosts: BlogPost[] = [
     },
     {
         slug: "andromeda",
+        tag: "Cosmos",
         title: "That Smudge in the Sky is a Trillion Stars. And It's Heading Here.",
         date: "Feb 2026",
         excerpt: "There's a faint fuzzy patch in the night sky that's easy to miss. It looks like a wispy cloud. It isn't. It's a galaxy two and a half million light-years away, and it's falling toward us.",
@@ -588,3 +869,5 @@ export const blogPosts: BlogPost[] = [
         )
     }
 ];
+
+export const blogPosts: BlogPost[] = allPosts.filter((p) => !p.draft);

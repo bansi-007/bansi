@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Fraunces, Noto_Sans_Telugu, Noto_Serif_Telugu } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
 import Starfield from "@/components/Starfield";
 
 const inter = Inter({
@@ -33,8 +32,8 @@ const notoTeluguSerif = Noto_Serif_Telugu({
 });
 
 export const metadata: Metadata = {
-  title: "Long Exposure, Bansi Maddali",
-  description: "Long Exposure, a personal blog by Bansi Maddali. Notes on whatever holds my attention long enough to write down.",
+  title: "Diary",
+  description: "A personal diary. Notes on whatever holds my attention long enough to write down.",
 };
 
 export default function RootLayout({
@@ -47,7 +46,6 @@ export default function RootLayout({
       <body>
         <Starfield />
         <div style={{ position: 'relative', zIndex: 1 }}>
-          <Navbar />
           <main>{children}</main>
         </div>
       </body>

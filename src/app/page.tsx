@@ -1,50 +1,29 @@
 import Link from 'next/link';
-import Typewriter from '@/components/Typewriter';
 import styles from './page.module.css';
 import { blogPosts } from '@/data/posts';
 
 export default function Home() {
-  const recentPosts = blogPosts.slice(0, 3);
+    return (
+        <div className={styles.wrap}>
+            <header className={styles.header}>
+                <p className={styles.eyebrow}>✦ Diary</p>
+                <p className={styles.lede}>
+                    Whatever holds my attention long enough to write down.
+                </p>
+            </header>
 
-  return (
-    <div className="container">
-      <div className={styles.homeContainer}>
-        {/* Left: Hero */}
-        <section className={styles.hero}>
-          <span className={styles.eyebrow}>✦ Long Exposure</span>
-          <h1 className={styles.title}>
-            <span className="star-cursor">
-              <Typewriter text="Hello, I'm Bansi." delay={75} />
-            </span>
-          </h1>
-          <p className={styles.subtitle}>
-            A personal blog. Notes on whatever holds my attention long enough to write down, work, walks, books, the night sky.
-          </p>
-          <div className={styles.ctaContainer}>
-            <Link href="/about" className={styles.cta}>
-              About Me
-            </Link>
-          </div>
-        </section>
-
-        {/* Right: Latest Writing */}
-        <section className={styles.writingSection}>
-          <h2 className={styles.sectionTitle}>Latest Writing</h2>
-          <ul className={styles.postList}>
-            {recentPosts.map((post) => (
-              <li key={post.slug} className={styles.postItem}>
-                <Link href={`/blog/${post.slug}`}>
-                  <span className={styles.postDate}>{post.date}</span>
-                  <span className={styles.postTitle}>{post.title}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <Link href="/blog" className={styles.seeAll}>
-            See all writing <span>→</span>
-          </Link>
-        </section>
-      </div>
-    </div>
-  );
+            <div className={styles.grid}>
+                {blogPosts.map((post) => (
+                    <Link href={`/blog/${post.slug}`} key={post.slug} className={styles.card}>
+                        <div className={styles.cardMeta}>
+                            <span className={styles.date}>{post.date}</span>
+                            {post.tag && <span className={styles.tag}>{post.tag}</span>}
+                        </div>
+                        <h2 className={styles.cardTitle}>{post.title}</h2>
+                        <p className={styles.excerpt}>{post.excerpt}</p>
+                    </Link>
+                ))}
+            </div>
+        </div>
+    );
 }

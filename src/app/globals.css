@@ -265,14 +265,13 @@ hr {
 /* Two-column verse + meaning pair (song commentary, lyric on left, gloss on right) */
 .verse-pair {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2.5rem;
-  margin: 1.75rem 0;
-  align-items: start;
+  grid-template-columns: minmax(0, 0.68fr) minmax(0, 1.32fr);
+  gap: 2.75rem;
+  margin: 1.5rem 0;
+  align-items: center;
   padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
+  padding-bottom: 1.5rem;
   border-bottom: 1px dashed var(--border);
-  padding-bottom: 1.75rem;
 }
 
 .verse-pair:last-of-type {
@@ -338,6 +337,23 @@ hr {
 
 .prose p {
   margin-bottom: 1.4rem;
+}
+
+.translate-btn {
+  font-family: var(--font-sans-stack);
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+  color: var(--primary);
+  background: rgba(125, 211, 252, 0.07);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  padding: 0.5rem 1.1rem;
+  transition: background 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+
+.translate-btn:hover {
+  background: rgba(125, 211, 252, 0.14);
+  box-shadow: var(--glow-soft);
 }
 
 .prose a {
