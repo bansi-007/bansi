@@ -19,6 +19,17 @@ const allPosts: BlogPost[] = [
         excerpt: "We keep asking what makes an ideal man, and we keep answering through his relationships. Two thousand years ago a sage asked the same question, defined the highest standard first, and only then asked whether anyone had ever reached it.",
         content: (
             <>
+                <figure style={{ margin: '0 0 2.5rem', textAlign: 'center' }}>
+                    <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Rama-Varuna.jpg/1280px-Rama-Varuna.jpg"
+                        alt="Rama commanding the ocean, painting by Raja Ravi Varma"
+                        style={{ width: '100%', maxWidth: '760px', borderRadius: '10px', border: '1px solid var(--border)' }}
+                    />
+                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
+                        Rama, by Raja Ravi Varma (1848&ndash;1906). Public domain, via Wikimedia Commons.
+                    </figcaption>
+                </figure>
+
                 <p>
                     I keep coming back to one question, often without realising it. It hides inside other topics, leadership, relationships, what people today call masculinity, but if you go deep enough, it is always the same question. <em>What makes an ideal man?</em>
                 </p>
@@ -34,22 +45,39 @@ const allPosts: BlogPost[] = [
 
                 <h2>The architecture of character</h2>
                 <p>
-                    Try to describe the ideal man without mentioning how he looks, what he does, what he owns, or whether people admire him. What is left?
+                    Try to describe the ideal man without mentioning how he looks, what he does, what he owns, or whether people admire him. What is left? A few things, and they turn out to hold each other up in pairs.
                 </p>
-                <p>
-                    The first thing left is character, because it is the only thing that stays. Youth fades, power changes hands, money comes and goes. Character stays with a man till his last breath. Without it, intelligence becomes cunning, power becomes cruelty, and success becomes arrogance. And real character is quiet. The strength that matters is not the loud kind that shows off and troubles the weak. It is restraint. Anyone can pick up a sword. The man worth trusting is the one who knows when not to.
-                </p>
-                <p>
-                    But restraint is of no use without wisdom, and wisdom is not the same as knowledge. Books are full of knowledge. Wisdom is knowing what should be done when many choices all look reasonable. Life rarely gives a clean choice between right and wrong. It usually gives a choice between what is easy and what is right, and the ideal man can tell the difference. People trust his judgement because he does not waste words. When a truthful man finally speaks, others listen, not because he speaks well, but because he has never sold his word for convenience.
-                </p>
-                <p>
-                    Capability goes hand in hand with responsibility. Good intentions are fine until a family depends on you, and then intentions alone are not enough. Being capable is not arrogance, it is a kind of service. The more capable a man is, the more people he can help. But capability without gratitude spoils quickly. Success likes to convince a man that he reached there alone. He did not. The ideal man remembers everyone who helped him rise, and that memory keeps his success from turning into pride.
-                </p>
-                <p>
-                    The last pair is the hardest, because it is fought in private. Discipline over yourself, over laziness, temptation, anger, ego and disappointment, is the one battle that never ends. History remembers those who won kingdoms, but the wiser man is the one who first won over himself. Along with it comes humility, which is not weakness but confidence. A man who is at peace with himself is never disturbed by another person&apos;s success. And here Indian tradition sees anger differently from the modern idea that anger is always bad. Anger from ego or greed destroys. But anger in defence of the innocent, of truth, of dharma, is a different thing altogether. A man who feels no anger before injustice is not gentle, he is incomplete. He does not kill his strength. He controls it.
-                </p>
-                <p>
-                    Step back and you see the real point: every quality is balanced by another. Strength is softened by compassion. Wisdom is guided by truth. Capability is held by responsibility. Discipline controls power, humility controls success. Character is what holds all of them together.
+
+                <div className="virtue-card vc-cyan">
+                    <span className="virtue-label">Character &amp; Restraint</span>
+                    <p>
+                        The first thing left is <strong>character</strong>, because it is the only thing that stays. Youth fades, power changes hands, money comes and goes. Character stays with a man till his last breath. Without it, intelligence becomes cunning, power becomes cruelty, and success becomes arrogance. And real character is quiet. The strength that matters is not the loud kind that shows off and troubles the weak. It is <strong>restraint</strong>. Anyone can pick up a sword. The man worth trusting is the one who knows when not to.
+                    </p>
+                </div>
+
+                <div className="virtue-card vc-violet">
+                    <span className="virtue-label">Wisdom &amp; Truth</span>
+                    <p>
+                        But restraint is of no use without <strong>wisdom</strong>, and wisdom is not the same as knowledge. Books are full of knowledge. Wisdom is knowing what should be done when many choices all look reasonable. Life rarely gives a clean choice between right and wrong. It usually gives a choice between what is easy and what is right, and the ideal man can tell the difference. People trust his judgement because he does not waste words. When a <strong>truthful</strong> man finally speaks, others listen, not because he speaks well, but because he has never sold his word for convenience.
+                    </p>
+                </div>
+
+                <div className="virtue-card vc-gold">
+                    <span className="virtue-label">Capability &amp; Gratitude</span>
+                    <p>
+                        <strong>Capability</strong> goes hand in hand with responsibility. Good intentions are fine until a family depends on you, and then intentions alone are not enough. Being capable is not arrogance, it is a kind of service. The more capable a man is, the more people he can help. But capability without <strong>gratitude</strong> spoils quickly. Success likes to convince a man that he reached there alone. He did not. The ideal man remembers everyone who helped him rise, and that memory keeps his success from turning into pride.
+                    </p>
+                </div>
+
+                <div className="virtue-card vc-rose">
+                    <span className="virtue-label">Discipline, Humility &amp; Righteous Anger</span>
+                    <p>
+                        The last group is the hardest, because it is fought in private. <strong>Discipline</strong> over yourself, over laziness, temptation, anger, ego and disappointment, is the one battle that never ends. History remembers those who won kingdoms, but the wiser man is the one who first won over himself. Along with it comes <strong>humility</strong>, which is not weakness but confidence. A man who is at peace with himself is never disturbed by another person&apos;s success. And here Indian tradition sees anger differently from the modern idea that anger is always bad. Anger from ego or greed destroys. But anger in defence of the innocent, of truth, of dharma, is a different thing altogether. A man who feels no anger before injustice is not gentle, he is incomplete. He does not kill his strength. He controls it.
+                    </p>
+                </div>
+
+                <p className="virtue-summary">
+                    Every quality is balanced by another. Strength is softened by compassion, wisdom is guided by truth, capability is held by responsibility, discipline controls power, humility controls success. Character is what holds them all together.
                 </p>
 
                 <h2>The ancient benchmark</h2>
@@ -124,6 +152,14 @@ const allPosts: BlogPost[] = [
                 </p>
                 <p>
                     Maybe that is why the Ramayana has lasted so long. It was never only the story of a demon king&apos;s defeat. It was held up as a mirror, and the question it begins with is the same one we are still asking today, only in poorer words. It simply had the courage to ask it directly, and to define the answer before telling us the man&apos;s name.
+                </p>
+
+                <h2>Why write this down</h2>
+                <p>
+                    I am not writing this because I have these sixteen qualities. I am writing it because I want to remember them. Rama is held up as perfect, and none of us will be. That is not the point. The point is the direction. A standard is not there to shame you for falling short of it, it is there so you know which way to walk.
+                </p>
+                <p>
+                    So take the sixteen as a checklist for a lifetime, not a test for today. Be a little more truthful this year than last. Control the anger that comes from ego, keep the anger that stands up for what is right. Stay grateful. Stay capable. Win the quiet battle over yourself before worrying about any other. We may never reach the full moon. But a man who spends his life moving toward it, one quality at a time, becomes someone worth being, and that is the most any of us can do.
                 </p>
             </>
         )
