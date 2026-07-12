@@ -95,7 +95,7 @@ const allPosts: BlogPost[] = [
                     <div className="guna-row"><span className="guna-term">జితక్రోధః · jitakrodha</span><span className="guna-meaning">Conqueror of his own anger</span></div>
                     <div className="guna-row"><span className="guna-term">ద్యుతిమాన్ · dyutimān</span><span className="guna-meaning">Radiant, carries an inner light</span></div>
                     <div className="guna-row"><span className="guna-term">అనసూయకః · anasūyaka</span><span className="guna-meaning">Free of envy</span></div>
-                    <div className="guna-row"><span className="guna-term">జాతరోషే · roused in a just cause</span><span className="guna-meaning">So fierce in battle for what is right that even the gods fear him</span></div>
+                    <div className="guna-row"><span className="guna-term">జాతరోషః · jātaroṣa</span><span className="guna-meaning">His wrath, once roused in a just battle, so fierce that even the gods fear him</span></div>
                 </div>
 
                 <p>
