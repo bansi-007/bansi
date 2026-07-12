@@ -3,7 +3,7 @@ export interface BlogPost {
     title: string;
     date: string;
     excerpt: string;
-    tag?: string;
+    tags?: string[];
     draft?: boolean;
     content?: React.ReactNode;
     contentEn?: React.ReactNode;
@@ -12,10 +12,127 @@ export interface BlogPost {
 
 const allPosts: BlogPost[] = [
     {
+        slug: "does-such-a-man-exist",
+        title: "Does Such a Man Exist?",
+        date: "Jul 2026",
+        tags: ["Dharma", "Literature", "History"],
+        excerpt: "We keep asking what makes an ideal man, and we keep answering through his relationships. Two thousand years ago a sage asked the same question, defined the highest possible standard first, and only then asked whether anyone had ever met it.",
+        content: (
+            <>
+                <p>
+                    I keep circling one question, usually without meaning to. It hides inside other conversations, about leadership, about relationships, about what people now call masculinity, and every time, if I follow it far enough down, it turns out to be the same question underneath. <em>What makes an ideal man?</em>
+                </p>
+                <p>
+                    Ask it out loud today and the answers arrive fast. He should be emotionally available. He should communicate. He should respect women, be kind, be ambitious, be financially responsible, be a good husband and a present father. None of that is wrong. Every one of those is worth becoming. But notice what they have in common: almost all of them describe a man through his relationships. We measure him by how he behaves with a partner, how he speaks to others, how emotionally mature he is in a room with someone else.
+                </p>
+                <p>
+                    Those are real measures. They are also a small slice of the thing. Life asks more of a man than being good company. It asks him to make decisions that cannot wait, to carry weight that cannot be set down, to stay steady while others come apart, to choose the harder true thing over the easier convenient one when no one is watching and no one would know. A relationship can <em>reveal</em> a man&apos;s character. It does not build it. Character is finished long before anyone is around to admire it.
+                </p>
+                <p>
+                    So maybe the question itself is wrong. Not &ldquo;what makes a good husband,&rdquo; not &ldquo;what makes an attractive man,&rdquo; but something older and heavier: <em>what kind of human being should a man become in the first place?</em>
+                </p>
+
+                <h2>The architecture of character</h2>
+                <p>
+                    Try describing the ideal man without a single mention of how he looks, what he does, what he owns, or whether he is admired. What is left when you take all of that away?
+                </p>
+                <p>
+                    The first thing left is character, because it is the only thing that stays. Youth fades, power shifts, money comes and goes; character follows a man to his last breath. Without it the gifts turn poisonous, intelligence becomes manipulation, power becomes oppression, success becomes arrogance. And real character is quiet. The strength that counts is not the loud kind that announces itself and leans on the weak. It is restraint. Anyone can draw a sword; the man worth trusting is the one who knows when to leave it sheathed, who can absorb a great deal of fear without letting go of what is right.
+                </p>
+                <p>
+                    That restraint is useless without wisdom, and wisdom is not the same as knowledge. A library is full of knowledge. Wisdom is knowing what ought to be done when several options all look reasonable, because life rarely offers a clean choice between right and wrong. It offers the choice between what is easy and what is right, and the ideal man can tell them apart. What makes others trust that judgment is that he does not spend his words cheaply. When a truthful man finally speaks, people listen, not because he is eloquent but because he has never once traded his word for convenience.
+                </p>
+                <p>
+                    Capability holds hands with responsibility. Good intentions are a fine thing until a family is depending on you, and then intention alone is an insult. Competence is not arrogance; it is a form of service, and the more capable a man becomes the more lives he can actually lift. But capability without gratitude curdles quickly. Success loves to convince a man he arrived alone. He did not. The ideal man remembers every hand that pulled him up, and that memory is what keeps the achievement from hardening into pride.
+                </p>
+                <p>
+                    The last pair is the hardest, because it is fought entirely in private. Discipline against the self, against laziness, temptation, anger, ego, despair, is the only war that never ends, and history quietly prefers the man who won it to the man who won kingdoms. Its companion is humility, which is not weakness but security: the man who is at peace with himself is never threatened by someone else&apos;s success. And here Indian tradition parts ways with the modern instinct to treat anger as the enemy. Anger born of ego or greed does destroy. But anger raised in defence of the innocent, of the truth, of dharma, is a different substance entirely. A man who cannot feel anger before injustice is not gentle, he is incomplete. He does not kill his strength. He governs it.
+                </p>
+                <p>
+                    Step back and the pattern is the real point: every virtue is held in check by another. Strength restrained by compassion. Wisdom steadied by truth. Capability bound to responsibility. Power disciplined, success humbled. Character is simply the thing that ties the whole knot together.
+                </p>
+
+                <h2>The ancient benchmark</h2>
+                <p>
+                    This can sound like a thought exercise. It is not. More than two thousand years ago a sage asked this exact question, and he asked it plainly, because he genuinely wanted to know whether a complete human being had ever actually walked the earth.
+                </p>
+                <p>
+                    His question survives in three verses:
+                </p>
+                <blockquote>
+                    కో న్వస్మిన్ సాంప్రతం లోకే గుణవాన్ కశ్చ వీర్యవాన్ ।<br />
+                    ధర్మజ్ఞశ్చ కృతజ్ఞశ్చ సత్యవాక్యో దృఢవ్రతః ॥<br />
+                    చారిత్రేణ చ కో యుక్తః సర్వభూతేషు కో హితః ।<br />
+                    విద్వాన్ కః కః సమర్థశ్చ కశ్చైకప్రియదర్శనః ॥<br />
+                    ఆత్మవాన్ కో జితక్రోధో ద్యుతిమాన్ కోఽనసూయకః ।<br />
+                    కస్య బిభ్యతి దేవాశ్చ జాతరోషస్య సంయుగే ॥
+                    <br />
+                    <span style={{ fontStyle: 'normal', color: 'var(--muted)', fontSize: '0.9rem', display: 'block', marginTop: '0.85rem', lineHeight: 1.7 }}>
+                        ko nu asmin sāmprataṃ loke guṇavān kaśca vīryavān / dharmajñaśca kṛtajñaśca satyavākyo dṛḍhavrataḥ // cāritreṇa ca ko yuktaḥ sarvabhūteṣu ko hitaḥ / vidvān kaḥ kaḥ samarthaśca kaścaikapriyadarśanaḥ // ātmavān ko jitakrodho dyutimān ko&apos;nasūyakaḥ / kasya bibhyati devāśca jātaroṣasya saṃyuge //
+                    </span>
+                    <span style={{ fontStyle: 'normal', color: 'var(--muted)', fontSize: '0.85rem', display: 'block', marginTop: '0.6rem' }}>
+                        Valmiki Ramayana, Bala Kanda 1.1.2&ndash;4
+                    </span>
+                </blockquote>
+                <p>
+                    He is not asking whether the man is rich, or handsome, or famous. He is asking sixteen questions, the <em>shodasha guna</em>, sixteen marks of a complete human being. Tradition maps them onto the sixteen <em>kalas</em>, the phases of the full moon: Valmiki is quietly drawing his hero as the complete moon, nothing missing.
+                </p>
+
+                <div className="guna-list">
+                    <div className="guna-row"><span className="guna-term">గుణవాన్ · guṇavān</span><span className="guna-meaning">Virtuous, good at his core</span></div>
+                    <div className="guna-row"><span className="guna-term">వీర్యవాన్ · vīryavān</span><span className="guna-meaning">Valorous, capable of great power</span></div>
+                    <div className="guna-row"><span className="guna-term">ధర్మజ్ఞః · dharmajña</span><span className="guna-meaning">Knows dharma, what is right</span></div>
+                    <div className="guna-row"><span className="guna-term">కృతజ్ఞః · kṛtajña</span><span className="guna-meaning">Grateful, remembers every kindness</span></div>
+                    <div className="guna-row"><span className="guna-term">సత్యవాక్యః · satyavākya</span><span className="guna-meaning">True to his word, always</span></div>
+                    <div className="guna-row"><span className="guna-term">దృఢవ్రతః · dṛḍhavrata</span><span className="guna-meaning">Steadfast, firm in his vows</span></div>
+                    <div className="guna-row"><span className="guna-term">చారిత్రవాన్ · cāritravān</span><span className="guna-meaning">Of spotless conduct</span></div>
+                    <div className="guna-row"><span className="guna-term">సర్వభూతహితః · sarvabhūteṣu hita</span><span className="guna-meaning">Wishes every living being well</span></div>
+                    <div className="guna-row"><span className="guna-term">విద్వాన్ · vidvān</span><span className="guna-meaning">Learned, truly wise</span></div>
+                    <div className="guna-row"><span className="guna-term">సమర్థః · samartha</span><span className="guna-meaning">Capable, able to act</span></div>
+                    <div className="guna-row"><span className="guna-term">ప్రియదర్శనః · priyadarśana</span><span className="guna-meaning">Beloved by all who meet him</span></div>
+                    <div className="guna-row"><span className="guna-term">ఆత్మవాన్ · ātmavān</span><span className="guna-meaning">Master of himself</span></div>
+                    <div className="guna-row"><span className="guna-term">జితక్రోధః · jitakrodha</span><span className="guna-meaning">Conqueror of his own anger</span></div>
+                    <div className="guna-row"><span className="guna-term">ద్యుతిమాన్ · dyutimān</span><span className="guna-meaning">Radiant, carries an inner light</span></div>
+                    <div className="guna-row"><span className="guna-term">అనసూయకః · anasūyaka</span><span className="guna-meaning">Free of envy</span></div>
+                    <div className="guna-row"><span className="guna-term">జాతరోషే · roused in a just cause</span><span className="guna-meaning">So fierce in battle for what is right that even the gods fear him</span></div>
+                </div>
+
+                <p>
+                    The sage was Maharshi Valmiki. And here is the thing that stops me every time. He did not begin his epic by saying <em>tell me about Rama.</em> He began by asking whether such a man could exist at all. He defined the highest possible standard of a human being first, in full, and only then asked if anyone had ever met it.
+                </p>
+                <p>
+                    The answer came from Narada, and it is almost unbearably plain:
+                </p>
+                <blockquote>
+                    ఇక్ష్వాకువంశప్రభవో రామో నామ జనైః శ్రుతః ॥
+                    <br />
+                    <span style={{ fontStyle: 'normal', color: 'var(--muted)', fontSize: '0.9rem', display: 'block', marginTop: '0.6rem' }}>
+                        ikṣvāku vaṃśa prabhavo rāmo nāma janaiḥ śrutaḥ
+                    </span>
+                    <span style={{ fontStyle: 'normal', color: 'var(--muted-strong)', fontSize: '1rem', display: 'block', marginTop: '0.6rem' }}>
+                        &ldquo;There is one. Born of the Ikshvaku line. People know him as Rama.&rdquo;
+                    </span>
+                    <span style={{ fontStyle: 'normal', color: 'var(--muted)', fontSize: '0.85rem', display: 'block', marginTop: '0.6rem' }}>
+                        Bala Kanda 1.1.8
+                    </span>
+                </blockquote>
+                <p>
+                    Only then, question asked and standard set, does the Ramayana actually begin.
+                </p>
+                <p>
+                    We usually introduce Rama as an avatar of Vishnu, as the prince of Ayodhya, as the one who brought down Ravana. Valmiki introduces him as none of those. He introduces him as the answer to a question, the living form of the highest thing a human being could reach toward.
+                </p>
+                <p>
+                    That may be the whole reason the Ramayana has lasted. It was never only the story of a demon king&apos;s defeat. It was held up as a mirror, and the question it opens with is still the one we are quietly asking today, in worse words. It just had the nerve to ask it directly, and then to define the answer before telling us the man&apos;s name.
+                </p>
+            </>
+        )
+    },
+    {
         slug: "low-heat",
         title: "Low Heat",
         date: "Jul 2026",
-        tag: "Cinema",
+        tags: ["Cinema"],
         draft: true,
         excerpt: "Breaking Bad and Better Call Saul never ask you to watch a man become a monster. They make you become one with him, slowly enough that you never feel it happen. On the characters, and the trick they play on you.",
         content: (
@@ -130,7 +247,7 @@ const allPosts: BlogPost[] = [
         slug: "oh-sundari",
         title: "ఓ సుందరి..",
         date: "Jul 2026",
-        tag: "తెలుగు",
+        tags: ["తెలుగు", "Cinema", "Literature"],
         excerpt: "రావు బహదూర్ చిత్రంలోని \"ఓ సుందరి\" పాట, ఎన్నో సంవత్సరాల తర్వాత తెలుగు సినీ సాహిత్యంలోకి తిరిగి వచ్చిన అరుదైన పదసౌందర్యం గురించి.",
         content: (
             <div className="te">
@@ -423,7 +540,7 @@ const allPosts: BlogPost[] = [
         slug: "for-mahesh-babu",
         title: "Why Mahesh Babu Is the Most Versatile Actor in the Country",
         date: "Jun 2026",
-        tag: "Cinema",
+        tags: ["Cinema"],
         excerpt: "A fan letter, twenty-three years after a kabaddi line in Okkadu landed on an eight-year-old in a summer matinee. On why he is the most versatile actor in the country, and why Varanasi is the frame he has been waiting for.",
         content: (
             <>
@@ -621,7 +738,7 @@ const allPosts: BlogPost[] = [
         slug: "how-small-we-are",
         title: "You Are Worried About Your Tuesday Meeting",
         date: "Mar 2026",
-        tag: "Cosmos",
+        tags: ["Cosmos"],
         excerpt: "Right now, somewhere 400 kilometres above your head, astronauts are watching sixteen sunrises a day. They sleep strapped to a wall. Meanwhile, you're stressed about a Tuesday meeting. Let's pull the camera back. Way, way back.",
         content: (
             <>
@@ -745,7 +862,7 @@ const allPosts: BlogPost[] = [
     },
     {
         slug: "andromeda",
-        tag: "Cosmos",
+        tags: ["Cosmos"],
         title: "That Smudge in the Sky is a Trillion Stars. And It's Heading Here.",
         date: "Feb 2026",
         excerpt: "There's a faint fuzzy patch in the night sky that's easy to miss. It looks like a wispy cloud. It isn't. It's a galaxy two and a half million light-years away, and it's falling toward us.",

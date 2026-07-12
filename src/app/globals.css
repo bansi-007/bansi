@@ -306,6 +306,40 @@ hr {
   }
 }
 
+/* Two-column term + meaning list (e.g. the sixteen gunas) */
+.guna-list {
+  margin: 1.75rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.guna-row {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 1.5rem;
+  padding: 0.75rem 0.25rem;
+  border-bottom: 1px dashed var(--border);
+  align-items: baseline;
+}
+
+.guna-term {
+  font-weight: 600;
+  color: var(--foreground-strong);
+  letter-spacing: 0.01em;
+}
+
+.guna-meaning {
+  color: var(--muted-strong);
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .guna-row {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+    padding: 0.7rem 0.25rem;
+  }
+}
+
 /* Telugu-specific helpers — wrap Telugu paragraphs / headings for correct font + rhythm */
 .te,
 .te p,

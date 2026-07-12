@@ -17,7 +17,9 @@ export default function Home() {
                     <Link href={`/blog/${post.slug}`} key={post.slug} className={styles.card}>
                         <div className={styles.cardMeta}>
                             <span className={styles.date}>{post.date}</span>
-                            {post.tag && <span className={styles.tag}>{post.tag}</span>}
+                            {post.tags?.map((t) => (
+                                <span key={t} className={styles.tag}>{t}</span>
+                            ))}
                         </div>
                         <h2 className={styles.cardTitle}>{post.title}</h2>
                         <p className={styles.excerpt}>{post.excerpt}</p>

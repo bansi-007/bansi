@@ -54,10 +54,10 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                         {post ? post.title : slug}
                     </h1>
                     {post && (
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', color: 'var(--muted)', fontSize: '0.85rem', letterSpacing: '0.02em' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.7rem', color: 'var(--muted)', fontSize: '0.85rem', letterSpacing: '0.02em' }}>
                             <span style={{ letterSpacing: '0.1em', textTransform: 'uppercase' }}>{post.date}</span>
-                            {post.tag && (
-                                <span style={{
+                            {post.tags?.map((t) => (
+                                <span key={t} style={{
                                     fontSize: '0.68rem',
                                     letterSpacing: '0.1em',
                                     textTransform: 'uppercase',
@@ -67,9 +67,9 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                                     borderRadius: '999px',
                                     background: 'rgba(125, 211, 252, 0.07)',
                                 }}>
-                                    {post.tag}
+                                    {t}
                                 </span>
-                            )}
+                            ))}
                         </div>
                     )}
                 </header>
