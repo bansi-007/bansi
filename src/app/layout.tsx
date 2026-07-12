@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Fraunces } from "next/font/google";
+import { Inter, Fraunces, Noto_Sans_Telugu, Noto_Serif_Telugu } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Starfield from "@/components/Starfield";
@@ -18,6 +18,20 @@ const fraunces = Fraunces({
     display: "swap",
 });
 
+const notoTelugu = Noto_Sans_Telugu({
+    subsets: ["telugu"],
+    weight: ["400", "500", "600", "700"],
+    variable: "--font-telugu",
+    display: "swap",
+});
+
+const notoTeluguSerif = Noto_Serif_Telugu({
+    subsets: ["telugu"],
+    weight: ["400", "500", "600", "700"],
+    variable: "--font-telugu-display",
+    display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Long Exposure, Bansi Maddali",
   description: "Long Exposure, a personal blog by Bansi Maddali. Notes on whatever holds my attention long enough to write down.",
@@ -29,7 +43,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
+    <html lang="en" className={`${inter.variable} ${fraunces.variable} ${notoTelugu.variable} ${notoTeluguSerif.variable}`}>
       <body>
         <Starfield />
         <div style={{ position: 'relative', zIndex: 1 }}>

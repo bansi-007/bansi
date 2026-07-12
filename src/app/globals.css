@@ -20,8 +20,10 @@
   --glow-nebula: 0 0 26px rgba(167, 139, 250, 0.28);
   --glow-warm: 0 0 22px rgba(251, 191, 36, 0.28);
 
-  --font-sans-stack: var(--font-sans), 'Inter', system-ui, -apple-system, sans-serif;
-  --font-display-stack: var(--font-display), 'Fraunces', 'Cormorant Garamond', Georgia, serif;
+  --font-sans-stack: var(--font-sans), var(--font-telugu), 'Inter', 'Noto Sans Telugu', system-ui, -apple-system, sans-serif;
+  --font-display-stack: var(--font-display), var(--font-telugu-display), 'Fraunces', 'Noto Serif Telugu', 'Cormorant Garamond', Georgia, serif;
+  --font-telugu-stack: var(--font-telugu), 'Noto Sans Telugu', system-ui, sans-serif;
+  --font-telugu-display-stack: var(--font-telugu-display), 'Noto Serif Telugu', Georgia, serif;
 }
 
 * {
@@ -258,6 +260,29 @@ hr {
 .section-divider__star {
   font-size: 0.9rem;
   text-shadow: var(--glow-soft);
+}
+
+/* Telugu-specific helpers — wrap Telugu paragraphs / headings for correct font + rhythm */
+.te,
+.te p,
+.te h1,
+.te h2,
+.te h3 {
+  font-family: var(--font-telugu-stack);
+  line-height: 1.85;
+  letter-spacing: 0;
+}
+
+.te h1,
+.te h2,
+.te h3 {
+  font-family: var(--font-telugu-display-stack);
+  font-weight: 600;
+}
+
+.te blockquote {
+  font-family: var(--font-telugu-display-stack);
+  font-style: normal;
 }
 
 /* Editorial reading class — applied to blog post article bodies */
