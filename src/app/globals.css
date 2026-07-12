@@ -262,6 +262,51 @@ hr {
   text-shadow: var(--glow-soft);
 }
 
+/* Two-column verse + meaning pair (song commentary, lyric on left, gloss on right) */
+.verse-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  margin: 1.75rem 0;
+  align-items: start;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px dashed var(--border);
+  padding-bottom: 1.75rem;
+}
+
+.verse-pair:last-of-type {
+  border-bottom: none;
+}
+
+.verse-pair > blockquote {
+  margin: 0;
+  padding: 0.9rem 1.25rem 0.9rem 1.6rem;
+  font-size: 1.05em;
+  background: linear-gradient(90deg, rgba(125, 211, 252, 0.07), rgba(125, 211, 252, 0));
+  border-radius: 0 8px 8px 0;
+}
+
+.verse-pair > blockquote::before {
+  font-size: 2.4rem;
+  top: -0.35rem;
+  left: 0.35rem;
+}
+
+.verse-pair > p {
+  margin: 0;
+  padding-top: 0.35rem;
+  color: var(--muted-strong);
+  line-height: 1.8;
+}
+
+@media (max-width: 780px) {
+  .verse-pair {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
 /* Telugu-specific helpers — wrap Telugu paragraphs / headings for correct font + rhythm */
 .te,
 .te p,
