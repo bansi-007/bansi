@@ -49,10 +49,6 @@ const allPosts: BlogPost[] = [
                 <p>
                     The last group is the hardest, because it is fought in private. <strong>Discipline</strong> over yourself, over laziness, temptation, anger, ego and disappointment, is the one battle that never ends. History remembers those who won kingdoms, but the wiser man is the one who first won over himself. Along with it comes <strong>humility</strong>, which is not weakness but confidence. A man who is at peace with himself is never disturbed by another person&apos;s success. And here Indian tradition sees anger differently from the modern idea that anger is always bad. Anger from ego or greed destroys. But anger in defence of the innocent, of truth, of dharma, is a different thing altogether. A man who feels no anger before injustice is not gentle, he is incomplete. He does not kill his strength. He controls it.
                 </p>
-                <p>
-                    Step back and you see the real point: every quality is balanced by another. Strength is softened by compassion, wisdom is guided by truth, capability is held by responsibility, discipline controls power, humility controls success. Character is what holds them all together.
-                </p>
-
                 <h2>The ancient benchmark</h2>
                 <p>
                     This may sound like only a philosophical exercise. It is not. More than two thousand years ago, a sage asked this exact question, and he asked it plainly, because he genuinely wanted to know whether such a complete human being had ever really lived.
@@ -99,10 +95,7 @@ const allPosts: BlogPost[] = [
                 </div>
 
                 <p>
-                    The sage was Maharshi Valmiki. And this is the part that always stops me. He did not begin his epic by saying <em>tell me about Rama.</em> He began by asking whether such a man could even exist. He first defined the highest standard of a human being, fully, and only then asked if anyone had ever reached it.
-                </p>
-                <p>
-                    The answer came from Narada, and it is very simple:
+                    The sage was Valmiki, and notice the order he chose. He did not open his epic by saying <em>tell me about Rama.</em> He built the full description of a complete man first, and only then asked whether anyone had ever actually fit it. One name came back, and the answer is very simple:
                 </p>
                 <blockquote>
                     ఇక్ష్వాకువంశప్రభవో రామో నామ జనైః శ్రుతః ॥
@@ -117,22 +110,21 @@ const allPosts: BlogPost[] = [
                         Bala Kanda 1.1.8
                     </span>
                 </blockquote>
+                <h2>What this asks of us</h2>
                 <p>
-                    Only then, after the question was asked and the standard was set, does the Ramayana actually begin.
+                    I did not write this to retell the Ramayana. Everyone already knows the story. I wrote it because the question hiding under it, the one Valmiki asked before he named anyone, is a question we have quietly stopped asking about ourselves.
                 </p>
                 <p>
-                    We usually introduce Rama as an avatar of Vishnu, as the prince of Ayodhya, as the one who defeated Ravana. Valmiki introduces him as none of these. He introduces him as the answer to a question, the living form of the highest ideal a human being can aim for.
+                    We have swapped it for smaller ones. Be successful. Be likeable. Be productive. Be a good partner. Each of these is real, and each is only one direction, and the modern habit is to pick one and push it as far as it will go. But a single quality taken far enough on its own slowly turns into its own fault. The man who chases only success ends up capable and empty. The man who only wants to be liked ends up agreeable and spineless. Strength with nothing to balance it becomes something people quietly fear. This is what the sixteen understood and we forget: a man is not one quality turned up loud. He is many, kept in proportion.
                 </p>
                 <p>
-                    Maybe that is why the Ramayana has lasted so long. It was never only the story of a demon king&apos;s defeat. It was held up as a mirror, and the question it begins with is the same one we are still asking today, only in poorer words. It simply had the courage to ask it directly, and to define the answer before telling us the man&apos;s name.
-                </p>
-
-                <h2>Why write this down</h2>
-                <p>
-                    I am not writing this because I have these sixteen qualities. I am writing it because I want to remember them. Rama is held up as perfect, and none of us will be. That is not the point. The point is the direction. A standard is not there to shame you for falling short of it, it is there so you know which way to walk.
+                    So what do you do with a standard this high, knowing you will never fully meet it? You read it not as a scorecard but as a mirror. When I go through the sixteen, I can tell you at once which ones I am weak at, and most people can do the same for themselves. That is the useful part, not the qualities you already have, but the ones the list quietly exposes. The capable man who forgets to be grateful. The honest man with no control over his temper. The kind man who cannot find anger even when something truly deserves it. The list does not ask you to become Rama by morning. It asks you to see which phase of the moon you are missing, and to spend the year filling it in.
                 </p>
                 <p>
-                    So take the sixteen as a checklist for a lifetime, not a test for today. Be a little more truthful this year than last. Control the anger that comes from ego, keep the anger that stands up for what is right. Stay grateful. Stay capable. Win the quiet battle over yourself before worrying about any other. We may never reach the full moon. But a man who spends his life moving toward it, one quality at a time, becomes someone worth being, and that is the most any of us can do.
+                    And that is enough. A man who becomes a little more truthful each year, who learns to spend his anger only on the things that deserve it, who stays capable without letting it harden into pride, will never be perfect. But he is facing the right way, and over a lifetime the direction matters more than the distance. We will never be the full moon. We can be a little less dark each month.
+                </p>
+                <p>
+                    That is why I wrote this down. Not to explain Rama to anyone, but to keep the real question in front of myself. Not <em>am I doing well</em>, but <em>which way am I walking</em>.
                 </p>
             </>
         )
