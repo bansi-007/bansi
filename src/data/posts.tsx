@@ -145,7 +145,7 @@ export const blogPosts: BlogPost[] = [
         slug: "for-mahesh-babu",
         title: "Why Mahesh Babu Is the Most Versatile Actor in the Country",
         date: "Jun 2026",
-        excerpt: "A fan letter, twenty-three years after a kabaddi line in Okkadu landed on an eight-year-old in a Rajahmundry theatre. On why he is the most versatile actor in the country, and why Varanasi is the frame he has been waiting for.",
+        excerpt: "A fan letter, twenty-three years after a kabaddi line in Okkadu landed on an eight-year-old in a summer matinee. On why he is the most versatile actor in the country, and why Varanasi is the frame he has been waiting for.",
         content: (
             <>
                 <figure style={{ margin: '0 0 2.5rem', textAlign: 'center' }}>
@@ -163,16 +163,16 @@ export const blogPosts: BlogPost[] = [
                     I was eight years old in April 2003 when I walked into Swamy Cinema Hall in Rajahmundry with my brother and my cousin brother. The film had released in January. We were watching it in April, in summer holidays, and the show was still housefull. The film was Okkadu.
                 </p>
                 <p>
-                    I had no idea what versatile meant. I had no idea what restraint in acting was. I just knew Ajay had reached Swapna ahead of the villains, was getting her out of their way, and somewhere inside saving her he said this to her:
+                    I didn&apos;t know what versatile meant. I didn&apos;t know what restraint in acting was. I just knew a full-scale heroic action block was on the screen, Ajay was cutting through Obul Reddy&apos;s goons to save Swapna, and somewhere in the middle of that fight, protecting her behind him, he turned and said this:
                 </p>
                 <blockquote style={{ borderLeft: '2px solid var(--primary)', paddingLeft: '1.25rem', margin: '1.5rem 0', fontStyle: 'italic', color: 'var(--foreground)' }}>
                     Nenu mee ooru kabaddi aadataniki vachanu. Kaani aadalsindi ground lo kaadu, ikkada ani ardham ayindi.
                 </blockquote>
                 <p>
-                    He did not smile. That is the thing nobody who hasn&apos;t seen it understands. The line is action, emotion, aggression and heroism, in three sentences, and he delivers it without a trace of softening. And then the very next shot is the villains searching for him, and we hear his breath, only his breath, and his eyes carry the entire scene. No music. Nothing else.
+                    He didn&apos;t smile. That is what people who haven&apos;t watched the scene always get wrong, they assume there is a smile. There isn&apos;t. The line is delivered flat, hard, all resolve, everything a lesser actor would have softened with a held-back grin. And then the cut. The goons still searching for him. All you can hear is his breath. All he does is look. No score. Nothing.
                 </p>
                 <p>
-                    Twenty-three years later, that cut, from the line to the breath, is still the cleanest piece of acting I have ever seen in Indian cinema. That is the moment Mahesh Babu became my hero, and it has not stopped.
+                    Twenty-three years later that cut, from the line to the breath, is still the cleanest piece of acting I have seen in a Telugu film. That was the day.
                 </p>
 
                 <figure style={{ margin: '2rem 0', textAlign: 'center' }}>
@@ -186,50 +186,47 @@ export const blogPosts: BlogPost[] = [
                     </figcaption>
                 </figure>
                 <p>
-                    This is a fan letter. I am not going to compare him to anybody. I do not need to. I just want to write down, properly, why I think he is the most versatile actor in this country, and why I am quietly losing my mind about what Varanasi is about to do.
+                    This isn&apos;t a review. It&apos;s a fan&apos;s log of what I have watched him do since. I&apos;m not comparing him to anyone. I just want to write down why I think he is the most versatile actor working in this country, and why I am quietly losing my mind about Varanasi.
                 </p>
 
-                <h2>A career walked, not announced</h2>
+                <h2>What he has actually done</h2>
                 <p>
-                    Mahesh has never had a launch year. He had a launch line. From Okkadu onward, he just kept showing up, role by role, never once trying to convince you he was acting. Most stars do their best to look like they are working hard. Mahesh does the opposite. He hides the work. He makes the most difficult things look like the easiest.
+                    Take 2003 alone. The same year Okkadu released, he played Seetaram in <strong>Nijam</strong> for Teja, a young man whose father, a fire officer, has been framed and imprisoned by a local goon named Devudu. The whole film is Seetaram working his way through the town to get his father back. It won him his first Best Actor Nandi. Two lead roles, same year, no shared DNA between them. That isn&apos;t someone figuring himself out. That&apos;s someone who already knew what he could do.
                 </p>
                 <p>
-                    People forget that the same year as Okkadu, 2003, he did <strong>Nijam</strong>. A revenge drama directed by Teja, where Mahesh plays a man whose life is destroyed by a corrupt system and who walks back through it on his own terms. It is the dark twin of Okkadu. It won him his first Nandi Award for Best Actor. Two films, same year, two human beings who could not be more different on screen. That was the announcement. Most actors do not have that range twenty years into a career, let alone in their fourth year.
+                    Then <strong>Naani (2004)</strong>, S. J. Suryah. The premise is a dare. An eight-year-old kid, mistreated at home, is taken in by a scientist who converts him into a 28-year-old adult. But the change isn&apos;t clean: he is a child by day and a grown man by night. Mahesh plays both, and refuses to sell the child version as cute. It didn&apos;t land commercially in Telugu. The performance is still the cleanest example of what he is willing to risk for a part.
                 </p>
                 <p>
-                    The next year, <strong>Nani (2004)</strong>, S.J. Surya&apos;s film. The premise alone is a dare. A boy who dies and is reborn as a grown man, with a child&apos;s mind and a child&apos;s heart still inside him. Mahesh played it without ever winking at the audience. He let the character be a child, fully, without making it cute. The film didn&apos;t land commercially in Telugu, but the performance is still the cleanest example of what he is willing to risk for a part.
+                    <strong>Athadu (2005)</strong>, first collaboration with Trivikram. Nanda Gopal, Nandu, a hired assassin, gets framed, goes on the run, and ends up in the village of a family who mistakes him for Pardhu, the son they lost years earlier. The whole film lives inside his double life. In the second-half climax there is a scene with the grandfather where, for half a second, his face breaks and he pulls it back. That half-second is the second Nandi.
                 </p>
                 <p>
-                    <strong>Athadu (2005)</strong>, his first film with Trivikram. A hired assassin on the run, sheltering with a village family that mistakes him for their long-lost son. Most actors would play that gap with anguish, internal monologue, ten kinds of expressive doubt. Mahesh plays it with patience. With waiting. With one small step at a time of letting the village in. There is a moment in the second-half climax with the grandfather where his face breaks for half a second and resets. The whole film is in that half second. Second Nandi Best Actor.
+                    <strong>Pokiri (2006)</strong> is the loudest part he has ever played, and even here he underplays. Pandu, a small-time goon in the Ali Bhai gang, turns out to be Krishna Manohar IPS, undercover. Everyone around him screams. He keeps the volume down. The industry spent the next decade copying the template. Nobody made it work without him because the stillness was doing the work.
                 </p>
                 <p>
-                    <strong>Pokiri (2006)</strong>, the loudest, swaggeriest part he has ever played. A goon who is actually a cop, double life inside a triple life. Most actors would smear it with attitude. Mahesh underplays even the punch lines. His Pandu stillness is the reason the role became a template the entire industry copied for the next ten years. Without him, that script is just words. With him, it is a movement.
+                    <strong>Khaleja (2010)</strong>, Trivikram again. Alluri Sitarama Raju, a Hyderabad cab driver, ends up in Rajasthan, where a tantric priest and his pupil identify him as the saviour of the village of Pali, dying from a mysterious plague. The film is mythological, comic, absurd, action-loaded, sometimes at the same time. Mahesh refuses to over-explain any of it, and refuses to under-play any of it. Released to confused reviews. Cult favourite now.
                 </p>
                 <p>
-                    <strong>Khaleja (2010)</strong>, the one the box office did not know what to do with at release, and the one that has aged into a cult favourite. He is a taxi driver who may or may not be a divine emissary, sent to save a village from a slow industrial poisoning. It is mythological, absurd, philosophical, action-heavy, comic, sometimes all in the same scene. He holds the whole thing together by refusing to take it more seriously than it deserves, but never less. Critics did not get it then. They get it now.
+                    <strong>Dookudu (2011)</strong>, Srinu Vaitla. Comedy. He is DCP Ajay Kumar, IPS, whose father is a politician in coma. The film is packed with Brahmi, MS Narayana, Prakash Raj, Sonu Sood. Mahesh isn&apos;t the funniest thing in the frame. He&apos;s the reason the funny things land. Timing engine. Setup man. Nobody in Telugu cinema talks about him doing that job, but he does it. Filmfare Best Actor. Third Best Actor Nandi.
                 </p>
                 <p>
-                    <strong>Dookudu (2011)</strong>, comedy. Pure timing. People forget how funny Mahesh can be because he does not telegraph it. He lets the comedians be funny around him while he becomes the timing engine. Most lead actors steal the laugh. Mahesh sets it up and walks away. Filmfare Best Actor, third Nandi Best Actor.
+                    <strong>1: Nenokkadine (2014)</strong>. Sukumar wrote Gautham, a rock musician with schizophrenia, missing a quarter of his brain&apos;s grey matter, chasing three men he saw murder his parents as a child, except nobody else can see them. The role needs the actor to be uncertain about his own reality, and the audience to be uncertain about him. Mahesh took the part. He gave it a coolness on the surface and a visible crack underneath. Audiences didn&apos;t know what to do with it in 2014. It is the best acting he has done, and it&apos;s not close.
                 </p>
                 <p>
-                    <strong>1: Nenokkadine (2014)</strong>. This is the one. A rock musician who watched his parents murdered as a child and now sees their killers everywhere, except nobody else does. Sukumar wrote a schizoaffective protagonist as the <em>hero</em> of a mainstream Telugu action film, and Mahesh said yes. He gave a performance with so much delicate pain inside its surface coolness that the film initially confused audiences. It deserved better at release. It is, today, the most actor&apos;s-actor performance any commercial Telugu star has put on screen this century. He bet his stardom on a part where the character is unreliable to himself. Almost nobody else would have taken it.
+                    <strong>Srimanthudu (2015)</strong>, Koratala Siva. Harsha Vardhan, silver-spoon billionaire&apos;s son, adopts the ancestral village of Devarakota. The premise is public-service material. He plays the character&apos;s boredom so honestly that the pivot to farming and reform feels like an actual man remembering something. Real NRIs adopted villages after the film released. Fifth Filmfare Best Actor.
                 </p>
                 <p>
-                    <strong>Srimanthudu (2015)</strong>, silver-spoon billionaire&apos;s son adopts his ancestral village. Sounds like a public service announcement. Becomes something else entirely, because Mahesh plays the rich boy&apos;s emptiness with such genuine restlessness that you believe the conversion. The film made record collections. It also became a cultural moment, real NRIs started adopting villages after watching it. Filmfare Best Actor.
+                    <strong>Bharat Ane Nenu (2018)</strong>, Koratala again. Bharat Ram, an Oxford student on his fifth degree, returns to India after his father, the Chief Minister of AP, dies, and finds himself sworn in as CM. The script wants big speeches. Mahesh doesn&apos;t raise his voice once. In the film&apos;s most powerful scene he talks to a room of MLAs the way you talk to family at a funeral, and none of them can look at him.
                 </p>
                 <p>
-                    <strong>Bharat Ane Nenu (2018)</strong>, Oxford-educated political heir becomes Chief Minister after his father&apos;s death. The script wants speeches. Mahesh delivers them quietly. He talks to legislators like they are family members at a funeral. The thing politicians do in real life is shout. Mahesh&apos;s CM listens.
+                    <strong>Maharshi (2019)</strong>, Vamshi Paidipally. K. Rishi Kumar, US-based CEO of a company called Origins. Older than Harsha, more tired, less sure. Walks away from all of it to save the farming community his childhood friend has been holding together alone. He plays the moment where the decision to leave finally lands, sitting alone in his glass office, and the film could have ended in that shot.
                 </p>
                 <p>
-                    <strong>Maharshi (2019)</strong>, a tech billionaire walks away from everything to save his childhood friend&apos;s farming community. Same arc family as Srimanthudu, but Mahesh does not repeat himself. The CEO in Maharshi carries the burden differently, older, lonelier, less certain. There is a moment of him sitting alone in his glass office after he has decided to leave, and he does not say a word. The film could have ended there.
-                </p>
-                <p>
-                    That is ten roles, sprawling across action, dark drama, fantasy, comedy, psychological thriller, social drama, political drama. Across them, five Filmfare Best Actor wins, nine Nandi Awards including three Best Actors, four SIIMA Best Actors. He has done twenty-eight films. Varanasi will be his twenty-ninth, the first with Rajamouli. Every single one of the twenty-eight has something nobody else is trying.
+                    That is ten. He has done twenty-eight. Varanasi will be his twenty-ninth and his first with Rajamouli. Five Filmfare Best Actor wins. Nine Nandis, three of them Best Actor. Four SIIMA Best Actor. There is not a decade in there without a serious performance.
                 </p>
 
-                <h2>The mercury</h2>
+                <h2>Trivikram was right</h2>
                 <p>
-                    There is a line about Mahesh that has been said by Trivikram Srinivas, who has directed him three times and probably understands him better than any other filmmaker working. The line is:
+                    Trivikram Srinivas has directed him three times, Athadu, Khaleja, and Guntur Kaaram, and has watched him build each of those characters up close. He said this about him once:
                 </p>
                 <blockquote style={{ borderLeft: '2px solid var(--primary)', paddingLeft: '1.25rem', margin: '1.5rem 0', fontStyle: 'italic' }}>
                     Cinema fail avochu, Mahesh fail avadu.
@@ -237,33 +234,18 @@ export const blogPosts: BlogPost[] = [
                     <span style={{ fontStyle: 'normal', color: 'var(--muted)', fontSize: '0.95rem' }}>Cinema may fail. Mahesh will not.</span>
                 </blockquote>
                 <p>
-                    Hold that for a second. The director is saying: the film around him can collapse, the script can collapse, the marketing can collapse. He will not. Look at Khaleja, look at 1: Nenokkadine, two films that under-performed at release. The performance in each is untouchable. Trivikram is naming a specific thing about him as an actor, which is that the work he puts on screen is independent of whether the film around it succeeds or not.
+                    Both Khaleja and 1: Nenokkadine were commercial disappointments on release. The performance in each is the reason we still talk about the film today. That is what Trivikram was pointing at. The actor is not tied to whether the film around him works. He shows up either way.
                 </p>
                 <p>
-                    Here is how I have come to understand him, after twenty-three years.
-                </p>
-                <p>
-                    He is mercury.
-                </p>
-                <p>
-                    Mercury is the heaviest of the common liquid metals. When you hold a vial of it, your hand drops. You can feel the weight. But mercury flows like nothing else. It moves around the contour of anything you put in front of it. It never spills outward. It pulls inward. It collects.
-                </p>
-                <p>
-                    That is exactly what Mahesh does on screen. He is heavier than every other actor in his frame, you can feel his presence even in a shot where he is doing nothing, and yet he flows around the part. He pours himself into the contour of whatever the script asks for, never spilling, never wasting movement. Watch his hands sometimes. They almost never move. He acts with his shoulders, his half-second pauses, his eye line. When a scene needs heat, he does not generate it. He stops moving, and the heat collects around him.
-                </p>
-                <p>
-                    That is a fundamentally different acting philosophy. It has been quietly happening for two and a half decades while a lot of the country wasn&apos;t paying attention.
+                    If you have watched enough of him, you know what that means.
                 </p>
 
                 <h2>He stayed</h2>
                 <p>
-                    While almost every other pan-India hero was leaving for Bombay, learning Hindi, chasing the bigger market, Mahesh stayed. He has not done a single Hindi film in his entire career. He let his work be in Telugu, and trusted that if it was good enough, the country would come to it.
+                    Every other pan-India lead was moving to Bombay, learning Hindi, chasing the bigger market. Mahesh didn&apos;t. He has never done a Hindi film in his career. He stayed with Telugu, and trusted the work would travel.
                 </p>
                 <p>
-                    The country came. Baahubali opened the door. RRR walked it through. Pushpa pushed it open in the masala lanes. And now the country, and parts of the world, are watching Telugu films the way the world watches Korean films after Parasite. Mahesh did not need to migrate. He waited, and the centre of gravity in Indian cinema came to him.
-                </p>
-                <p>
-                    That is a kind of patience that I do not see celebrated enough. Staying takes a different kind of courage than going.
+                    It did. Baahubali cracked the door. RRR walked through it. Pushpa broke it wide open in the masala lanes. The centre of gravity of Indian cinema moved to Telugu without Mahesh having to leave. Staying is a different kind of courage than going, and I don&apos;t think we talk about it enough.
                 </p>
 
                 <h2>Varanasi</h2>
@@ -277,13 +259,13 @@ export const blogPosts: BlogPost[] = [
                 </figure>
 
                 <p>
-                    And now there is Varanasi.
+                    And then there is Varanasi.
                 </p>
                 <p>
-                    On November 15, 2025, at Ramoji Film City, around fifty thousand fans gathered for what was billed as The Globetrotter Event. The crowd was chanting <em>Jai Babu, Jai Jai Babu</em>, for hours. The event was live-streamed on JioHotstar. At the end of it, SS Rajamouli stood on stage and revealed the title of his next film, the one he had been preparing for years, the one nobody knew the name of until that night. The title was Varanasi.
+                    November 15, 2025. Ramoji Film City. Fifty thousand fans. Live on JioHotstar. The crowd chanting <em>Jai Babu, Jai Jai Babu</em> for hours. At the end of it Rajamouli walked on stage and revealed the film&apos;s title, the one he had been preparing for years. Varanasi.
                 </p>
                 <p>
-                    Then he played the first concept reel.
+                    Then he played the concept reel.
                 </p>
 
                 <figure style={{ margin: '2rem 0', textAlign: 'center' }}>
@@ -298,7 +280,7 @@ export const blogPosts: BlogPost[] = [
                 </figure>
 
                 <p>
-                    Mahesh appeared on screen as <strong>Rudhra</strong>, riding a charging bull, a trishul in his hand. Shiva-coded, fierce, planted in a frame that nobody who was not Rajamouli could shoot. Priyanka Chopra Jonas was revealed as <strong>Mandakini</strong>. Prithviraj Sukumaran was revealed as the antagonist, <strong>Kumbha</strong>. The film, Rajamouli said, spans thousands of years, from ancient times to the modern day, with one sequence inspired by a chapter from the Ramayana. The plot turns on the city of Varanasi facing the impending arrival of an asteroid. A globetrotting adventure, rooted in Indian cultural themes.
+                    Mahesh was on the screen as <strong>Rudhra</strong>, a trishul in his hand, riding a charging bull. Priyanka Chopra Jonas as <strong>Mandakini</strong>. Prithviraj Sukumaran as the antagonist, <strong>Kumbha</strong>. The film, Rajamouli said, spans thousands of years, from ancient Bharat to the modern day, with one sequence inspired by a chapter from the Ramayana. The story turns on the city of Varanasi facing the impending arrival of an asteroid. Globetrotting adventure with Indian roots.
                 </p>
 
                 <figure style={{ margin: '2rem 0', textAlign: 'center' }}>
@@ -313,45 +295,33 @@ export const blogPosts: BlogPost[] = [
                 </figure>
 
                 <p>
-                    And, Rajamouli added, the film is being shot in 1.43:1 IMAX. The first Indian film. The first non-English film in cinema history to be shot in that format.
+                    Then Rajamouli mentioned the format. 1.43:1 IMAX. First Indian film. First non-English film in cinema history in that ratio. The frame Nolan uses for Oppenheimer and Dunkirk. The frame that makes a single human face fill an entire IMAX screen.
                 </p>
                 <p>
-                    I want to sit with all of that for a second.
+                    Sit with that for a second.
                 </p>
                 <p>
-                    The most restrained Telugu actor of our generation is going to be filmed by the country&apos;s most maximalist storyteller. He is going to be filmed as Rudhra. He is going to be filmed across ancient Bharat and the modern world, in a story that crosses millennia. The frame itself is going to be IMAX 1.43:1, the same format Christopher Nolan uses for Oppenheimer and Dunkirk. The aspect ratio that makes the human face fill the whole screen.
+                    Mahesh&apos;s face has been the whole scene since 2003. The kabaddi-court cut. Nandu&apos;s half-second face-break. Pandu&apos;s stillness. Gautam&apos;s uncertain eyes. Rishi&apos;s decision-to-leave sit. Rajamouli, of all directors, is now going to shoot that face at IMAX 1.43:1 as Rudhra, in a sequence coded off the Ramayana, across millennia. The shot that is coming for us has not existed in Indian cinema before.
                 </p>
                 <p>
-                    You see what is about to happen, right?
+                    Not because Mahesh hasn&apos;t been an actor before. He has been an actor for as long as I have been watching him. The next dimension is because he is finally going to be inside a frame large enough for what he has been doing all along.
                 </p>
                 <p>
-                    The close-up Rajamouli is going to get of Mahesh&apos;s eyes, in that aspect ratio, at that scale, as Rudhra, is going to be one of the most important shots in Indian cinema. A man who has spent thirty years pouring himself into the contour of every role, going inside the largest container that Indian cinema has ever built. Mercury into the biggest vessel.
-                </p>
-                <p>
-                    The mass-emotion language is Rajamouli&apos;s. Mahesh has never needed to shout, but Rajamouli has a way of letting an actor&apos;s stillness become a cathedral. Imagine that stillness, on Mahesh, at the scale of Rudhra, on IMAX 1.43:1, in the Ramayana-coded sequence. The shots that are coming for us are shots that haven&apos;t existed in Indian cinema before.
-                </p>
-                <p>
-                    This is the next dimension. Not because Mahesh hasn&apos;t been an actor before, he has been an actor for as long as I have been watching him. The next dimension is because he is finally going to be inside a frame large enough for what he has been able to do all along.
-                </p>
-                <p>
-                    The film releases in summer 2027. I have a small clock counting down inside my head already.
+                    The film is out in summer 2027. There is a clock inside my head already.
                 </p>
 
-                <h2>A wish, from the same theatre</h2>
+                <h2>A wish</h2>
                 <p>
-                    I write this from a long way away from that Swamy Cinema Hall, and from the eight-year-old in it. My brother and my cousin brother are in different cities now. We watched Okkadu together that April because that is what you did with brothers and cousins, in a Rajahmundry summer, in 2003, with the show still housefull three months after release. The film and the line and the cut to the breath are still there in all of us, in some form, twenty-three years later.
+                    That eight-year-old is a long way from that April 2003 show now. My brother and my cousin brother are in different cities. We watched Okkadu together because that&apos;s what you did with brothers and cousins in the summer, with the show still housefull three months after release. The film and the line and the cut to the breath are still in all of us in some form.
                 </p>
                 <p>
-                    If you are reading this and you do not know Mahesh&apos;s work, here is what I would ask. Watch Athadu. Watch 1: Nenokkadine. Watch Khaleja. Watch Nani. Sit with Maharshi. Then watch Okkadu, last, because that is where it starts, and the line in the kabaddi court is where, for a lot of us, it started for ever.
+                    If you have never watched him work, here&apos;s what I&apos;d do. Start with Athadu. Then 1: Nenokkadine, then Khaleja, then Nani. Sit with Maharshi. Watch Okkadu last, because that&apos;s where it starts, and you&apos;ll want to be armed for the kabaddi-court cut.
                 </p>
                 <p>
-                    And then watch Varanasi when it comes. With us. We are the DHFM. We have been waiting twenty-three years for the rest of the world to catch up.
+                    Then watch Varanasi with us. We are DHFM. We have been waiting twenty-three years for the rest of the world to catch up.
                 </p>
                 <p>
-                    Mahesh Babu deserves an Oscar. He deserves a stage at Cannes. He deserves the kind of late-career global recognition that we usually reserve for filmmakers, not actors, because his work has the quiet patience of a filmmaker&apos;s career. I hope Varanasi takes him there. I hope the eight-year-old in the Rajahmundry theatre, sitting between his brother and his cousin brother, watching a man on screen who has not said a word in three frames but is the centre of the room, gets to watch that same man being introduced from a stage in Los Angeles in another five years.
-                </p>
-                <p>
-                    I hope the world turns toward Telugu cinema, and finds him standing there, calm as ever, not over-explaining, not over-defending, having already known.
+                    I don&apos;t need him to win an Oscar to know what he is. I would just like the rest of the world to sit inside one of his scenes for two minutes and figure it out on their own. If Varanasi is the film that gets them there, so be it.
                 </p>
                 <p>
                     He came to play kabaddi. He always knew the game wasn&apos;t on the ground.
@@ -360,10 +330,10 @@ export const blogPosts: BlogPost[] = [
                     Varanasi to the world.
                 </p>
                 <p>
-                    Mahesh, sir, for whatever it is worth, thank you.
+                    Mahesh, sir, thank you.
                 </p>
                 <p style={{ color: 'var(--muted)', fontStyle: 'italic', marginTop: '1rem' }}>
-                    — a fan since 2003
+                    a fan since 2003
                 </p>
             </>
         )
