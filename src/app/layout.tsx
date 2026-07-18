@@ -39,7 +39,7 @@ const notoTeluguSerif = Noto_Serif_Telugu({
 });
 
 export const metadata: Metadata = {
-  title: "bansidath.in",
+  title: "Diary",
   description: "A diary of whatever holds my attention long enough to write down.",
 };
 
