@@ -93,18 +93,6 @@ html::after {
 html::before { left: 0; }
 html::after { right: 0; }
 
-/* The surveyor's chain (గొలుసు) as a divider motif */
-.chain-rule,
-.prose hr {
-  border: none;
-  height: 10px;
-  max-width: 16rem;
-  margin: 2.5rem auto;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='10' viewBox='0 0 28 10'%3E%3Cellipse cx='9' cy='5' rx='8' ry='3.6' fill='none' stroke='%238a6f3f' stroke-width='1.2'/%3E%3Cellipse cx='23' cy='5' rx='8' ry='3.6' fill='none' stroke='%238a6f3f' stroke-width='1.2'/%3E%3C/svg%3E");
-  background-repeat: repeat-x;
-  background-position: center;
-}
-
 /* The nib pen sign-off at the end of a filed entry */
 .nib-signoff {
   text-align: center;

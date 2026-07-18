@@ -42,20 +42,20 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     boxShadow: '0 2px 14px rgba(33, 29, 25, 0.06)',
                 }}
             >
-                {/* the twine stitch that bundles the record: two punched holes, thread through them */}
+                {/* corner stitch: records bundled with twine sewn diagonally through two punched holes */}
                 <svg
                     aria-hidden
-                    width="72"
-                    height="26"
-                    viewBox="0 0 72 26"
-                    style={{ position: 'absolute', top: '-9px', left: '28px', transform: 'rotate(-2deg)' }}
+                    width="64"
+                    height="64"
+                    viewBox="0 0 64 64"
+                    style={{ position: 'absolute', top: '-3px', left: '-3px' }}
                 >
-                    <circle cx="16" cy="14" r="3.5" fill="var(--background)" stroke="var(--border-strong)" strokeWidth="1.4" />
-                    <circle cx="52" cy="14" r="3.5" fill="var(--background)" stroke="var(--border-strong)" strokeWidth="1.4" />
-                    <path d="M 16 14 C 24 2, 44 2, 52 14" fill="none" stroke="#8a3324" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M 16 14 C 26 6, 42 6, 52 14" fill="none" stroke="#a54a38" strokeWidth="1.2" strokeLinecap="round" />
-                    <path d="M 16 14 c -4 4, -7 6, -11 7" fill="none" stroke="#8a3324" strokeWidth="1.6" strokeLinecap="round" />
-                    <path d="M 52 14 c 4 4, 7 6, 11 7" fill="none" stroke="#8a3324" strokeWidth="1.6" strokeLinecap="round" />
+                    <line x1="46" y1="10" x2="10" y2="46" stroke="#8a3324" strokeWidth="2.4" strokeLinecap="round" />
+                    <line x1="50" y1="16" x2="16" y2="50" stroke="#a54a38" strokeWidth="1.5" strokeLinecap="round" />
+                    <circle cx="46" cy="10" r="3.2" fill="#fbf7ec" stroke="var(--border-strong)" strokeWidth="1.4" />
+                    <circle cx="10" cy="46" r="3.2" fill="#fbf7ec" stroke="var(--border-strong)" strokeWidth="1.4" />
+                    <path d="M 46 10 c 3 -3, 6 -4.5, 10 -5.5" fill="none" stroke="#8a3324" strokeWidth="1.6" strokeLinecap="round" />
+                    <path d="M 10 46 c -3 3, -4.5 6, -5.5 10" fill="none" stroke="#8a3324" strokeWidth="1.6" strokeLinecap="round" />
                 </svg>
                 <header style={{ marginBottom: '2.5rem', borderBottom: '1px solid var(--border-strong)', paddingBottom: '1.75rem', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '1.5rem', flexWrap: 'wrap' }}>
                     <div style={{ minWidth: '16rem', flex: '1 1 24rem' }}>
