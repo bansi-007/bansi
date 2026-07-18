@@ -103,15 +103,61 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 )}
                 {post && (
                     <div style={{
-                        marginTop: '3rem',
-                        textAlign: 'right',
-                        fontFamily: 'var(--font-telugu-display-stack)',
-                        color: 'var(--muted-strong)',
-                        lineHeight: 1.7,
+                        marginTop: '3.5rem',
+                        display: 'flex',
+                        justifyContent: 'flex-end',
+                        alignItems: 'center',
+                        gap: '1.75rem',
+                        flexWrap: 'wrap',
                     }}>
-                        <div style={{ fontSize: '0.95rem' }}>ఇట్లు,</div>
-                        <div style={{ fontSize: '1.15rem', color: 'var(--foreground-strong)' }}>కోన రామదత్</div>
-                        <div style={{ fontSize: '0.9rem', color: 'var(--muted)' }}>కరణం, పొన్నూరు మండలం</div>
+                        {/* round office seal, inked and slightly askew */}
+                        <svg
+                            aria-hidden
+                            width="118"
+                            height="118"
+                            viewBox="0 0 100 100"
+                            style={{ transform: 'rotate(-10deg)', opacity: 0.85, flexShrink: 0 }}
+                        >
+                            <defs>
+                                <path id="sealTop" d="M 13,50 A 37,37 0 0 1 87,50" fill="none" />
+                                <path id="sealBottom" d="M 15,57 A 35,35 0 0 0 85,57" fill="none" />
+                            </defs>
+                            <circle cx="50" cy="50" r="47" fill="none" stroke="#9a2f21" strokeWidth="2.2" />
+                            <circle cx="50" cy="50" r="41" fill="none" stroke="#9a2f21" strokeWidth="0.8" />
+                            <text fontSize="8.2" fill="#9a2f21" fontFamily="var(--font-telugu-stack)" letterSpacing="1">
+                                <textPath href="#sealTop" startOffset="50%" textAnchor="middle">కరణం కార్యాలయం</textPath>
+                            </text>
+                            <text fontSize="7.4" fill="#9a2f21" fontFamily="var(--font-telugu-stack)" letterSpacing="1">
+                                <textPath href="#sealBottom" startOffset="50%" textAnchor="middle">పొన్నూరు మండలం</textPath>
+                            </text>
+                            <text x="50" y="47" fontSize="8" fill="#9a2f21" fontFamily="var(--font-telugu-stack)" textAnchor="middle">ధృవీకరించ</text>
+                            <text x="50" y="57" fontSize="8" fill="#9a2f21" fontFamily="var(--font-telugu-stack)" textAnchor="middle">బడినది</text>
+                            <text x="50" y="70" fontSize="7" fill="#9a2f21" textAnchor="middle">{post.date}</text>
+                            <text x="27" y="52" fontSize="7" fill="#9a2f21" textAnchor="middle">✦</text>
+                            <text x="73" y="52" fontSize="7" fill="#9a2f21" textAnchor="middle">✦</text>
+                        </svg>
+
+                        {/* the karanam's signature */}
+                        <div style={{
+                            textAlign: 'right',
+                            fontFamily: 'var(--font-telugu-display-stack)',
+                            color: 'var(--muted-strong)',
+                            lineHeight: 1.65,
+                        }}>
+                            <div style={{ fontSize: '0.95rem' }}>ఇట్లు,</div>
+                            <div style={{
+                                fontSize: '1.6rem',
+                                color: 'var(--foreground-strong)',
+                                fontStyle: 'italic',
+                                transform: 'skewX(-6deg)',
+                                letterSpacing: '0.03em',
+                            }}>
+                                కోన రామదత్
+                            </div>
+                            <div style={{ fontSize: '0.9rem', color: 'var(--muted)', borderTop: '1px solid var(--border-strong)', paddingTop: '0.35rem', marginTop: '0.3rem' }}>
+                                కరణం, పొన్నూరు మండలం
+                            </div>
+                        </div>
                     </div>
                 )}
                 <div className="nib-signoff" aria-hidden>✒&#xFE0E;</div>
