@@ -40,7 +40,7 @@ const suranna = Suranna({
 
 export const metadata: Metadata = {
   title: "రామదత్ కైఫీయత్",
-    description: "కరణం రామదత్ గారి మనవడు నమోదు చేసుకుంటున్న కైఫీయత్.",
+    description: "కరణం గారి దృష్టికి నిలిచిన సంగతుల కైఫీయత్.",
 };
 
 export default function RootLayout({

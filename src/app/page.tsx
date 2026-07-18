@@ -10,7 +10,7 @@ export default function Home() {
                     <p className={styles.sri}>శ్రీ</p>
                     <h1 className={styles.eyebrow}>రామదత్ కైఫీయత్</h1>
                     <p className={styles.lede}>
-                        కరణం రామదత్ గారి మనవడు · దృష్టికి నిలిచిన సంగతులు ఇందు యథావిధిగా నమోదు చేయబడును
+                        కరణం గారి దృష్టికి నిలిచిన సంగతులు ఇందు యథావిధిగా నమోదు చేయబడును
                     </p>
                 </div>
                 <span className={`doc-stamp ${styles.headerStamp}`}>నమోదు పుస్తకం</span>
