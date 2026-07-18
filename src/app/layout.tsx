@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { Inter, Fraunces, Noto_Sans_Telugu, Noto_Serif_Telugu } from "next/font/google";
+import { Inter, Fraunces, Source_Serif_4, Noto_Sans_Telugu, Noto_Serif_Telugu } from "next/font/google";
 import "./globals.css";
-import Starfield from "@/components/Starfield";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -14,6 +13,14 @@ const fraunces = Fraunces({
     weight: ["400", "500", "600", "700"],
     style: ["normal", "italic"],
     variable: "--font-display",
+    display: "swap",
+});
+
+const sourceSerif = Source_Serif_4({
+    subsets: ["latin"],
+    weight: ["400", "600"],
+    style: ["normal", "italic"],
+    variable: "--font-body",
     display: "swap",
 });
 
@@ -32,8 +39,8 @@ const notoTeluguSerif = Noto_Serif_Telugu({
 });
 
 export const metadata: Metadata = {
-  title: "Diary",
-  description: "A personal diary. Notes on whatever holds my attention long enough to write down.",
+  title: "The Karanam Draft",
+  description: "A diary. Notes on whatever holds my attention long enough to write down.",
 };
 
 export default function RootLayout({
@@ -42,12 +49,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${fraunces.variable} ${notoTelugu.variable} ${notoTeluguSerif.variable}`}>
+    <html lang="en" className={`${inter.variable} ${fraunces.variable} ${sourceSerif.variable} ${notoTelugu.variable} ${notoTeluguSerif.variable}`}>
       <body>
-        <Starfield />
-        <div style={{ position: 'relative', zIndex: 1 }}>
-          <main>{children}</main>
-        </div>
+        <main>{children}</main>
       </body>
     </html>
   );

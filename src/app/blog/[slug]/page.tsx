@@ -27,45 +27,34 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     letterSpacing: '0.01em',
                 }}
             >
-                ← Diary
+                ← The Karanam Draft
             </Link>
 
-            <article
-                style={{
-                    background: 'rgba(3, 4, 10, 0.88)',
-                    backdropFilter: 'blur(16px)',
-                    WebkitBackdropFilter: 'blur(16px)',
-                    border: '1px solid var(--border)',
-                    borderRadius: '14px',
-                    padding: 'clamp(1.5rem, 3vw, 2.5rem)',
-                    boxShadow: '0 30px 80px -40px rgba(0, 0, 0, 0.6)',
-                }}
-            >
-                <header style={{ marginBottom: '2.5rem', borderBottom: '1px solid var(--border)', paddingBottom: '1.75rem' }}>
+            <article>
+                <header style={{ marginBottom: '2.5rem', borderBottom: '1px solid var(--border-strong)', paddingBottom: '1.75rem' }}>
                     <h1
                         style={{
-                            fontSize: 'clamp(1.75rem, 4vw, 2.4rem)',
+                            fontSize: 'clamp(1.85rem, 4vw, 2.6rem)',
                             marginBottom: '0.85rem',
-                            color: 'var(--foreground)',
-                            lineHeight: '1.2',
+                            color: 'var(--foreground-strong)',
+                            lineHeight: '1.15',
                             letterSpacing: '-0.02em',
                         }}
                     >
                         {post ? post.title : slug}
                     </h1>
                     {post && (
-                        <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.7rem', color: 'var(--muted)', fontSize: '0.85rem', letterSpacing: '0.02em' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.7rem', color: 'var(--muted)', fontSize: '0.85rem' }}>
                             <span style={{ letterSpacing: '0.1em', textTransform: 'uppercase' }}>{post.date}</span>
                             {post.tags?.map((t) => (
                                 <span key={t} style={{
                                     fontSize: '0.68rem',
                                     letterSpacing: '0.1em',
                                     textTransform: 'uppercase',
-                                    color: 'var(--primary)',
-                                    padding: '0.2rem 0.6rem',
+                                    color: 'var(--primary-strong)',
+                                    padding: '0.18rem 0.6rem',
                                     border: '1px solid var(--border-strong)',
                                     borderRadius: '999px',
-                                    background: 'rgba(125, 211, 252, 0.07)',
                                 }}>
                                     {t}
                                 </span>
@@ -86,10 +75,12 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             {post && (newer || older) && (
                 <nav
                     style={{
-                        marginTop: '2.5rem',
+                        marginTop: '3rem',
                         display: 'grid',
                         gridTemplateColumns: '1fr 1fr',
                         gap: '1rem',
+                        borderTop: '1px solid var(--border-strong)',
+                        paddingTop: '1.5rem',
                     }}
                 >
                     {newer ? (
@@ -106,10 +97,6 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     ) : <span />}
                 </nav>
             )}
-
-            <div style={{ marginTop: '3rem', textAlign: 'center', fontSize: '0.9rem' }}>
-                <span style={{ color: 'var(--primary)' }}>✦</span>
-            </div>
         </div>
     );
 }
@@ -118,12 +105,7 @@ const postNavStyle = (align: 'left' | 'right'): React.CSSProperties => ({
     display: 'flex',
     flexDirection: 'column',
     gap: '0.35rem',
-    padding: '1.1rem 1.35rem',
-    border: '1px solid var(--border)',
-    borderRadius: '12px',
-    background: 'rgba(3, 4, 10, 0.7)',
-    backdropFilter: 'blur(10px)',
-    WebkitBackdropFilter: 'blur(10px)',
+    padding: '0.5rem 0.25rem',
     textAlign: align === 'right' ? 'right' : 'left',
 });
 
@@ -131,7 +113,7 @@ const postNavLabel: React.CSSProperties = {
     fontSize: '0.72rem',
     letterSpacing: '0.12em',
     textTransform: 'uppercase',
-    color: 'var(--primary)',
+    color: 'var(--primary-strong)',
 };
 
 const postNavTitle: React.CSSProperties = {
