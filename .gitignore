@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# personal files, never publish
+public/Alex_Morgan.docx
+public/*vamsha-vruksham*
