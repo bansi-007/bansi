@@ -115,16 +115,16 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                                 <defs>
                                     <path id="sealTop" d="M 17,55 A 33,33 0 0 1 83,55" fill="none" />
                                 </defs>
-                                <circle cx="50" cy="50" r="46" fill="none" stroke="#9a2f21" strokeWidth="2.2" />
-                                <circle cx="50" cy="50" r="40" fill="none" stroke="#9a2f21" strokeWidth="0.8" />
-                                <text fontSize="7.8" fill="#9a2f21" fontFamily="var(--font-telugu-stack)" letterSpacing="0.5">
+                                <circle cx="50" cy="50" r="46" fill="none" stroke="#5b3a8e" strokeWidth="2.2" />
+                                <circle cx="50" cy="50" r="40" fill="none" stroke="#5b3a8e" strokeWidth="0.8" />
+                                <text fontSize="7.8" fill="#5b3a8e" fontFamily="var(--font-telugu-stack)" letterSpacing="0.5">
                                     <textPath href="#sealTop" startOffset="50%" textAnchor="middle">కరణం కార్యాలయం</textPath>
                                 </text>
-                                <text x="50" y="49" fontSize="8" fill="#9a2f21" fontFamily="var(--font-telugu-stack)" textAnchor="middle">ధృవీకరించ</text>
-                                <text x="50" y="59" fontSize="8" fill="#9a2f21" fontFamily="var(--font-telugu-stack)" textAnchor="middle">బడినది</text>
-                                <text x="50" y="72" fontSize="7" fill="#9a2f21" textAnchor="middle">{post.date}</text>
-                                <text x="24" y="53" fontSize="7" fill="#9a2f21" textAnchor="middle">✦</text>
-                                <text x="76" y="53" fontSize="7" fill="#9a2f21" textAnchor="middle">✦</text>
+                                <text x="50" y="49" fontSize="8" fill="#5b3a8e" fontFamily="var(--font-telugu-stack)" textAnchor="middle">ధృవీకరించ</text>
+                                <text x="50" y="59" fontSize="8" fill="#5b3a8e" fontFamily="var(--font-telugu-stack)" textAnchor="middle">బడినది</text>
+                                <text x="50" y="72" fontSize="7" fill="#5b3a8e" textAnchor="middle">{post.date}</text>
+                                <text x="24" y="53" fontSize="7" fill="#5b3a8e" textAnchor="middle">✦</text>
+                                <text x="76" y="53" fontSize="7" fill="#5b3a8e" textAnchor="middle">✦</text>
                             </svg>
                             <div style={{
                                 position: 'absolute',
@@ -133,7 +133,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                                 transform: 'translate(-50%, -50%) rotate(-8deg)',
                                 fontFamily: 'var(--font-signature), cursive',
                                 fontSize: '2.5rem',
-                                color: '#241d18',
+                                color: '#1e5c3a',
                                 whiteSpace: 'nowrap',
                                 zIndex: 1,
                             }}>
