@@ -16,7 +16,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     const older = index >= 0 && index < blogPosts.length - 1 ? blogPosts[index + 1] : undefined;
 
     return (
-        <div style={{ margin: '3rem auto 4rem', maxWidth: '92rem', padding: '0 clamp(1rem, 2vw, 1.5rem)' }}>
+        <div style={{ margin: '1.25rem auto 4rem', maxWidth: '92rem', padding: '0 clamp(1rem, 2vw, 1.5rem)' }}>
             <Link
                 href="/"
                 style={{
@@ -27,39 +27,54 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     letterSpacing: '0.01em',
                 }}
             >
-                ← bansidath.in
+                ← చిట్టా
             </Link>
 
-            <article>
-                <header style={{ marginBottom: '2.5rem', borderBottom: '1px solid var(--border-strong)', paddingBottom: '1.75rem' }}>
-                    <h1
-                        style={{
-                            fontSize: 'clamp(1.85rem, 4vw, 2.6rem)',
-                            marginBottom: '0.85rem',
-                            color: 'var(--foreground-strong)',
-                            lineHeight: '1.15',
-                            letterSpacing: '-0.02em',
-                        }}
-                    >
-                        {post ? post.title : slug}
-                    </h1>
+            <article
+                style={{
+                    background: '#fbf7ec',
+                    border: '1px solid var(--border-strong)',
+                    outline: '1px solid var(--border)',
+                    outlineOffset: '-8px',
+                    borderRadius: '4px',
+                    padding: 'clamp(1.75rem, 4vw, 3rem)',
+                    boxShadow: '0 2px 14px rgba(33, 29, 25, 0.06)',
+                }}
+            >
+                <header style={{ marginBottom: '2.5rem', borderBottom: '1px solid var(--border-strong)', paddingBottom: '1.75rem', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '1.5rem', flexWrap: 'wrap' }}>
+                    <div style={{ minWidth: '16rem', flex: '1 1 24rem' }}>
+                        <h1
+                            style={{
+                                fontSize: 'clamp(1.85rem, 4vw, 2.6rem)',
+                                marginBottom: '0.85rem',
+                                color: 'var(--foreground-strong)',
+                                lineHeight: '1.2',
+                                letterSpacing: '-0.01em',
+                                fontFamily: 'var(--font-telugu-display-stack)',
+                            }}
+                        >
+                            {post ? post.title : slug}
+                        </h1>
+                        {post && (
+                            <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.7rem', color: 'var(--muted)', fontSize: '0.85rem' }}>
+                                {post.tags?.map((t) => (
+                                    <span key={t} style={{
+                                        fontSize: '0.72rem',
+                                        letterSpacing: '0.05em',
+                                        color: 'var(--primary-strong)',
+                                        padding: '0.18rem 0.6rem',
+                                        border: '1px solid var(--border-strong)',
+                                        borderRadius: '999px',
+                                        fontFamily: 'var(--font-telugu-stack)',
+                                    }}>
+                                        {t}
+                                    </span>
+                                ))}
+                            </div>
+                        )}
+                    </div>
                     {post && (
-                        <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.7rem', color: 'var(--muted)', fontSize: '0.85rem' }}>
-                            <span style={{ letterSpacing: '0.1em', textTransform: 'uppercase' }}>{post.date}</span>
-                            {post.tags?.map((t) => (
-                                <span key={t} style={{
-                                    fontSize: '0.68rem',
-                                    letterSpacing: '0.1em',
-                                    textTransform: 'uppercase',
-                                    color: 'var(--primary-strong)',
-                                    padding: '0.18rem 0.6rem',
-                                    border: '1px solid var(--border-strong)',
-                                    borderRadius: '999px',
-                                }}>
-                                    {t}
-                                </span>
-                            ))}
-                        </div>
+                        <span className="doc-stamp">నమోదు · {post.date}</span>
                     )}
                 </header>
 
@@ -85,13 +100,13 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 >
                     {newer ? (
                         <Link href={`/blog/${newer.slug}`} style={postNavStyle('left')}>
-                            <span style={postNavLabel}>← Newer</span>
+                            <span style={postNavLabel}>← కొత్తది</span>
                             <span style={postNavTitle}>{newer.title}</span>
                         </Link>
                     ) : <span />}
                     {older ? (
                         <Link href={`/blog/${older.slug}`} style={postNavStyle('right')}>
-                            <span style={postNavLabel}>Older →</span>
+                            <span style={postNavLabel}>పాతది →</span>
                             <span style={postNavTitle}>{older.title}</span>
                         </Link>
                     ) : <span />}
@@ -117,7 +132,7 @@ const postNavLabel: React.CSSProperties = {
 };
 
 const postNavTitle: React.CSSProperties = {
-    fontFamily: 'var(--font-display-stack)',
+    fontFamily: 'var(--font-telugu-display-stack)',
     fontSize: '1rem',
     color: 'var(--foreground)',
     lineHeight: 1.3,

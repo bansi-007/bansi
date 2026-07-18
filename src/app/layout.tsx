@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Fraunces, Source_Serif_4, Noto_Sans_Telugu, Noto_Serif_Telugu } from "next/font/google";
+import { Inter, Fraunces, Source_Serif_4, Mandali, Suranna } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -24,23 +24,23 @@ const sourceSerif = Source_Serif_4({
     display: "swap",
 });
 
-const notoTelugu = Noto_Sans_Telugu({
+const mandali = Mandali({
     subsets: ["telugu"],
-    weight: ["400", "500", "600", "700"],
+    weight: "400",
     variable: "--font-telugu",
     display: "swap",
 });
 
-const notoTeluguSerif = Noto_Serif_Telugu({
+const suranna = Suranna({
     subsets: ["telugu"],
-    weight: ["400", "500", "600", "700"],
+    weight: "400",
     variable: "--font-telugu-display",
     display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Diary",
-  description: "A diary of whatever holds my attention long enough to write down.",
+  title: "చిట్టా",
+  description: "దృష్టి నిలిచినంతసేపు మనసుకు నచ్చిన సంగతులను రాసి పెట్టుకునే చిట్టా.",
 };
 
 export default function RootLayout({
@@ -49,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${fraunces.variable} ${sourceSerif.variable} ${notoTelugu.variable} ${notoTeluguSerif.variable}`}>
+    <html lang="te" className={`${inter.variable} ${fraunces.variable} ${sourceSerif.variable} ${mandali.variable} ${suranna.variable}`}>
       <body>
         <main>{children}</main>
       </body>

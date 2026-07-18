@@ -20,8 +20,8 @@
   --font-sans-stack: var(--font-sans), 'Inter', system-ui, -apple-system, sans-serif;
   --font-display-stack: var(--font-display), 'Fraunces', Georgia, serif;
   --font-body-stack: var(--font-body), 'Source Serif 4', Georgia, 'Times New Roman', serif;
-  --font-telugu-stack: var(--font-telugu), 'Noto Sans Telugu', system-ui, sans-serif;
-  --font-telugu-display-stack: var(--font-telugu-display), 'Noto Serif Telugu', Georgia, serif;
+  --font-telugu-stack: var(--font-telugu), 'Mandali', 'Noto Sans Telugu', system-ui, sans-serif;
+  --font-telugu-display-stack: var(--font-telugu-display), 'Suranna', 'Noto Serif Telugu', Georgia, serif;
 }
 
 * {
@@ -271,19 +271,41 @@ hr {
 .te,
 .te p {
   font-family: var(--font-telugu-stack);
-  line-height: 1.85;
+  line-height: 1.9;
+  font-size: 1.05em;
 }
 
 .te h1,
 .te h2,
 .te h3 {
   font-family: var(--font-telugu-display-stack);
-  font-weight: 600;
+  font-weight: 400;
+}
+
+.te h2 {
+  font-size: clamp(1.6rem, 3.2vw, 2.05rem);
 }
 
 .te blockquote {
   font-family: var(--font-telugu-display-stack);
   font-style: normal;
+  font-size: 1.15em;
+}
+
+/* Document stamp — the vermillion register seal on each filed entry */
+.doc-stamp {
+  display: inline-block;
+  font-family: var(--font-telugu-display-stack);
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  border-radius: 6px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  transform: rotate(-5deg);
+  opacity: 0.85;
+  white-space: nowrap;
+  box-shadow: inset 0 0 0 1px rgba(178, 58, 42, 0.25);
 }
 
 /* Editorial reading class for post bodies */

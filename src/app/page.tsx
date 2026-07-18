@@ -7,9 +7,9 @@ export default function Home() {
         <div className={styles.wrap}>
             <header className={styles.header}>
                 <p className={styles.sri}>శ్రీ</p>
-                <h1 className={styles.eyebrow}>Diary</h1>
+                <h1 className={styles.eyebrow}>చిట్టా</h1>
                 <p className={styles.lede}>
-                    a diary of whatever holds my attention long enough to write down
+                    దృష్టి నిలిచినంతసేపు మనసుకు నచ్చిన సంగతుల నమోదు
                 </p>
             </header>
 

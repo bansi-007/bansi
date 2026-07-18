@@ -13,11 +13,115 @@ export interface BlogPost {
 const allPosts: BlogPost[] = [
     {
         slug: "does-such-a-man-exist",
-        title: "Does Such a Man Exist?",
-        date: "Jul 2026",
-        tags: ["Dharma", "Literature", "History"],
-        excerpt: "We keep asking what makes an ideal man, and we keep answering through his relationships. Two thousand years ago a sage asked the same question, defined the highest standard first, and only then asked whether anyone had ever reached it.",
+        title: "అటువంటి మనిషి ఉన్నాడా?",
+        date: "జూలై 2026",
+        tags: ["ధర్మం", "సాహిత్యం", "చరిత్ర"],
+        excerpt: "ఆదర్శ పురుషుడు అంటే ఎవరు అని మనం అడుగుతూనే ఉన్నాం, జవాబు మాత్రం అతని బంధాల్లోనే వెతుకుతున్నాం. రెండు వేల ఏళ్ళ క్రితం ఒక మహర్షి ఇదే ప్రశ్న అడిగాడు. ముందు అత్యున్నత కొలబద్దను నిర్వచించి, తరువాత అలాంటివాడు అసలు ఉన్నాడా అని అడిగాడు.",
         content: (
+            <div className="te">
+                <p>
+                    ఒక ప్రశ్న నాకు తెలియకుండానే మళ్ళీ మళ్ళీ నా దగ్గరకు వస్తూ ఉంటుంది. నాయకత్వం గురించో, బంధాల గురించో, ఈ రోజుల్లో అందరూ మాట్లాడే &lsquo;పురుషత్వం&rsquo; గురించో మాట్లాడుతున్నప్పుడు, లోతుకు వెళ్తే అన్నిటి అడుగునా ఉన్నది ఒకే ప్రశ్న. <em>ఆదర్శ పురుషుడు అంటే ఎవరు?</em>
+                </p>
+                <p>
+                    ఈ ప్రశ్న ఇప్పుడు అడిగితే జవాబులు వెంటనే వస్తాయి. మనసు విప్పి మాట్లాడాలి. స్త్రీలను గౌరవించాలి. దయ ఉండాలి, పట్టుదల ఉండాలి, డబ్బు విషయంలో బాధ్యత ఉండాలి, మంచి భర్తగా, మంచి తండ్రిగా ఉండాలి. ఇవేవీ తప్పు కాదు. ప్రతి ఒక్కటీ సాధించదగినదే. కానీ కాస్త గమనిస్తే ఒక విషయం కనబడుతుంది. ఈ జవాబులన్నీ ఒక మనిషిని అతని బంధాల ద్వారానే కొలుస్తున్నాయి. భాగస్వామితో ఎలా ఉంటాడో, ఇతరులతో ఎలా మాట్లాడతాడో, నలుగురిలో ఎంత పరిణతిగా ప్రవర్తిస్తాడో, అదే కొలమానం అయిపోయింది.
+                </p>
+                <p>
+                    ఇవి నిజమైన కొలతలే. కానీ చాలా పెద్ద చిత్రంలో చిన్న భాగం మాత్రమే. జీవితం ఒక మనిషిని మంచి తోడుగా ఉండమని మాత్రమే అడగదు. ఆగలేని నిర్ణయాలు తీసుకోమంటుంది. దించుకోలేని బరువులు మోయమంటుంది. అందరూ కంగారు పడుతున్నప్పుడు నిలకడగా నిలబడమంటుంది. ఎవరూ చూడకపోయినా, సులభమైన తప్పుకు బదులు కష్టమైన సరైన దారిని ఎంచుకోమంటుంది. ఒక బంధం మనిషి వ్యక్తిత్వాన్ని బయటపెడుతుంది. కానీ దాన్ని తయారు చేయదు. వ్యక్తిత్వం ఎవరో మెచ్చుకోవడానికి చాలా ముందే తయారవుతుంది.
+                </p>
+                <p>
+                    అంటే మనం అడుగుతున్న ప్రశ్నే తప్పేమో. &ldquo;మంచి భర్త అంటే ఎవరు&rdquo; కాదు, &ldquo;ఆకర్షణీయమైన మగవాడు అంటే ఎవరు&rdquo; అసలే కాదు. ఇంకా పాతది, ఇంకా లోతైనది. <em>అసలు ఒక మనిషి ఎలాంటి మనిషిగా ఎదగాలి?</em>
+                </p>
+
+                <h2>వ్యక్తిత్వపు కట్టడం</h2>
+                <p>
+                    రూపం, ఉద్యోగం, ఆస్తి, పేరు ప్రఖ్యాతులు, వీటి ప్రస్తావన లేకుండా ఆదర్శ పురుషుణ్ణి వర్ణించమంటే ఏం మిగులుతుంది? మిగిలేవి కొన్నే. అవి ఒకదాన్నొకటి పట్టుకుని జతలుగా నిలబడతాయి.
+                </p>
+                <p>
+                    మొదట మిగిలేది <strong>శీలం</strong>. ఎందుకంటే చివరి వరకు నిలిచేది అదొక్కటే. వయసు వెళ్ళిపోతుంది, అధికారం చేతులు మారుతుంది, డబ్బు వస్తూ పోతూ ఉంటుంది. శీలం మాత్రం చివరి శ్వాస వరకు తోడుగా ఉంటుంది. అది లేకపోతే తెలివి కుయుక్తి అవుతుంది, బలం క్రూరత్వం అవుతుంది, విజయం అహంకారం అవుతుంది. నిజమైన శీలం నిశ్శబ్దంగా ఉంటుంది. అరిచి చెప్పుకునే బలం కాదు, <strong>నిగ్రహమే</strong> అసలైన బలం. కత్తి ఎత్తడం ఎవరికైనా వస్తుంది. ఎప్పుడు ఎత్తకూడదో తెలిసినవాడే నమ్మదగినవాడు.
+                </p>
+                <p>
+                    నిగ్రహానికి <strong>వివేకం</strong> తోడు లేకపోతే ప్రయోజనం లేదు. వివేకం అంటే జ్ఞానం కాదు. పుస్తకాల నిండా జ్ఞానం ఉంటుంది. అన్ని దారులూ సబబుగానే కనిపిస్తున్నప్పుడు ఏది చేయాలో తెలియడమే వివేకం. జీవితం మంచికీ చెడుకూ మధ్య తేలికైన ఎంపికను ఎప్పుడో గానీ ఇవ్వదు. సులభమైనదానికీ సరైనదానికీ మధ్యే మనల్ని నిలబెడుతుంది. ఆ తేడా తెలిసినవాడే ఆదర్శ పురుషుడు. అతని మాటకు విలువ ఎందుకంటే, అతను మాటలు వృథా చేయడు. <strong>సత్యం</strong> పలికే మనిషి నోరు విప్పితే అందరూ వింటారు. బాగా మాట్లాడతాడని కాదు. తన మాటను ఎప్పుడూ సౌకర్యం కోసం అమ్ముకోలేదని.
+                </p>
+                <p>
+                    <strong>సామర్థ్యం</strong> బాధ్యతతో కలిసి నడుస్తుంది. మంచి ఉద్దేశాలు మంచివే, కానీ ఒక కుటుంబం నీ మీద ఆధారపడినప్పుడు ఉద్దేశాలు మాత్రమే సరిపోవు. సామర్థ్యం అహంకారం కాదు, అది ఒక సేవ. మనిషి ఎంత సమర్థుడైతే అంతమందికి సాయపడగలడు. కానీ సామర్థ్యానికి <strong>కృతజ్ఞత</strong> తోడు లేకపోతే అది త్వరగా చెడిపోతుంది. విజయానికి ఒక చెడ్డ అలవాటు ఉంది. &lsquo;నువ్వు ఒక్కడివే సాధించావు&rsquo; అని మనిషిని నమ్మించాలని చూస్తుంది. అది అబద్ధం. పైకి రావడానికి సాయపడిన ప్రతి చేతినీ గుర్తుంచుకున్నవాడి విజయం అహంకారంగా మారదు.
+                </p>
+                <p>
+                    చివరి జత అన్నిటికన్నా కష్టమైనది. ఎందుకంటే ఆ యుద్ధం లోపల జరుగుతుంది. బద్ధకం, కోరిక, కోపం, అహం, నిరాశ, వీటి మీద <strong>క్రమశిక్షణ</strong> ఎప్పటికీ ముగియని పోరాటం. రాజ్యాలు గెలిచినవాళ్ళను చరిత్ర గుర్తుపెట్టుకుంటుంది. కానీ ముందుగా తనను తాను గెలిచినవాడే అసలైన విజేత. దీనికి తోడుగా వచ్చేది <strong>వినయం</strong>. వినయం బలహీనత కాదు, ఆత్మవిశ్వాసం. తనతో తాను శాంతిగా ఉన్నవాడికి ఇంకొకరి విజయం కంటగింపుగా ఉండదు. ఇక్కడే కోపం విషయంలో మన సంప్రదాయం ఈనాటి ఆలోచనతో విడిపోతుంది. అహం లోంచి, దురాశ లోంచి పుట్టిన కోపం నాశనం చేస్తుంది. కానీ అమాయకుల కోసం, సత్యం కోసం, ధర్మం కోసం లేచిన కోపం వేరే. అన్యాయం చూసి కోపం రాని మనిషి సౌమ్యుడు కాడు, అసంపూర్ణుడు. అతను తన బలాన్ని చంపడు. అదుపులో పెడతాడు.
+                </p>
+
+                <h2>రెండు వేల ఏళ్ళ నాటి కొలబద్ద</h2>
+                <p>
+                    ఇదంతా ఒక తాత్విక చర్చలా అనిపించవచ్చు. కాదు. రెండు వేల ఏళ్ళకు పైగా క్రితం ఒక మహర్షి సరిగ్గా ఇదే ప్రశ్న అడిగాడు. అలాంటి సంపూర్ణ మానవుడు నిజంగా ఈ భూమి మీద నడిచాడా అని నిజాయితీగా తెలుసుకోవాలనే అడిగాడు.
+                </p>
+                <p>
+                    ఆయన ప్రశ్న మూడు శ్లోకాలుగా ఇప్పటికీ మిగిలి ఉంది:
+                </p>
+                <blockquote>
+                    కో న్వస్మిన్ సాంప్రతం లోకే గుణవాన్ కశ్చ వీర్యవాన్ ।<br />
+                    ధర్మజ్ఞశ్చ కృతజ్ఞశ్చ సత్యవాక్యో దృఢవ్రతః ॥<br />
+                    చారిత్రేణ చ కో యుక్తః సర్వభూతేషు కో హితః ।<br />
+                    విద్వాన్ కః కః సమర్థశ్చ కశ్చైకప్రియదర్శనః ॥<br />
+                    ఆత్మవాన్ కో జితక్రోధో ద్యుతిమాన్ కోఽనసూయకః ।<br />
+                    కస్య బిభ్యతి దేవాశ్చ జాతరోషస్య సంయుగే ॥
+                    <span style={{ color: 'var(--muted)', fontSize: '0.85rem', display: 'block', marginTop: '0.6rem' }}>
+                        వాల్మీకి రామాయణం, బాలకాండ 1.1.2&ndash;4
+                    </span>
+                </blockquote>
+                <p>
+                    ధనవంతుడా, అందగాడా, ప్రసిద్ధుడా అని ఆయన అడగడం లేదు. పదహారు ప్రశ్నలు అడుగుతున్నాడు. షోడశ గుణాలు. సంప్రదాయం వీటిని పున్నమి చంద్రుడి పదహారు కళలతో పోలుస్తుంది. వాల్మీకి తన నాయకుణ్ణి ఏ లోటూ లేని నిండు చంద్రుడిగా చూపిస్తున్నాడు.
+                </p>
+
+                <div className="guna-list">
+                    <div className="guna-row"><span className="guna-term">గుణవాన్</span><span className="guna-meaning">మంచితనం స్వభావంగా ఉన్నవాడు</span></div>
+                    <div className="guna-row"><span className="guna-term">వీర్యవాన్</span><span className="guna-meaning">పరాక్రమవంతుడు</span></div>
+                    <div className="guna-row"><span className="guna-term">ధర్మజ్ఞః</span><span className="guna-meaning">ధర్మం అంటే ఏమిటో తెలిసినవాడు</span></div>
+                    <div className="guna-row"><span className="guna-term">కృతజ్ఞః</span><span className="guna-meaning">చేసిన మేలు మరచిపోనివాడు</span></div>
+                    <div className="guna-row"><span className="guna-term">సత్యవాక్యః</span><span className="guna-meaning">మాట తప్పనివాడు</span></div>
+                    <div className="guna-row"><span className="guna-term">దృఢవ్రతః</span><span className="guna-meaning">పట్టిన పట్టు విడవనివాడు</span></div>
+                    <div className="guna-row"><span className="guna-term">చారిత్రవాన్</span><span className="guna-meaning">నడవడికలో మచ్చ లేనివాడు</span></div>
+                    <div className="guna-row"><span className="guna-term">సర్వభూతహితః</span><span className="guna-meaning">సకల ప్రాణుల మేలు కోరేవాడు</span></div>
+                    <div className="guna-row"><span className="guna-term">విద్వాన్</span><span className="guna-meaning">నిజమైన జ్ఞానం ఉన్నవాడు</span></div>
+                    <div className="guna-row"><span className="guna-term">సమర్థః</span><span className="guna-meaning">తలపెట్టినది చేయగలవాడు</span></div>
+                    <div className="guna-row"><span className="guna-term">ప్రియదర్శనః</span><span className="guna-meaning">చూసిన ప్రతివారికీ ఇష్టుడయ్యేవాడు</span></div>
+                    <div className="guna-row"><span className="guna-term">ఆత్మవాన్</span><span className="guna-meaning">తనను తాను జయించినవాడు</span></div>
+                    <div className="guna-row"><span className="guna-term">జితక్రోధః</span><span className="guna-meaning">కోపాన్ని గెలిచినవాడు</span></div>
+                    <div className="guna-row"><span className="guna-term">ద్యుతిమాన్</span><span className="guna-meaning">లోపలి నుంచి వెలిగే కాంతి ఉన్నవాడు</span></div>
+                    <div className="guna-row"><span className="guna-term">అనసూయకః</span><span className="guna-meaning">అసూయ లేనివాడు</span></div>
+                    <div className="guna-row"><span className="guna-term">జాతరోషః</span><span className="guna-meaning">ధర్మం కోసం రోషం వస్తే దేవతలు సైతం భయపడేవాడు</span></div>
+                </div>
+
+                <p>
+                    ఆ మహర్షి వాల్మీకి. నన్ను ప్రతిసారీ ఆపే విషయం ఇదే. ఆయన తన కావ్యాన్ని &ldquo;రాముడి గురించి చెప్పు&rdquo; అని మొదలు పెట్టలేదు. ముందు ఒక సంపూర్ణ మానవుడి పూర్తి నిర్వచనం కట్టి, తరువాత &ldquo;అలాంటివాడు అసలు ఉన్నాడా?&rdquo; అని అడిగాడు. దానికి నారదుడి నోట వచ్చిన జవాబు ఒకే ఒక్క పేరు. చాలా సరళంగా:
+                </p>
+                <blockquote>
+                    ఇక్ష్వాకువంశప్రభవో రామో నామ జనైః శ్రుతః ॥
+                    <span style={{ color: 'var(--muted-strong)', fontSize: '1rem', display: 'block', marginTop: '0.6rem' }}>
+                        &ldquo;ఒకడు ఉన్నాడు. ఇక్ష్వాకు వంశంలో పుట్టినవాడు. జనం ఆయనను రాముడు అంటారు.&rdquo;
+                    </span>
+                    <span style={{ color: 'var(--muted)', fontSize: '0.85rem', display: 'block', marginTop: '0.6rem' }}>
+                        బాలకాండ 1.1.8
+                    </span>
+                </blockquote>
+
+                <h2>ఇది మనల్ని ఏం అడుగుతోంది</h2>
+                <p>
+                    నేను ఇది రామాయణం మళ్ళీ చెప్పడానికి రాయలేదు. కథ అందరికీ తెలుసు. దాని అడుగున దాగిన ప్రశ్న, వాల్మీకి ఎవరి పేరూ చెప్పక ముందే అడిగిన ఆ ప్రశ్న, మనం మన గురించి అడగడం మానేశాం. అందుకే రాశాను.
+                </p>
+                <p>
+                    దాని స్థానంలో చిన్న చిన్న ప్రశ్నలు పెట్టుకున్నాం. విజయం సాధించు. అందరికీ నచ్చు. మంచి భాగస్వామిగా ఉండు. ఇవన్నీ నిజమే. కానీ ఒక్కో దిక్కు మాత్రమే. ఈ కాలపు అలవాటు ఏమిటంటే ఒక్క గుణాన్ని పట్టుకుని దాన్నే చివరి వరకు లాగడం. కానీ ఒంటరిగా సాగదీసిన ఏ గుణమైనా క్రమంగా తనలోని లోపంగా మారుతుంది. విజయమే పరమావధి అనుకున్నవాడు సమర్థుడై, లోపల ఖాళీ అయిపోతాడు. అందరూ మెచ్చాలనుకున్నవాడు వంగీ వంగీ వెన్నెముక లేనివాడవుతాడు. తోడు లేని బలం, జనం లోలోపల భయపడే బలం అవుతుంది. పదహారు గుణాలకు తెలిసి మనం మర్చిపోయినది ఇదే. మనిషి అంటే గట్టిగా పెంచిన ఒక్క గుణం కాదు. పాళ్ళు తప్పకుండా కలిసి ఉన్న ఎన్నో గుణాలు.
+                </p>
+                <p>
+                    మరి ఎప్పటికీ పూర్తిగా అందుకోలేని ఇంత ఎత్తైన కొలబద్దతో ఏం చేయాలి? దాన్ని మార్కుల పట్టీలా కాదు, అద్దంలా చదవాలి. నేను ఈ పదహారు గుణాల జాబితా చదివితే, నాలో ఏవి తక్కువో నాకు వెంటనే తెలుస్తుంది. చాలామందికి అలానే తెలుస్తుంది. ఉపయోగం అదే. మనకున్న గుణాలు కాదు, ఆ జాబితా బయటపెట్టే లోటులు. కృతజ్ఞత మర్చిపోయిన సమర్థుడు. కోపం అదుపులో లేని నిజాయితీపరుడు. అన్యాయం చూసి కూడా కోపం రాని మంచివాడు. ఈ జాబితా &lsquo;రేపటికల్లా రాముడివి అయిపో&rsquo; అనదు. చంద్రుడి ఏ కళ నీకు తక్కువో చూసుకో, ఈ ఏడాది దాన్ని నింపుకో అంటుంది.
+                </p>
+                <p>
+                    అంతే చాలు. ఏటా కాస్త ఎక్కువ నిజాయితీగా, కోపాన్ని అర్హమైన చోటికే ఖర్చు పెడుతూ, సామర్థ్యాన్ని అహంకారంగా మారనివ్వకుండా బతికే మనిషి ఎప్పటికీ పరిపూర్ణుడు కాడు. కానీ అతని ముఖం సరైన దిక్కుకు తిరిగి ఉంది. జీవితమంతా చూస్తే దూరం కన్నా దిక్కే ముఖ్యం. నిండు చంద్రుడం కాలేకపోవచ్చు. నెల నెలా కొంచెం తక్కువ చీకటిగా ఉండగలం.
+                </p>
+                <p>
+                    అందుకే ఇది రాసి పెట్టుకున్నాను. రాముణ్ణి ఎవరికో వివరించడానికి కాదు. అసలు ప్రశ్నను నా కళ్ళ ముందు ఉంచుకోవడానికి. <em>నేను బాగా చేస్తున్నానా</em> అని కాదు. <em>నేను ఏ దిక్కుకు నడుస్తున్నాను?</em>
+                </p>
+            </div>
+        ),
+        contentEn: (
             <>
                 <p>
                     I keep coming back to one question, often without realising it. It hides inside other topics, leadership, relationships, what people today call masculinity, but if you go deep enough, it is always the same question. <em>What makes an ideal man?</em>
@@ -132,8 +236,8 @@ const allPosts: BlogPost[] = [
     {
         slug: "low-heat",
         title: "Low Heat",
-        date: "Jul 2026",
-        tags: ["Cinema"],
+        date: "జూలై 2026",
+        tags: ["సినిమా"],
         draft: true,
         excerpt: "Breaking Bad and Better Call Saul never ask you to watch a man become a monster. They make you become one with him, slowly enough that you never feel it happen. On the characters, and the trick they play on you.",
         content: (
@@ -247,8 +351,8 @@ const allPosts: BlogPost[] = [
     {
         slug: "oh-sundari",
         title: "ఓ సుందరి..",
-        date: "Jul 2026",
-        tags: ["తెలుగు", "Cinema", "Literature"],
+        date: "జూలై 2026",
+        tags: ["తెలుగు", "సినిమా", "సాహిత్యం"],
         excerpt: "రావు బహదూర్ చిత్రంలోని \"ఓ సుందరి\" పాట, ఎన్నో సంవత్సరాల తర్వాత తెలుగు సినీ సాహిత్యంలోకి తిరిగి వచ్చిన అరుదైన పదసౌందర్యం గురించి.",
         content: (
             <div className="te">
@@ -540,8 +644,8 @@ const allPosts: BlogPost[] = [
     {
         slug: "for-mahesh-babu",
         title: "Why Mahesh Babu Is the Most Versatile Actor in the Country",
-        date: "Jun 2026",
-        tags: ["Cinema"],
+        date: "జూన్ 2026",
+        tags: ["సినిమా"],
         excerpt: "A fan letter, twenty-three years after a kabaddi line in Okkadu landed on an eight-year-old in a summer matinee. On why he is the most versatile actor in the country, and why Varanasi is the frame he has been waiting for.",
         content: (
             <>
@@ -738,8 +842,8 @@ const allPosts: BlogPost[] = [
     {
         slug: "how-small-we-are",
         title: "You Are Worried About Your Tuesday Meeting",
-        date: "Mar 2026",
-        tags: ["Cosmos"],
+        date: "మార్చి 2026",
+        tags: ["విశ్వం"],
         excerpt: "Right now, somewhere 400 kilometres above your head, astronauts are watching sixteen sunrises a day. They sleep strapped to a wall. Meanwhile, you're stressed about a Tuesday meeting. Let's pull the camera back. Way, way back.",
         content: (
             <>
@@ -863,9 +967,9 @@ const allPosts: BlogPost[] = [
     },
     {
         slug: "andromeda",
-        tags: ["Cosmos"],
+        tags: ["విశ్వం"],
         title: "That Smudge in the Sky is a Trillion Stars. And It's Heading Here.",
-        date: "Feb 2026",
+        date: "ఫిబ్రవరి 2026",
         excerpt: "There's a faint fuzzy patch in the night sky that's easy to miss. It looks like a wispy cloud. It isn't. It's a galaxy two and a half million light-years away, and it's falling toward us.",
         content: (
             <>

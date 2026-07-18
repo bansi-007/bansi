@@ -1,6 +1,6 @@
 .wrap {
     max-width: 76rem;
-    margin: 3.5rem auto 5rem;
+    margin: 1.25rem auto 4rem;
     padding: 0 clamp(1rem, 2vw, 1.5rem);
 }
 
@@ -8,8 +8,7 @@
     margin-bottom: 2.5rem;
     text-align: center;
     border-bottom: 3px double var(--border-strong);
-    padding-bottom: 2rem;
-    padding-top: 1rem;
+    padding-bottom: 1.75rem;
 }
 
 .sri {
@@ -21,7 +20,7 @@
 }
 
 .eyebrow {
-    font-family: var(--font-display-stack);
+    font-family: var(--font-telugu-display-stack);
     font-size: clamp(1.9rem, 4.5vw, 2.8rem);
     letter-spacing: 0.02em;
     color: var(--foreground-strong);
@@ -32,11 +31,10 @@
 
 .lede {
     color: var(--muted);
-    font-size: 1rem;
+    font-size: 1.05rem;
     line-height: 1.6;
     margin-bottom: 0;
-    font-family: var(--font-display-stack);
-    font-style: italic;
+    font-family: var(--font-telugu-stack);
 }
 
 /* Ledger — entries hanging off a vermillion margin rule, dates in the margin */
