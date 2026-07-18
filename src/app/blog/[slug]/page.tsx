@@ -27,7 +27,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     letterSpacing: '0.01em',
                 }}
             >
-                ← చిట్టా
+                ← కైఫీయత్
             </Link>
 
             <article

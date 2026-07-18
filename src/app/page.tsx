@@ -8,9 +8,9 @@ export default function Home() {
             <header className={styles.header}>
                 <div className={styles.masthead}>
                     <p className={styles.sri}>శ్రీ</p>
-                    <h1 className={styles.eyebrow}>చిట్టా</h1>
+                    <h1 className={styles.eyebrow}>రామదత్ కైఫీయత్</h1>
                     <p className={styles.lede}>
-                        ఇందు దృష్టికి నిలిచిన సంగతులు యథావిధిగా నమోదు చేయబడును
+                        కరణం రామదత్ గారి మనవడు · దృష్టికి నిలిచిన సంగతులు ఇందు యథావిధిగా నమోదు చేయబడును
                     </p>
                 </div>
                 <span className={`doc-stamp ${styles.headerStamp}`}>నమోదు పుస్తకం</span>

@@ -39,8 +39,8 @@ const suranna = Suranna({
 });
 
 export const metadata: Metadata = {
-  title: "చిట్టా",
-  description: "దృష్టి నిలిచినంతసేపు మనసుకు నచ్చిన సంగతులను రాసి పెట్టుకునే చిట్టా.",
+  title: "రామదత్ కైఫీయత్",
+    description: "కరణం రామదత్ గారి మనవడు నమోదు చేసుకుంటున్న కైఫీయత్.",
 };
 
 export default function RootLayout({

@@ -158,6 +158,13 @@ strong {
   color: var(--foreground-strong);
 }
 
+/* Key terms read as marker-highlighted, not merely bold */
+.prose strong {
+  font-weight: 600;
+  background: linear-gradient(transparent 58%, rgba(192, 138, 29, 0.32) 58%, rgba(192, 138, 29, 0.32) 94%, transparent 94%);
+  padding: 0 0.12em;
+}
+
 blockquote {
   position: relative;
   margin: 2rem 0;
