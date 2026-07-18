@@ -120,21 +120,17 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                         >
                             <defs>
                                 <path id="sealTop" d="M 13,50 A 37,37 0 0 1 87,50" fill="none" />
-                                <path id="sealBottom" d="M 15,57 A 35,35 0 0 0 85,57" fill="none" />
                             </defs>
                             <circle cx="50" cy="50" r="47" fill="none" stroke="#9a2f21" strokeWidth="2.2" />
                             <circle cx="50" cy="50" r="41" fill="none" stroke="#9a2f21" strokeWidth="0.8" />
                             <text fontSize="8.2" fill="#9a2f21" fontFamily="var(--font-telugu-stack)" letterSpacing="1">
                                 <textPath href="#sealTop" startOffset="50%" textAnchor="middle">కరణం కార్యాలయం</textPath>
                             </text>
-                            <text fontSize="7.4" fill="#9a2f21" fontFamily="var(--font-telugu-stack)" letterSpacing="1">
-                                <textPath href="#sealBottom" startOffset="50%" textAnchor="middle">పొన్నూరు మండలం</textPath>
-                            </text>
-                            <text x="50" y="47" fontSize="8" fill="#9a2f21" fontFamily="var(--font-telugu-stack)" textAnchor="middle">ధృవీకరించ</text>
-                            <text x="50" y="57" fontSize="8" fill="#9a2f21" fontFamily="var(--font-telugu-stack)" textAnchor="middle">బడినది</text>
-                            <text x="50" y="70" fontSize="7" fill="#9a2f21" textAnchor="middle">{post.date}</text>
-                            <text x="27" y="52" fontSize="7" fill="#9a2f21" textAnchor="middle">✦</text>
-                            <text x="73" y="52" fontSize="7" fill="#9a2f21" textAnchor="middle">✦</text>
+                            <text x="50" y="49" fontSize="8" fill="#9a2f21" fontFamily="var(--font-telugu-stack)" textAnchor="middle">ధృవీకరించ</text>
+                            <text x="50" y="59" fontSize="8" fill="#9a2f21" fontFamily="var(--font-telugu-stack)" textAnchor="middle">బడినది</text>
+                            <text x="50" y="72" fontSize="7" fill="#9a2f21" textAnchor="middle">{post.date}</text>
+                            <text x="24" y="53" fontSize="7" fill="#9a2f21" textAnchor="middle">✦</text>
+                            <text x="76" y="53" fontSize="7" fill="#9a2f21" textAnchor="middle">✦</text>
                         </svg>
 
                         {/* the karanam's signature */}
@@ -146,21 +142,42 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                         }}>
                             <div style={{ fontSize: '0.95rem' }}>ఇట్లు,</div>
                             <div style={{
-                                fontSize: '1.6rem',
+                                fontFamily: 'var(--font-signature), cursive',
+                                fontSize: '2.1rem',
                                 color: 'var(--foreground-strong)',
-                                fontStyle: 'italic',
-                                transform: 'skewX(-6deg)',
-                                letterSpacing: '0.03em',
+                                transform: 'rotate(-3deg)',
+                                lineHeight: 1.2,
                             }}>
-                                కోన రామదత్
+                                Kona Rama Dutt
                             </div>
-                            <div style={{ fontSize: '0.9rem', color: 'var(--muted)', borderTop: '1px solid var(--border-strong)', paddingTop: '0.35rem', marginTop: '0.3rem' }}>
-                                కరణం, పొన్నూరు మండలం
+                            <div style={{ fontSize: '0.9rem', color: 'var(--muted)', borderTop: '1px solid var(--border-strong)', paddingTop: '0.35rem', marginTop: '0.35rem' }}>
+                                కరణం
                             </div>
                         </div>
                     </div>
                 )}
-                <div className="nib-signoff" aria-hidden>✒&#xFE0E;</div>
+                {/* the karanam's సిరా పెన్ను resting after the entry, ink drops beside it */}
+                <div className="nib-signoff" aria-hidden>
+                    <svg width="170" height="52" viewBox="0 0 170 52">
+                        <g transform="rotate(-7 85 26)">
+                            {/* barrel */}
+                            <rect x="62" y="18" width="66" height="13" rx="6.5" fill="#2b2320" />
+                            {/* gold cap band and clip end */}
+                            <rect x="112" y="18" width="5" height="13" fill="#c08a1d" />
+                            <circle cx="131" cy="24.5" r="6.5" fill="#2b2320" />
+                            {/* grip section */}
+                            <path d="M 62 19.5 L 50 21 L 50 28 L 62 29.5 Z" fill="#4a3423" />
+                            {/* nib */}
+                            <path d="M 50 21 L 26 21.5 L 16 24.5 L 26 27.5 L 50 28 Z" fill="#c08a1d" stroke="#8a6712" strokeWidth="0.6" />
+                            <line x1="17.5" y1="24.5" x2="36" y2="24.5" stroke="#7a5a12" strokeWidth="0.9" />
+                            <circle cx="36" cy="24.5" r="1.5" fill="none" stroke="#7a5a12" strokeWidth="0.8" />
+                        </g>
+                        {/* సిరా droplets */}
+                        <path d="M 10 34 c -2.4 3.4 -3.6 5.4 -3.6 7 a 3.6 3.6 0 0 0 7.2 0 c 0 -1.6 -1.2 -3.6 -3.6 -7 Z" fill="#2c3e6b" />
+                        <circle cx="20" cy="45" r="2" fill="#2c3e6b" opacity="0.85" />
+                        <circle cx="4" cy="46" r="1.3" fill="#2c3e6b" opacity="0.7" />
+                    </svg>
+                </div>
             </article>
 
             {post && (newer || older) && (

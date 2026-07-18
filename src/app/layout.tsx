@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Fraunces, Source_Serif_4, Mandali, Suranna } from "next/font/google";
+import { Inter, Fraunces, Source_Serif_4, Mandali, Suranna, Great_Vibes } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -38,6 +38,13 @@ const suranna = Suranna({
     display: "swap",
 });
 
+const greatVibes = Great_Vibes({
+    subsets: ["latin"],
+    weight: "400",
+    variable: "--font-signature",
+    display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "రామదత్ కైఫీయత్",
     description: "కరణం గారి దృష్టికి నిలిచిన సంగతుల కైఫీయత్.",
@@ -49,7 +56,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="te" className={`${inter.variable} ${fraunces.variable} ${sourceSerif.variable} ${mandali.variable} ${suranna.variable}`}>
+    <html lang="te" className={`${inter.variable} ${fraunces.variable} ${sourceSerif.variable} ${mandali.variable} ${suranna.variable} ${greatVibes.variable}`}>
       <body>
         <main>{children}</main>
       </body>
