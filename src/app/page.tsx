@@ -13,17 +13,21 @@ export default function Home() {
                 </p>
             </header>
 
-            <div className={styles.grid}>
+            <div className={styles.ledger}>
                 {blogPosts.map((post) => (
-                    <Link href={`/blog/${post.slug}`} key={post.slug} className={styles.card}>
-                        <div className={styles.cardMeta}>
+                    <Link href={`/blog/${post.slug}`} key={post.slug} className={styles.entry}>
+                        <div className={styles.entryMeta}>
                             <span className={styles.date}>{post.date}</span>
-                            {post.tags?.map((t) => (
-                                <span key={t} className={styles.tag}>{t}</span>
-                            ))}
+                            <span className={styles.tags}>
+                                {post.tags?.map((t) => (
+                                    <span key={t} className={styles.tag}>{t}</span>
+                                ))}
+                            </span>
                         </div>
-                        <h2 className={styles.cardTitle}>{post.title}</h2>
-                        <p className={styles.excerpt}>{post.excerpt}</p>
+                        <div className={styles.entryBody}>
+                            <h2 className={styles.cardTitle}>{post.title}</h2>
+                            <p className={styles.excerpt}>{post.excerpt}</p>
+                        </div>
                     </Link>
                 ))}
             </div>
