@@ -7,6 +7,7 @@
   --primary: #b23a2a;
   --primary-strong: #9a2f21;
   --accent: #b23a2a;
+  --gold: #c08a1d;
   --nebula: #30456b;
   --muted: #6f6659;
   --muted-strong: #4d463c;
@@ -52,6 +53,18 @@ body {
 body {
   display: flex;
   flex-direction: column;
+}
+
+/* Manuscript margin band across the very top of every page */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--gold) 50%, var(--primary) 100%);
+  z-index: 10;
 }
 
 main {
@@ -312,6 +325,12 @@ hr {
 
 .prose figure {
   margin: 2.25rem 0;
+}
+
+.prose img {
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
 }
 
 .prose figcaption {

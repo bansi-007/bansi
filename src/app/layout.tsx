@@ -39,8 +39,8 @@ const notoTeluguSerif = Noto_Serif_Telugu({
 });
 
 export const metadata: Metadata = {
-  title: "Diary",
-  description: "A diary. Notes on whatever holds my attention long enough to write down.",
+  title: "bansidath.in",
+  description: "A diary of whatever holds my attention long enough to write down.",
 };
 
 export default function RootLayout({

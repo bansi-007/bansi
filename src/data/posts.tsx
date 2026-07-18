@@ -142,7 +142,7 @@ const allPosts: BlogPost[] = [
                     <img
                         src="https://upload.wikimedia.org/wikipedia/commons/9/95/BryanCranston-byPhilipRomano_%28cropped%29.jpg"
                         alt="Bryan Cranston, who played Walter White"
-                        style={{ width: '100%', maxWidth: '520px', borderRadius: '10px', border: '1px solid var(--border)' }}
+                        style={{ width: '100%', maxWidth: '460px', borderRadius: '10px', border: '1px solid var(--border)' }}
                     />
                     <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
                         Bryan Cranston, who played Walter White. Credit: PhilipRomano, via Wikimedia Commons (CC BY-SA 4.0)
@@ -176,7 +176,7 @@ const allPosts: BlogPost[] = [
                     <img
                         src="https://upload.wikimedia.org/wikipedia/commons/8/84/Bob_Odenkirk_at_53rd_Saturn_Awards_2026-02.jpg"
                         alt="Bob Odenkirk, who played Jimmy McGill and Saul Goodman"
-                        style={{ width: '100%', maxWidth: '520px', borderRadius: '10px', border: '1px solid var(--border)' }}
+                        style={{ width: '100%', maxWidth: '460px', borderRadius: '10px', border: '1px solid var(--border)' }}
                     />
                     <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
                         Bob Odenkirk, who played Jimmy McGill and Saul Goodman. Credit: Kevin Paul, via Wikimedia Commons (CC BY 4.0)
@@ -205,7 +205,7 @@ const allPosts: BlogPost[] = [
                     <img
                         src="https://upload.wikimedia.org/wikipedia/commons/6/60/Giancarlo_Esposito_at_Comic_Con_Oakland_2026_-_2_%28cropped%29.jpg"
                         alt="Giancarlo Esposito, who played Gustavo Fring"
-                        style={{ width: '100%', maxWidth: '520px', borderRadius: '10px', border: '1px solid var(--border)' }}
+                        style={{ width: '100%', maxWidth: '460px', borderRadius: '10px', border: '1px solid var(--border)' }}
                     />
                     <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
                         Giancarlo Esposito, who played Gustavo Fring. Credit: Aditya Ramachandran, via Wikimedia Commons (CC BY-SA 4.0)
@@ -256,7 +256,7 @@ const allPosts: BlogPost[] = [
                     <img
                         src="/rao-bahadur-song.png"
                         alt="రావు బహదూర్"
-                        style={{ width: '100%', maxWidth: '780px', borderRadius: '10px', border: '1px solid var(--border)' }}
+                        style={{ width: '100%', maxWidth: '760px', borderRadius: '10px', border: '1px solid var(--border)' }}
                     />
                     <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
                         రావు బహదూర్
@@ -399,7 +399,7 @@ const allPosts: BlogPost[] = [
                     <img
                         src="/rao-bahadur-song.png"
                         alt="Rao Bahadur"
-                        style={{ width: '100%', maxWidth: '780px', borderRadius: '10px', border: '1px solid var(--border)' }}
+                        style={{ width: '100%', maxWidth: '760px', borderRadius: '10px', border: '1px solid var(--border)' }}
                     />
                     <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
                         Rao Bahadur
@@ -549,7 +549,7 @@ const allPosts: BlogPost[] = [
                     <img
                         src="/mahesh_babu.jpeg"
                         alt="Mahesh Babu"
-                        style={{ width: '100%', maxWidth: '520px', borderRadius: '10px', border: '1px solid var(--border)' }}
+                        style={{ width: '100%', maxWidth: '460px', borderRadius: '10px', border: '1px solid var(--border)' }}
                     />
                     <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
                         Mahesh Babu.
@@ -651,7 +651,7 @@ const allPosts: BlogPost[] = [
                     <img
                         src="/varanasi-title.png"
                         alt="Varanasi (Rajamouli x Mahesh Babu) title card"
-                        style={{ width: '100%', maxWidth: '820px', borderRadius: '10px', border: '1px solid var(--border)' }}
+                        style={{ width: '100%', maxWidth: '760px', borderRadius: '10px', border: '1px solid var(--border)' }}
                     />
                 </figure>
 
@@ -669,7 +669,7 @@ const allPosts: BlogPost[] = [
                     <img
                         src="/varanasi-globetrotter.jpg"
                         alt="The Globetrotter Event at Ramoji Film City, November 15, 2025"
-                        style={{ width: '100%', maxWidth: '760px', borderRadius: '10px', border: '1px solid var(--border)' }}
+                        style={{ width: '100%', maxWidth: '720px', borderRadius: '10px', border: '1px solid var(--border)' }}
                     />
                     <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
                         Mahesh on the screen as Rudhra at the Globetrotter Event, Ramoji Film City, November 15, 2025.
@@ -684,7 +684,7 @@ const allPosts: BlogPost[] = [
                     <img
                         src="/varanasi-rama.jpg"
                         alt="A warrior at sunset, bow in hand"
-                        style={{ width: '100%', maxWidth: '560px', borderRadius: '10px', border: '1px solid var(--border)' }}
+                        style={{ width: '100%', maxWidth: '480px', borderRadius: '10px', border: '1px solid var(--border)' }}
                     />
                     <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
                         One sequence of Varanasi is inspired by a chapter of the Ramayana.
