@@ -102,15 +102,15 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     </div>
                 )}
                 {post && (
-                    <div style={{ marginTop: '3.5rem', display: 'flex', justifyContent: 'flex-end' }}>
-                        <div style={{ position: 'relative', textAlign: 'right', paddingTop: '0.5rem' }}>
-                            {/* the office seal, stamped first; the signature lands across it */}
+                    <div style={{ marginTop: '3.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                        {/* stamped seal with the signature scrawled across it */}
+                        <div style={{ position: 'relative', width: '150px', height: '150px' }}>
                             <svg
                                 aria-hidden
-                                width="130"
-                                height="130"
+                                width="150"
+                                height="150"
                                 viewBox="0 0 100 100"
-                                style={{ position: 'absolute', right: '46%', top: '-34px', transform: 'rotate(-12deg)', opacity: 0.75, zIndex: 0 }}
+                                style={{ position: 'absolute', inset: 0, transform: 'rotate(-10deg)', opacity: 0.75 }}
                             >
                                 <defs>
                                     <path id="sealTop" d="M 17,55 A 33,33 0 0 1 83,55" fill="none" />
@@ -126,39 +126,38 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                                 <text x="24" y="53" fontSize="7" fill="#9a2f21" textAnchor="middle">✦</text>
                                 <text x="76" y="53" fontSize="7" fill="#9a2f21" textAnchor="middle">✦</text>
                             </svg>
-
-                            <div style={{ position: 'relative', zIndex: 1, fontFamily: 'var(--font-telugu-display-stack)', color: 'var(--muted-strong)', fontSize: '0.95rem' }}>
-                                ఇట్లు,
-                            </div>
                             <div style={{
-                                position: 'relative',
-                                zIndex: 1,
+                                position: 'absolute',
+                                top: '50%',
+                                left: '50%',
+                                transform: 'translate(-50%, -50%) rotate(-8deg)',
                                 fontFamily: 'var(--font-signature), cursive',
-                                fontSize: '2.2rem',
-                                color: 'var(--foreground-strong)',
-                                transform: 'rotate(-3deg)',
-                                lineHeight: 1.2,
-                                padding: '0.2rem 0.25rem 0',
+                                fontSize: '2.5rem',
+                                color: '#241d18',
+                                whiteSpace: 'nowrap',
+                                zIndex: 1,
                             }}>
                                 Kona Rama Dutt
                             </div>
-
-                            {/* the సిరా పెన్ను set down under the signature */}
-                            <svg aria-hidden width="280" height="86" viewBox="0 0 170 52" style={{ display: "block", marginLeft: "auto", marginTop: "0.5rem" }}>
-                                <g transform="rotate(-7 85 26)">
-                                    <rect x="62" y="18" width="66" height="13" rx="6.5" fill="#2b2320" />
-                                    <rect x="112" y="18" width="5" height="13" fill="#c08a1d" />
-                                    <circle cx="131" cy="24.5" r="6.5" fill="#2b2320" />
-                                    <path d="M 62 19.5 L 50 21 L 50 28 L 62 29.5 Z" fill="#4a3423" />
-                                    <path d="M 50 21 L 26 21.5 L 16 24.5 L 26 27.5 L 50 28 Z" fill="#c08a1d" stroke="#8a6712" strokeWidth="0.6" />
-                                    <line x1="17.5" y1="24.5" x2="36" y2="24.5" stroke="#7a5a12" strokeWidth="0.9" />
-                                    <circle cx="36" cy="24.5" r="1.5" fill="none" stroke="#7a5a12" strokeWidth="0.8" />
-                                </g>
-                                <path d="M 10 34 c -2.4 3.4 -3.6 5.4 -3.6 7 a 3.6 3.6 0 0 0 7.2 0 c 0 -1.6 -1.2 -3.6 -3.6 -7 Z" fill="#2c3e6b" />
-                                <circle cx="20" cy="45" r="2" fill="#2c3e6b" opacity="0.85" />
-                                <circle cx="4" cy="46" r="1.3" fill="#2c3e6b" opacity="0.7" />
-                            </svg>
                         </div>
+
+                        {/* the సిరా పెన్ను set down after signing, dark ink drops at the nib */}
+                        <svg aria-hidden width="280" height="86" viewBox="0 0 170 52" style={{ display: 'block', marginTop: '1rem' }}>
+                            <g transform="rotate(-5 85 26)">
+                                <circle cx="132" cy="24.5" r="4.5" fill="#241d18" />
+                                <path d="M 66 17.5 L 124 20 A 4.5 4.5 0 0 1 124 29 L 66 31.5 Z" fill="#241d18" />
+                                <line x1="70" y1="19.4" x2="122" y2="21.4" stroke="#4d4038" strokeWidth="0.9" strokeLinecap="round" />
+                                <rect x="62" y="17.5" width="4" height="14" fill="#c08a1d" />
+                                <path d="M 62 19 L 52 20.8 L 52 28.2 L 62 30 Z" fill="#3a2a1e" />
+                                <path d="M 52 20.8 C 42 20.2 32 22 24 24.5 C 32 27 42 28.8 52 28.2 Z" fill="#c08a1d" stroke="#8a6712" strokeWidth="0.5" />
+                                <line x1="25" y1="24.5" x2="38" y2="24.5" stroke="#7a5a12" strokeWidth="0.8" />
+                                <circle cx="38" cy="24.5" r="1.3" fill="none" stroke="#7a5a12" strokeWidth="0.7" />
+                                <path d="M 24 24.5 L 21 24.5" stroke="#241d18" strokeWidth="1.6" strokeLinecap="round" />
+                            </g>
+                            <path d="M 12 34 c -2.2 3.2 -3.3 5 -3.3 6.5 a 3.3 3.3 0 0 0 6.6 0 c 0 -1.5 -1.1 -3.3 -3.3 -6.5 Z" fill="#241d18" />
+                            <circle cx="21" cy="44" r="1.8" fill="#241d18" opacity="0.85" />
+                            <circle cx="6" cy="45.5" r="1.2" fill="#241d18" opacity="0.7" />
+                        </svg>
                     </div>
                 )}
             </article>

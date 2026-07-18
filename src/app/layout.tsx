@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Fraunces, Source_Serif_4, Mandali, Suranna, Great_Vibes } from "next/font/google";
+import { Inter, Fraunces, Source_Serif_4, Mandali, Suranna, Monsieur_La_Doulaise } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -38,7 +38,7 @@ const suranna = Suranna({
     display: "swap",
 });
 
-const greatVibes = Great_Vibes({
+const monsieur = Monsieur_La_Doulaise({
     subsets: ["latin"],
     weight: "400",
     variable: "--font-signature",
@@ -56,7 +56,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="te" className={`${inter.variable} ${fraunces.variable} ${sourceSerif.variable} ${mandali.variable} ${suranna.variable} ${greatVibes.variable}`}>
+    <html lang="te" className={`${inter.variable} ${fraunces.variable} ${sourceSerif.variable} ${mandali.variable} ${suranna.variable} ${monsieur.variable}`}>
       <body>
         <main>{children}</main>
       </body>
