@@ -6,7 +6,7 @@ export default function Home() {
     return (
         <div className={styles.wrap}>
             <header className={styles.header}>
-                <p className={styles.eyebrow}>The Karanam Draft</p>
+                <p className={styles.eyebrow}>Diary</p>
                 <p className={styles.lede}>
                     a diary of whatever holds my attention long enough to write down
                 </p>

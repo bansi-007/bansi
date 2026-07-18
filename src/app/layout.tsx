@@ -39,7 +39,7 @@ const notoTeluguSerif = Noto_Serif_Telugu({
 });
 
 export const metadata: Metadata = {
-  title: "The Karanam Draft",
+  title: "Diary",
   description: "A diary. Notes on whatever holds my attention long enough to write down.",
 };
 
