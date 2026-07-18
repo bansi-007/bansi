@@ -71,24 +71,9 @@ const allPosts: BlogPost[] = [
                     ధనవంతుడా, అందగాడా, ప్రసిద్ధుడా అని ఆయన అడగడం లేదు. పదహారు ప్రశ్నలు అడుగుతున్నారు. షోడశ గుణాలు. సంప్రదాయం వీటిని పున్నమి చంద్రుడి పదహారు కళలతో పోలుస్తుంది. వాల్మీకి తన నాయకుణ్ణి ఏ లోటూ లేని నిండు చంద్రుడిగా చూపిస్తున్నారు.
                 </p>
 
-                <div className="guna-list">
-                    <div className="guna-row"><span className="guna-term">గుణవాన్</span><span className="guna-meaning">మంచితనం స్వభావంగా ఉన్నవాడు</span></div>
-                    <div className="guna-row"><span className="guna-term">వీర్యవాన్</span><span className="guna-meaning">పరాక్రమవంతుడు</span></div>
-                    <div className="guna-row"><span className="guna-term">ధర్మజ్ఞః</span><span className="guna-meaning">ధర్మం అంటే ఏమిటో తెలిసినవాడు</span></div>
-                    <div className="guna-row"><span className="guna-term">కృతజ్ఞః</span><span className="guna-meaning">చేసిన మేలు మరచిపోనివాడు</span></div>
-                    <div className="guna-row"><span className="guna-term">సత్యవాక్యః</span><span className="guna-meaning">మాట తప్పనివాడు</span></div>
-                    <div className="guna-row"><span className="guna-term">దృఢవ్రతః</span><span className="guna-meaning">పట్టిన పట్టు విడవనివాడు</span></div>
-                    <div className="guna-row"><span className="guna-term">చారిత్రవాన్</span><span className="guna-meaning">నడవడికలో మచ్చ లేనివాడు</span></div>
-                    <div className="guna-row"><span className="guna-term">సర్వభూతహితః</span><span className="guna-meaning">సకల ప్రాణుల మేలు కోరేవాడు</span></div>
-                    <div className="guna-row"><span className="guna-term">విద్వాన్</span><span className="guna-meaning">నిజమైన జ్ఞానం ఉన్నవాడు</span></div>
-                    <div className="guna-row"><span className="guna-term">సమర్థః</span><span className="guna-meaning">తలపెట్టినది చేయగలవాడు</span></div>
-                    <div className="guna-row"><span className="guna-term">ప్రియదర్శనః</span><span className="guna-meaning">చూసిన ప్రతి ఒక్కరికీ ఇష్టుడయ్యేవాడు</span></div>
-                    <div className="guna-row"><span className="guna-term">ఆత్మవాన్</span><span className="guna-meaning">తనను తాను జయించినవాడు</span></div>
-                    <div className="guna-row"><span className="guna-term">జితక్రోధః</span><span className="guna-meaning">కోపాన్ని గెలిచినవాడు</span></div>
-                    <div className="guna-row"><span className="guna-term">ద్యుతిమాన్</span><span className="guna-meaning">లోపలి నుంచి వెలిగే కాంతి ఉన్నవాడు</span></div>
-                    <div className="guna-row"><span className="guna-term">అనసూయకః</span><span className="guna-meaning">అసూయ లేనివాడు</span></div>
-                    <div className="guna-row"><span className="guna-term">జాతరోషః</span><span className="guna-meaning">ధర్మం కోసం రోషం వస్తే దేవతలు సైతం భయపడేవాడు</span></div>
-                </div>
+                <p>
+                    <strong>గుణవాన్</strong> (మంచితనం స్వభావంగా ఉన్నవాడు); <strong>వీర్యవాన్</strong> (పరాక్రమవంతుడు); <strong>ధర్మజ్ఞః</strong> (ధర్మం అంటే ఏమిటో తెలిసినవాడు); <strong>కృతజ్ఞః</strong> (చేసిన మేలు మరచిపోనివాడు); <strong>సత్యవాక్యః</strong> (మాట తప్పనివాడు); <strong>దృఢవ్రతః</strong> (పట్టిన పట్టు విడవనివాడు); <strong>చారిత్రవాన్</strong> (నడవడికలో మచ్చ లేనివాడు); <strong>సర్వభూతహితః</strong> (సకల ప్రాణుల మేలు కోరేవాడు); <strong>విద్వాన్</strong> (నిజమైన జ్ఞానం ఉన్నవాడు); <strong>సమర్థః</strong> (తలపెట్టినది చేయగలవాడు); <strong>ప్రియదర్శనః</strong> (చూసిన ప్రతి ఒక్కరికీ ఇష్టుడయ్యేవాడు); <strong>ఆత్మవాన్</strong> (తనను తాను జయించినవాడు); <strong>జితక్రోధః</strong> (కోపాన్ని గెలిచినవాడు); <strong>ద్యుతిమాన్</strong> (లోపలి నుంచి వెలిగే కాంతి ఉన్నవాడు); <strong>అనసూయకః</strong> (అసూయ లేనివాడు); చివరగా <strong>జాతరోషః</strong> (ధర్మం కోసం రోషం వస్తే దేవతలు సైతం భయపడేవాడు).
+                </p>
 
                 <p>
                     ఆ మహర్షి వాల్మీకి. నన్ను ప్రతిసారీ ఆపే విషయం ఇదే. ఆయన తన కావ్యాన్ని &ldquo;రాముడి గురించి చెప్పు&rdquo; అని మొదలు పెట్టలేదు. ముందు ఒక సంపూర్ణ మానవుడి నిర్వచనాన్ని పూర్తిగా నిర్మించి, తరువాత &ldquo;అలాంటివాడు అసలు ఉన్నాడా?&rdquo; అని అడిగారు. దానికి నారదుడి నోట వచ్చిన జవాబు ఒకే ఒక్క పేరు, చాలా సరళమైనది:
@@ -179,24 +164,9 @@ const allPosts: BlogPost[] = [
                     He does not ask whether the man is rich, or handsome, or famous. He asks sixteen questions, the <em>shodasha guna</em>, sixteen marks of a complete human being. Tradition connects them to the sixteen <em>kalas</em>, the phases of the full moon. Valmiki is quietly showing his hero as the complete moon, with nothing missing.
                 </p>
 
-                <div className="guna-list">
-                    <div className="guna-row"><span className="guna-term">గుణవాన్ · guṇavān</span><span className="guna-meaning">Virtuous, good at his core</span></div>
-                    <div className="guna-row"><span className="guna-term">వీర్యవాన్ · vīryavān</span><span className="guna-meaning">Valorous, capable of great power</span></div>
-                    <div className="guna-row"><span className="guna-term">ధర్మజ్ఞః · dharmajña</span><span className="guna-meaning">Knows dharma, what is right</span></div>
-                    <div className="guna-row"><span className="guna-term">కృతజ్ఞః · kṛtajña</span><span className="guna-meaning">Grateful, remembers every kindness</span></div>
-                    <div className="guna-row"><span className="guna-term">సత్యవాక్యః · satyavākya</span><span className="guna-meaning">True to his word, always</span></div>
-                    <div className="guna-row"><span className="guna-term">దృఢవ్రతః · dṛḍhavrata</span><span className="guna-meaning">Steadfast, firm in his vows</span></div>
-                    <div className="guna-row"><span className="guna-term">చారిత్రవాన్ · cāritravān</span><span className="guna-meaning">Of spotless conduct</span></div>
-                    <div className="guna-row"><span className="guna-term">సర్వభూతహితః · sarvabhūteṣu hita</span><span className="guna-meaning">Wishes every living being well</span></div>
-                    <div className="guna-row"><span className="guna-term">విద్వాన్ · vidvān</span><span className="guna-meaning">Learned, truly wise</span></div>
-                    <div className="guna-row"><span className="guna-term">సమర్థః · samartha</span><span className="guna-meaning">Capable, able to act</span></div>
-                    <div className="guna-row"><span className="guna-term">ప్రియదర్శనః · priyadarśana</span><span className="guna-meaning">Beloved by all who meet him</span></div>
-                    <div className="guna-row"><span className="guna-term">ఆత్మవాన్ · ātmavān</span><span className="guna-meaning">Master of himself</span></div>
-                    <div className="guna-row"><span className="guna-term">జితక్రోధః · jitakrodha</span><span className="guna-meaning">Conqueror of his own anger</span></div>
-                    <div className="guna-row"><span className="guna-term">ద్యుతిమాన్ · dyutimān</span><span className="guna-meaning">Radiant, carries an inner light</span></div>
-                    <div className="guna-row"><span className="guna-term">అనసూయకః · anasūyaka</span><span className="guna-meaning">Free of envy</span></div>
-                    <div className="guna-row"><span className="guna-term">జాతరోషః · jātaroṣa</span><span className="guna-meaning">His wrath, once roused in a just battle, so fierce that even the gods fear him</span></div>
-                </div>
+                <p>
+                    <strong>guṇavān</strong> (virtuous, good at his core); <strong>vīryavān</strong> (valorous); <strong>dharmajña</strong> (knows dharma, what is right); <strong>kṛtajña</strong> (grateful, remembers every kindness); <strong>satyavākya</strong> (true to his word, always); <strong>dṛḍhavrata</strong> (steadfast in his vows); <strong>cāritravān</strong> (of spotless conduct); <strong>sarvabhūteṣu hita</strong> (wishes every living being well); <strong>vidvān</strong> (learned, truly wise); <strong>samartha</strong> (capable, able to act); <strong>priyadarśana</strong> (beloved by all who meet him); <strong>ātmavān</strong> (master of himself); <strong>jitakrodha</strong> (conqueror of his own anger); <strong>dyutimān</strong> (radiant, carries an inner light); <strong>anasūyaka</strong> (free of envy); and the sixteenth, <strong>jātaroṣa</strong> (so fierce in a just battle that even the gods fear him).
+                </p>
 
                 <p>
                     The sage was Valmiki, and notice the order he chose. He did not open his epic by saying <em>tell me about Rama.</em> He built the full description of a complete man first, and only then asked whether anyone had ever actually fit it. One name came back, and the answer is very simple:
