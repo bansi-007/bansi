@@ -6,9 +6,7 @@ export default function Home() {
     return (
         <div className={styles.wrap}>
             <header className={styles.header}>
-                <div className={styles.masthead}>
-                    <p className={styles.sri}>శ్రీ</p>
-                    <h1 className={styles.eyebrow}>రామదత్ కైఫీయత్</h1>
+                <div className={styles.masthead}>                    <h1 className={styles.eyebrow}>రామదత్ కైఫీయత్</h1>
                     <p className={styles.lede}>
                         కరణం గారి దృష్టికి నిలిచిన సంగతులు ఇందు యథావిధిగా నమోదు చేయబడును
                     </p>
