@@ -10,9 +10,14 @@ export default function Home() {
                     <p className={styles.lede}>
                         కరణం గారి దృష్టికి నిలిచిన సంగతులు ఇందు యథావిధిగా నమోదు చేయబడును
                     </p>
+                    <p className={styles.ledeNote}>
+                        కైఫీయత్ — పూర్వం గ్రామ కరణాలు ఊరి చరిత్రనూ విశేషాలనూ రాసి ఉంచిన వృత్తాంత పుస్తకం
+                    </p>
                 </div>
                 <span className={`doc-stamp ${styles.headerStamp}`}>నమోదు పుస్తకం</span>
             </header>
+
+            <div className="chain-rule" aria-hidden />
 
             <div className={styles.ledger}>
                 {blogPosts.map((post, idx) => (

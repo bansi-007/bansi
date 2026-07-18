@@ -32,6 +32,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
             <article
                 style={{
+                    position: 'relative',
                     background: '#fbf7ec',
                     border: '1px solid var(--border-strong)',
                     outline: '1px solid var(--border)',
@@ -41,6 +42,21 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     boxShadow: '0 2px 14px rgba(33, 29, 25, 0.06)',
                 }}
             >
+                {/* the twine stitch that bundles the record: two punched holes, thread through them */}
+                <svg
+                    aria-hidden
+                    width="72"
+                    height="26"
+                    viewBox="0 0 72 26"
+                    style={{ position: 'absolute', top: '-9px', left: '28px', transform: 'rotate(-2deg)' }}
+                >
+                    <circle cx="16" cy="14" r="3.5" fill="var(--background)" stroke="var(--border-strong)" strokeWidth="1.4" />
+                    <circle cx="52" cy="14" r="3.5" fill="var(--background)" stroke="var(--border-strong)" strokeWidth="1.4" />
+                    <path d="M 16 14 C 24 2, 44 2, 52 14" fill="none" stroke="#8a3324" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M 16 14 C 26 6, 42 6, 52 14" fill="none" stroke="#a54a38" strokeWidth="1.2" strokeLinecap="round" />
+                    <path d="M 16 14 c -4 4, -7 6, -11 7" fill="none" stroke="#8a3324" strokeWidth="1.6" strokeLinecap="round" />
+                    <path d="M 52 14 c 4 4, 7 6, 11 7" fill="none" stroke="#8a3324" strokeWidth="1.6" strokeLinecap="round" />
+                </svg>
                 <header style={{ marginBottom: '2.5rem', borderBottom: '1px solid var(--border-strong)', paddingBottom: '1.75rem', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '1.5rem', flexWrap: 'wrap' }}>
                     <div style={{ minWidth: '16rem', flex: '1 1 24rem' }}>
                         <h1
@@ -82,9 +98,10 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     <PostBody original={post.content} english={post.contentEn} />
                 ) : (
                     <div className="prose">
-                        <p>This piece isn&apos;t up yet. See <Link href="/" style={{ textDecoration: 'underline', color: 'var(--primary)' }}>the rest</Link>.</p>
+                        <p>ఈ పుట ఇంకా నమోదు కాలేదు. <Link href="/" style={{ textDecoration: 'underline', color: 'var(--primary)' }}>మిగతా కైఫీయత్ చూడండి</Link>.</p>
                     </div>
                 )}
+                <div className="nib-signoff" aria-hidden>✒&#xFE0E;</div>
             </article>
 
             {post && (newer || older) && (

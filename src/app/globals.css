@@ -67,6 +67,52 @@ body::before {
   z-index: 10;
 }
 
+/* The teak table under the paper: thin wooden rails at the page edges */
+body::after {
+  content: '';
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #4a3423, #6b4a33 50%, #4a3423);
+  z-index: 10;
+}
+
+html::before,
+html::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background: linear-gradient(180deg, #4a3423, #6b4a33 50%, #4a3423);
+  z-index: 10;
+}
+
+html::before { left: 0; }
+html::after { right: 0; }
+
+/* The surveyor's chain (గొలుసు) as a divider motif */
+.chain-rule,
+.prose hr {
+  border: none;
+  height: 10px;
+  max-width: 16rem;
+  margin: 2.5rem auto;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='10' viewBox='0 0 28 10'%3E%3Cellipse cx='9' cy='5' rx='8' ry='3.6' fill='none' stroke='%238a6f3f' stroke-width='1.2'/%3E%3Cellipse cx='23' cy='5' rx='8' ry='3.6' fill='none' stroke='%238a6f3f' stroke-width='1.2'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: center;
+}
+
+/* The nib pen sign-off at the end of a filed entry */
+.nib-signoff {
+  text-align: center;
+  margin-top: 2.5rem;
+  color: var(--primary);
+  font-size: 1.3rem;
+}
+
 main {
   flex: 1;
 }
@@ -158,11 +204,14 @@ strong {
   color: var(--foreground-strong);
 }
 
-/* Key terms read as marker-highlighted, not merely bold */
+/* Key terms in crimson with a light rule under them */
 .prose strong {
   font-weight: 600;
-  background: linear-gradient(transparent 58%, rgba(192, 138, 29, 0.32) 58%, rgba(192, 138, 29, 0.32) 94%, transparent 94%);
-  padding: 0 0.12em;
+  color: var(--primary-strong);
+  text-decoration: underline;
+  text-decoration-color: rgba(178, 58, 42, 0.35);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
 }
 
 blockquote {

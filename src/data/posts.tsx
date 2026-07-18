@@ -242,16 +242,6 @@ const allPosts: BlogPost[] = [
         excerpt: "Breaking Bad and Better Call Saul never ask you to watch a man become a monster. They make you become one with him, slowly enough that you never feel it happen. On the characters, and the trick they play on you.",
         content: (
             <>
-                <figure style={{ margin: '0 0 2.5rem', textAlign: 'center' }}>
-                    <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/9/95/BryanCranston-byPhilipRomano_%28cropped%29.jpg"
-                        alt="Bryan Cranston, who played Walter White"
-                        style={{ width: '100%', maxWidth: '460px', borderRadius: '10px', border: '1px solid var(--border)' }}
-                    />
-                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
-                        Bryan Cranston, who played Walter White. Credit: PhilipRomano, via Wikimedia Commons (CC BY-SA 4.0)
-                    </figcaption>
-                </figure>
 
                 <p>
                     There is a shot at the start of every Better Call Saul season that most people fast-forward past. Black and white. A man named Gene manages a Cinnabon in a mall in Omaha. He is alone. He is afraid of being recognised. And when a stranger so much as glances at him too long, you watch the old instinct twitch back to life behind his eyes, the con man, still in there, still running, with no one left to run on.
@@ -276,16 +266,6 @@ const allPosts: BlogPost[] = [
 
                 <h2>Two men, two directions</h2>
 
-                <figure style={{ margin: '2rem 0', textAlign: 'center' }}>
-                    <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/8/84/Bob_Odenkirk_at_53rd_Saturn_Awards_2026-02.jpg"
-                        alt="Bob Odenkirk, who played Jimmy McGill and Saul Goodman"
-                        style={{ width: '100%', maxWidth: '460px', borderRadius: '10px', border: '1px solid var(--border)' }}
-                    />
-                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
-                        Bob Odenkirk, who played Jimmy McGill and Saul Goodman. Credit: Kevin Paul, via Wikimedia Commons (CC BY 4.0)
-                    </figcaption>
-                </figure>
 
                 <p>
                     Walt and Jimmy are the same story run in opposite directions, and watching them side by side is the closest thing television has to a controlled experiment.
@@ -305,16 +285,6 @@ const allPosts: BlogPost[] = [
 
                 <h2>The ones who make it hurt</h2>
 
-                <figure style={{ margin: '2rem 0', textAlign: 'center' }}>
-                    <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/6/60/Giancarlo_Esposito_at_Comic_Con_Oakland_2026_-_2_%28cropped%29.jpg"
-                        alt="Giancarlo Esposito, who played Gustavo Fring"
-                        style={{ width: '100%', maxWidth: '460px', borderRadius: '10px', border: '1px solid var(--border)' }}
-                    />
-                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
-                        Giancarlo Esposito, who played Gustavo Fring. Credit: Aditya Ramachandran, via Wikimedia Commons (CC BY-SA 4.0)
-                    </figcaption>
-                </figure>
 
                 <p>
                     Around those two are the characters who exist to make you feel the cost, and each one bonds you a different way.
@@ -356,16 +326,6 @@ const allPosts: BlogPost[] = [
         excerpt: "రావు బహదూర్ చిత్రంలోని \"ఓ సుందరి\" పాట, ఎన్నో సంవత్సరాల తర్వాత తెలుగు సినీ సాహిత్యంలోకి తిరిగి వచ్చిన అరుదైన పదసౌందర్యం గురించి.",
         content: (
             <div className="te">
-                <figure style={{ margin: '0 0 2.5rem', textAlign: 'center' }}>
-                    <img
-                        src="/rao-bahadur-song.png"
-                        alt="రావు బహదూర్"
-                        style={{ width: '100%', maxWidth: '760px', borderRadius: '10px', border: '1px solid var(--border)' }}
-                    />
-                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
-                        రావు బహదూర్
-                    </figcaption>
-                </figure>
 
                 <p><em>ఎన్నో సంవత్సరాల తర్వాత… ఒక మంచి తెలుగు ప్రేమగీతం.</em></p>
 
@@ -391,21 +351,6 @@ const allPosts: BlogPost[] = [
                     కానీ ఈ పాట అసలు బలం సంగీతం కాదు. సాహిత్యం.
                 </p>
 
-                <figure style={{ margin: '2rem 0' }}>
-                    <div style={{ position: 'relative', width: '100%', paddingBottom: '56.25%', borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--border)' }}>
-                        <iframe
-                            src="https://www.youtube-nocookie.com/embed/EU8ct98ZvCg"
-                            title="ఓ సుందరి, రావు బహదూర్"
-                            loading="lazy"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowFullScreen
-                            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
-                        />
-                    </div>
-                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)', textAlign: 'center' }}>
-                        పాట వింటూ కింది సాహిత్యం చదవండి.
-                    </figcaption>
-                </figure>
 
                 <hr />
 
@@ -499,16 +444,6 @@ const allPosts: BlogPost[] = [
         ),
         contentEn: (
             <>
-                <figure style={{ margin: '0 0 2.5rem', textAlign: 'center' }}>
-                    <img
-                        src="/rao-bahadur-song.png"
-                        alt="Rao Bahadur"
-                        style={{ width: '100%', maxWidth: '760px', borderRadius: '10px', border: '1px solid var(--border)' }}
-                    />
-                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
-                        Rao Bahadur
-                    </figcaption>
-                </figure>
 
                 <p><em>After many years, a genuinely good Telugu love song.</em></p>
 
@@ -534,21 +469,6 @@ const allPosts: BlogPost[] = [
                     But the real strength of this song is not the music. It is the writing.
                 </p>
 
-                <figure style={{ margin: '2rem 0' }}>
-                    <div style={{ position: 'relative', width: '100%', paddingBottom: '56.25%', borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--border)' }}>
-                        <iframe
-                            src="https://www.youtube-nocookie.com/embed/EU8ct98ZvCg"
-                            title="Oh Sundari, Rao Bahadur"
-                            loading="lazy"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowFullScreen
-                            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
-                        />
-                    </div>
-                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)', textAlign: 'center' }}>
-                        Play the song while you read the lyrics below.
-                    </figcaption>
-                </figure>
 
                 <hr />
 
@@ -649,16 +569,6 @@ const allPosts: BlogPost[] = [
         excerpt: "A fan letter, twenty-three years after a kabaddi line in Okkadu landed on an eight-year-old in a summer matinee. On why he is the most versatile actor in the country, and why Varanasi is the frame he has been waiting for.",
         content: (
             <>
-                <figure style={{ margin: '0 0 2.5rem', textAlign: 'center' }}>
-                    <img
-                        src="/mahesh_babu.jpeg"
-                        alt="Mahesh Babu"
-                        style={{ width: '100%', maxWidth: '460px', borderRadius: '10px', border: '1px solid var(--border)' }}
-                    />
-                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
-                        Mahesh Babu.
-                    </figcaption>
-                </figure>
 
                 <p>
                     I was eight years old in April 2003 when I walked into Swamy Cinema Hall in Rajahmundry with my brother and my cousin brother. The film had released in January. We were watching it in April, in summer holidays, and the show was still housefull. The film was Okkadu.
@@ -676,16 +586,6 @@ const allPosts: BlogPost[] = [
                     Twenty-three years later that cut, from the line to the breath, is still the cleanest piece of acting I have seen in a Telugu film. That was the day.
                 </p>
 
-                <figure style={{ margin: '2rem 0', textAlign: 'center' }}>
-                    <img
-                        src="/okkadu.jpg"
-                        alt="Mahesh Babu in Okkadu (2003)"
-                        style={{ width: '100%', maxWidth: '720px', borderRadius: '10px', border: '1px solid var(--border)' }}
-                    />
-                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
-                        Okkadu (2003). Where, for a lot of us, it started.
-                    </figcaption>
-                </figure>
                 <p>
                     This isn&apos;t a review. It&apos;s a fan&apos;s log of what I have watched him do since. I&apos;m not comparing him to anyone. I just want to write down why I think he is the most versatile actor working in this country, and why I am quietly losing my mind about Varanasi.
                 </p>
@@ -751,13 +651,6 @@ const allPosts: BlogPost[] = [
 
                 <h2>Varanasi</h2>
 
-                <figure style={{ margin: '2rem 0', textAlign: 'center' }}>
-                    <img
-                        src="/varanasi-title.png"
-                        alt="Varanasi (Rajamouli x Mahesh Babu) title card"
-                        style={{ width: '100%', maxWidth: '760px', borderRadius: '10px', border: '1px solid var(--border)' }}
-                    />
-                </figure>
 
                 <p>
                     And then there is Varanasi.
@@ -769,31 +662,11 @@ const allPosts: BlogPost[] = [
                     Then he played the concept reel.
                 </p>
 
-                <figure style={{ margin: '2rem 0', textAlign: 'center' }}>
-                    <img
-                        src="/varanasi-globetrotter.jpg"
-                        alt="The Globetrotter Event at Ramoji Film City, November 15, 2025"
-                        style={{ width: '100%', maxWidth: '720px', borderRadius: '10px', border: '1px solid var(--border)' }}
-                    />
-                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
-                        Mahesh on the screen as Rudhra at the Globetrotter Event, Ramoji Film City, November 15, 2025.
-                    </figcaption>
-                </figure>
 
                 <p>
                     Mahesh was on the screen as <strong>Rudhra</strong>, a trishul in his hand, riding a charging bull. Priyanka Chopra Jonas as <strong>Mandakini</strong>. Prithviraj Sukumaran as the antagonist, <strong>Kumbha</strong>. The film, Rajamouli said, spans thousands of years, from ancient Bharat to the modern day, with one sequence inspired by a chapter from the Ramayana. The story turns on the city of Varanasi facing the impending arrival of an asteroid. Globetrotting adventure with Indian roots.
                 </p>
 
-                <figure style={{ margin: '2rem 0', textAlign: 'center' }}>
-                    <img
-                        src="/varanasi-rama.jpg"
-                        alt="A warrior at sunset, bow in hand"
-                        style={{ width: '100%', maxWidth: '480px', borderRadius: '10px', border: '1px solid var(--border)' }}
-                    />
-                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
-                        One sequence of Varanasi is inspired by a chapter of the Ramayana.
-                    </figcaption>
-                </figure>
 
                 <p>
                     Then Rajamouli mentioned the format. 1.43:1 IMAX. First Indian film. First non-English film in cinema history in that ratio. The frame Nolan uses for Oppenheimer and Dunkirk. The frame that makes a single human face fill an entire IMAX screen.
@@ -862,16 +735,6 @@ const allPosts: BlogPost[] = [
                 <p>
                     And the Sun is not special. There are stars so large that if you swapped one in for our Sun, it would swallow Mercury, Venus, Earth, Mars, and extend past Jupiter. Our Sun is a small, quiet, unremarkable star in a pretty average part of its galaxy.
                 </p>
-                <figure style={{ margin: '2rem 0', textAlign: 'center' }}>
-                    <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Star-sizes.jpg/1280px-Star-sizes.jpg"
-                        alt="Star size comparison, from Earth to the largest known stars"
-                        style={{ width: '100%', maxWidth: '700px', borderRadius: '8px', border: '1px solid var(--border)' }}
-                    />
-                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
-                        Left to right: Earth, the Sun, some bigger stars, and then stars so large the Sun becomes invisible. This chart goes on further than what fits here. Credit: Dave Jarvis, Wikimedia Commons (CC BY-SA 3.0)
-                    </figcaption>
-                </figure>
 
                 <h2>The neighborhood</h2>
                 <p>
@@ -883,16 +746,6 @@ const allPosts: BlogPost[] = [
                 <p>
                     In 1990, as Voyager 1 was heading out, Carl Sagan convinced NASA to turn its camera around for one last photograph. From 6 billion kilometres away, Earth shows up as a single pixel, barely that, a pale blue dot in a beam of scattered sunlight. Sagan wrote about that image, and there's one line that's never left me: <em>"That's here. That's home. That's us."</em>
                 </p>
-                <figure style={{ margin: '2rem 0', textAlign: 'center' }}>
-                    <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/7/71/PaleBlueDot.jpg"
-                        alt="The Pale Blue Dot, Earth photographed by Voyager 1 from 6 billion kilometres away, 1990"
-                        style={{ width: '100%', maxWidth: '500px', borderRadius: '8px', border: '1px solid var(--border)' }}
-                    />
-                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
-                        Earth. From 6 billion kilometres away. The tiny speck in the beam of light. Every human who ever lived, every war ever fought, every love story ever written, on that dot. Credit: NASA/JPL-Caltech
-                    </figcaption>
-                </figure>
 
                 <h2>The galaxy</h2>
                 <p>
@@ -901,36 +754,16 @@ const allPosts: BlogPost[] = [
                 <p>
                     We sit in a quiet suburb about 26,000 light-years from the center. We're not special in our placement either. Just somewhere in the middle, orbiting the galactic center once every 225 million years. The last time we were in this exact spot in our orbit, dinosaurs were just getting started.
                 </p>
-                <figure style={{ margin: '2rem 0', textAlign: 'center' }}>
-                    <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/ESO-VLT-Laser-phot-0a-99.jpg/1280px-ESO-VLT-Laser-phot-0a-99.jpg"
-                        alt="The Milky Way as seen from the ESO Very Large Telescope site in Chile"
-                        style={{ width: '100%', maxWidth: '760px', borderRadius: '8px', border: '1px solid var(--border)' }}
-                    />
-                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
-                        The Milky Way from the ESO telescope site in Chile. Every single dot is a star. We are somewhere inside this. Credit: ESO/Y. Beletsky (CC BY 4.0)
-                    </figcaption>
-                </figure>
 
                 <h2>Beyond the Milky Way</h2>
                 <p>
                     The Milky Way has somewhere between 100 and 400 billion stars. The observable universe, the part we can see with our best telescopes, contains roughly two trillion galaxies. Each one with hundreds of billions of stars.
                 </p>
                 <p>
-                    In 1995, astronomers pointed the Hubble telescope at a completely dark patch of sky, a region so empty it looked like nothing. They left the shutter open for ten days. Here is what came back:
+                    In 1995, astronomers pointed the Hubble telescope at a completely dark patch of sky, a region so empty it looked like nothing. They left the shutter open for ten days.
                 </p>
-                <figure style={{ margin: '2rem 0', textAlign: 'center' }}>
-                    <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/6/69/NASA-HS201427a-HubbleUltraDeepField2014-20140603.jpg"
-                        alt="Hubble Ultra Deep Field, nearly 10,000 galaxies visible in a tiny patch of sky"
-                        style={{ width: '100%', maxWidth: '760px', borderRadius: '8px', border: '1px solid var(--border)' }}
-                    />
-                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
-                        Hubble Ultra Deep Field, 2014. Nearly 10,000 galaxies in one photograph. Each galaxy has billions of stars. This was a tiny patch of sky that looked completely empty. Credit: NASA, ESA, H. Teplitz and M. Rafelski (IPAC/Caltech), A. Koekemoer (STScI), R. Windhorst (ASU), Z. Levay (STScI)
-                    </figcaption>
-                </figure>
                 <p>
-                    Almost every dot in that image is a galaxy. Not a star, a galaxy. Billions of suns, each. And this is from a patch of sky so small you'd need to hold a grain of sand at arm's length to cover it.
+                    Almost every dot in the photograph that came back is a galaxy. Not a star, a galaxy. Billions of suns, each. And this is from a patch of sky so small you'd need to hold a grain of sand at arm's length to cover it.
                 </p>
                 <p>
                     The numbers stop meaning anything at some point. Our brains aren't built for this scale. Two trillion galaxies, each with hundreds of billions of stars, many with planets, we don't even have a word for what that adds up to.
@@ -988,16 +821,6 @@ const allPosts: BlogPost[] = [
                 <p>
                     In 1990, as Voyager 1 was leaving our solar system, Carl Sagan convinced NASA to turn the spacecraft's camera around for one last photo. From 6 billion kilometres away, Earth showed up as less than a single pixel, a pale blue dot in a beam of scattered sunlight.
                 </p>
-                <figure style={{ margin: '2rem 0', textAlign: 'center' }}>
-                    <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/7/71/PaleBlueDot.jpg"
-                        alt="The Pale Blue Dot, Earth photographed by Voyager 1 from 6 billion kilometres away, 1990"
-                        style={{ width: '100%', maxWidth: '600px', borderRadius: '8px', border: '1px solid var(--border)' }}
-                    />
-                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
-                        Earth from 6 billion kilometres away. Voyager 1, 1990. "That's here. That's home. That's us.", Carl Sagan. Credit: NASA/JPL-Caltech
-                    </figcaption>
-                </figure>
                 <p>
                     Our Sun is one of 300 billion stars in the Milky Way. The Milky Way is one of over two trillion galaxies we can observe. Most of those galaxies have hundreds of billions of stars. Most of those stars, we now know, have planets going around them.
                 </p>
@@ -1010,20 +833,10 @@ const allPosts: BlogPost[] = [
                     Andromeda is our nearest large galactic neighbor. It's a spiral galaxy, same as the Milky Way, a flat spinning disc of stars with a massive black hole at the center and arms curling outward. It has about a trillion stars. We have around 300 billion. Andromeda is bigger.
                 </p>
                 <p>
-                    If it were bright enough to see properly, Andromeda would appear six times wider in the sky than the full Moon. It only looks faint because its light is spread across that enormous area. Hubble spent years photographing it piece by piece and stitching the images together:
+                    If it were bright enough to see properly, Andromeda would appear six times wider in the sky than the full Moon. It only looks faint because its light is spread across that enormous area. Hubble spent years photographing it piece by piece and stitching the images together.
                 </p>
-                <figure style={{ margin: '2rem 0', textAlign: 'center' }}>
-                    <img
-                        src="https://esahubble.org/static/archives/images/screen/heic1502a.jpg"
-                        alt="Hubble mosaic of the Andromeda Galaxy (M31), released January 2015"
-                        style={{ width: '100%', maxWidth: '800px', borderRadius: '8px', border: '1px solid var(--border)' }}
-                    />
-                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
-                        1.5 billion pixels. Over 100 million individual stars visible. And this is only a section of it. Credit: NASA/ESA, J. Dalcanton, B.F. Williams, L.C. Johnson (University of Washington)
-                    </figcaption>
-                </figure>
                 <p>
-                    Every dot of light in that image is a star. Most of them are suns. Many probably have planets. We just can't see them from here.
+                    Every dot of light in that mosaic is a star. Most of them are suns. Many probably have planets. We just can't see them from here.
                 </p>
 
                 <h2>It's coming toward us</h2>
@@ -1034,23 +847,8 @@ const allPosts: BlogPost[] = [
                     We know this because of the Doppler effect, the same reason a car horn sounds higher as it drives toward you. Light does the same thing. When a light source moves toward you, the wavelengths get slightly compressed. Andromeda's light is blue-shifted. It's heading our way.
                 </p>
                 <p>
-                    In about 4.5 billion years, the two galaxies will collide. Scientists have simulated what it'll look like:
+                    In about 4.5 billion years, the two galaxies will collide. Scientists have simulated what it will look like.
                 </p>
-                <figure style={{ margin: '2rem 0', textAlign: 'center' }}>
-                    <iframe
-                        width="800"
-                        height="450"
-                        loading="lazy"
-                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; web-share"
-                        allowFullScreen
-                        src="https://commons.wikimedia.org/wiki/File:Andromeda_and_Milky_Way_collision.ogv?embedplayer=true"
-                        style={{ width: '100%', maxWidth: '800px', borderRadius: '8px', border: '1px solid var(--border)' }}
-                    />
-                    <figcaption style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--muted)' }}>
-                        Simulation of the Milky Way–Andromeda merger over the next ~4 billion years.<br />
-                        Visualization: NASA, ESA, F. Summers (STScI) · Simulation: NASA, ESA, G. Besla (Columbia University), R. van der Marel (STScI) · Public domain, via Wikimedia Commons
-                    </figcaption>
-                </figure>
                 <p>
                     The word "collision" makes it sound catastrophic, but it won't be, at least not for individual stars. Galaxies are mostly empty space. The distances between stars are so vast that when two galaxies merge, their stars almost never actually hit each other. They pass through like two swarms of fireflies overlapping in the dark. Gravity twists both into strange new shapes, some stars get flung far out, clouds of gas get squeezed and collapse into new stars, it's more like a slow dance than a crash.
                 </p>
