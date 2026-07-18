@@ -102,82 +102,65 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     </div>
                 )}
                 {post && (
-                    <div style={{
-                        marginTop: '3.5rem',
-                        display: 'flex',
-                        justifyContent: 'flex-end',
-                        alignItems: 'center',
-                        gap: '1.75rem',
-                        flexWrap: 'wrap',
-                    }}>
-                        {/* round office seal, inked and slightly askew */}
-                        <svg
-                            aria-hidden
-                            width="118"
-                            height="118"
-                            viewBox="0 0 100 100"
-                            style={{ transform: 'rotate(-10deg)', opacity: 0.85, flexShrink: 0 }}
-                        >
-                            <defs>
-                                <path id="sealTop" d="M 13,50 A 37,37 0 0 1 87,50" fill="none" />
-                            </defs>
-                            <circle cx="50" cy="50" r="47" fill="none" stroke="#9a2f21" strokeWidth="2.2" />
-                            <circle cx="50" cy="50" r="41" fill="none" stroke="#9a2f21" strokeWidth="0.8" />
-                            <text fontSize="8.2" fill="#9a2f21" fontFamily="var(--font-telugu-stack)" letterSpacing="1">
-                                <textPath href="#sealTop" startOffset="50%" textAnchor="middle">కరణం కార్యాలయం</textPath>
-                            </text>
-                            <text x="50" y="49" fontSize="8" fill="#9a2f21" fontFamily="var(--font-telugu-stack)" textAnchor="middle">ధృవీకరించ</text>
-                            <text x="50" y="59" fontSize="8" fill="#9a2f21" fontFamily="var(--font-telugu-stack)" textAnchor="middle">బడినది</text>
-                            <text x="50" y="72" fontSize="7" fill="#9a2f21" textAnchor="middle">{post.date}</text>
-                            <text x="24" y="53" fontSize="7" fill="#9a2f21" textAnchor="middle">✦</text>
-                            <text x="76" y="53" fontSize="7" fill="#9a2f21" textAnchor="middle">✦</text>
-                        </svg>
+                    <div style={{ marginTop: '3.5rem', display: 'flex', justifyContent: 'flex-end' }}>
+                        <div style={{ position: 'relative', textAlign: 'right', paddingTop: '0.5rem' }}>
+                            {/* the office seal, stamped first; the signature lands across it */}
+                            <svg
+                                aria-hidden
+                                width="130"
+                                height="130"
+                                viewBox="0 0 100 100"
+                                style={{ position: 'absolute', right: '46%', top: '-34px', transform: 'rotate(-12deg)', opacity: 0.75, zIndex: 0 }}
+                            >
+                                <defs>
+                                    <path id="sealTop" d="M 17,55 A 33,33 0 0 1 83,55" fill="none" />
+                                </defs>
+                                <circle cx="50" cy="50" r="46" fill="none" stroke="#9a2f21" strokeWidth="2.2" />
+                                <circle cx="50" cy="50" r="40" fill="none" stroke="#9a2f21" strokeWidth="0.8" />
+                                <text fontSize="7.8" fill="#9a2f21" fontFamily="var(--font-telugu-stack)" letterSpacing="0.5">
+                                    <textPath href="#sealTop" startOffset="50%" textAnchor="middle">కరణం కార్యాలయం</textPath>
+                                </text>
+                                <text x="50" y="49" fontSize="8" fill="#9a2f21" fontFamily="var(--font-telugu-stack)" textAnchor="middle">ధృవీకరించ</text>
+                                <text x="50" y="59" fontSize="8" fill="#9a2f21" fontFamily="var(--font-telugu-stack)" textAnchor="middle">బడినది</text>
+                                <text x="50" y="72" fontSize="7" fill="#9a2f21" textAnchor="middle">{post.date}</text>
+                                <text x="24" y="53" fontSize="7" fill="#9a2f21" textAnchor="middle">✦</text>
+                                <text x="76" y="53" fontSize="7" fill="#9a2f21" textAnchor="middle">✦</text>
+                            </svg>
 
-                        {/* the karanam's signature */}
-                        <div style={{
-                            textAlign: 'right',
-                            fontFamily: 'var(--font-telugu-display-stack)',
-                            color: 'var(--muted-strong)',
-                            lineHeight: 1.65,
-                        }}>
-                            <div style={{ fontSize: '0.95rem' }}>ఇట్లు,</div>
+                            <div style={{ position: 'relative', zIndex: 1, fontFamily: 'var(--font-telugu-display-stack)', color: 'var(--muted-strong)', fontSize: '0.95rem' }}>
+                                ఇట్లు,
+                            </div>
                             <div style={{
+                                position: 'relative',
+                                zIndex: 1,
                                 fontFamily: 'var(--font-signature), cursive',
-                                fontSize: '2.1rem',
+                                fontSize: '2.2rem',
                                 color: 'var(--foreground-strong)',
                                 transform: 'rotate(-3deg)',
                                 lineHeight: 1.2,
+                                padding: '0.2rem 0.25rem 0',
                             }}>
                                 Kona Rama Dutt
                             </div>
-                            <div style={{ fontSize: '0.9rem', color: 'var(--muted)', borderTop: '1px solid var(--border-strong)', paddingTop: '0.35rem', marginTop: '0.35rem' }}>
-                                కరణం
-                            </div>
+
+                            {/* the సిరా పెన్ను set down under the signature */}
+                            <svg aria-hidden width="150" height="46" viewBox="0 0 170 52" style={{ display: 'block', marginLeft: 'auto', marginTop: '0.4rem' }}>
+                                <g transform="rotate(-7 85 26)">
+                                    <rect x="62" y="18" width="66" height="13" rx="6.5" fill="#2b2320" />
+                                    <rect x="112" y="18" width="5" height="13" fill="#c08a1d" />
+                                    <circle cx="131" cy="24.5" r="6.5" fill="#2b2320" />
+                                    <path d="M 62 19.5 L 50 21 L 50 28 L 62 29.5 Z" fill="#4a3423" />
+                                    <path d="M 50 21 L 26 21.5 L 16 24.5 L 26 27.5 L 50 28 Z" fill="#c08a1d" stroke="#8a6712" strokeWidth="0.6" />
+                                    <line x1="17.5" y1="24.5" x2="36" y2="24.5" stroke="#7a5a12" strokeWidth="0.9" />
+                                    <circle cx="36" cy="24.5" r="1.5" fill="none" stroke="#7a5a12" strokeWidth="0.8" />
+                                </g>
+                                <path d="M 10 34 c -2.4 3.4 -3.6 5.4 -3.6 7 a 3.6 3.6 0 0 0 7.2 0 c 0 -1.6 -1.2 -3.6 -3.6 -7 Z" fill="#2c3e6b" />
+                                <circle cx="20" cy="45" r="2" fill="#2c3e6b" opacity="0.85" />
+                                <circle cx="4" cy="46" r="1.3" fill="#2c3e6b" opacity="0.7" />
+                            </svg>
                         </div>
                     </div>
                 )}
-                {/* the karanam's సిరా పెన్ను resting after the entry, ink drops beside it */}
-                <div className="nib-signoff" aria-hidden>
-                    <svg width="170" height="52" viewBox="0 0 170 52">
-                        <g transform="rotate(-7 85 26)">
-                            {/* barrel */}
-                            <rect x="62" y="18" width="66" height="13" rx="6.5" fill="#2b2320" />
-                            {/* gold cap band and clip end */}
-                            <rect x="112" y="18" width="5" height="13" fill="#c08a1d" />
-                            <circle cx="131" cy="24.5" r="6.5" fill="#2b2320" />
-                            {/* grip section */}
-                            <path d="M 62 19.5 L 50 21 L 50 28 L 62 29.5 Z" fill="#4a3423" />
-                            {/* nib */}
-                            <path d="M 50 21 L 26 21.5 L 16 24.5 L 26 27.5 L 50 28 Z" fill="#c08a1d" stroke="#8a6712" strokeWidth="0.6" />
-                            <line x1="17.5" y1="24.5" x2="36" y2="24.5" stroke="#7a5a12" strokeWidth="0.9" />
-                            <circle cx="36" cy="24.5" r="1.5" fill="none" stroke="#7a5a12" strokeWidth="0.8" />
-                        </g>
-                        {/* సిరా droplets */}
-                        <path d="M 10 34 c -2.4 3.4 -3.6 5.4 -3.6 7 a 3.6 3.6 0 0 0 7.2 0 c 0 -1.6 -1.2 -3.6 -3.6 -7 Z" fill="#2c3e6b" />
-                        <circle cx="20" cy="45" r="2" fill="#2c3e6b" opacity="0.85" />
-                        <circle cx="4" cy="46" r="1.3" fill="#2c3e6b" opacity="0.7" />
-                    </svg>
-                </div>
             </article>
 
             {post && (newer || older) && (
