@@ -101,6 +101,19 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                         <p>ఈ పుట ఇంకా నమోదు కాలేదు. <Link href="/" style={{ textDecoration: 'underline', color: 'var(--primary)' }}>మిగతా కైఫీయత్ చూడండి</Link>.</p>
                     </div>
                 )}
+                {post && (
+                    <div style={{
+                        marginTop: '3rem',
+                        textAlign: 'right',
+                        fontFamily: 'var(--font-telugu-display-stack)',
+                        color: 'var(--muted-strong)',
+                        lineHeight: 1.7,
+                    }}>
+                        <div style={{ fontSize: '0.95rem' }}>ఇట్లు,</div>
+                        <div style={{ fontSize: '1.15rem', color: 'var(--foreground-strong)' }}>కోన రామదత్</div>
+                        <div style={{ fontSize: '0.9rem', color: 'var(--muted)' }}>కరణం, పొన్నూరు మండలం</div>
+                    </div>
+                )}
                 <div className="nib-signoff" aria-hidden>✒&#xFE0E;</div>
             </article>
 
