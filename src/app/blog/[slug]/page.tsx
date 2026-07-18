@@ -133,7 +133,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                                 transform: 'translate(-50%, -50%) rotate(-8deg)',
                                 fontFamily: 'var(--font-signature), cursive',
                                 fontSize: '2.5rem',
-                                color: '#1e5c3a',
+                                color: '#241d18',
                                 whiteSpace: 'nowrap',
                                 zIndex: 1,
                             }}>
