@@ -142,8 +142,8 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                         </div>
 
                         {/* the సిరా పెన్ను set down after signing, dark ink drops at the nib */}
-                        <svg aria-hidden width="280" height="86" viewBox="0 0 170 52" style={{ display: 'block', marginTop: '1rem' }}>
-                            <g transform="rotate(-5 85 26)">
+                        <svg aria-hidden width="360" height="110" viewBox="0 0 170 52" style={{ display: 'block', marginTop: '0.75rem' }}>
+                            <g>
                                 <circle cx="132" cy="24.5" r="4.5" fill="#241d18" />
                                 <path d="M 66 17.5 L 124 20 A 4.5 4.5 0 0 1 124 29 L 66 31.5 Z" fill="#241d18" />
                                 <line x1="70" y1="19.4" x2="122" y2="21.4" stroke="#4d4038" strokeWidth="0.9" strokeLinecap="round" />

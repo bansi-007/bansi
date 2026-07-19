@@ -46,7 +46,7 @@ const windsong = WindSong({
 });
 
 export const metadata: Metadata = {
-  title: "రామదత్ కైఫీయత్",
+  title: "రామదత్ గారి కైఫీయత్",
     description: "కరణం గారి దృష్టికి నిలిచిన సంగతుల కైఫీయత్.",
 };
 

@@ -7,7 +7,7 @@ export default function Home() {
         <div className={styles.wrap}>
             <header className={styles.header}>
                 <div className={styles.masthead}>                    <h1 className={styles.eyebrow}>
-                        రామదత్ కైఫీయత్{' '}
+                        రామదత్ గారి కైఫీయత్{' '}
                         <span className={styles.titleGloss}>(పూర్వం గ్రామ కరణాలు ఊరి చరిత్రనూ విశేషాలనూ రాసి ఉంచిన వృత్తాంత పుస్తకం)</span>
                     </h1>
                     <p className={styles.lede}>
