@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Fraunces, Source_Serif_4, Mandali, Suranna, WindSong } from "next/font/google";
+import { Inter, Fraunces, Source_Serif_4, NTR, Suranna, WindSong } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -24,7 +24,7 @@ const sourceSerif = Source_Serif_4({
     display: "swap",
 });
 
-const mandali = Mandali({
+const ntr = NTR({
     subsets: ["telugu"],
     weight: "400",
     variable: "--font-telugu",
@@ -56,7 +56,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="te" className={`${inter.variable} ${fraunces.variable} ${sourceSerif.variable} ${mandali.variable} ${suranna.variable} ${windsong.variable}`}>
+    <html lang="te" className={`${inter.variable} ${fraunces.variable} ${sourceSerif.variable} ${ntr.variable} ${suranna.variable} ${windsong.variable}`}>
       <body>
         <main>{children}</main>
       </body>

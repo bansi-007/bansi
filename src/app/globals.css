@@ -20,7 +20,7 @@
   --font-sans-stack: var(--font-sans), 'Inter', system-ui, -apple-system, sans-serif;
   --font-display-stack: var(--font-display), 'Fraunces', Georgia, serif;
   --font-body-stack: var(--font-body), 'Source Serif 4', Georgia, 'Times New Roman', serif;
-  --font-telugu-stack: var(--font-telugu), 'Mandali', 'Noto Sans Telugu', system-ui, sans-serif;
+  --font-telugu-stack: var(--font-telugu), 'NTR', 'Noto Sans Telugu', system-ui, sans-serif;
   --font-telugu-display-stack: var(--font-telugu-display), 'Suranna', 'Noto Serif Telugu', Georgia, serif;
 }
 
