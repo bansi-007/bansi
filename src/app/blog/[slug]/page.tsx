@@ -31,6 +31,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             </Link>
 
             <article
+                className="sheet"
                 style={{
                     position: 'relative',
                     background: '#fbf7ec',
@@ -43,6 +44,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 }}
             >
                 {/* corner stitch: records bundled with twine sewn diagonally through two punched holes */}
+                <div className="cup-ring" aria-hidden />
                 <svg
                     aria-hidden
                     width="64"

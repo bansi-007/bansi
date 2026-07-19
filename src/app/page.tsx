@@ -17,7 +17,7 @@ export default function Home() {
                 <span className={`doc-stamp ${styles.headerStamp}`}>నమోదు పుస్తకం</span>
             </header>
 
-            <div className={styles.ledger}>
+            <div className={`${styles.ledger} ledger-paper`}>
                 {blogPosts.map((post, idx) => (
                     <Link href={`/blog/${post.slug}`} key={post.slug} className={styles.entry}>
                         <div className={styles.entryMeta}>
