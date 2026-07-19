@@ -105,60 +105,38 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 )}
                 {post && (
                     <div style={{ marginTop: '3.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                        {/* stamped seal with the signature scrawled across it */}
-                        <div style={{ position: 'relative', width: '150px', height: '150px' }}>
-                            <svg
-                                aria-hidden
-                                width="150"
-                                height="150"
-                                viewBox="0 0 100 100"
-                                style={{ position: 'absolute', inset: 0, transform: 'rotate(-10deg)', opacity: 0.75 }}
-                            >
-                                <defs>
-                                    <path id="sealTop" d="M 17,55 A 33,33 0 0 1 83,55" fill="none" />
-                                </defs>
-                                <circle cx="50" cy="50" r="46" fill="none" stroke="#5b3a8e" strokeWidth="2.2" />
-                                <circle cx="50" cy="50" r="40" fill="none" stroke="#5b3a8e" strokeWidth="0.8" />
-                                <text fontSize="7.8" fill="#5b3a8e" fontFamily="var(--font-telugu-stack)" letterSpacing="0.5">
-                                    <textPath href="#sealTop" startOffset="50%" textAnchor="middle">కరణం కార్యాలయం</textPath>
-                                </text>
-                                <text x="50" y="49" fontSize="8" fill="#5b3a8e" fontFamily="var(--font-telugu-stack)" textAnchor="middle">ధృవీకరించ</text>
-                                <text x="50" y="59" fontSize="8" fill="#5b3a8e" fontFamily="var(--font-telugu-stack)" textAnchor="middle">బడినది</text>
-                                <text x="50" y="72" fontSize="7" fill="#5b3a8e" textAnchor="middle">{post.date}</text>
-                                <text x="24" y="53" fontSize="7" fill="#5b3a8e" textAnchor="middle">✦</text>
-                                <text x="76" y="53" fontSize="7" fill="#5b3a8e" textAnchor="middle">✦</text>
-                            </svg>
-                            <div style={{
-                                position: 'absolute',
-                                top: '50%',
-                                left: '50%',
-                                transform: 'translate(-50%, -50%) rotate(-8deg)',
-                                fontFamily: 'var(--font-signature), cursive',
-                                fontSize: '2.5rem',
-                                color: '#241d18',
-                                whiteSpace: 'nowrap',
-                                zIndex: 1,
-                            }}>
-                                Kona Rama Dutt
-                            </div>
+                        <div style={{
+                            fontFamily: 'var(--font-signature), cursive',
+                            fontSize: '2.5rem',
+                            color: '#241d18',
+                            transform: 'rotate(-3deg)',
+                            lineHeight: 1.2,
+                            padding: '0 0.5rem',
+                        }}>
+                            Kona Rama Dutt
                         </div>
-
-                        {/* the సిరా పెన్ను set down after signing, dark ink drops at the nib */}
-                        <svg aria-hidden width="360" height="110" viewBox="0 0 170 52" style={{ display: 'block', marginTop: '0.75rem' }}>
-                            <g>
-                                <circle cx="132" cy="24.5" r="4.5" fill="#241d18" />
-                                <path d="M 66 17.5 L 124 20 A 4.5 4.5 0 0 1 124 29 L 66 31.5 Z" fill="#241d18" />
-                                <line x1="70" y1="19.4" x2="122" y2="21.4" stroke="#4d4038" strokeWidth="0.9" strokeLinecap="round" />
-                                <rect x="62" y="17.5" width="4" height="14" fill="#c08a1d" />
-                                <path d="M 62 19 L 52 20.8 L 52 28.2 L 62 30 Z" fill="#3a2a1e" />
-                                <path d="M 52 20.8 C 42 20.2 32 22 24 24.5 C 32 27 42 28.8 52 28.2 Z" fill="#c08a1d" stroke="#8a6712" strokeWidth="0.5" />
-                                <line x1="25" y1="24.5" x2="38" y2="24.5" stroke="#7a5a12" strokeWidth="0.8" />
-                                <circle cx="38" cy="24.5" r="1.3" fill="none" stroke="#7a5a12" strokeWidth="0.7" />
-                                <path d="M 24 24.5 L 21 24.5" stroke="#241d18" strokeWidth="1.6" strokeLinecap="round" />
-                            </g>
-                            <path d="M 12 34 c -2.2 3.2 -3.3 5 -3.3 6.5 a 3.3 3.3 0 0 0 6.6 0 c 0 -1.5 -1.1 -3.3 -3.3 -6.5 Z" fill="#241d18" />
-                            <circle cx="21" cy="44" r="1.8" fill="#241d18" opacity="0.85" />
-                            <circle cx="6" cy="45.5" r="1.2" fill="#241d18" opacity="0.7" />
+                        <div style={{ width: '250px', marginTop: '0.35rem' }}>
+                            <div style={{ borderTop: '2px solid #241d18' }} />
+                            <div style={{ borderTop: '1px solid #241d18', width: '62%', margin: '4px auto 0' }} />
+                        </div>
+                        <svg aria-hidden width="340" height="64" viewBox="0 0 200 38" style={{ display: 'block', marginTop: '0.75rem' }}>
+                            {/* slender barrel, tapering slightly toward the grip */}
+                            <path d="M 74 14.5 L 160 13.2 Q 168 13.2 168 19 Q 168 24.8 160 24.8 L 74 23.5 Z" fill="#241d18" />
+                            <path d="M 168 15.5 Q 176 15.5 178 19 Q 176 22.5 168 22.5 Z" fill="#241d18" />
+                            <line x1="80" y1="15.6" x2="156" y2="14.6" stroke="#4d4038" strokeWidth="0.8" strokeLinecap="round" />
+                            {/* gold cap band */}
+                            <rect x="146" y="13.4" width="4" height="11.4" fill="#c08a1d" />
+                            {/* grip section */}
+                            <path d="M 74 15 L 58 16.4 L 58 21.6 L 74 23 Z" fill="#3a2a1e" />
+                            {/* long gold nib */}
+                            <path d="M 58 16.4 C 44 15.6 30 17.2 18 19 C 30 20.8 44 22.4 58 21.6 Z" fill="#c08a1d" stroke="#8a6712" strokeWidth="0.5" />
+                            <line x1="19.5" y1="19" x2="40" y2="19" stroke="#7a5a12" strokeWidth="0.7" />
+                            <circle cx="40" cy="19" r="1.4" fill="none" stroke="#7a5a12" strokeWidth="0.6" />
+                            <path d="M 18 19 L 14.5 19" stroke="#241d18" strokeWidth="1.4" strokeLinecap="round" />
+                            {/* ink drops */}
+                            <path d="M 8 24 c -1.8 2.6 -2.7 4.1 -2.7 5.4 a 2.7 2.7 0 0 0 5.4 0 c 0 -1.3 -0.9 -2.8 -2.7 -5.4 Z" fill="#241d18" />
+                            <circle cx="17" cy="32" r="1.5" fill="#241d18" opacity="0.85" />
+                            <circle cx="4" cy="33.5" r="1" fill="#241d18" opacity="0.7" />
                         </svg>
                     </div>
                 )}
