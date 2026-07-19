@@ -647,10 +647,58 @@ hr {
 
 /* ============ Register index on the landing ============ */
 .register {
+  position: relative;
   border: 1px solid var(--border-strong);
   border-bottom: none;
   background-color: #fbf7ec;
-  background-image: radial-gradient(ellipse 600px 380px at 25% 20%, rgba(150, 115, 60, 0.05), transparent 72%);
+  background-image:
+    radial-gradient(circle 80px at 9% 16%, rgba(146, 106, 52, 0.15), transparent 68%),
+    radial-gradient(circle 56px at 91% 10%, rgba(146, 106, 52, 0.14), transparent 66%),
+    radial-gradient(circle 110px at 72% 62%, rgba(140, 102, 50, 0.12), transparent 70%),
+    radial-gradient(circle 64px at 22% 82%, rgba(152, 112, 56, 0.14), transparent 66%),
+    linear-gradient(90deg, rgba(120, 88, 42, 0.12), transparent 8%, transparent 93%, rgba(120, 88, 42, 0.1)),
+    linear-gradient(180deg, rgba(120, 88, 42, 0.11), transparent 5%, transparent 96%, rgba(120, 88, 42, 0.11));
+}
+
+/* blank ruled rows below the last entry: the register is still being kept */
+.reg-empty {
+  display: grid;
+  grid-template-columns: 5.2rem 8.4rem 1fr;
+  border-bottom: 1px solid var(--border);
+  height: 2.5rem;
+}
+
+.reg-empty > span {
+  border-right: 1px solid var(--border);
+}
+
+.reg-empty > span:last-child {
+  border-right: none;
+}
+
+.reg-foot {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid var(--border-strong);
+  border-top: none;
+  padding: 0.5rem 0.85rem;
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  background: rgba(178, 58, 42, 0.03);
+}
+
+.reg-note {
+  position: absolute;
+  right: 1.2rem;
+  color: #2f3c63;
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@media (max-width: 720px) {
+  .reg-note { display: none; }
 }
 
 .reg-head,

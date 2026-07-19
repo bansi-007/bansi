@@ -18,6 +18,9 @@ export default function Home() {
             </header>
 
             <div className="register">
+                <span className="spine" aria-hidden />
+                <span className="reg-note" style={{ top: '7.5rem', fontSize: '1.5rem' }}>✓</span>
+                <span className="reg-note" style={{ top: '15.6rem', right: '2.6rem', fontSize: '0.88rem' }}>సరిచూసినది</span>
                 <div className="reg-head">
                     <span>క్ర.సం.</span>
                     <span>తేదీ</span>
@@ -38,6 +41,15 @@ export default function Home() {
                         </span>
                     </a>
                 ))}
+                {Array.from({ length: 7 }).map((_, i) => (
+                    <div className="reg-empty" key={`e${i}`}>
+                        <span /><span /><span />
+                    </div>
+                ))}
+            </div>
+            <div className="reg-foot">
+                <span>మొత్తం నమోదులు: {String(blogPosts.length).padStart(2, '0')}</span>
+                <span>పుట 01</span>
             </div>
         </div>
     );
