@@ -633,7 +633,7 @@ const allPosts: BlogPost[] = [
                     ఆయన కబడ్డీ ఆడటానికే వచ్చాడు. కానీ ఆట గ్రౌండ్‌లో లేదని ఆయనకు ముందే తెలుసు.
                 </p>
                 <p style={{ fontSize: '1.4rem', textAlign: 'center', margin: '2.5rem 0 1.5rem', color: 'var(--primary)' }}>
-                    వారణాసి టు ది వరల్డ్.
+                    <span className="struck">వారణాసి</span> మహేష్ టు ది వరల్డ్.
                 </p>
                 <p>
                     మహేష్ సర్, ధన్యవాదాలు.

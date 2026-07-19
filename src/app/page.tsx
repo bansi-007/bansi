@@ -8,19 +8,14 @@ export default function Home() {
                 <div className={styles.masthead}>
                     <h1 className={styles.eyebrow}>
                         రామదత్ గారి కైఫీయత్{' '}
-                        <span className={styles.titleGloss}>(పూర్వం గ్రామ కరణాలు ఊరి చరిత్రనూ విశేషాలనూ రాసి ఉంచిన వృత్తాంత పుస్తకం)</span>
+                        <span className={styles.titleGloss}>కరణం గారి దృష్టికి నిలిచిన సంగతులు ఇందు యథావిధిగా నమోదు చేయబడును</span>
                     </h1>
-                    <p className={styles.lede}>
-                        కరణం గారి దృష్టికి నిలిచిన సంగతులు ఇందు యథావిధిగా నమోదు చేయబడును
-                    </p>
                 </div>
                 <span className={`doc-stamp ${styles.headerStamp}`}>నమోదు పుస్తకం</span>
             </header>
 
             <div className="register">
                 <span className="spine" aria-hidden />
-                <span className="reg-note" style={{ top: '7.5rem', fontSize: '1.5rem' }}>✓</span>
-                <span className="reg-note" style={{ top: '15.6rem', right: '2.6rem', fontSize: '0.88rem' }}>సరిచూసినది</span>
                 <div className="reg-head">
                     <span>క్ర.సం.</span>
                     <span>తేదీ</span>
