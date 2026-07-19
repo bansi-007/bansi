@@ -1,5 +1,4 @@
 import { blogPosts } from '@/data/posts';
-import PostBody from '@/components/PostBody';
 
 export async function generateStaticParams() {
     return blogPosts.map((post) => ({
@@ -74,13 +73,11 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     )}
                 </div>
 
-                {post ? (
-                    <PostBody original={post.content} english={post.contentEn} />
-                ) : (
-                    <div className="prose">
+                <div className="prose">
+                    {post ? post.content : (
                         <p>ఈ పుట ఇంకా నమోదు కాలేదు. <a href="/" style={{ textDecoration: 'underline', color: 'var(--primary)' }}>మిగతా కైఫీయత్ చూడండి</a>.</p>
-                    </div>
-                )}
+                    )}
+                </div>
 
                 {post && (
                     <div style={{ marginTop: '2.6rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
