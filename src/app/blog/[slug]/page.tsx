@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { blogPosts } from '@/data/posts';
 import PostBody from '@/components/PostBody';
 
@@ -17,23 +16,28 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
     return (
         <div style={{ margin: '1.25rem auto 4rem', maxWidth: '92rem', padding: '0 clamp(1rem, 2vw, 1.5rem)' }}>
-            <Link
+            <a
                 href="/"
                 style={{
                     color: 'var(--muted)',
-                    marginBottom: '1.5rem',
+                    marginBottom: '3.4rem',
                     display: 'inline-block',
                     fontSize: '0.9rem',
                     letterSpacing: '0.01em',
                 }}
             >
                 ← కైఫీయత్
-            </Link>
+            </a>
 
+            <div className="folder">
+            {post && (
+                <div className="folder-tab">దస్తావేజు సం. {String(blogPosts.length - index).padStart(2, '0')}</div>
+            )}
             <article
                 className="sheet"
                 style={{
                     position: 'relative',
+                    zIndex: 2,
                     background: '#fbf7ec',
                     border: '1px solid var(--border-strong)',
                     outline: '1px solid var(--border)',
@@ -43,21 +47,26 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     boxShadow: '0 2px 14px rgba(33, 29, 25, 0.06)',
                 }}
             >
-                {/* corner stitch: records bundled with twine sewn diagonally through two punched holes */}
-                <div className="cup-ring" aria-hidden />
+                {/* the file నాడా: red-white twisted thread through two grommets, tail hanging with a knot */}
                 <svg
                     aria-hidden
-                    width="64"
-                    height="64"
-                    viewBox="0 0 64 64"
-                    style={{ position: 'absolute', top: '-3px', left: '-3px' }}
+                    width="110"
+                    height="150"
+                    viewBox="0 0 110 150"
+                    style={{ position: 'absolute', top: '-20px', left: '-40px', zIndex: 3, pointerEvents: 'none', transform: 'rotate(-6deg)' }}
                 >
-                    <line x1="46" y1="10" x2="10" y2="46" stroke="#8a3324" strokeWidth="2.4" strokeLinecap="round" />
-                    <line x1="50" y1="16" x2="16" y2="50" stroke="#a54a38" strokeWidth="1.5" strokeLinecap="round" />
-                    <circle cx="46" cy="10" r="3.2" fill="#fbf7ec" stroke="var(--border-strong)" strokeWidth="1.4" />
-                    <circle cx="10" cy="46" r="3.2" fill="#fbf7ec" stroke="var(--border-strong)" strokeWidth="1.4" />
-                    <path d="M 46 10 c 3 -3, 6 -4.5, 10 -5.5" fill="none" stroke="#8a3324" strokeWidth="1.6" strokeLinecap="round" />
-                    <path d="M 10 46 c -3 3, -4.5 6, -5.5 10" fill="none" stroke="#8a3324" strokeWidth="1.6" strokeLinecap="round" />
+                    <circle cx="26" cy="26" r="7" fill="#fbf7ec" stroke="#8a7a55" strokeWidth="2.4" />
+                    <circle cx="66" cy="20" r="7" fill="#fbf7ec" stroke="#8a7a55" strokeWidth="2.4" />
+                    <path d="M 26 26 C 40 14, 54 12, 66 20" fill="none" stroke="#efe6d2" strokeWidth="5" strokeLinecap="round" />
+                    <path d="M 26 26 C 40 14, 54 12, 66 20" fill="none" stroke="#b23a2a" strokeWidth="5" strokeLinecap="round" strokeDasharray="7 7" />
+                    <path d="M 66 20 C 74 34, 66 52, 56 66 C 46 80, 40 96, 44 116" fill="none" stroke="#efe6d2" strokeWidth="5" strokeLinecap="round" />
+                    <path d="M 66 20 C 74 34, 66 52, 56 66 C 46 80, 40 96, 44 116" fill="none" stroke="#b23a2a" strokeWidth="5" strokeLinecap="round" strokeDasharray="7 7" strokeDashoffset="3" />
+                    <path d="M 26 26 C 20 40, 24 56, 32 68 C 40 80, 44 96, 40 112" fill="none" stroke="#efe6d2" strokeWidth="5" strokeLinecap="round" />
+                    <path d="M 26 26 C 20 40, 24 56, 32 68 C 40 80, 44 96, 40 112" fill="none" stroke="#b23a2a" strokeWidth="5" strokeLinecap="round" strokeDasharray="7 7" strokeDashoffset="10" />
+                    <circle cx="42" cy="120" r="6.5" fill="#b23a2a" />
+                    <circle cx="40" cy="118" r="2" fill="#d9634f" />
+                    <path d="M 42 126 c -1 6, 1 12, 4 16" fill="none" stroke="#b23a2a" strokeWidth="4" strokeLinecap="round" />
+                    <path d="M 42 126 c -1 6, 1 12, 4 16" fill="none" stroke="#efe6d2" strokeWidth="4" strokeLinecap="round" strokeDasharray="6 6" strokeDashoffset="3" />
                 </svg>
                 <header style={{ marginBottom: '2.5rem', borderBottom: '1px solid var(--border-strong)', paddingBottom: '1.75rem', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '1.5rem', flexWrap: 'wrap' }}>
                     <div style={{ minWidth: '16rem', flex: '1 1 24rem' }}>
@@ -100,7 +109,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     <PostBody original={post.content} english={post.contentEn} />
                 ) : (
                     <div className="prose">
-                        <p>ఈ పుట ఇంకా నమోదు కాలేదు. <Link href="/" style={{ textDecoration: 'underline', color: 'var(--primary)' }}>మిగతా కైఫీయత్ చూడండి</Link>.</p>
+                        <p>ఈ పుట ఇంకా నమోదు కాలేదు. <a href="/" style={{ textDecoration: 'underline', color: 'var(--primary)' }}>మిగతా కైఫీయత్ చూడండి</a>.</p>
                     </div>
                 )}
                 {post && (
@@ -141,6 +150,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     </div>
                 )}
             </article>
+            </div>
 
             {post && (newer || older) && (
                 <nav
@@ -154,16 +164,16 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     }}
                 >
                     {newer ? (
-                        <Link href={`/blog/${newer.slug}`} style={postNavStyle('left')}>
+                        <a href={`/blog/${newer.slug}`} style={postNavStyle('left')}>
                             <span style={postNavLabel}>← కొత్తది</span>
                             <span style={postNavTitle}>{newer.title}</span>
-                        </Link>
+                        </a>
                     ) : <span />}
                     {older ? (
-                        <Link href={`/blog/${older.slug}`} style={postNavStyle('right')}>
+                        <a href={`/blog/${older.slug}`} style={postNavStyle('right')}>
                             <span style={postNavLabel}>పాతది →</span>
                             <span style={postNavTitle}>{older.title}</span>
-                        </Link>
+                        </a>
                     ) : <span />}
                 </nav>
             )}

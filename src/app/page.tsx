@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import styles from './page.module.css';
 import { blogPosts } from '@/data/posts';
 
@@ -19,7 +18,7 @@ export default function Home() {
 
             <div className={`${styles.ledger} ledger-paper`}>
                 {blogPosts.map((post, idx) => (
-                    <Link href={`/blog/${post.slug}`} key={post.slug} className={styles.entry}>
+                    <a href={`/blog/${post.slug}`} key={post.slug} className={styles.entry}>
                         <div className={styles.entryMeta}>
                             <span className={styles.serial}>క్ర.సం. {String(blogPosts.length - idx).padStart(2, '0')}</span>
                             <span className={styles.date}>{post.date}</span>
@@ -33,7 +32,7 @@ export default function Home() {
                             <h2 className={styles.cardTitle}>{post.title}</h2>
                             <p className={styles.excerpt}>{post.excerpt}</p>
                         </div>
-                    </Link>
+                    </a>
                 ))}
             </div>
         </div>
