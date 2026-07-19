@@ -148,7 +148,7 @@
     padding: 0.14rem 0.5rem;
     border: 1px solid var(--border-strong);
     border-radius: 999px;
-    font-family: var(--font-sans-stack);
+    font-family: var(--font-telugu-stack);
     white-space: nowrap;
 }
 
@@ -157,7 +157,7 @@
 }
 
 .cardTitle {
-    font-family: var(--font-display-stack);
+    font-family: var(--font-telugu-display-stack);
     font-size: 1.45rem;
     margin: 0 0 0.55rem;
     color: var(--foreground-strong);
@@ -176,7 +176,7 @@
 
 .excerpt {
     color: var(--muted-strong);
-    font-family: var(--font-body-stack);
+    font-family: var(--font-telugu-stack);
     font-size: 1rem;
     line-height: 1.65;
     margin-bottom: 0;
