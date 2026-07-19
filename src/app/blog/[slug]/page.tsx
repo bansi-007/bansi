@@ -30,30 +30,29 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             </a>
 
             <div className="filepage">
-                {/* the నాడా through the corner of the sheet */}
+                {/* lacing running the whole left spine */}
+                <span className="spine" aria-hidden />
+                {/* the knot, tied near the top of the spine */}
                 <svg
                     aria-hidden
-                    width="96"
-                    height="140"
-                    viewBox="0 0 110 150"
-                    style={{ position: 'absolute', top: '-16px', left: '-30px', zIndex: 3, pointerEvents: 'none', transform: 'rotate(-6deg)' }}
+                    width="44"
+                    height="90"
+                    viewBox="0 0 44 90"
+                    style={{ position: 'absolute', left: '-17px', top: '4.5rem', zIndex: 4, pointerEvents: 'none' }}
                 >
-                    <circle cx="26" cy="26" r="7" fill="#fbf7ec" stroke="#8a7a55" strokeWidth="2.4" />
-                    <circle cx="66" cy="20" r="7" fill="#fbf7ec" stroke="#8a7a55" strokeWidth="2.4" />
-                    <path d="M 26 26 C 40 14, 54 12, 66 20" fill="none" stroke="#efe6d2" strokeWidth="5" strokeLinecap="round" />
-                    <path d="M 26 26 C 40 14, 54 12, 66 20" fill="none" stroke="#b23a2a" strokeWidth="5" strokeLinecap="round" strokeDasharray="7 7" />
-                    <path d="M 66 20 C 74 34, 66 52, 56 66 C 46 80, 40 96, 44 116" fill="none" stroke="#efe6d2" strokeWidth="5" strokeLinecap="round" />
-                    <path d="M 66 20 C 74 34, 66 52, 56 66 C 46 80, 40 96, 44 116" fill="none" stroke="#b23a2a" strokeWidth="5" strokeLinecap="round" strokeDasharray="7 7" strokeDashoffset="3" />
-                    <path d="M 26 26 C 20 40, 24 56, 32 68 C 40 80, 44 96, 40 112" fill="none" stroke="#efe6d2" strokeWidth="5" strokeLinecap="round" />
-                    <path d="M 26 26 C 20 40, 24 56, 32 68 C 40 80, 44 96, 40 112" fill="none" stroke="#b23a2a" strokeWidth="5" strokeLinecap="round" strokeDasharray="7 7" strokeDashoffset="10" />
-                    <circle cx="42" cy="118" r="6" fill="#b23a2a" />
+                    <ellipse cx="22" cy="26" rx="9.5" ry="8" fill="#a8331f" />
+                    <ellipse cx="19" cy="23" rx="3.6" ry="2.8" fill="#c9553f" />
+                    <path d="M 22 33 C 17 44, 15 56, 18 68" fill="none" stroke="#efe6d2" strokeWidth="4.5" strokeLinecap="round" />
+                    <path d="M 22 33 C 17 44, 15 56, 18 68" fill="none" stroke="#b23a2a" strokeWidth="4.5" strokeLinecap="round" strokeDasharray="6 6" />
+                    <path d="M 25 32 C 30 42, 32 52, 29 62" fill="none" stroke="#efe6d2" strokeWidth="4.5" strokeLinecap="round" />
+                    <path d="M 25 32 C 30 42, 32 52, 29 62" fill="none" stroke="#b23a2a" strokeWidth="4.5" strokeLinecap="round" strokeDasharray="6 6" strokeDashoffset="3" />
                 </svg>
 
                 {/* hand notes out in the margin */}
                 <span className="margin-note small" style={{ top: '9.2rem' }}>పుట {serial}</span>
                 <span className="margin-note tick" style={{ top: '14.5rem' }}>✓</span>
                 <span className="margin-note small" style={{ top: '19.5rem', fontSize: '0.92rem' }}>సరిచూడబడినది</span>
-                <span className="margin-note small" style={{ top: '29rem', fontSize: '1.25rem' }}>క.రా.ద.</span>
+                <span className="margin-note small" style={{ top: '29rem', fontSize: '1.25rem' }}>బ.ద.</span>
 
                 {/* the noting-sheet head */}
                 <div className="file-head">
@@ -86,7 +85,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 {post && (
                     <div style={{ marginTop: '2.6rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <div style={{ fontSize: '1.9rem', color: '#241d18', transform: 'rotate(-2deg)', lineHeight: 1.2 }}>
-                            కోన రామదత్
+                            బన్సీ దత్
                         </div>
                         <div style={{ width: '220px', marginTop: '0.3rem' }}>
                             <div style={{ borderTop: '2px solid #241d18' }} />

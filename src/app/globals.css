@@ -532,9 +532,14 @@ hr {
   padding: 2.2rem 2.5rem 3rem 11rem;
   background-color: #fbf7ec;
   background-image:
-    radial-gradient(ellipse 500px 340px at 18% 12%, rgba(150, 115, 60, 0.055), transparent 72%),
-    radial-gradient(ellipse 420px 300px at 84% 46%, rgba(150, 115, 60, 0.05), transparent 72%),
-    radial-gradient(ellipse 460px 320px at 40% 88%, rgba(130, 100, 50, 0.05), transparent 72%),
+    radial-gradient(circle 90px at 12% 22%, rgba(146, 106, 52, 0.16), transparent 68%),
+    radial-gradient(circle 62px at 88% 14%, rgba(146, 106, 52, 0.15), transparent 66%),
+    radial-gradient(circle 120px at 76% 58%, rgba(140, 102, 50, 0.13), transparent 70%),
+    radial-gradient(circle 70px at 26% 74%, rgba(152, 112, 56, 0.15), transparent 66%),
+    radial-gradient(circle 100px at 54% 91%, rgba(138, 100, 48, 0.12), transparent 70%),
+    radial-gradient(circle 46px at 42% 40%, rgba(150, 108, 52, 0.1), transparent 64%),
+    linear-gradient(90deg, rgba(120, 88, 42, 0.13), transparent 9%, transparent 92%, rgba(120, 88, 42, 0.11)),
+    linear-gradient(180deg, rgba(120, 88, 42, 0.12), transparent 6%, transparent 95%, rgba(120, 88, 42, 0.12)),
     repeating-linear-gradient(180deg, transparent, transparent calc(1.72em - 1px), rgba(150, 120, 70, 0.115) calc(1.72em - 1px), rgba(150, 120, 70, 0.115) 1.72em);
   box-shadow: 0 1px 0 rgba(120, 95, 55, 0.18);
   transform: rotate(-0.22deg);
@@ -682,4 +687,23 @@ hr {
 .register > a:hover {
   background: rgba(178, 58, 42, 0.045);
   text-decoration: none;
+}
+
+/* The file's bound spine: punched holes laced with thread, full height */
+.spine {
+  position: absolute;
+  left: -15px;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.62;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='260' viewBox='0 0 40 260'%3E%3Cpath d='M20 0 C 13 55, 27 120, 20 190 C 15 225, 20 245, 20 260' fill='none' stroke='%23e6dcc6' stroke-width='3.4' stroke-linecap='round'/%3E%3Cpath d='M20 0 C 13 55, 27 120, 20 190 C 15 225, 20 245, 20 260' fill='none' stroke='%23a8331f' stroke-width='3.4' stroke-linecap='round' stroke-dasharray='6 8'/%3E%3Cellipse cx='20' cy='130' rx='5.6' ry='6' fill='%23f2ecdb' stroke='%238a7a55' stroke-width='1.8'/%3E%3C/svg%3E");
+  background-repeat: repeat-y;
+  background-position: top center;
+}
+
+@media (max-width: 820px) {
+  .spine { display: none; }
 }
