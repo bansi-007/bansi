@@ -29,22 +29,30 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             </a>
 
             <div className="filepage">
-                {/* lacing running the whole left spine */}
-                <span className="spine" aria-hidden />
-                {/* the knot, tied near the top of the spine */}
+                {/* the file binding: two punched holes laced with thread, knotted between them */}
                 <svg
                     aria-hidden
                     width="44"
-                    height="90"
-                    viewBox="0 0 44 90"
-                    style={{ position: 'absolute', left: '-17px', top: '4.5rem', zIndex: 4, pointerEvents: 'none' }}
+                    height="290"
+                    viewBox="0 0 44 290"
+                    style={{ position: 'absolute', left: '-16px', top: '2.2rem', zIndex: 3, pointerEvents: 'none' }}
                 >
-                    <ellipse cx="22" cy="26" rx="9.5" ry="8" fill="#a8331f" />
-                    <ellipse cx="19" cy="23" rx="3.6" ry="2.8" fill="#c9553f" />
-                    <path d="M 22 33 C 17 44, 15 56, 18 68" fill="none" stroke="#efe6d2" strokeWidth="4.5" strokeLinecap="round" />
-                    <path d="M 22 33 C 17 44, 15 56, 18 68" fill="none" stroke="#b23a2a" strokeWidth="4.5" strokeLinecap="round" strokeDasharray="6 6" />
-                    <path d="M 25 32 C 30 42, 32 52, 29 62" fill="none" stroke="#efe6d2" strokeWidth="4.5" strokeLinecap="round" />
-                    <path d="M 25 32 C 30 42, 32 52, 29 62" fill="none" stroke="#b23a2a" strokeWidth="4.5" strokeLinecap="round" strokeDasharray="6 6" strokeDashoffset="3" />
+                    <ellipse cx="22" cy="24" rx="6" ry="6.5" fill="#f2ecdb" stroke="#8a7a55" strokeWidth="2" />
+                    <ellipse cx="22" cy="252" rx="6" ry="6.5" fill="#f2ecdb" stroke="#8a7a55" strokeWidth="2" />
+
+                    <path d="M 22 24 C 13 62, 14 100, 21 128" fill="none" stroke="#e6dcc6" strokeWidth="4" strokeLinecap="round" />
+                    <path d="M 22 24 C 13 62, 14 100, 21 128" fill="none" stroke="#a8331f" strokeWidth="4" strokeLinecap="round" strokeDasharray="6 7" />
+
+                    <path d="M 22 252 C 31 214, 30 176, 23 148" fill="none" stroke="#e6dcc6" strokeWidth="4" strokeLinecap="round" />
+                    <path d="M 22 252 C 31 214, 30 176, 23 148" fill="none" stroke="#a8331f" strokeWidth="4" strokeLinecap="round" strokeDasharray="6 7" strokeDashoffset="4" />
+
+                    <ellipse cx="22" cy="138" rx="8.5" ry="7" fill="#a8331f" />
+                    <ellipse cx="19.6" cy="135.6" rx="3.1" ry="2.4" fill="#c9553f" />
+
+                    <path d="M 22 145 C 17 156, 15 168, 18 180" fill="none" stroke="#e6dcc6" strokeWidth="3.6" strokeLinecap="round" />
+                    <path d="M 22 145 C 17 156, 15 168, 18 180" fill="none" stroke="#a8331f" strokeWidth="3.6" strokeLinecap="round" strokeDasharray="5 6" />
+                    <path d="M 25 144 C 30 154, 32 164, 29 174" fill="none" stroke="#e6dcc6" strokeWidth="3.6" strokeLinecap="round" />
+                    <path d="M 25 144 C 30 154, 32 164, 29 174" fill="none" stroke="#a8331f" strokeWidth="3.6" strokeLinecap="round" strokeDasharray="5 6" strokeDashoffset="3" />
                 </svg>
 
                 {/* hand notes out in the margin */}

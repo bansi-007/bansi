@@ -15,7 +15,6 @@ export default function Home() {
             </header>
 
             <div className="register">
-                <span className="spine" aria-hidden />
                 <div className="reg-head">
                     <span>క్ర.సం.</span>
                     <span>తేదీ</span>

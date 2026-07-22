@@ -423,7 +423,6 @@ hr {
 }
 
 
-
 /* An old tea-cup ring soaked into the page */
 .cup-ring {
   position: absolute;
@@ -720,25 +719,6 @@ hr {
 .register > a:hover {
   background: rgba(178, 58, 42, 0.045);
   text-decoration: none;
-}
-
-/* The file's bound spine: punched holes laced with thread, full height */
-.spine {
-  position: absolute;
-  left: -15px;
-  top: 0;
-  bottom: 0;
-  width: 40px;
-  z-index: 3;
-  pointer-events: none;
-  opacity: 0.62;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='260' viewBox='0 0 40 260'%3E%3Cpath d='M20 0 C 13 55, 27 120, 20 190 C 15 225, 20 245, 20 260' fill='none' stroke='%23e6dcc6' stroke-width='3.4' stroke-linecap='round'/%3E%3Cpath d='M20 0 C 13 55, 27 120, 20 190 C 15 225, 20 245, 20 260' fill='none' stroke='%23a8331f' stroke-width='3.4' stroke-linecap='round' stroke-dasharray='6 8'/%3E%3Cellipse cx='20' cy='130' rx='5.6' ry='6' fill='%23f2ecdb' stroke='%238a7a55' stroke-width='1.8'/%3E%3C/svg%3E");
-  background-repeat: repeat-y;
-  background-position: top center;
-}
-
-@media (max-width: 820px) {
-  .spine { display: none; }
 }
 
 /* a word struck out on the page, the correction written beside it */
