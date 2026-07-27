@@ -1344,20 +1344,23 @@ const allPosts: BlogPost[] = [
         title: "మహేష్ బాబు ఎందుకు దేశంలోనే అత్యంత బహుముఖ నటుడు?",
         date: "జూన్ 2026",
         tags: ["సినిమా"],
-        excerpt: "2003 వేసవి మ్యాట్నీలో ఒక్కడు సినిమాలోని ఒక్క డైలాగ్ ఒక ఎనిమిదేళ్ళ పిల్లాడి మీద పడింది. ఇరవై మూడేళ్ళ తర్వాతా ఆ అభిమానం చెక్కు చెదరలేదు. ఆయన ఎందుకు దేశంలోనే అత్యంత బహుముఖ నటుడో, వారణాసి ఎందుకు ఆయన కోసమే ఎదురుచూస్తున్న ఫ్రేమో.",
+        excerpt: "2003లో స్వామి సినిమా హాల్‌లో ఒక్కడు చూసినప్పుడు నాకు ఎనిమిదేళ్ళు. మహేష్ అభిమానిగా మారడానికి ఆ ఒక్క సినిమా చాలు. తెర మీద మహేష్ ఉండడు, పాత్రే ఉంటుంది. అందుకే ఆయన ఈ దేశంలోనే అత్యంత బహుముఖ నటుడు.",
         content: (
             <div className="te">
                 <p>
                     2003 ఏప్రిల్‌లో, వేసవి సెలవుల్లో, రాజమండ్రిలోని స్వామి సినిమా హాల్‌లోకి మా అన్నయ్యతో, బావతో కలిసి అడుగుపెట్టినప్పుడు నాకు ఎనిమిదేళ్ళు. సినిమా విడుదలై మూడు నెలలైనా హౌస్‌ఫుల్. ఆ సినిమా ఒక్కడు.
                 </p>
                 <p>
-                    బహుముఖం అంటే ఏమిటో నాకు తెలియదు. నటనలో సంయమనం అంటే అసలు తెలియదు. తెర మీద ఒక పూర్తి స్థాయి యాక్షన్ ఘట్టం నడుస్తోందని మాత్రం తెలుసు. ఓబుల్ రెడ్డి మనుషులను చీల్చుకుంటూ అజయ్ స్వప్నను కాపాడటానికి వస్తున్నాడు. ఆ పోరాటం మధ్యలో, ఆమెను వెనక దాచి, ఆమెవైపు తిరిగి ఇలా అన్నాడు:
+                    బహుముఖం అంటే ఏమిటో నాకు తెలియదు. నటనలో సంయమనం అంటే అసలు తెలియదు. తెర మీద ఒక పూర్తి స్థాయి యాక్షన్ ఘట్టం నడుస్తోందని మాత్రం తెలుసు. ఓబుల్ రెడ్డి మనుషులు అజయ్‌ను చుట్టుముట్టి తరుముతున్నారు. కత్తులు, రక్తం, పరుగు. అజయ్ స్వప్నను వెనక్కి నెట్టి, తన శరీరాన్ని అడ్డం పెట్టి, ఆమెవైపు తిరిగి ఒక్క మాట అన్నాడు:
                 </p>
                 <blockquote>
-                    నేను మీ ఊరు కబడ్డీ ఆడటానికి వచ్చాను. కానీ ఆడాల్సింది గ్రౌండ్‌లో కాదు, ఇక్కడ అని అర్థమైంది.
+                    నేను మీ ఊరు కబడ్డీ ఆడటానికి వచ్చాను.
                 </blockquote>
                 <p>
-                    ఆయన నవ్వలేదు. ఆ సీన్ చూడనివాళ్ళు పొరపడేది ఇక్కడే, అక్కడ ఒక చిరునవ్వు ఉందనుకుంటారు. లేదు. ఆ డైలాగ్ ఫ్లాట్‌గా, గట్టిగా, పూర్తి నిశ్చయంతో వస్తుంది. ఇంకో నటుడైతే సన్నని నవ్వుతో మెత్తబరిచేవాడు. ఆ తరువాత కట్. రౌడీలు ఇంకా అతని కోసం వెతుకుతూనే ఉన్నారు. వినిపించేది అతని ఊపిరి మాత్రమే. చేసేది చూపు మాత్రమే. మ్యూజిక్ లేదు. ఏమీ లేదు.
+                    ఆ మాటలో నవ్వు లేదు. చిలిపితనం లేదు. ఆ సీన్ చూడనివాళ్ళు అక్కడ ఒక సన్నని చిరునవ్వు ఊహిస్తారు. లేదు. కళ్ళలో నిప్పు, దవడ బిగుసుకుని, ఊపిరి బరువెక్కి, ఆ మాట పిడికిలి బిగించినంత గట్టిగా వస్తుంది. ఇంకో నటుడైతే ఆ ప్రేమను గుసగుసలా చెప్పేవాడు. మహేష్ దాన్ని యుద్ధ నినాదంలా విసిరాడు. ఒక్క వాక్యంలో ప్రేమ, పౌరుషం, ఆవేశం, వీరత్వం, అన్నీ ఒకేసారి.
+                </p>
+                <p>
+                    ఆ తరువాత కట్. రౌడీలు ఇంకా అతని కోసం వెతుకుతూనే ఉన్నారు. వినిపించేది అతని ఊపిరి మాత్రమే. మ్యూజిక్ లేదు, మాట లేదు, కదలిక లేదు. చూపు ఒక్కటే. మొత్తం సీన్ ఆ ఒక్క ముఖం మీద నిలబడి ఉంది.
                 </p>
                 <p>
                     ఇరవై మూడేళ్ళ తర్వాత కూడా, ఆ డైలాగ్ నుంచి ఆ ఊపిరి దాకా ఉన్న ఆ కట్, తెలుగు సినిమాలో నేను చూసిన అత్యంత శుభ్రమైన నటన. అంతా మొదలైంది ఆ రోజే.
@@ -1366,50 +1369,65 @@ const allPosts: BlogPost[] = [
                     ఇది రివ్యూ కాదు. అప్పటి నుంచి ఆయనను చూస్తూ వచ్చిన ఒక అభిమాని రాసుకున్న దస్తావేజు. ఎవరితోనూ పోల్చడం లేదు. ఆయన ఈ దేశంలోనే అత్యంత బహుముఖ నటుడు అని నేను ఎందుకు నమ్ముతానో, వారణాసి గురించి నేను ఎందుకు నిద్రపోవడం లేదో, రాసి పెట్టుకోవాలనిపించింది. అంతే.
                 </p>
 
-                <h2>ఆయన అసలు ఏం చేశాడు</h2>
+                <h2>తెరను నింపే మనిషి</h2>
                 <p>
-                    2003 ఒక్క సంవత్సరం చాలు. ఒక్కడు విడుదలైన అదే ఏడాది, తేజ దర్శకత్వంలో నిజంలో సీతారాం. అగ్నిమాపక అధికారి అయిన తండ్రిని దేవుడు అనే రౌడీ కుట్రతో జైలుపాలు చేస్తే, ఆ తండ్రి కోసం ఊరి మీదకు ఒంటరిగా నడిచిన కుర్రాడి కథ. మొదటి నంది ఉత్తమ నటుడు దానికే. ఒకే ఏడాది రెండు పాత్రలు, రెండింటి మధ్య ఏ పోలికా లేదు. అది తనను తాను వెతుక్కుంటున్న నటుడు కాదు. తనకేం చేతనవుతుందో అప్పటికే తెలిసిన నటుడు.
+                    మహేష్ గురించి ముందు అర్థం చేసుకోవాల్సింది ఇది. ఆయనకు చుట్టూ పెద్ద తారాగణం అక్కర్లేదు. వెనక ఒక పెద్ద పేరు నిలబడాల్సిన అవసరం లేదు. ఒక్కడే తెరను నింపగల ఆరా ఆయనది.
                 </p>
                 <p>
-                    మరుసటి ఏడాది నాని, ఎస్. జె. సూర్య దర్శకత్వం. కథే ఒక సవాలు. ఇంట్లో ఆదరణ లేని ఎనిమిదేళ్ళ పిల్లాడిని ఒక శాస్త్రవేత్త 28 ఏళ్ళ యువకుడిగా మారుస్తాడు. కానీ ఆ మార్పు సగమే. పగలు పిల్లాడు, రాత్రి పెద్దవాడు. మహేష్ రెండూ పోషించాడు, పిల్లాడి పాత్రను ముద్దుగా అమ్మే ప్రయత్నం ఎక్కడా చేయలేదు. సినిమా తెలుగులో ఆడలేదు. కానీ ఒక పాత్ర కోసం ఆయన ఎంత రిస్క్ చేయగలడో చెప్పే అతి శుభ్రమైన ఉదాహరణ ఇప్పటికీ అదే.
+                    2003లో స్వామి సినిమా హాల్‌లో నేను చూసింది అదే. ఆ కబడ్డీ కోర్టు కట్‌లో సీన్ మొత్తం ఆయన ముఖం మీద నిలబడింది. వెనక సంగీతం లేదు, పక్కన ఇంకో నటుడు లేడు. ఒక్క ముఖం, ఒక్క ఊపిరి, సీన్ మొత్తం. అది చిన్న విషయం కాదు.
                 </p>
                 <p>
-                    అతడు, 2005, త్రివిక్రమ్‌తో మొదటి సినిమా. నంద గోపాల్, నందు, ఒక కిరాయి హంతకుడు. ఒక నేరం మీదపడి పారిపోతూ, ఏళ్ళ క్రితం తప్పిపోయిన కొడుకు పార్థు అనుకుని ఒక పల్లె కుటుంబం అక్కున చేర్చుకుంటే అందులో ఒదిగిపోతాడు. సినిమా మొత్తం ఆ రెండు బతుకుల మధ్యే నడుస్తుంది. ద్వితీయార్ధం క్లైమాక్స్‌లో తాతయ్యతో ఒక సీన్. అర క్షణం పాటు ముఖం పగిలి, వెంటనే కూడదీసుకుంటుంది. ఆ అర క్షణమే రెండో నంది.
-                </p>
-                <p>
-                    పోకిరి, 2006, ఆయన పోషించిన అత్యంత గట్టి పాత్ర. అందులోనూ అండర్‌ప్లే. అలీ భాయ్ ముఠాలో చిన్న రౌడీ పండు, చివరికి కృష్ణ మనోహర్ ఐపీఎస్ అని తేలుతుంది. చుట్టూ ఉన్న ప్రతివాడూ అరుస్తుంటే ఈయన వాల్యూమ్ తగ్గించాడు. ఆ తరువాతి పదేళ్ళు ఇండస్ట్రీ ఆ మూసనే కాపీ కొట్టింది. ఆయన లేకుండా అది ఎవరికీ వర్క్ అవ్వలేదు. అసలు పని చేస్తున్నది ఆ నిశ్శబ్దమే కాబట్టి.
-                </p>
-                <p>
-                    ఖలేజా, 2010, మళ్ళీ త్రివిక్రమ్. హైదరాబాద్ ట్యాక్సీ డ్రైవర్ అల్లూరి సీతారామరాజు రాజస్థాన్ చేరి, వింత జబ్బుతో చస్తున్న పాలి గ్రామానికి దేవుడు పంపిన రక్షకుడని తేలే కథ. సినిమా ఒకేసారి పురాణం, కామెడీ, అసంబద్ధం, యాక్షన్. మహేష్ దేన్నీ ఎక్కువ వివరించలేదు, దేన్నీ తక్కువ చేయలేదు. విడుదలప్పుడు అయోమయపు రివ్యూలు. ఇవాళ కల్ట్ క్లాసిక్.
-                </p>
-                <p>
-                    దూకుడు, 2011, శ్రీను వైట్ల. కామెడీ. కోమాలో ఉన్న రాజకీయ నాయకుడి కొడుకు, డీసీపీ అజయ్ కుమార్. చుట్టూ బ్రహ్మి, ఎమ్మెస్ నారాయణ, ప్రకాష్ రాజ్, సోనూ సూద్. ఫ్రేమ్‌లో అత్యంత ఫన్నీ మనిషి మహేష్ కాదు. కానీ ఫన్నీ విషయాలన్నీ పేలేది ఆయన వల్లే. టైమింగ్ ఇంజన్. సెటప్ మ్యాన్. ఆ పని గురించి ఎవరూ మాట్లాడరు, కానీ ఆయన చేస్తూనే ఉన్నాడు. ఫిల్మ్‌ఫేర్ ఉత్తమ నటుడు, మూడో నంది.
-                </p>
-                <p>
-                    1: నేనొక్కడినే, 2014. సుకుమార్ రాసిన పాత్ర గౌతమ్. మెదడులో పావు వంతు గ్రే మ్యాటర్ లేని రాక్ మ్యుజీషియన్. చిన్నప్పుడు తల్లిదండ్రులను చంపిన ముగ్గురు కనిపిస్తూనే ఉంటారు, కానీ ఇంకెవరికీ కనిపించరు. తన నిజమే తనకు అనుమానమైన పాత్ర. మహేష్ ఒప్పుకున్నాడు. పైన చల్లదనం, లోపల పగులు. 2014లో ప్రేక్షకులకు ఏం చేయాలో అర్థం కాలేదు. కానీ ఆయన చేసిన అత్యుత్తమ నటన అదే, రెండో స్థానం దరిదాపుల్లో కూడా లేదు.
-                </p>
-                <p>
-                    శ్రీమంతుడు, 2015, కొరటాల శివ. వేల కోట్ల వారసుడు హర్ష వర్ధన్ తన పూర్వీకుల ఊరు దేవరకోటను దత్తత తీసుకుంటాడు. వినడానికి ఒక ప్రభుత్వ ప్రకటనలా ఉంటుంది. కానీ ఆ ధనవంతుడి బతుకులోని వెలితిని మహేష్ ఎంత నిజాయితీగా చూపించాడంటే, ఆ మార్పు నమ్మశక్యమైంది. సినిమా రికార్డులు బద్దలు కొట్టింది. నిజమైన ఎన్నారైలు ఊళ్ళు దత్తత తీసుకున్నారు. ఐదో ఫిల్మ్‌ఫేర్.
-                </p>
-                <p>
-                    భరత్ అనే నేను, 2018, మళ్ళీ కొరటాల. ఆక్స్‌ఫర్డ్‌లో ఐదో డిగ్రీ చదువుతున్న భరత్ రామ్, ముఖ్యమంత్రి అయిన తండ్రి మరణంతో తిరిగొచ్చి తనే సీఎం అవుతాడు. స్క్రిప్ట్ పెద్ద ఉపన్యాసాలు అడుగుతుంది. మహేష్ ఒక్కసారీ గొంతు పెంచలేదు. సినిమాలో అత్యంత బలమైన సీన్‌లో ఎమ్మెల్యేలతో, ఇంట్లో పెద్దదిక్కు పోయినప్పుడు బంధువులతో మాట్లాడినట్టు మాట్లాడతాడు. ఎవరూ ఆయన కళ్ళలోకి చూడలేరు.
-                </p>
-                <p>
-                    మహర్షి, 2019, వంశీ పైడిపల్లి. అమెరికాలో ఆరిజిన్స్ కంపెనీ సీఈఓ రిషి కుమార్. హర్ష కన్నా పెద్దవాడు, అలసినవాడు, తక్కువ నిశ్చయం ఉన్నవాడు. చిన్ననాటి స్నేహితుడు ఒంటరిగా మోస్తున్న రైతుల కోసం అన్నీ వదిలేస్తాడు. వదిలేయాలన్న నిర్ణయం లోపల కూర్చున్న క్షణాన్ని గాజు ఆఫీసులో ఒంటరిగా కూర్చున్న ఒక్క షాట్‌లో చూపించాడు. సినిమా అక్కడితో ఆగిపోయినా సరిపోయేది.
-                </p>
-                <p>
-                    ఇవి పది. ఆయన చేసినవి ఇరవై ఎనిమిది. వారణాసి ఇరవై తొమ్మిదోది, రాజమౌళి గారితో మొదటిది. ఐదు ఫిల్మ్‌ఫేర్ ఉత్తమ నటుడు అవార్డులు. తొమ్మిది నందులు, అందులో మూడు ఉత్తమ నటుడు. ఏ దశాబ్దం చూసినా అందులో ఒక సీరియస్ నటన ఉంది.
+                    అసలు ఒక్కడు సినిమా మొత్తం ఆయనే. అందుకే ఆ సినిమాకు మొదట అనుకున్న పేరు అతడే ఆమె సైన్యం. ఒక్క మనిషి, ఒక సైన్యం. మణిశర్మ సంగీతం ఉచ్ఛస్థాయిలో ఉంటే, తెర మీద ఆ మనిషి దాన్ని మోశాడు. ఆ తరువాత వచ్చిన సాహసం శ్వాసగా సాగిపో, ఇప్పటికీ కొత్తగా అనిపిస్తుంది.
                 </p>
 
-                <h2>త్రివిక్రమ్ మాట</h2>
+                <figure className="plate">
+                    <img src="/mahesh_in_okkadu.png" alt="మహేష్ బాబు ముఖం క్లోజప్" />
+                    <figcaption>ఆ ముఖమే సీన్ మొత్తం</figcaption>
+                </figure>
+
+                <h2>మనం మహేష్‌ని చూడం</h2>
                 <p>
-                    అతడు, ఖలేజా, గుంటూరు కారం, మూడు సినిమాలు తీసిన త్రివిక్రమ్ శ్రీనివాస్ గారు ఆయన గురించి ఒకసారి ఇలా అన్నారు:
+                    ఇక్కడ ఒక సూక్ష్మం ఉంది. చాలామంది బహుముఖం అంటే రకరకాల వేషాలు అనుకుంటారు. అది సగం మాత్రమే.
+                </p>
+                <p>
+                    మహేష్ సినిమా చూస్తున్నప్పుడు మనం తెర మీద మహేష్‌ని చూడం. ఆ పాత్రను చూస్తాం. అజయ్‌ని చూస్తాం. పండుని, కృష్ణ మనోహర్ ఐపీఎస్‌ని చూస్తాం. అల్లూరి సీతారామరాజు అనే ట్యాక్సీ డ్రైవర్‌ని చూస్తాం. గౌతమ్‌ని, రిషిని చూస్తాం. ప్రతి పాత్రా ఆ దర్శకుడు ఊహించిన దానికి సరిగ్గా సరిపోతుంది. ఎక్కడా కొంచెం ఎక్కువ నటన లేదు, ఎక్కడా కొంచెం తక్కువ నటన లేదు. అచ్చం ఆ కొలతకే.
+                </p>
+                <p>
+                    హరీష్ శంకర్ గారు దీన్ని ఒక్క మాటలో చెప్పారు.
+                </p>
+                <blockquote>
+                    మహేష్ పాదరసం. చాలా కచ్చితంగా చెప్పాలంటే, ఒక దర్శకుడి అద్దం.
+                </blockquote>
+                <p>
+                    పాదరసం ఏ పాత్రలో పోస్తే ఆ ఆకారం తీసుకుంటుంది. అద్దం దర్శకుడికి అతను అనుకున్నదాన్ని ఉన్నదున్నట్టు చూపిస్తుంది. బహుముఖం అంటే అదే. రకరకాల వేషాలు కాదు, ప్రతి దర్శకుడి దృష్టికి అచ్చం సరిపోయేలా తనను తాను మాయం చేసుకోవడం.
+                </p>
+
+                <h2>కథ బాగుంటే ఆయన దాని ప్రాణం</h2>
+                <p>
+                    కథ బాగుంటే మహేష్ దానికి ప్రాణం లాంటివాడు. కానీ కథ ఓడిపోయినప్పుడు కూడా, ఆ సినిమాను తన భుజాల మీద మోస్తాడు.
+                </p>
+                <p>
+                    ఒక్కసారి ఆలోచించండి. ఎన్నో గొప్ప కథలు ఘోరంగా ఓడిపోవడం చూశాం. కానీ ఓడిపోయిన ఒక కథను మనం ఎప్పుడూ కల్ట్ క్లాసిక్ అనలేదు, ఒక్క మహేష్ సినిమాలు తప్ప. ఖలేజా, 1 నేనొక్కడినే, రెండూ విడుదలప్పుడు ఆడలేదు. ఇవాళ్టికీ ఆ సినిమాల గురించి మాట్లాడుకుంటున్నది అందులోని నటన వల్లే.
+                </p>
+                <p>
+                    అతడు, ఖలేజా, గుంటూరు కారం, మూడు సినిమాలు తీసిన త్రివిక్రమ్ శ్రీనివాస్ గారు ఆయన గురించి ఒక్క మాట అన్నారు.
                 </p>
                 <blockquote>
                     సినిమా ఫెయిల్ అవ్వొచ్చు. మహేష్ ఫెయిల్ అవ్వడు.
                 </blockquote>
+
+                <h2>దర్శకులు చెప్పే మాట</h2>
                 <p>
-                    ఖలేజా, 1: నేనొక్కడినే, రెండూ విడుదలప్పుడు ఆడలేదు. కానీ ఆ సినిమాల గురించి ఇవాళ్టికీ మాట్లాడుకుంటున్నది అందులోని నటన వల్లే. త్రివిక్రమ్ గారు చూపించింది అదే. చుట్టూ ఉన్న సినిమా నిలబడినా కూలినా, ఈ నటుడు మాత్రం ప్రతిసారీ నిలబడతాడు.
+                    ఇది నా అభిమానం చెప్పే మాట కాదు. ఆయనతో పని చేసిన దర్శకులు చెప్పే మాట.
+                </p>
+                <p>
+                    ఖలేజా గురించి త్రివిక్రమ్ గారు ఒక ఇంటర్వ్యూలో చెప్పారు. ఒక సీన్‌లో ముఖం మీద గర్వం కనిపించకూడదు, చిరునవ్వు ఉండకూడదు, బాధ కనిపించకూడదు, అలా అని ఏమీ లేకుండా ఉండకూడదు. అది ఎలా తీయాలో దర్శకుడికే అర్థం కాలేదు. మహేష్ ఒకటి కాదు, రెండు కాదు, ఎన్నో వేరియేషన్లు చేసి చూపించాడు. ఒక చిన్న సీన్‌కు పది పదిహేను వేరియేషన్లు ఇవ్వగలిగే నటుడు ఒక్కడే.
+                </p>
+                <p>
+                    ఇలాంటివి సాధారణంగా బయటికి రావు. ఎందుకంటే ఇవి తెర వెనుక జరిగేవి. చాలామంది అనుకుంటారు, ఇది చాలామంది హీరోలు చేస్తారని. లేదు.
+                </p>
+                <p>
+                    ఇంకో వైపు ఆయన క్రమశిక్షణ. ఆయన షూటింగ్‌లు ఎంత వేగంగా అయిపోతాయో చూసి అందరూ ఆశ్చర్యపోతారు. కారణం, ఆయన దర్శకుడు ఏం కావాలో సరిగ్గా అదే ఇస్తాడు. తేజ గారు ఒక ఇంటర్వ్యూలో చెప్పారు, షాట్‌లు సింగిల్ టేక్‌లో ఓకే అయిపోయేవని. ఎందుకంటే ఆయన వింటాడు, దర్శకుడికి కావలసింది అచ్చం అలాగే చేస్తాడు. మంచి దర్శకుడికి అదొక వరం. శంకర్ గారు అదే అంటారు, మహేష్‌ని తెర మీద చూడటం ఒక ఆనందం అని.
                 </p>
 
                 <h2>ఆయన ఇక్కడే ఉండిపోయాడు</h2>
@@ -1422,19 +1440,59 @@ const allPosts: BlogPost[] = [
 
                 <h2>వారణాసి</h2>
                 <p>
-                    ఇక వారణాసి. 2025 నవంబర్ 15. రామోజీ ఫిల్మ్ సిటీ. యాభై వేల మంది అభిమానులు. జియో హాట్‌స్టార్‌లో ప్రత్యక్ష ప్రసారం. గంటల తరబడి జై బాబు, జై జై బాబు నినాదాలు. చివరన రాజమౌళి గారు వేదిక మీదకు వచ్చి, ఏళ్ళ తరబడి సిద్ధం చేసుకుంటున్న సినిమా పేరు చెప్పారు. వారణాసి. తరువాత కాన్సెప్ట్ రీల్.
+                    ఇక వారణాసి.
                 </p>
                 <p>
-                    తెర మీద మహేష్, రుద్ర పాత్రలో. చేతిలో త్రిశూలం, పరుగెడుతున్న ఎద్దు మీద. ప్రియాంక చోప్రా జోనాస్ మందాకిని. ప్రతినాయకుడు కుంభగా పృథ్వీరాజ్ సుకుమారన్. కథ వేల సంవత్సరాల మీదుగా, ప్రాచీన భారతం నుంచి నేటి దాకా సాగుతుందని, అందులో ఒక ఘట్టం రామాయణంలోని ఒక అధ్యాయ స్ఫూర్తితో ఉంటుందని రాజమౌళి గారు చెప్పారు. కథ మలుపు, వారణాసి నగరం మీదకు దూసుకొస్తున్న ఒక గ్రహశకలం.
+                    రాజమౌళి గారిది ఒక పిచ్చి పట్టుదల. ఎంత పర్‌ఫెక్షనిస్ట్ అంటే, ఒక్క షాట్ కోసం వారాల తరబడి ఖర్చు చేసేంత. అంత పర్‌ఫెక్షనిస్ట్‌కు హీరో దొరకడం సులభం కాదు.
                 </p>
                 <p>
-                    తరువాత ఫార్మాట్ గురించి చెప్పారు. 1.43:1 ఐమాక్స్. మొదటి భారతీయ సినిమా. ఆ ఫార్మాట్‌లో తీసిన మొదటి ఇంగ్లీషేతర సినిమా. నోలన్ ఓపెన్‌హైమర్, డన్కిర్క్ తీసిన ఫ్రేమ్. ఒక్క మనిషి ముఖం ఐమాక్స్ తెర మొత్తాన్ని నింపే ఫ్రేమ్.
+                    ఆయన రాసిన కథలో హీరో దగ్గర నుంచి గరిష్ఠాన్ని రాబట్టుకుంటాడు, అందులో సందేహం లేదు. కానీ ఇప్పటిదాకా ఆయన రాతను పది రెట్లు మించి నటించగలిగే మనిషి ఆయనకు తారసపడ్డాడని నేను అనుకోను. ఆ మనిషి మహేష్ అని నా నమ్మకం. ఎందుకంటే ప్రతి పాత్రలోకి, ప్రతి భావంలోకి ఆయన అలవోకగా జారిపోతాడు. తెర మీద మహేష్ ఉండడు, పాత్రే ఉంటుంది.
                 </p>
                 <p>
-                    ఒక్క క్షణం ఆగి ఆలోచించండి. 2003 నుంచి మహేష్ ముఖమే సీన్ మొత్తం. కబడ్డీ కోర్టు కట్. నందు అర క్షణపు పగులు. పండు నిశ్శబ్దం. గౌతమ్ అనుమానపు కళ్ళు. రిషి ఒంటరి గాజు గది. ఆ ముఖాన్ని రాజమౌళి గారు, రుద్రగా, రామాయణ ఛాయలో, ఐమాక్స్ 1.43:1లో తీయబోతున్నారు. మనవైపు వస్తున్న ఆ షాట్ భారత సినిమాలో ఇప్పటివరకూ లేదు.
+                    ఇద్దరు పిచ్చివాళ్ళు కలిశారు. యాభై ఏళ్ళ వయసులో మహేష్ వారణాసిలో చేసిన స్టంట్‌లు మామూలువి కావు. పరుగెడుతున్న నందిని అధిరోహించి, ఒక పది సెకన్ల షాట్ కోసం, రాముడి భంగిమ కోసం, మూడు నెలలు శిక్షణ తీసుకున్నాడు. స్టంట్‌లన్నీ ఆయనే చేస్తాడు.
+                </p>
+
+                <figure className="plate">
+                    <img src="/mahesh_varanasi.png" alt="వారణాసి సినిమాలో రుద్ర పాత్రలో మహేష్ బాబు, చేతిలో త్రిశూలం" />
+                    <figcaption>రుద్రుడిగా మహేష్, వారణాసిలో</figcaption>
+                </figure>
+                <p>
+                    వారణాసి రాజమౌళి గారి అత్యంత ప్రతిష్ఠాత్మక ప్రాజెక్ట్. ఆయన చాలాసార్లు చెప్పారు, తన పాత సినిమాలేవీ తనను పూర్తిగా తృప్తిపరచలేదని. ఆర్ఆర్ఆర్‌కు వచ్చిన ప్రపంచ గుర్తింపు దాదాపు యాదృచ్ఛికం. ఈసారి ఆయనకు ప్రపంచ స్థాయిలో తనను తాను నిరూపించుకోవాలి.
                 </p>
                 <p>
-                    సినిమా 2027 వేసవిలో. నా తలలో అప్పుడే ఒక గడియారం మొదలైంది.
+                    ఈ సినిమా స్కేల్, స్కోప్ మాటల్లో చెప్పలేనని ఆయనే అన్నారు. టీజర్‌లో కనిపించిన ప్రతి బొమ్మా చూడండి. హనుమ, కుంభకర్ణుడు, వానర సైన్యం మీద రాముడు, ఛిన్నమస్త దేవి, కిలిమంజారో, అంబోసెలి, రాస్ మంచు ఫలకం. ఇవేవీ సాధారణ సినిమా ఫ్రేమ్‌లో ఇమడవు. అందుకే ఆయన ఐమాక్స్‌కు వెళ్ళాడు, ఊరికే కాదు. కథలో ఎంత లోతు, ఎంత విస్తృతి ఉంటే అంత నిర్ణయం. అది ఎంత పెద్ద నిర్ణయమో జనాలకు ఇంకా అర్థం కావడం లేదు.
+                </p>
+                <p>
+                    ఐమాక్స్ 1.43:1. ఆ ఫార్మాట్‌లో తీసిన మొదటి భారతీయ సినిమా. ఆ ఫ్రేమ్‌లో ఒక్క మనిషి ముఖం తెర మొత్తాన్ని నింపుతుంది. ఒక్క క్షణం ఆగండి. 2003 నుంచి మహేష్ ముఖమే సీన్ మొత్తం. కబడ్డీ కోర్టు కట్. నందు అర క్షణపు పగులు. పండు నిశ్శబ్దం. గౌతమ్ అనుమానపు కళ్ళు. రిషి ఒంటరి గాజు గది. ఇప్పుడు రాజమౌళి గారు ఆ ముఖాన్ని రుద్రగా, ఐమాక్స్ తెర నిండా తీయబోతున్నారు. 2003లో స్వామి హాల్‌లో ఆ ముఖం ఒక సీన్‌ను నింపింది. ఇప్పుడు అది ప్రపంచంలోనే అతిపెద్ద తెరను నింపబోతోంది.
+                </p>
+                <p>
+                    ఒక కథకుడిగా రాజమౌళి గారి అత్యుత్తమ సినిమా బాహుబలో ఆర్ఆర్ఆరో కాదని నా అభిప్రాయం. అవి పూర్తి భావోద్వేగ ప్రయాణాలు. కథ చెప్పే విద్యలో ఆయన అత్యుత్తమ సినిమా ఈగ. ఒక మనిషి, ఒక ఈగ, ఒకే ఫ్రేమ్‌లో. అంత సంక్లిష్టమైన సీజీఐ, అంత స్కేల్, పూర్తిగా కుదిరింది. బాహుబలిలో కూడా ప్రయత్నించారు, కానీ అంతలా సింక్ కాలేదు. వారణాసి దాని తరువాతి కోణం.
+                </p>
+                <p>
+                    రాజమౌళి గారి తండ్రి, రచయిత విజయేంద్ర ప్రసాద్ గారు ఏమన్నారంటే.
+                </p>
+                <blockquote>
+                    ఈ సినిమాలో ఒక యాక్షన్ ఘట్టం ముప్పై నిమిషాలు ఉంది. సీజీఐ లేదు, రీ-రికార్డింగ్ లేదు. అలా చూస్తూ ఉండిపోయాను, మహేష్ బాబు విశ్వరూపాన్ని.
+                </blockquote>
+                <p>
+                    ఆ మాటల్లోనే మనకు అర్థం కావాలి.
+                </p>
+                <p>
+                    ఇక ఆ నంది మీద వచ్చిన షాట్. చివరి పది సెకన్లలో ఆ ముఖం మీద ఉన్న సూక్ష్మ వివరాలు. చాలామంది అంటున్నారు, తలకు నల్లటి మాస్క్ వేసి యానిమేట్ చేశారని. అవును, హాలీవుడ్ సినిమాలు, ఆటలు అలా చేస్తాయి. కానీ నాకెందుకో అది నిజంగా తీసిన షాట్ లాగే అనిపిస్తుంది, దాదాపు ఆరు వేల ఫ్రేమ్‌ల వేగంతో. ఎందుకంటే ఆ కార్యక్రమంలో సీజీఐ దర్శకుడు ఒక్క మహేష్ షాట్ తప్ప మిగతాదంతా సీజీఐ అన్నాడు. నంది యానిమేటెడ్ కావచ్చు, కానీ ఒక ముఖం మీద ఆ స్థాయి వివరాలతో కెమెరా పాన్, యాంగిల్, అది యానిమేట్ చేయడం మనిషికి సాధ్యం కాదు. ఒక్క షాట్‌లోనే అంత వివరం ఉంటే, మొత్తం సినిమా ఎంత ఉంటుందో.
+                </p>
+                <p>
+                    సినిమా 2027 వేసవిలో. నా తలలో అప్పుడే గడియారం మొదలైంది.
+                </p>
+
+                <h2>ప్రపంచం ఇంకా సిద్ధంగా లేదు</h2>
+                <p>
+                    ఎంత చెత్త కెమెరామన్ ఫ్రేమ్ పెట్టినా మహేష్ దాన్ని దాటి మెరుస్తాడు. అలాంటిది రాజమౌళి గారి కెమెరాలో మహేష్ అంటే, అది దేవుళ్ళను చూడటం లాంటిది.
+                </p>
+                <p>
+                    ఈ తరంలో చాలామంది అభద్రతతో ఒకరినొకరు చూసుకుని చేతులు కాల్చుకుంటున్నారు. మహేష్, రాజమౌళి గారు ఎప్పుడూ అలా చేయలేదు. మన తెలుగు సినిమా ప్రపంచం చూడాలని గట్టిగా నమ్మారు, ఆ నమ్మకంతోనే చూపిస్తున్నారు.
+                </p>
+                <p>
+                    ప్రపంచం ఇంకా రాజమౌళికి, మహేష్‌కు, తెలుగు సినిమాకు సిద్ధంగా లేదు.
                 </p>
 
                 <h2>ఒక కోరిక</h2>
@@ -1442,7 +1500,7 @@ const allPosts: BlogPost[] = [
                     ఆ ఎనిమిదేళ్ళ పిల్లాడు ఇప్పుడు ఆ ఏప్రిల్ ఆట నుంచి చాలా దూరం వచ్చేశాడు. అన్నయ్య, బావ వేరే ఊళ్ళలో ఉన్నారు. కానీ ఆ సినిమా, ఆ డైలాగ్, ఆ ఊపిరి కట్, మా ముగ్గురిలో ఏదో రూపంలో అలాగే ఉన్నాయి.
                 </p>
                 <p>
-                    ఆయన నటన ఎప్పుడూ చూడనివాళ్ళకు నా మాట ఇది. ముందు అతడు. తరువాత 1: నేనొక్కడినే, ఆపై ఖలేజా, నాని. మహర్షితో కాసేపు కూర్చోండి. ఒక్కడు చివర్లో చూడండి. ఎందుకంటే అంతా మొదలైంది అక్కడే.
+                    ఆయన నటన ఎప్పుడూ చూడనివాళ్ళకు నా మాట ఇది. ముందు అతడు. తరువాత 1 నేనొక్కడినే, ఆపై ఖలేజా, నాని. మహర్షితో కాసేపు కూర్చోండి. ఒక్కడు చివర్లో చూడండి, ఎందుకంటే అంతా మొదలైంది అక్కడే.
                 </p>
                 <p>
                     ఆస్కార్ వస్తేనే ఆయన గొప్పతనం నాకు తెలియాల్సిన పని లేదు. ప్రపంచం ఆయన సీన్‌లో రెండు నిమిషాలు కూర్చుని తనంతట తానే తెలుసుకుంటే చాలు. అది జరిపించే సినిమా వారణాసి అయితే, అంతకన్నా ఏం కావాలి.
@@ -1460,151 +1518,9 @@ const allPosts: BlogPost[] = [
                     2003 నుంచి ఒక అభిమాని
                 </p>
             </div>
-        ),
-        contentEn: (
-            <>
-                <p>
-                    I was eight years old in April 2003 when I walked into Swamy Cinema Hall in Rajahmundry with my brother and my cousin brother. The film had released in January. We were watching it in April, in summer holidays, and the show was still housefull. The film was Okkadu.
-                </p>
-                <p>
-                    I didn&apos;t know what versatile meant. I didn&apos;t know what restraint in acting was. I just knew a full-scale heroic action block was on the screen, Ajay was cutting through Obul Reddy&apos;s goons to save Swapna, and somewhere in the middle of that fight, protecting her behind him, he turned and said this:
-                </p>
-                <blockquote style={{ borderLeft: '2px solid var(--primary)', paddingLeft: '1.25rem', margin: '1.5rem 0', fontStyle: 'italic', color: 'var(--foreground)' }}>
-                    Nenu mee ooru kabaddi aadataniki vachanu. Kaani aadalsindi ground lo kaadu, ikkada ani ardham ayindi.
-                </blockquote>
-                <p>
-                    He didn&apos;t smile. That is what people who haven&apos;t watched the scene always get wrong, they assume there is a smile. There isn&apos;t. The line is delivered flat, hard, all resolve, everything a lesser actor would have softened with a held-back grin. And then the cut. The goons still searching for him. All you can hear is his breath. All he does is look. No score. Nothing.
-                </p>
-                <p>
-                    Twenty-three years later that cut, from the line to the breath, is still the cleanest piece of acting I have seen in a Telugu film. That was the day.
-                </p>
-
-                <p>
-                    This isn&apos;t a review. It&apos;s a fan&apos;s log of what I have watched him do since. I&apos;m not comparing him to anyone. I just want to write down why I think he is the most versatile actor working in this country, and why I am quietly losing my mind about Varanasi.
-                </p>
-
-                <h2>What he has actually done</h2>
-                <p>
-                    Take 2003 alone. The same year Okkadu released, he played Seetaram in <strong>Nijam</strong> for Teja, a young man whose father, a fire officer, has been framed and imprisoned by a local goon named Devudu. The whole film is Seetaram working his way through the town to get his father back. It won him his first Best Actor Nandi. Two lead roles, same year, no shared DNA between them. That isn&apos;t someone figuring himself out. That&apos;s someone who already knew what he could do.
-                </p>
-                <p>
-                    Then <strong>Naani (2004)</strong>, S. J. Suryah. The premise is a dare. An eight-year-old kid, mistreated at home, is taken in by a scientist who converts him into a 28-year-old adult. But the change isn&apos;t clean: he is a child by day and a grown man by night. Mahesh plays both, and refuses to sell the child version as cute. It didn&apos;t land commercially in Telugu. The performance is still the cleanest example of what he is willing to risk for a part.
-                </p>
-                <p>
-                    <strong>Athadu (2005)</strong>, first collaboration with Trivikram. Nanda Gopal, Nandu, a hired assassin, gets framed, goes on the run, and ends up in the village of a family who mistakes him for Pardhu, the son they lost years earlier. The whole film lives inside his double life. In the second-half climax there is a scene with the grandfather where, for half a second, his face breaks and he pulls it back. That half-second is the second Nandi.
-                </p>
-                <p>
-                    <strong>Pokiri (2006)</strong> is the loudest part he has ever played, and even here he underplays. Pandu, a small-time goon in the Ali Bhai gang, turns out to be Krishna Manohar IPS, undercover. Everyone around him screams. He keeps the volume down. The industry spent the next decade copying the template. Nobody made it work without him because the stillness was doing the work.
-                </p>
-                <p>
-                    <strong>Khaleja (2010)</strong>, Trivikram again. Alluri Sitarama Raju, a Hyderabad cab driver, ends up in Rajasthan, where a tantric priest and his pupil identify him as the saviour of the village of Pali, dying from a mysterious plague. The film is mythological, comic, absurd, action-loaded, sometimes at the same time. Mahesh refuses to over-explain any of it, and refuses to under-play any of it. Released to confused reviews. Cult favourite now.
-                </p>
-                <p>
-                    <strong>Dookudu (2011)</strong>, Srinu Vaitla. Comedy. He is DCP Ajay Kumar, IPS, whose father is a politician in coma. The film is packed with Brahmi, MS Narayana, Prakash Raj, Sonu Sood. Mahesh isn&apos;t the funniest thing in the frame. He&apos;s the reason the funny things land. Timing engine. Setup man. Nobody in Telugu cinema talks about him doing that job, but he does it. Filmfare Best Actor. Third Best Actor Nandi.
-                </p>
-                <p>
-                    <strong>1: Nenokkadine (2014)</strong>. Sukumar wrote Gautham, a rock musician with schizophrenia, missing a quarter of his brain&apos;s grey matter, chasing three men he saw murder his parents as a child, except nobody else can see them. The role needs the actor to be uncertain about his own reality, and the audience to be uncertain about him. Mahesh took the part. He gave it a coolness on the surface and a visible crack underneath. Audiences didn&apos;t know what to do with it in 2014. It is the best acting he has done, and it&apos;s not close.
-                </p>
-                <p>
-                    <strong>Srimanthudu (2015)</strong>, Koratala Siva. Harsha Vardhan, silver-spoon billionaire&apos;s son, adopts the ancestral village of Devarakota. The premise is public-service material. He plays the character&apos;s boredom so honestly that the pivot to farming and reform feels like an actual man remembering something. Real NRIs adopted villages after the film released. Fifth Filmfare Best Actor.
-                </p>
-                <p>
-                    <strong>Bharat Ane Nenu (2018)</strong>, Koratala again. Bharat Ram, an Oxford student on his fifth degree, returns to India after his father, the Chief Minister of AP, dies, and finds himself sworn in as CM. The script wants big speeches. Mahesh doesn&apos;t raise his voice once. In the film&apos;s most powerful scene he talks to a room of MLAs the way you talk to family at a funeral, and none of them can look at him.
-                </p>
-                <p>
-                    <strong>Maharshi (2019)</strong>, Vamshi Paidipally. K. Rishi Kumar, US-based CEO of a company called Origins. Older than Harsha, more tired, less sure. Walks away from all of it to save the farming community his childhood friend has been holding together alone. He plays the moment where the decision to leave finally lands, sitting alone in his glass office, and the film could have ended in that shot.
-                </p>
-                <p>
-                    That is ten. He has done twenty-eight. Varanasi will be his twenty-ninth and his first with Rajamouli. Five Filmfare Best Actor wins. Nine Nandis, three of them Best Actor. Four SIIMA Best Actor. There is not a decade in there without a serious performance.
-                </p>
-
-                <h2>Trivikram was right</h2>
-                <p>
-                    Trivikram Srinivas has directed him three times, Athadu, Khaleja, and Guntur Kaaram, and has watched him build each of those characters up close. He said this about him once:
-                </p>
-                <blockquote style={{ borderLeft: '2px solid var(--primary)', paddingLeft: '1.25rem', margin: '1.5rem 0', fontStyle: 'italic' }}>
-                    Cinema fail avochu, Mahesh fail avadu.
-                    <br />
-                    <span style={{ fontStyle: 'normal', color: 'var(--muted)', fontSize: '0.95rem' }}>Cinema may fail. Mahesh will not.</span>
-                </blockquote>
-                <p>
-                    Both Khaleja and 1: Nenokkadine were commercial disappointments on release. The performance in each is the reason we still talk about the film today. That is what Trivikram was pointing at. The actor is not tied to whether the film around him works. He shows up either way.
-                </p>
-                <p>
-                    If you have watched enough of him, you know what that means.
-                </p>
-
-                <h2>He stayed</h2>
-                <p>
-                    Every other pan-India lead was moving to Bombay, learning Hindi, chasing the bigger market. Mahesh didn&apos;t. He has never done a Hindi film in his career. He stayed with Telugu, and trusted the work would travel.
-                </p>
-                <p>
-                    It did. Baahubali cracked the door. RRR walked through it. Pushpa broke it wide open in the masala lanes. The centre of gravity of Indian cinema moved to Telugu without Mahesh having to leave. Staying is a different kind of courage than going, and I don&apos;t think we talk about it enough.
-                </p>
-
-                <h2>Varanasi</h2>
-
-
-                <p>
-                    And then there is Varanasi.
-                </p>
-                <p>
-                    November 15, 2025. Ramoji Film City. Fifty thousand fans. Live on JioHotstar. The crowd chanting <em>Jai Babu, Jai Jai Babu</em> for hours. At the end of it Rajamouli walked on stage and revealed the film&apos;s title, the one he had been preparing for years. Varanasi.
-                </p>
-                <p>
-                    Then he played the concept reel.
-                </p>
-
-
-                <p>
-                    Mahesh was on the screen as <strong>Rudhra</strong>, a trishul in his hand, riding a charging bull. Priyanka Chopra Jonas as <strong>Mandakini</strong>. Prithviraj Sukumaran as the antagonist, <strong>Kumbha</strong>. The film, Rajamouli said, spans thousands of years, from ancient Bharat to the modern day, with one sequence inspired by a chapter from the Ramayana. The story turns on the city of Varanasi facing the impending arrival of an asteroid. Globetrotting adventure with Indian roots.
-                </p>
-
-
-                <p>
-                    Then Rajamouli mentioned the format. 1.43:1 IMAX. First Indian film. First non-English film in cinema history in that ratio. The frame Nolan uses for Oppenheimer and Dunkirk. The frame that makes a single human face fill an entire IMAX screen.
-                </p>
-                <p>
-                    Sit with that for a second.
-                </p>
-                <p>
-                    Mahesh&apos;s face has been the whole scene since 2003. The kabaddi-court cut. Nandu&apos;s half-second face-break. Pandu&apos;s stillness. Gautam&apos;s uncertain eyes. Rishi&apos;s decision-to-leave sit. Rajamouli, of all directors, is now going to shoot that face at IMAX 1.43:1 as Rudhra, in a sequence coded off the Ramayana, across millennia. The shot that is coming for us has not existed in Indian cinema before.
-                </p>
-                <p>
-                    Not because Mahesh hasn&apos;t been an actor before. He has been an actor for as long as I have been watching him. The next dimension is because he is finally going to be inside a frame large enough for what he has been doing all along.
-                </p>
-                <p>
-                    The film is out in summer 2027. There is a clock inside my head already.
-                </p>
-
-                <h2>A wish</h2>
-                <p>
-                    That eight-year-old is a long way from that April 2003 show now. My brother and my cousin brother are in different cities. We watched Okkadu together because that&apos;s what you did with brothers and cousins in the summer, with the show still housefull three months after release. The film and the line and the cut to the breath are still in all of us in some form.
-                </p>
-                <p>
-                    If you have never watched him work, here&apos;s what I&apos;d do. Start with Athadu. Then 1: Nenokkadine, then Khaleja, then Nani. Sit with Maharshi. Watch Okkadu last, because that&apos;s where it starts, and you&apos;ll want to be armed for the kabaddi-court cut.
-                </p>
-                <p>
-                    Then watch Varanasi with us. We are DHFM. We have been waiting twenty-three years for the rest of the world to catch up.
-                </p>
-                <p>
-                    I don&apos;t need him to win an Oscar to know what he is. I would just like the rest of the world to sit inside one of his scenes for two minutes and figure it out on their own. If Varanasi is the film that gets them there, so be it.
-                </p>
-                <p>
-                    He came to play kabaddi. He always knew the game wasn&apos;t on the ground.
-                </p>
-                <p style={{ fontSize: '1.5rem', textAlign: 'center', margin: '2.5rem 0 1.5rem', color: 'var(--primary)', letterSpacing: '0.01em' }}>
-                    Varanasi to the world.
-                </p>
-                <p>
-                    Mahesh, sir, thank you.
-                </p>
-                <p style={{ color: 'var(--muted)', fontStyle: 'italic', marginTop: '1rem' }}>
-                    a fan since 2003
-                </p>
-            </>
         )
     },
+
     {
         slug: "how-small-we-are",
         title: "నువ్వు మంగళవారం మీటింగ్ గురించి కంగారు పడుతున్నావ్",
