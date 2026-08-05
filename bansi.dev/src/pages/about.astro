@@ -1,0 +1,88 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE, SOCIALS, STACK, CERTS, MEDIUM_URL, MEDIUM_ARCHIVE } from '../consts';
+
+const fmt = (iso: string) =>
+  new Date(iso).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    timeZone: 'UTC',
+  });
+---
+
+<Base
+  title="About"
+  description="Machine learning engineer working on computer vision, MLOps, and GenAI."
+>
+  <div class="split">
+    <aside class="split__side side-intro">
+      <img
+        class="side-intro__photo"
+        src="/images/bansi.jpg"
+        alt={`${SITE.author}, on a boat in a mangrove channel`}
+        width="800"
+        height="800"
+        loading="eager"
+      />
+      <p class="eyebrow">About</p>
+      <h1>{SITE.author}</h1>
+      <p>
+        Machine learning engineer with 7.5+ years of experience building and
+        operating production ML systems: computer vision, MLOps on GCP and
+        Azure, and more recently GenAI.
+      </p>
+      <p>
+        {SITE.domain} is where I write about that work. Opinions here are mine
+        alone, and nothing proprietary makes it onto the page.
+      </p>
+      <ul class="links-row">
+        {SOCIALS.map((s) => (
+          <li><a href={s.href} rel="me noopener">{s.label}</a></li>
+        ))}
+      </ul>
+    </aside>
+
+    <div class="split__main prose">
+      <p>
+        My work centers on computer vision (image classification, object
+        detection, and anomaly detection) along with the MLOps that keeps
+        those systems running: pipelines, deployment, monitoring, and cost
+        optimization. More recently that includes GenAI: LLM integration, RAG
+        pipelines, and agentic workflows.
+      </p>
+
+      <h2>Skills</h2>
+      <ul class="timeline">
+        {
+          STACK.map((row) => (
+            <li>
+              <span class="timeline__period">{row.group}</span>
+              <span class="timeline__body">{row.items}</span>
+            </li>
+          ))
+        }
+      </ul>
+
+      <h2>Certifications</h2>
+      <ul>
+        {CERTS.map((cert) => <li>{cert}</li>)}
+      </ul>
+
+      <h2>Writing on Medium</h2>
+      <p>
+        Earlier technical writing lives on <a href={MEDIUM_URL}>Medium</a>. New
+        posts land here, but the archive is all still worth reading:
+      </p>
+      <ul>
+        {
+          MEDIUM_ARCHIVE.map((piece) => (
+            <li>
+              <a href={piece.href} rel="noopener">{piece.title}</a>
+              {' '}<span class="timeline__period">· {fmt(piece.date)}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</Base>

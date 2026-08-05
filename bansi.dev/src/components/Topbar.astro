@@ -1,0 +1,158 @@
+---
+import { getCollection } from 'astro:content';
+
+const path = Astro.url.pathname.replace(/\/+$/, '') || '/';
+
+const posts = await getCollection('blog', ({ data }) => !data.draft);
+const tags = [...new Set(posts.flatMap((post) => post.data.tags))].sort();
+---
+
+<header class="topbar">
+  <nav class="topbar__left" aria-label="Primary">
+    <a href="/" aria-current={path === '/' ? 'page' : undefined}>Writing</a>
+    <span class="topbar__tags">
+      {
+        tags.map((tag) => (
+          <a
+            class="tag"
+            href={`/tags/${tag}/`}
+            aria-current={path === `/tags/${tag}` ? 'page' : undefined}
+          >
+            #{tag}
+          </a>
+        ))
+      }
+    </span>
+  </nav>
+
+  <div class="topbar__search">
+    <svg class="topbar__search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="11" cy="11" r="7"></circle>
+      <path d="m20 20-3.8-3.8"></path>
+    </svg>
+    <input
+      id="site-search"
+      type="search"
+      placeholder="Search posts…"
+      autocomplete="off"
+      spellcheck="false"
+      aria-label="Search posts"
+    />
+    <div class="search-results" id="search-results" hidden></div>
+  </div>
+
+  <nav class="topbar__right" aria-label="Secondary">
+    <a href="/about" aria-current={path === '/about' ? 'page' : undefined}>About</a>
+    <button
+      class="theme-toggle"
+      type="button"
+      id="theme-toggle"
+      aria-label="Toggle color theme"
+      title="Toggle color theme"
+    >
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path>
+      </svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+      </svg>
+    </button>
+  </nav>
+</header>
+
+<script>
+  // --- theme toggle ---
+  const toggle = document.getElementById('theme-toggle');
+  toggle?.addEventListener('click', () => {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const current =
+      document.documentElement.dataset.theme ?? (prefersDark ? 'dark' : 'light');
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+  });
+
+  // --- client-side search ---
+  const input = document.getElementById('site-search') as HTMLInputElement | null;
+  const panel = document.getElementById('search-results');
+
+  type Doc = {
+    title: string;
+    description: string;
+    tags: string[];
+    date: string;
+    url: string;
+    body: string;
+  };
+
+  let docs: Doc[] | null = null;
+  const loadIndex = async () => {
+    if (!docs) {
+      const res = await fetch('/search.json');
+      docs = (await res.json()) as Doc[];
+    }
+    return docs;
+  };
+
+  const close = () => {
+    if (panel) {
+      panel.hidden = true;
+      panel.innerHTML = '';
+    }
+  };
+
+  const render = (hits: Doc[]) => {
+    if (!panel) return;
+    panel.innerHTML = '';
+    if (hits.length === 0) {
+      const p = document.createElement('p');
+      p.className = 'search-results__empty';
+      p.textContent = 'No matching posts';
+      panel.appendChild(p);
+    } else {
+      for (const hit of hits) {
+        const a = document.createElement('a');
+        a.href = hit.url;
+        const title = document.createElement('strong');
+        title.textContent = hit.title;
+        const meta = document.createElement('span');
+        meta.textContent = hit.date;
+        a.append(title, meta);
+        panel.appendChild(a);
+      }
+    }
+    panel.hidden = false;
+  };
+
+  input?.addEventListener('focus', () => void loadIndex());
+
+  input?.addEventListener('input', async () => {
+    const q = input.value.trim().toLowerCase();
+    if (!q) return close();
+    const all = await loadIndex();
+    const hits = all
+      .filter((d) =>
+        `${d.title} ${d.description} ${d.tags.join(' ')} ${d.body}`
+          .toLowerCase()
+          .includes(q)
+      )
+      .slice(0, 8);
+    render(hits);
+  });
+
+  input?.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      input.value = '';
+      close();
+      input.blur();
+    } else if (e.key === 'Enter') {
+      const first = panel?.querySelector('a');
+      if (first) window.location.href = (first as HTMLAnchorElement).href;
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!(e.target as Element).closest('.topbar__search')) close();
+  });
+</script>

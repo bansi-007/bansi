@@ -1,0 +1,65 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import FormattedDate from './FormattedDate.astro';
+
+interface Props {
+  posts: CollectionEntry<'blog'>[];
+  /** Group posts under year headings. */
+  byYear?: boolean;
+}
+
+const { posts, byYear = true } = Astro.props;
+
+const groups = new Map<number, Props['posts']>();
+if (byYear) {
+  for (const post of posts) {
+    const year = post.data.pubDate.getUTCFullYear();
+    groups.set(year, [...(groups.get(year) ?? []), post]);
+  }
+}
+const years = [...groups.keys()].sort((a, b) => b - a);
+---
+
+{
+  posts.length === 0 ? (
+    <p class="empty">No posts yet. Drop a markdown file in <code>src/content/blog/</code>.</p>
+  ) : byYear ? (
+    years.map((year) => (
+      <section class="year-group">
+        <div class="year-group__label">{year}</div>
+        {groups.get(year)!.map((post) => (
+          <a class="post-item" href={`/blog/${post.id}/`}>
+            <span class="post-item__date">
+              <FormattedDate date={post.data.pubDate} short />
+            </span>
+            <span>
+              <h2 class="post-item__title">{post.data.title}</h2>
+              <p class="post-item__desc">{post.data.description}</p>
+              {post.data.tags.length > 0 && (
+                <span class="post-item__tags">
+                  {post.data.tags.map((tag) => (
+                    <span class="tag">{tag}</span>
+                  ))}
+                </span>
+              )}
+            </span>
+          </a>
+        ))}
+      </section>
+    ))
+  ) : (
+    <section class="year-group">
+      {posts.map((post) => (
+        <a class="post-item" href={`/blog/${post.id}/`}>
+          <span class="post-item__date">
+            <FormattedDate date={post.data.pubDate} short />
+          </span>
+          <span>
+            <h2 class="post-item__title">{post.data.title}</h2>
+            <p class="post-item__desc">{post.data.description}</p>
+          </span>
+        </a>
+      ))}
+    </section>
+  )
+}

@@ -1,0 +1,123 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+type Props = { post: CollectionEntry<'blog'> };
+
+const { post } = Astro.props;
+const { Content, headings } = await render(post);
+
+const toc = headings.filter((h) => h.depth === 2 || h.depth === 3);
+
+const words = post.body?.trim().split(/\s+/).length ?? 0;
+const minutes = Math.max(1, Math.round(words / 220));
+---
+
+<Base
+  title={post.data.title}
+  description={post.data.description}
+  article
+  publishedTime={post.data.pubDate}
+>
+  <div class="split">
+    <article class="split__main">
+      <header class="post-header">
+        <h1>{post.data.title}</h1>
+        <div class="post-header__meta">
+          <FormattedDate date={post.data.pubDate} />
+          <span class="dot-sep">{minutes} min read</span>
+          {
+            post.data.updatedDate && (
+              <span class="dot-sep">
+                updated <FormattedDate date={post.data.updatedDate} short />
+              </span>
+            )
+          }
+        </div>
+        {
+          post.data.tags.length > 0 && (
+            <div class="post-header__meta">
+              {post.data.tags.map((tag) => (
+                <a class="tag" href={`/tags/${tag}/`}>#{tag}</a>
+              ))}
+            </div>
+          )
+        }
+      </header>
+
+      <div class="prose">
+        <Content />
+      </div>
+
+      <footer class="post-footer">
+        <a href="/">← All writing</a>
+      </footer>
+    </article>
+
+    {
+      toc.length > 0 && (
+        <aside class="split__side split__side--toc">
+          <nav class="toc" aria-label="Table of contents">
+            <p class="eyebrow">On this page</p>
+            {toc.map((h) => (
+              <a href={`#${h.slug}`} data-depth={h.depth}>
+                {h.text}
+              </a>
+            ))}
+          </nav>
+        </aside>
+      )
+    }
+  </div>
+</Base>
+
+<script>
+  // Scroll-spy: highlight the TOC entry for the section currently in view.
+  const links = Array.from(
+    document.querySelectorAll<HTMLAnchorElement>('.toc a')
+  );
+
+  if (links.length > 0) {
+    const targets = links
+      .map((a) => document.getElementById(decodeURIComponent(a.hash.slice(1))))
+      .filter((el): el is HTMLElement => el !== null);
+
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      let current: HTMLElement | undefined;
+      for (const target of targets) {
+        if (target.getBoundingClientRect().top <= 140) current = target;
+        else break;
+      }
+      for (const a of links) {
+        a.classList.toggle(
+          'is-active',
+          current !== undefined &&
+            decodeURIComponent(a.hash.slice(1)) === current.id
+        );
+      }
+    };
+
+    document.addEventListener(
+      'scroll',
+      () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+      },
+      { passive: true }
+    );
+    update();
+  }
+</script>

@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PostList from '../components/PostList.astro';
+import { INTRO } from '../consts';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<Base>
+  <div class="split">
+    <aside class="split__side side-intro">
+      <h1>{INTRO.headline}</h1>
+      <p>{INTRO.body}</p>
+    </aside>
+
+    <div class="split__main">
+      <PostList posts={posts} />
+    </div>
+  </div>
+</Base>
