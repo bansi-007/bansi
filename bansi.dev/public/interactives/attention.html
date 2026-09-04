@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Attention, interactive</title>
+<style>
+  :root{
+    --font-sans:ui-sans-serif,-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif;
+    --font-mono:ui-monospace,'SF Mono',SFMono-Regular,'JetBrains Mono','Fira Code',Menlo,Consolas,monospace;
+    --bg:#fcfbf9; --bg-soft:#f4f2ed; --ink:#16161a; --ink-soft:#3f4046;
+    --muted:#757469; --rule:#e4e0d7; --accent:#a8481a; --accent-soft:#f0e2d6;
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme='light']){
+    --bg:#0c0d0f; --bg-soft:#15171a; --ink:#e9e7e2; --ink-soft:#c3c1bb;
+    --muted:#8b8a84; --rule:#24262a; --accent:#e39a63; --accent-soft:#2a1f17;
+  }}
+  :root[data-theme='dark']{
+    --bg:#0c0d0f; --bg-soft:#15171a; --ink:#e9e7e2; --ink-soft:#c3c1bb;
+    --muted:#8b8a84; --rule:#24262a; --accent:#e39a63; --accent-soft:#2a1f17;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--font-sans);
+    font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;padding:2px}
+  .card{background:var(--bg-soft);border:1px solid var(--rule);border-radius:14px;padding:16px;margin:10px 2px}
+  .cap{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:4px}
+  .tag{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+  .ct{font-weight:600;font-size:15px;color:var(--ink)}
+  .hint{color:var(--muted);font-size:13px;margin:2px 0 14px;line-height:1.45}
+  .stage{display:grid;grid-template-columns:1.3fr 1fr;gap:14px}
+  @media (max-width:560px){.stage{grid-template-columns:1fr}}
+  .holder{position:relative;background:var(--bg);border:1px solid var(--rule);border-radius:11px;
+    aspect-ratio:1/.82;overflow:hidden;touch-action:none;cursor:grab}
+  .holder.drag{cursor:grabbing}
+  canvas{display:block;width:100%;height:100%}
+  .side{display:flex;flex-direction:column;gap:11px;min-width:0}
+  .rows{display:flex;flex-direction:column;gap:8px}
+  .row{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:9px}
+  .sw{width:10px;height:10px;border-radius:3px;background:var(--ink-soft)}
+  .rl{font-family:var(--font-mono);font-size:12.5px;color:var(--ink)}
+  .bar{height:7px;border-radius:999px;background:var(--rule);overflow:hidden}
+  .bar>i{display:block;height:100%;width:0;background:var(--accent);border-radius:999px;transition:width .09s linear}
+  .pct{font-family:var(--font-mono);font-size:12px;color:var(--muted);width:3.4ch;text-align:right;font-variant-numeric:tabular-nums}
+  label.slab{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:10px;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:2px 0 5px}
+  input[type=range]{width:100%;accent-color:var(--accent);height:20px}
+  .note{font-size:12.5px;color:var(--muted);line-height:1.4;margin:6px 0 0}
+  .btns{display:flex;gap:7px;margin-top:auto;padding-top:4px}
+  button.mini{font-family:var(--font-mono);font-size:11.5px;color:var(--ink);background:var(--bg);
+    border:1px solid var(--rule);border-radius:8px;padding:6px 10px;cursor:pointer}
+  button.mini:hover{border-color:var(--muted)}
+  .heads{display:flex;gap:7px;margin-bottom:12px;flex-wrap:wrap}
+  .head{font-family:var(--font-mono);font-size:12px;color:var(--muted);background:var(--bg);
+    border:1px solid var(--rule);border-radius:8px;padding:6px 11px;cursor:pointer;text-align:left;line-height:1.3}
+  .head b{display:block;color:var(--ink);font-weight:500;text-transform:none;letter-spacing:0}
+  .head[aria-pressed=true]{border-color:var(--accent);background:var(--accent-soft);color:var(--accent)}
+  .head[aria-pressed=true] b{color:var(--accent)}
+  .sentence{background:var(--bg);border:1px solid var(--rule);border-radius:11px;padding:15px 13px;
+    display:flex;flex-wrap:wrap;gap:5px;line-height:1.9}
+  .tok{font-size:17px;padding:3px 7px;border-radius:6px;cursor:pointer;border:1.5px solid transparent;color:var(--ink)}
+  .tok:hover{border-color:var(--rule)}
+  .tok.q{border-color:var(--accent);font-style:italic}
+  .tok.p{cursor:default;padding-left:1px;padding-right:1px}
+  .bex{font-size:12.5px;color:var(--muted);margin:12px 0 0;line-height:1.5}
+  .bex b{color:var(--ink);font-weight:500}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:5px}
+  @media (prefers-reduced-motion:reduce){.bar>i{transition:none}}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="cap"><span class="tag">Live · scaled dot-product</span><span class="ct">Drag the query</span></div>
+    <p class="hint">The word <em>“it”</em> carries a <span style="color:var(--accent)">query</span>. Drag it toward a word: the more they align, the more that word wins the <span style="color:var(--accent)">◇ blend</span> (softmax of the dot-products).</p>
+    <div class="stage">
+      <div class="holder" id="holder"><canvas id="cv" role="img" aria-label="A 2-D plane of four word vectors and a draggable query; attention weights update as it moves."></canvas></div>
+      <div class="side">
+        <div class="rows" id="rows"></div>
+        <div>
+          <label class="slab"><span>uniform</span><span>focused</span></label>
+          <input type="range" id="temp" min="0" max="100" value="50" aria-label="Softmax sharpness">
+          <p class="note">This is what <b>÷ √dₖ</b> controls. Big dot-products push softmax to the focused end and gradients die; dividing by √dₖ pulls it back toward the stable, blended end.</p>
+        </div>
+        <div class="btns">
+          <button class="mini" id="reset">Reset</button>
+          <button class="mini" id="snap">Point at “animal”</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="cap"><span class="tag">Live · self-attention · illustrative</span><span class="ct">Click a word</span></div>
+    <p class="hint">Click any word to make it the query; the rest light up by how much it attends to them. Two <b>heads</b>, two different jobs.</p>
+    <div class="heads" id="heads">
+      <button class="head" data-head="0" aria-pressed="true">Head A <b>what it refers to</b></button>
+      <button class="head" data-head="1" aria-pressed="false">Head B <b>the previous word</b></button>
+    </div>
+    <div class="sentence" id="sentence"></div>
+    <p class="bex" id="bex"></p>
+  </div>
+
+<script>
+(function(){
+  "use strict";
+  var r=document.documentElement;
+  function applyTheme(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')r.dataset.theme=t;else delete r.dataset.theme;}catch(e){}}
+  applyTheme();
+  addEventListener('storage',function(e){if(e.key==='theme'){applyTheme();drawA();}});
+  function cvar(n){return getComputedStyle(r).getPropertyValue(n).trim();}
+  function softmax(a){var m=Math.max.apply(null,a),e=a.map(function(v){return Math.exp(v-m);}),s=e.reduce(function(p,c){return p+c;},0);return e.map(function(v){return v/s;});}
+
+  /* ---- widget A ---- */
+  var holder=document.getElementById('holder'),cv=document.getElementById('cv'),ctx=cv.getContext('2d');
+  var rowsEl=document.getElementById('rows'),tempEl=document.getElementById('temp');
+  var R=1.28,W=0,H=0,cx=0,cy=0,sc=1;
+  var toks=[{l:'animal',x:-0.78,y:0.55},{l:'street',x:0.82,y:0.5},{l:'cross',x:0.86,y:-0.55},{l:'tired',x:-0.7,y:-0.62}];
+  var start={x:0.12,y:0.16},q={x:0.12,y:0.16};
+  toks.forEach(function(t){var d=document.createElement('div');d.className='row';
+    d.innerHTML='<span class="sw"></span><div><div class="rl">'+t.l+'</div><div class="bar"><i></i></div></div><span class="pct">0%</span>';
+    rowsEl.appendChild(d);t.bar=d.querySelector('i');t.pct=d.querySelector('.pct');});
+  function temp(){var v=+tempEl.value/100;return Math.exp(Math.log(4)*(1-v)+Math.log(0.16)*v);}
+  function weights(){var T=temp(),sd=Math.sqrt(2);return softmax(toks.map(function(t){return (q.x*t.x+q.y*t.y)/sd/T;}));}
+  function mX(x){return cx+x*sc;} function mY(y){return cy-y*sc;}
+  function resize(){var dpr=Math.min(devicePixelRatio||1,2),b=holder.getBoundingClientRect();W=b.width;H=b.height;
+    cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);
+    cx=W/2;cy=H/2;sc=Math.min(W,H)/2*0.8;drawA();}
+  function drawA(){
+    var w=weights(),ink=cvar('--ink'),rule=cvar('--rule'),acc=cvar('--accent'),key=cvar('--ink-soft'),bg=cvar('--bg');
+    ctx.clearRect(0,0,W,H);
+    ctx.strokeStyle=rule;ctx.lineWidth=1;
+    for(var g=-1;g<=1;g+=0.25){if(Math.abs(g)<0.001)continue;
+      ctx.beginPath();ctx.moveTo(mX(g),mY(-R));ctx.lineTo(mX(g),mY(R));ctx.stroke();
+      ctx.beginPath();ctx.moveTo(mX(-R),mY(g));ctx.lineTo(mX(R),mY(g));ctx.stroke();}
+    ctx.beginPath();ctx.moveTo(mX(0),mY(-R));ctx.lineTo(mX(0),mY(R));ctx.stroke();
+    ctx.beginPath();ctx.moveTo(mX(-R),mY(0));ctx.lineTo(mX(R),mY(0));ctx.stroke();
+    var ox=0,oy=0;toks.forEach(function(t,i){ox+=w[i]*t.x;oy+=w[i]*t.y;});
+    ctx.strokeStyle=acc;ctx.globalAlpha=.4;ctx.setLineDash([3,4]);ctx.lineWidth=1.3;
+    ctx.beginPath();ctx.moveTo(mX(0),mY(0));ctx.lineTo(mX(ox),mY(oy));ctx.stroke();ctx.setLineDash([]);ctx.globalAlpha=1;
+    ctx.font="13px "+cvar('--font-mono');ctx.textAlign='center';
+    toks.forEach(function(t,i){var X=mX(t.x),Y=mY(t.y);
+      ctx.globalAlpha=.18+w[i]*0.82;ctx.strokeStyle=acc;ctx.lineWidth=1+w[i]*11;
+      ctx.beginPath();ctx.arc(X,Y,14,0,7);ctx.stroke();ctx.globalAlpha=1;
+      ctx.fillStyle=key;ctx.beginPath();ctx.arc(X,Y,5.5,0,7);ctx.fill();
+      ctx.fillStyle=ink;ctx.fillText(t.l,X,Y-20);
+      t.bar.style.width=(w[i]*100).toFixed(0)+'%';t.pct.textContent=(w[i]*100).toFixed(0)+'%';});
+    var OX=mX(ox),OY=mY(oy);ctx.strokeStyle=acc;ctx.lineWidth=2;ctx.fillStyle=bg;
+    ctx.beginPath();ctx.moveTo(OX,OY-7.5);ctx.lineTo(OX+7.5,OY);ctx.lineTo(OX,OY+7.5);ctx.lineTo(OX-7.5,OY);ctx.closePath();ctx.fill();ctx.stroke();
+    var QX=mX(q.x),QY=mY(q.y);ctx.strokeStyle=acc;ctx.lineWidth=2;ctx.globalAlpha=.55;
+    ctx.beginPath();ctx.moveTo(mX(0),mY(0));ctx.lineTo(QX,QY);ctx.stroke();ctx.globalAlpha=1;
+    ctx.fillStyle=acc;ctx.beginPath();ctx.arc(QX,QY,8.5,0,7);ctx.fill();
+    ctx.strokeStyle=bg;ctx.lineWidth=2.5;ctx.beginPath();ctx.arc(QX,QY,8.5,0,7);ctx.stroke();
+    ctx.fillStyle=acc;ctx.font="italic 13px "+cvar('--font-mono');ctx.fillText('it',QX,QY-15);
+  }
+  var drag=false;
+  function toModel(ev){var b=holder.getBoundingClientRect();
+    return {x:Math.max(-R,Math.min(R,(ev.clientX-b.left-cx)/sc)),y:Math.max(-R,Math.min(R,-(ev.clientY-b.top-cy)/sc))};}
+  holder.addEventListener('pointerdown',function(ev){drag=true;holder.classList.add('drag');holder.setPointerCapture(ev.pointerId);q=toModel(ev);drawA();});
+  holder.addEventListener('pointermove',function(ev){if(drag){q=toModel(ev);drawA();}});
+  function end(){drag=false;holder.classList.remove('drag');}
+  holder.addEventListener('pointerup',end);holder.addEventListener('pointercancel',end);
+  tempEl.addEventListener('input',drawA);
+  document.getElementById('reset').addEventListener('click',function(){q={x:start.x,y:start.y};tempEl.value=50;drawA();});
+  document.getElementById('snap').addEventListener('click',function(){q={x:toks[0].x*1.05,y:toks[0].y*1.05};drawA();});
+  if(window.ResizeObserver)new ResizeObserver(resize).observe(holder);else addEventListener('resize',resize);
+  resize();
+
+  /* ---- widget B ---- */
+  var words=["The","animal","didn't","cross","the","street","because","it","was","too","tired","."];
+  var punct={11:true};
+  var aff={7:{1:3.2,5:1.2,7:.5},10:{1:2.7,7:1.0,10:.5},3:{5:2.9,1:1.1,3:.5},1:{1:1.4,2:.9,3:.8,10:.7}};
+  var sentEl=document.getElementById('sentence'),bex=document.getElementById('bex');
+  var hb=[].slice.call(document.querySelectorAll('.head')),head=0,qi=7;
+  function logits(q0,h){return words.map(function(_,i){
+    if(h===1){if(i>q0)return -6;if(i===q0)return -1.2;return 2.4-(q0-1-i)*1.7;}
+    var a=aff[q0];if(a)return a[i]!==undefined?a[i]:(i===q0?0.3:-0.4);
+    return i===q0?1.6:(i===q0-1?0.8:0.05);});}
+  function renderS(){sentEl.innerHTML='';var w=softmax(logits(qi,head));
+    words.forEach(function(word,i){var s=document.createElement(punct[i]?'span':'button');
+      s.className='tok'+(punct[i]?' p':'')+(i===qi?' q':'');s.textContent=word;
+      if(!punct[i]){s.style.background='color-mix(in srgb, var(--accent) '+(w[i]*100).toFixed(0)+'%, transparent)';
+        s.addEventListener('click',function(){qi=i;renderS();});}
+      sentEl.appendChild(s);});
+    bex.innerHTML=head===0?'Query <b>“'+words[qi]+'”</b> · Head A looks for <b>meaning</b>: a word reaches back to what it relates to.'
+      :'Query <b>“'+words[qi]+'”</b> · Head B looks at <b>position</b>: attention lands on the preceding word(s).';
+    measure();}
+  hb.forEach(function(b){b.addEventListener('click',function(){head=+b.dataset.head;
+    hb.forEach(function(x){x.setAttribute('aria-pressed',x===b);});renderS();});});
+  renderS();
+
+  /* ---- report height to parent for auto-resize ---- */
+  function measure(){try{parent.postMessage({attnH:Math.ceil(document.body.getBoundingClientRect().height)+6},location.origin);}catch(e){}}
+  addEventListener('load',measure);addEventListener('resize',measure);setTimeout(measure,120);
+})();
+</script>
+</body>
+</html>
