@@ -3,7 +3,7 @@ title: 'Attention, Intuitively'
 description: 'The one idea behind every large language model, built from scratch, with a widget you can drag. Part 1 of the Transformer family.'
 pubDate: 2026-08-29
 tags: ['transformers']
-draft: true
+draft: false
 ---
 
 Everyone can recite the formula: `softmax(QKᵀ / √dₖ)·V`. Far fewer can tell you *why* each piece is there, or what actually happens when a word "attends" to another. I've found the fastest way to fix that isn't more notation. It's to grab the thing and move it. So this post has a widget you can drag, and the math shows up only after you've already felt it.
