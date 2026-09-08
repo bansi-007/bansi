@@ -895,13 +895,13 @@ a.tag[aria-current='page'] {
   margin: 0.35rem 0 0.5rem;
 }
 
-/* one continuous rule down the left; the dots ride on it */
+/* one continuous rule running down the column of logo tiles */
 .cv::before {
   content: '';
   position: absolute;
-  left: 5px;
-  top: 0.7rem;
-  bottom: 0.9rem;
+  left: 1.25rem;
+  top: 1.9rem;
+  bottom: 1.9rem;
   width: 1px;
   background: var(--rule);
 }
@@ -917,7 +917,7 @@ a.tag[aria-current='page'] {
   text-transform: uppercase;
   color: var(--muted);
   margin: 0 0 0.95rem;
-  padding-left: 1.9rem;
+  padding-left: 3.5rem;
 }
 
 .prose ol.cv__list {
@@ -928,29 +928,51 @@ a.tag[aria-current='page'] {
 
 .prose ol.cv__list > li.cv__item {
   position: relative;
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  column-gap: 1rem;
+  align-items: start;
   margin: 0;
-  padding: 0 0 1.55rem 1.9rem;
+  padding: 0 0 1.6rem;
 }
 
 .cv__group:last-child .cv__item:last-child {
   padding-bottom: 0;
 }
 
-.cv__dot {
-  position: absolute;
-  left: 0;
-  top: 0.32rem;
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  background: var(--bg);
-  border: 1.5px solid var(--muted);
+.cv__mark {
+  position: relative;
+  z-index: 1;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid var(--rule);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
 }
 
-.cv__item.is-now .cv__dot {
-  background: var(--accent);
+.cv__mark img {
+  width: 74%;
+  height: 74%;
+  object-fit: contain;
+}
+
+.cv__mark-edu {
+  width: 56%;
+  height: 56%;
+  color: var(--accent);
+}
+
+.cv__item.is-now .cv__mark {
   border-color: var(--accent);
-  box-shadow: 0 0 0 4px var(--accent-soft);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.cv__body {
+  min-width: 0;
+  padding-top: 0.12rem;
 }
 
 .cv__row {

@@ -28,6 +28,7 @@ export const EXPERIENCE = [
   {
     role: 'Staff Machine Learning Engineer',
     org: 'Micron Technology',
+    logo: '/images/logos/micron.svg',
     location: 'Hyderabad, India',
     start: '2025-11',
     end: null,
@@ -36,6 +37,7 @@ export const EXPERIENCE = [
   {
     role: 'Machine Learning Engineer III',
     org: 'Micron Technology',
+    logo: '/images/logos/micron.svg',
     location: 'Hyderabad, India',
     start: '2022-11',
     end: '2025-10',
@@ -44,6 +46,7 @@ export const EXPERIENCE = [
   {
     role: 'Edge AI Developer',
     org: 'Tata Consultancy Services',
+    logo: '/images/logos/tcs.svg',
     location: 'Hyderabad, India',
     start: '2021-04',
     end: '2022-11',
@@ -52,6 +55,7 @@ export const EXPERIENCE = [
   {
     role: 'Machine Learning Developer',
     org: 'Tata Consultancy Services',
+    logo: '/images/logos/tcs.svg',
     location: 'Chennai, India',
     start: '2018-06',
     end: '2021-04',
@@ -64,6 +68,7 @@ export const EDUCATION = [
   {
     role: 'B.Tech, Information Technology',
     org: 'VR Siddhartha Engineering College',
+    logo: null,
     location: 'Vijayawada, India',
     start: '2014',
     end: '2018',

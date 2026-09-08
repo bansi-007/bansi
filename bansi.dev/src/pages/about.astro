@@ -93,14 +93,26 @@ const groups = [
             <ol class="cv__list">
               {g.items.map((it) => (
                 <li class={`cv__item${it.end === null ? ' is-now' : ''}`}>
-                  <span class="cv__dot" aria-hidden="true"></span>
-                  <div class="cv__row">
-                    <h3 class="cv__role">{it.role}</h3>
-                    <span class="cv__dur">{duration(it.start, it.end)}</span>
+                  <span class="cv__mark" aria-hidden="true">
+                    {it.logo ? (
+                      <img src={it.logo} alt="" loading="lazy" />
+                    ) : (
+                      <svg class="cv__mark-edu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 8.5 12 4l10 4.5-10 4.5z" />
+                        <path d="M6 10.6V15c0 1.3 2.7 2.4 6 2.4s6-1.1 6-2.4v-4.4" />
+                        <path d="M22 8.5V14" />
+                      </svg>
+                    )}
+                  </span>
+                  <div class="cv__body">
+                    <div class="cv__row">
+                      <h3 class="cv__role">{it.role}</h3>
+                      <span class="cv__dur">{duration(it.start, it.end)}</span>
+                    </div>
+                    <p class="cv__org">{it.org}</p>
+                    <p class="cv__meta">{rangeLabel(it.start, it.end)} · {it.location}</p>
+                    {it.note && <p class="cv__note">{it.note}</p>}
                   </div>
-                  <p class="cv__org">{it.org}</p>
-                  <p class="cv__meta">{rangeLabel(it.start, it.end)} · {it.location}</p>
-                  {it.note && <p class="cv__note">{it.note}</p>}
                 </li>
               ))}
             </ol>
