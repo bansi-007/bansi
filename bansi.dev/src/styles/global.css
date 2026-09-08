@@ -918,7 +918,12 @@ a.tag[aria-current='page'] {
   text-transform: uppercase;
   color: var(--muted);
   margin: 0 0 0.95rem;
-  padding-left: 3.5rem;
+  padding-left: 0;
+}
+
+/* the About main column leads with a heading; don't push it down */
+.split__main.prose > h2:first-child {
+  margin-top: 0;
 }
 
 .prose ol.cv__list {
