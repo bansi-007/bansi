@@ -892,6 +892,7 @@ a.tag[aria-current='page'] {
    --------------------------------------------------------------- */
 .cv {
   position: relative;
+  max-width: 46rem;
   margin: 0.35rem 0 0.5rem;
 }
 
