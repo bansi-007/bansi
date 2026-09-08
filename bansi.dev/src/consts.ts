@@ -23,6 +23,54 @@ export const SOCIALS = [
   { href: 'https://www.instagram.com/bansiinthewild/', label: 'Instagram' },
 ] as const;
 
+/** Career timeline, newest first, from the résumé. `end: null` means present. */
+export const EXPERIENCE = [
+  {
+    role: 'Staff Machine Learning Engineer',
+    org: 'Micron Technology',
+    location: 'Hyderabad, India',
+    start: '2025-11',
+    end: null,
+    note: 'End-to-end ML system design and architecture across manufacturing workstreams.',
+  },
+  {
+    role: 'Machine Learning Engineer III',
+    org: 'Micron Technology',
+    location: 'Hyderabad, India',
+    start: '2022-11',
+    end: '2025-10',
+    note: 'Production computer-vision models for wafer and SEM defect detection at scale.',
+  },
+  {
+    role: 'Edge AI Developer',
+    org: 'Tata Consultancy Services',
+    location: 'Hyderabad, India',
+    start: '2021-04',
+    end: '2022-11',
+    note: 'IIoT edge inference and retail text analytics on Azure, in the Microsoft business unit.',
+  },
+  {
+    role: 'Machine Learning Developer',
+    org: 'Tata Consultancy Services',
+    location: 'Chennai, India',
+    start: '2018-06',
+    end: '2021-04',
+    note: 'Cloud ML microservices served as REST APIs, and large-scale PySpark pipelines.',
+  },
+] as const;
+
+/** Education, from the résumé. */
+export const EDUCATION = [
+  {
+    role: 'B.Tech, Information Technology',
+    org: 'VR Siddhartha Engineering College',
+    location: 'Vijayawada, India',
+    start: '2014',
+    end: '2018',
+    note: null,
+  },
+] as const;
+
 /** Legacy Medium archive — not actively writing there anymore. */
 export const MEDIUM_URL = 'https://medium.com/@bansimaddali';
 

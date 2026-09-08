@@ -1,13 +1,55 @@
 ---
 import Base from '../layouts/Base.astro';
-import { SITE, SOCIALS, STACK, CERTS, MEDIUM_URL, MEDIUM_ARCHIVE } from '../consts';
+import {
+  SITE,
+  SOCIALS,
+  STACK,
+  CERTS,
+  MEDIUM_URL,
+  MEDIUM_ARCHIVE,
+  EXPERIENCE,
+  EDUCATION,
+} from '../consts';
+
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+const fmtMonth = (s: string) => {
+  const [y, m] = s.split('-');
+  return m ? `${MONTHS[Number(m) - 1]} ${y}` : y;
+};
+
+const rangeLabel = (start: string, end: string | null) =>
+  `${fmtMonth(start)} – ${end ? fmtMonth(end) : 'Present'}`;
+
+// Duration computed at build time, so "Present" roles never go stale.
+const duration = (start: string, end: string | null) => {
+  const now = new Date();
+  const toYM = (s: string | null, isEnd: boolean) => {
+    if (!s) return { y: now.getUTCFullYear(), m: now.getUTCMonth() };
+    const [y, m] = s.split('-').map(Number);
+    return { y, m: m ? m - 1 : isEnd ? 11 : 0 };
+  };
+  const yearOnly = !start.includes('-') && (!end || !end.includes('-'));
+  const a = toYM(start, false);
+  const b = toYM(end, true);
+  if (yearOnly) {
+    const yy = b.y - a.y;
+    return `${yy} yr${yy !== 1 ? 's' : ''}`;
+  }
+  const months = (b.y - a.y) * 12 + (b.m - a.m);
+  if (months < 12) return `${Math.max(1, months)} mos`;
+  const y = Math.round(months / 12);
+  return `${y} yr${y !== 1 ? 's' : ''}`;
+};
 
 const fmt = (iso: string) =>
-  new Date(iso).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'short',
-    timeZone: 'UTC',
-  });
+  new Date(iso).toLocaleDateString('en-US', { year: 'numeric', month: 'short', timeZone: 'UTC' });
+
+const groups = [
+  { label: 'Current', items: EXPERIENCE.filter((e) => e.end === null) },
+  { label: 'Past', items: EXPERIENCE.filter((e) => e.end !== null) },
+  { label: 'Education', items: EDUCATION },
+];
 ---
 
 <Base
@@ -43,13 +85,28 @@ const fmt = (iso: string) =>
     </aside>
 
     <div class="split__main prose">
-      <p>
-        My work centers on computer vision (image classification, object
-        detection, and anomaly detection) along with the MLOps that keeps
-        those systems running: pipelines, deployment, monitoring, and cost
-        optimization. More recently that includes GenAI: LLM integration, RAG
-        pipelines, and agentic workflows.
-      </p>
+      <h2>Career</h2>
+      <div class="cv">
+        {groups.map((g) => (
+          <section class="cv__group">
+            <p class="cv__glabel">{g.label}</p>
+            <ol class="cv__list">
+              {g.items.map((it) => (
+                <li class={`cv__item${it.end === null ? ' is-now' : ''}`}>
+                  <span class="cv__dot" aria-hidden="true"></span>
+                  <div class="cv__row">
+                    <h3 class="cv__role">{it.role}</h3>
+                    <span class="cv__dur">{duration(it.start, it.end)}</span>
+                  </div>
+                  <p class="cv__org">{it.org}</p>
+                  <p class="cv__meta">{rangeLabel(it.start, it.end)} · {it.location}</p>
+                  {it.note && <p class="cv__note">{it.note}</p>}
+                </li>
+              ))}
+            </ol>
+          </section>
+        ))}
+      </div>
 
       <h2>Skills</h2>
       <ul class="timeline">
