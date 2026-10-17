@@ -12,6 +12,337 @@ export interface BlogPost {
 
 const allPosts: BlogPost[] = [
     {
+        slug: "shokam-nunchi-shlokam",
+        title: "శోకం నుంచి శ్లోకం",
+        date: "అక్టోబర్ 2026",
+        tags: ["ధర్మం", "సాహిత్యం"],
+        excerpt: "రామాయణం రాముడితో మొదలవ్వదు. ఒక పక్షితో మొదలవుతుంది. కోపాన్ని గెలిచినవాడు ఎవరు అని అడిగిన మహర్షే, కొద్దిసేపటికే కోపంలో శపించారు. ఆ తప్పు నుంచే ఆదికావ్యపు మొదటి శ్లోకం పుట్టింది.",
+        content: (
+            <div className="te">
+                <p>
+                    వాల్మీకి ప్రశ్న అడిగారు. నారదుడు జవాబు చెప్పారు. ఒకే ఒక్క పేరు. రాముడు.
+                </p>
+                <p>
+                    కథ అక్కడి నుంచి మొదలవ్వాలి. కానీ మొదలవ్వదు. రామాయణంలో రెండో సర్గ రాముడి గురించి కాదు. ఒక పక్షి గురించి.
+                </p>
+                <p>
+                    <a href="/blog/does-such-a-man-exist">మొదటి పుటలో</a> వాల్మీకి అడిగిన పదహారు ప్రశ్నల గురించి రాశాను. ఈ పుట ఆ ప్రశ్నలు అడిగిన మనిషి గురించి. ఆ ప్రశ్నలు అడిగిన కొద్దిసేపటికే ఆయన ఏం చేశారో చూస్తే, ఈ కావ్యం మనకు ఏం నేర్పాలనుకుంటోందో అర్థమవుతుంది.
+                </p>
+
+                <h2>తమసా తీరం</h2>
+                <p>
+                    నారదుడు వెళ్ళిపోయాక వాల్మీకి తన శిష్యుడు భరద్వాజుడితో కలిసి తమసా నదికి స్నానానికి వెళ్తారు. గంగకు దగ్గరలోనే ఉన్న చిన్న నది. ఒడ్డున నిలబడి నీటిని చూసి శిష్యుడితో ఒక మాట అంటారు.
+                </p>
+                <blockquote>
+                    అకర్దమమిదం తీర్థం భరద్వాజ నిశామయ । రమణీయం ప్రసన్నాంబు సన్మనుష్యమనో యథా ॥
+                    <span style={{ color: 'var(--muted-strong)', fontSize: '1rem', display: 'block', marginTop: '0.6rem' }}>
+                        &ldquo;భరద్వాజా, చూడు. ఈ రేవులో బురద లేదు. ఈ నీరు మంచి మనిషి మనసులా నిర్మలంగా, అందంగా ఉంది.&rdquo;
+                    </span>
+                    <span style={{ color: 'var(--muted)', fontSize: '0.85rem', display: 'block', marginTop: '0.6rem' }}>
+                        బాలకాండ 1.2.5
+                    </span>
+                </blockquote>
+                <p>
+                    ఈ వాక్యం గుర్తుపెట్టుకోండి. మంచి మనిషి మనసు ఎలా ఉంటుందనే ప్రశ్న ఆయనలో ఇంకా తిరుగుతూనే ఉంది. ఆ నిర్మలమైన నీరు కొద్ది క్షణాల్లో కలత చెందబోతోంది. నదిలో కాదు. ఆయనలో.
+                </p>
+
+                <h2>ఒక బాణం</h2>
+                <p>
+                    ఒడ్డున చెట్ల మధ్య ఒక క్రౌంచ పక్షుల జంట తిరుగుతోంది. ఒకదాన్ని విడిచి ఒకటి ఉండని జంట. తమ లోకంలో తాము ఉన్నాయి.
+                </p>
+                <p>
+                    అప్పుడు ఒక బోయవాడు బాణం వేస్తాడు. మగ పక్షి నెత్తురోడుతూ నేల మీద పడి కొట్టుకుంటుంది. ఆడ పక్షి దాని చుట్టూ తిరుగుతూ దీనంగా అరుస్తుంది.
+                </p>
+                <p>
+                    వేటాడటం బోయవాడి బతుకుదెరువు. కానీ ఈ బాణం తగిలిన సమయం వేరు. ఆ పక్షి ప్రేమలో మునిగి ఉన్నప్పుడు తగిలింది. వాల్మీకి చూసింది ఒక వేట కాదు. ఒక జంటను విడదీసిన క్షణం. కరుణతో ఆయన మనసు కరిగిపోయింది. &ldquo;ఇది అధర్మం&rdquo; అనుకున్నారు. ఆ కరుణ మరుక్షణమే కోపంగా మారింది. నోటి నుంచి శాపం వచ్చింది.
+                </p>
+                <blockquote>
+                    మా నిషాద ప్రతిష్ఠాం త్వమగమః శాశ్వతీః సమాః । యత్ క్రౌంచమిథునాదేకమవధీః కామమోహితమ్ ॥
+                    <span style={{ color: 'var(--muted-strong)', fontSize: '1rem', display: 'block', marginTop: '0.6rem' }}>
+                        &ldquo;ఓ బోయవాడా, ప్రేమలో మునిగి ఉన్న క్రౌంచ జంటలో ఒకదాన్ని చంపావు. కాబట్టి ఎన్ని ఏళ్ళు గడిచినా నీకు నిలకడ దొరకకుండుగాక.&rdquo;
+                    </span>
+                    <span style={{ color: 'var(--muted)', fontSize: '0.85rem', display: 'block', marginTop: '0.6rem' }}>
+                        బాలకాండ 1.2.15
+                    </span>
+                </blockquote>
+
+                <h2>&ldquo;నేనేం అన్నాను?&rdquo;</h2>
+                <p>
+                    ఇక్కడ చాలామంది కథను ముందుకు నడిపిస్తారు. శాపం, తరువాత శ్లోకం, తరువాత రామాయణం. కానీ మధ్యలో వాల్మీకి ఒక చిన్న పని చేస్తారు. దాన్ని దాటేస్తే ఈ సర్గ అసలు అర్థం పోతుంది.
+                </p>
+                <p>
+                    ఆయన ఆగిపోతారు. మాట అనేశాక ఆలోచనలో పడతారు.
+                </p>
+                <blockquote>
+                    శోకార్తేనాస్య శకునేః కిమిదం వ్యాహృతం మయా ॥
+                    <span style={{ color: 'var(--muted-strong)', fontSize: '1rem', display: 'block', marginTop: '0.6rem' }}>
+                        &ldquo;ఈ పక్షి కోసం దుఃఖంలో మునిగి, నేను ఏమి అనేశాను?&rdquo;
+                    </span>
+                    <span style={{ color: 'var(--muted)', fontSize: '0.85rem', display: 'block', marginTop: '0.6rem' }}>
+                        బాలకాండ 1.2.16
+                    </span>
+                </blockquote>
+                <p>
+                    ఇప్పుడు ఒక్క క్షణం వెనక్కి వెళ్దాం. మొదటి సర్గలో ఇదే మనిషి నారదుణ్ణి పదహారు ప్రశ్నలు అడిగారు. అందులో ఒకటి: <strong>జితక్రోధః</strong>. కోపాన్ని గెలిచినవాడు ఎవరు?
+                </p>
+                <p>
+                    ఆ ప్రశ్న అడిగిన కొద్దిసేపటికే, ఒక నది ఒడ్డున, ఆయన కోపం ఆయన్ని గెలిచింది.
+                </p>
+                <p>
+                    <strong>పదహారు గుణాల కొలబద్ద చేతపట్టుకున్న మనిషే, ఆ కొలతలో మొదట తప్పినవాడయ్యాడు.</strong>
+                </p>
+                <p>
+                    వాల్మీకి ఈ విషయాన్ని దాచలేదు. గమనించండి, ఈ కావ్యం రాసింది ఆయనే. తన బలహీనమైన క్షణాన్ని తన కావ్యం మొదట్లోనే, తన చేతులతోనే రాసి పెట్టారు. తనను గొప్పగా చూపించుకోవాలనుకునే రచయిత ఆ దృశ్యాన్ని తీసేసేవాడు. వాల్మీకి దాన్నే పునాదిగా పెట్టారు.
+                </p>
+                <p>
+                    ఆయన కోపం తప్పు చోట పుట్టింది అని కూడా అనలేం. అన్యాయం చూసి వచ్చిన కోపం అది. మొదటి పుటలో చెప్పుకున్నాం, ధర్మం కోసం లేచే కోపం వేరని, అన్యాయం చూసి కోపం రాని మనిషి అసంపూర్ణుడని. వాల్మీకి కోపం సరైనదే. కానీ శాపం ఆ కోపానికి మించినది. కోపం సరైనదైనా, దానికి ఇచ్చే జవాబు కొలత తప్పవచ్చు. నిగ్రహం అంటే కోపం రాకపోవడం కాదు. వచ్చిన కోపం ఎంత దూరం వెళ్ళాలో తెలియడం.
+                </p>
+                <p>
+                    ఆ తేడా ఆయనకు ఎవరూ చెప్పలేదు. ఆయనే గుర్తించారు. శాపం పెట్టి వెనుదిరిగి వెళ్ళిపోలేదు. &ldquo;వాడు చేసిన పనికి ఇది తక్కువే&rdquo; అని సమర్థించుకోలేదు. ఆగారు. తనను తాను ప్రశ్నించుకున్నారు.
+                </p>
+                <p>
+                    ఈ ఒక్క క్షణమే ఈ సర్గ మొత్తం. ఆదర్శం అంటే ఎప్పుడూ తప్పకపోవడం కాదు. తప్పిన మరుక్షణం మనం ఏం చేస్తామన్నది.
+                </p>
+
+                <h2>శోకం శ్లోకమైంది</h2>
+                <p>
+                    ఆలోచిస్తూ ఉండగానే ఆయన మరో విషయం గమనిస్తారు. ఆ కోపంలో, ఆ దుఃఖంలో తాను అన్న మాటలు ఊరికే రాలేదు. నాలుగు పాదాలుగా, సమానమైన అక్షరాలతో, వీణ మీద పాడగలిగే లయతో వచ్చాయి.
+                </p>
+                <blockquote>
+                    పాదబద్ధోఽక్షరసమః తంత్రీలయసమన్వితః । శోకార్తస్య ప్రవృత్తో మే శ్లోకో భవతు నాన్యథా ॥
+                    <span style={{ color: 'var(--muted-strong)', fontSize: '1rem', display: 'block', marginTop: '0.6rem' }}>
+                        &ldquo;పాదాలుగా కట్టుబడి, సమమైన అక్షరాలతో, వీణ లయకు ఒదిగేలా, శోకంలో ఉన్న నా నుంచి వచ్చిన ఈ మాట శ్లోకం అనబడుగాక. మరోలా కాదు.&rdquo;
+                    </span>
+                    <span style={{ color: 'var(--muted)', fontSize: '0.85rem', display: 'block', marginTop: '0.6rem' }}>
+                        బాలకాండ 1.2.18
+                    </span>
+                </blockquote>
+                <p>
+                    శోకం నుంచి పుట్టింది కాబట్టి శ్లోకం. కవిత్వానికి పెట్టిన మొదటి పేరు, ఒక పక్షి కోసం పడిన బాధ నుంచి వచ్చింది.
+                </p>
+                <p>
+                    ఆశ్రమానికి తిరిగి వచ్చాక కూడా ఆయన మనసు ఆ ఒడ్డునే ఉంది. అప్పుడు బ్రహ్మ స్వయంగా వస్తారు. వాల్మీకి ఆయనకు నమస్కరించి కూర్చుంటారు, కానీ ఆలోచన అక్కడే ఉంది. బ్రహ్మ ఎదుట కూడా ఆ శ్లోకాన్నే మళ్ళీ వల్లిస్తారు.
+                </p>
+                <p>
+                    బ్రహ్మ నవ్వి చెబుతారు. ఆ మాట నా సంకల్పంతోనే నీ నోటి నుంచి వచ్చింది. దాని గురించి ఇక బాధపడకు. నారదుడు చెప్పిన రాముడి కథను ఇదే ఛందస్సులో రాయి. ఆ కావ్యంలో నీ మాట ఒక్కటి కూడా అబద్ధం కాదు.
+                </p>
+                <blockquote>
+                    యావత్ స్థాస్యంతి గిరయః సరితశ్చ మహీతలే । తావద్రామాయణకథా లోకేషు ప్రచరిష్యతి ॥
+                    <span style={{ color: 'var(--muted-strong)', fontSize: '1rem', display: 'block', marginTop: '0.6rem' }}>
+                        &ldquo;భూమి మీద కొండలు, నదులు ఉన్నంత కాలం రామాయణ కథ లోకంలో చెప్పబడుతూనే ఉంటుంది.&rdquo;
+                    </span>
+                    <span style={{ color: 'var(--muted)', fontSize: '0.85rem', display: 'block', marginTop: '0.6rem' }}>
+                        బాలకాండ 1.2.36
+                    </span>
+                </blockquote>
+                <p>
+                    ఆలోచించండి. ఎన్నటికీ నిలకడ దొరకకూడదని ఒకరిని శపించిన నోటికే, కొండలు ఉన్నంత కాలం నిలిచే కావ్యం దక్కింది.
+                </p>
+                <p>
+                    కొందరు సంప్రదాయ వ్యాఖ్యాతలు ఆ శాపాన్నే ఇంకో రకంగానూ చదివారు. &lsquo;మా&rsquo; అంటే లక్ష్మి. &lsquo;మానిషాద&rsquo; అంటే లక్ష్మికి నివాసమైనవాడు, అంటే విష్ణువు. అలా చదివితే అదే శ్లోకం రాముడికి చేసిన మంగళాశాసనం అవుతుంది. కోపంలో వచ్చిన మాట కూడా దారి మళ్ళి ఆశీర్వాదమైంది.
+                </p>
+
+                <h2>ఈ పుట చెప్పే నీతి</h2>
+                <p>
+                    మొదటి పుటలో పదహారు గుణాల జాబితాను మార్కుల పట్టీలా కాదు, అద్దంలా చదవాలి అని రాశాను. ఆ అద్దంలో మొదట చూసుకున్నది వాల్మీకే అని ఈ సర్గ చదివాకే నాకు తెలిసింది.
+                </p>
+                <p>
+                    ఆదర్శాల గురించి మాట్లాడే మనుషులు అవి సాధించేశారని మనం అనుకుంటాం. అలా అనుకుంటే రెండు నష్టాలు. ఒకటి, మనం తప్పినప్పుడు అసలు ప్రయత్నమే వృథా అనిపిస్తుంది. రెండు, ఎవరైనా తప్పితే వాళ్ళ మాటకే విలువ లేదని తీర్మానిస్తాం.
+                </p>
+                <p>
+                    వాల్మీకి రెండింటికీ జవాబు. ప్రశ్న అడిగినవాడు కూడా తప్పుతాడు. అతను తప్పినంత మాత్రాన ప్రశ్న తప్పు కాదు. తన తప్పును ఒప్పుకున్న మనిషి చేతిలోనే ఆదికావ్యం పుట్టింది.
+                </p>
+                <p>
+                    ఇంకొక విషయం. మనం రాసే, చెప్పే, చేసే ఏ పని అయినా కాలంలో నిలవాలంటే ఎక్కడ పుట్టాలి? రామాయణం ఒక రాజు గొప్పతనం నుంచి పుట్టలేదు. ఒక యుద్ధ విజయం నుంచి పుట్టలేదు. పేరు కూడా లేని ఒక పక్షి బాధను తనదిగా భావించిన మనిషి నుంచి పుట్టింది. పదహారు గుణాల్లో <strong>సర్వభూతహితః</strong> ఒకటి. ఈ కావ్యం ఆ గుణంతోనే మొదలైంది. మనుషుల కన్నా ముందు, ఒక పక్షితో.
+                </p>
+                <p>
+                    కాబట్టి ఈ సర్గ నుంచి నేను రాసి పెట్టుకుంటున్నవి రెండు వాక్యాలు.
+                </p>
+                <p>
+                    <strong>తప్పకపోవడం కాదు, తప్పిన మరుక్షణం ఆగి చూసుకోవడమే నిగ్రహం.</strong>
+                </p>
+                <p>
+                    <strong>ఇతరుల బాధను తనదిగా అనుకున్నప్పుడే మాటకు శాశ్వతత్వం వస్తుంది.</strong>
+                </p>
+                <p>
+                    తరువాతి పుటలో, ఈ కథ మొదట ఎవరి ముందు పాడబడిందో చూద్దాం. కథానాయకుడి ముందే, ఆయనకే తెలియని ఆయన పిల్లల నోట.
+                </p>
+            </div>
+        ),
+        contentEn: (
+            <>
+                <p>
+                    Valmiki asked his question. Narada gave his answer. One name. Rama.
+                </p>
+                <p>
+                    The story should begin there. It does not. The second chapter of the Ramayana is not about Rama. It is about a bird.
+                </p>
+                <p>
+                    In <a href="/blog/does-such-a-man-exist">the first entry</a> I wrote about the sixteen questions Valmiki asked. This one is about the man who asked them, and what he did a short while later. That one scene says more about what the epic wants to teach than any list.
+                </p>
+
+                <h2>The banks of the Tamasa</h2>
+                <p>
+                    After Narada leaves, Valmiki walks with his disciple Bharadvaja to the Tamasa, a small river not far from the Ganga, to bathe. Standing at the bank, he looks at the water and says something to his student.
+                </p>
+                <blockquote>
+                    అకర్దమమిదం తీర్థం భరద్వాజ నిశామయ । రమణీయం ప్రసన్నాంబు సన్మనుష్యమనో యథా ॥
+                    <br />
+                    <span style={{ fontStyle: 'normal', color: 'var(--muted)', fontSize: '0.9rem', display: 'block', marginTop: '0.6rem' }}>
+                        akardamam idaṃ tīrthaṃ bharadvāja niśāmaya / ramaṇīyaṃ prasannāmbu sanmanuṣyamano yathā
+                    </span>
+                    <span style={{ fontStyle: 'normal', color: 'var(--muted-strong)', fontSize: '1rem', display: 'block', marginTop: '0.6rem' }}>
+                        &ldquo;Look, Bharadvaja. There is no mud at this ford. The water is clear and lovely, like the mind of a good man.&rdquo;
+                    </span>
+                    <span style={{ fontStyle: 'normal', color: 'var(--muted)', fontSize: '0.85rem', display: 'block', marginTop: '0.6rem' }}>
+                        Bala Kanda 1.2.5
+                    </span>
+                </blockquote>
+                <p>
+                    Keep that line in mind. The question of what a good man&apos;s mind looks like is still turning in him. In a few moments that clear water is going to be disturbed. Not the river. Him.
+                </p>
+
+                <h2>One arrow</h2>
+                <p>
+                    Among the trees on the bank, a pair of krauncha birds are moving together. The kind of pair that is never apart. Lost in their own world.
+                </p>
+                <p>
+                    A hunter looses an arrow. The male falls, bleeding, thrashing on the ground. The female circles over him, crying.
+                </p>
+                <p>
+                    Hunting is how the man lives. But this arrow came at a particular moment, while the bird was absorbed in love. What Valmiki saw was not a hunt. It was a pair being torn apart. Compassion flooded him, and he thought: this is adharma. A moment later the compassion became anger, and a curse left his mouth.
+                </p>
+                <blockquote>
+                    మా నిషాద ప్రతిష్ఠాం త్వమగమః శాశ్వతీః సమాః । యత్ క్రౌంచమిథునాదేకమవధీః కామమోహితమ్ ॥
+                    <br />
+                    <span style={{ fontStyle: 'normal', color: 'var(--muted)', fontSize: '0.9rem', display: 'block', marginTop: '0.6rem' }}>
+                        mā niṣāda pratiṣṭhāṃ tvam agamaḥ śāśvatīḥ samāḥ / yat krauñcamithunād ekam avadhīḥ kāmamohitam
+                    </span>
+                    <span style={{ fontStyle: 'normal', color: 'var(--muted-strong)', fontSize: '1rem', display: 'block', marginTop: '0.6rem' }}>
+                        &ldquo;Hunter, you killed one of a pair of kraunchas lost in love. May you find no rest for endless years.&rdquo;
+                    </span>
+                    <span style={{ fontStyle: 'normal', color: 'var(--muted)', fontSize: '0.85rem', display: 'block', marginTop: '0.6rem' }}>
+                        Bala Kanda 1.2.15
+                    </span>
+                </blockquote>
+
+                <h2>&ldquo;What have I said?&rdquo;</h2>
+                <p>
+                    Most retellings rush ahead here. The curse, then the verse, then the Ramayana. But in between, Valmiki does one small thing, and if you skip it you lose what this chapter is about.
+                </p>
+                <p>
+                    He stops. Having said it, he starts to think.
+                </p>
+                <blockquote>
+                    శోకార్తేనాస్య శకునేః కిమిదం వ్యాహృతం మయా ॥
+                    <br />
+                    <span style={{ fontStyle: 'normal', color: 'var(--muted)', fontSize: '0.9rem', display: 'block', marginTop: '0.6rem' }}>
+                        śokārtenāsya śakuneḥ kim idaṃ vyāhṛtaṃ mayā
+                    </span>
+                    <span style={{ fontStyle: 'normal', color: 'var(--muted-strong)', fontSize: '1rem', display: 'block', marginTop: '0.6rem' }}>
+                        &ldquo;Overcome by grief for this bird, what is this I have said?&rdquo;
+                    </span>
+                    <span style={{ fontStyle: 'normal', color: 'var(--muted)', fontSize: '0.85rem', display: 'block', marginTop: '0.6rem' }}>
+                        Bala Kanda 1.2.16
+                    </span>
+                </blockquote>
+                <p>
+                    Go back one chapter. This same man asked Narada sixteen questions. One of them was <strong>jitakrodha</strong>: who has conquered his anger?
+                </p>
+                <p>
+                    A short while after asking it, on a riverbank, his anger conquered him.
+                </p>
+                <p>
+                    <strong>The man holding the measuring rod of sixteen virtues was the first to fall short of it.</strong>
+                </p>
+                <p>
+                    And he did not hide it. Remember who wrote this epic. Valmiki put his own weakest moment at the very start of his own poem, in his own hand. A writer who wanted to look great would have cut that scene. Valmiki made it the foundation.
+                </p>
+                <p>
+                    You cannot even say his anger came from the wrong place. It was anger at injustice. In the first entry we said that anger in defence of dharma is a different thing, that a man who feels no anger at injustice is incomplete. Valmiki&apos;s anger was right. The curse went past it. Anger can be right and the response to it can still be out of measure. Restraint is not the absence of anger. It is knowing how far your anger should go.
+                </p>
+                <p>
+                    Nobody pointed that out to him. He caught it himself. He did not curse and walk away. He did not tell himself the hunter deserved worse. He stopped, and questioned himself.
+                </p>
+                <p>
+                    That one moment is the whole chapter. The ideal is not never falling short. It is what you do in the moment after you do.
+                </p>
+
+                <h2>Grief became verse</h2>
+                <p>
+                    While he is still thinking, he notices something else. The words that came out of him in that anger and grief did not come out loose. They came in four measured feet, with equal syllables, in a rhythm you could sing to a veena.
+                </p>
+                <blockquote>
+                    పాదబద్ధోఽక్షరసమః తంత్రీలయసమన్వితః । శోకార్తస్య ప్రవృత్తో మే శ్లోకో భవతు నాన్యథా ॥
+                    <br />
+                    <span style={{ fontStyle: 'normal', color: 'var(--muted)', fontSize: '0.9rem', display: 'block', marginTop: '0.6rem' }}>
+                        pādabaddho &apos;kṣarasamas tantrīlayasamanvitaḥ / śokārtasya pravṛtto me śloko bhavatu nānyathā
+                    </span>
+                    <span style={{ fontStyle: 'normal', color: 'var(--muted-strong)', fontSize: '1rem', display: 'block', marginTop: '0.6rem' }}>
+                        &ldquo;Bound in feet, even in syllables, fit to the rhythm of strings, this came from me in grief. Let it be called a śloka, and nothing else.&rdquo;
+                    </span>
+                    <span style={{ fontStyle: 'normal', color: 'var(--muted)', fontSize: '0.85rem', display: 'block', marginTop: '0.6rem' }}>
+                        Bala Kanda 1.2.18
+                    </span>
+                </blockquote>
+                <p>
+                    Born of <em>śoka</em>, grief, so it is called <em>śloka</em>. The first name given to poetry came from pain felt for a bird.
+                </p>
+                <p>
+                    Back at the hermitage, his mind is still on that riverbank. Then Brahma himself arrives. Valmiki bows and sits, but his thoughts have not moved, and in front of Brahma he finds himself reciting the verse again.
+                </p>
+                <p>
+                    Brahma smiles. Those words came from you by my will, he says. Do not trouble yourself over them. Take the story of Rama that Narada told you and write it in this same metre. Not one word of yours in that poem will be untrue.
+                </p>
+                <blockquote>
+                    యావత్ స్థాస్యంతి గిరయః సరితశ్చ మహీతలే । తావద్రామాయణకథా లోకేషు ప్రచరిష్యతి ॥
+                    <br />
+                    <span style={{ fontStyle: 'normal', color: 'var(--muted)', fontSize: '0.9rem', display: 'block', marginTop: '0.6rem' }}>
+                        yāvat sthāsyanti girayaḥ saritaś ca mahītale / tāvad rāmāyaṇakathā lokeṣu pracariṣyati
+                    </span>
+                    <span style={{ fontStyle: 'normal', color: 'var(--muted-strong)', fontSize: '1rem', display: 'block', marginTop: '0.6rem' }}>
+                        &ldquo;As long as mountains and rivers stand on the earth, the story of the Ramayana will be told in the world.&rdquo;
+                    </span>
+                    <span style={{ fontStyle: 'normal', color: 'var(--muted)', fontSize: '0.85rem', display: 'block', marginTop: '0.6rem' }}>
+                        Bala Kanda 1.2.36
+                    </span>
+                </blockquote>
+                <p>
+                    Think about that. The mouth that cursed a man to find no permanence was given a poem that lasts as long as the mountains.
+                </p>
+                <p>
+                    Some traditional commentators read the curse itself another way. <em>Mā</em> is Lakshmi; <em>mā-niṣāda</em> is the one in whom Lakshmi dwells, Vishnu. Read like that, the same verse becomes a blessing on Rama. Even words spoken in anger were turned toward grace.
+                </p>
+
+                <h2>The moral of this entry</h2>
+                <p>
+                    In the first entry I wrote that the sixteen should be read as a mirror, not a scorecard. Only after reading this chapter did I realise that the first person to look into that mirror was Valmiki.
+                </p>
+                <p>
+                    We tend to assume that people who speak about ideals have already reached them. That assumption costs us twice. When we fall short, the whole effort feels pointless. And when someone else falls short, we decide their words were worthless.
+                </p>
+                <p>
+                    Valmiki answers both. The one who asks the question falls short too. His falling short does not make the question wrong. The first poem was born in the hands of a man who admitted his mistake.
+                </p>
+                <p>
+                    One more thing. If anything we write, say or do is going to last, where does it have to come from? The Ramayana did not come from a king&apos;s glory or a victory in war. It came from a man who felt the pain of a nameless bird as his own. One of the sixteen is <strong>sarvabhūteṣu hita</strong>, wishing every living being well. The epic begins with exactly that, with a bird, before a single human appears.
+                </p>
+                <p>
+                    So from this chapter I am writing down two lines.
+                </p>
+                <p>
+                    <strong>Restraint is not never slipping. It is stopping to look at yourself the moment after you do.</strong>
+                </p>
+                <p>
+                    <strong>Words last only when another&apos;s pain is felt as your own.</strong>
+                </p>
+                <p>
+                    In the next entry: who heard this story first. The hero himself, from the mouths of his own sons, whom he did not yet know.
+                </p>
+            </>
+        )
+    },
+    {
         slug: "arthur-morgan-chivari-puta",
         title: "అర్థర్ మోర్గన్ చివరి పుట",
         date: "జూలై 2026",
