@@ -1,7 +1,7 @@
 ---
 title: 'Encoder, Decoder, and the One That Won'
 description: 'How attention gets stacked into encoders and decoders, what BERT, T5 and GPT each kept, and why modern LLMs quietly threw the encoder away. Part 2 of the Transformer family.'
-pubDate: 2026-11-22T09:00:00Z
+pubDate: 2026-09-24
 tags: ['transformers']
 draft: false
 ---

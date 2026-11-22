@@ -1,7 +1,7 @@
 ---
 title: 'Where Is Each Word? Positional Encoding, From Sines to RoPE'
 description: "Attention has no idea what order words come in. How Transformers get position back, from the original sine waves to RoPE, the rotation trick inside almost every modern LLM. Part 3 of the Transformer family."
-pubDate: 2026-11-22T10:00:00Z
+pubDate: 2026-10-15
 tags: ['transformers']
 draft: false
 ---

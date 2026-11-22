@@ -1,7 +1,7 @@
 ---
 title: 'Making Attention Affordable: KV Cache, GQA, and FlashAttention'
 description: 'Attention is quadratic and generation is starved for memory. The tricks that make long-context LLMs practical, each one built from scratch. Part 4, and the finale, of the Transformer family.'
-pubDate: 2026-11-22T11:00:00Z
+pubDate: 2026-11-05
 tags: ['transformers']
 draft: false
 ---

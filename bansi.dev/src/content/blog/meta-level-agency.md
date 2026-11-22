@@ -1,7 +1,7 @@
 ---
 title: 'Meta-Level Agency: Agents That Build Agents'
 description: 'Most agents do a task. A meta-level agent does something stranger: it improves the agent that does the task. What that means, how Eureka pulled it off for robot rewards, and where the idea quietly breaks.'
-pubDate: 2026-11-22T12:00:00Z
+pubDate: 2026-11-22
 tags: ['llm']
 draft: false
 ---
