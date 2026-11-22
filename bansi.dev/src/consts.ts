@@ -23,58 +23,97 @@ export const SOCIALS = [
   { href: 'https://www.instagram.com/bansiinthewild/', label: 'Instagram' },
 ] as const;
 
-/** Career timeline, newest first, from the résumé. `end: null` means present. */
+/**
+ * Career as floors of a building, newest (top floor) first. Each role moved one
+ * level up in scope. `end: null` means present. Wording condensed from LinkedIn.
+ */
 export const EXPERIENCE = [
   {
+    scope: 'strategy',
+    role: 'Staff AI Engineer',
+    org: 'Micron Technology',
+    logo: '/images/logos/micron.svg',
+    location: 'Hyderabad, India',
+    start: '2026-09',
+    end: null,
+    note: 'AI strategy and architecture for platforms, MLOps, LLMOps and agentic AI across manufacturing and enterprise workflows.',
+  },
+  {
+    scope: 'integration',
     role: 'Staff Machine Learning Engineer',
     org: 'Micron Technology',
     logo: '/images/logos/micron.svg',
     location: 'Hyderabad, India',
     start: '2025-11',
-    end: null,
-    note: 'End-to-end ML system design and architecture across manufacturing workstreams.',
+    end: '2026-09',
+    note: 'End-to-end ML system design, so the work of architects, data engineers, data scientists and platform teams fits together at scale.',
   },
   {
+    scope: 'platform',
     role: 'Machine Learning Engineer III',
     org: 'Micron Technology',
     logo: '/images/logos/micron.svg',
     location: 'Hyderabad, India',
     start: '2022-11',
     end: '2025-10',
-    note: 'Production computer-vision models for wafer and SEM defect detection at scale.',
+    note: 'MLOps pipelines on Google Cloud, research models turned into real-time edge inference, and computer vision and video analytics in production.',
   },
   {
+    scope: 'system',
     role: 'Edge AI Developer',
     org: 'Tata Consultancy Services',
     logo: '/images/logos/tcs.svg',
     location: 'Hyderabad, India',
     start: '2021-04',
     end: '2022-11',
-    note: 'IIoT edge inference and retail text analytics on Azure, in the Microsoft business unit.',
+    note: 'IIoT edge inference for a chemical plant streaming gigabytes every hour, migrated to Azure without breaking its SLAs. Led a team of 8 at the Innovation Garage.',
   },
   {
+    scope: 'service',
     role: 'Machine Learning Developer',
     org: 'Tata Consultancy Services',
     logo: '/images/logos/tcs.svg',
     location: 'Chennai, India',
     start: '2018-06',
     end: '2021-04',
-    note: 'Cloud ML microservices served as REST APIs, and large-scale PySpark pipelines.',
+    note: 'Models packaged as Docker images and served as REST APIs, with PySpark over large Hive datasets.',
+  },
+  {
+    scope: 'device',
+    role: 'Research and Development Intern',
+    org: 'Innogeecks Technologies',
+    logo: null,
+    location: 'Krishna, India',
+    start: '2017-12',
+    end: '2018-03',
+    note: 'A face recognition device on a Raspberry Pi, with OpenCV in Python.',
   },
 ] as const;
 
-/** Education, from the résumé. */
+/** The ground floor. */
 export const EDUCATION = [
   {
+    scope: 'foundation',
     role: 'B.Tech, Information Technology',
     org: 'VR Siddhartha Engineering College',
     logo: null,
     location: 'Vijayawada, India',
     start: '2014',
     end: '2018',
-    note: null,
+    note: 'Favourite subjects: Physics, Complex Analysis and Numerical Methods, Automata Theory, and Machine Learning.',
   },
 ] as const;
+
+/** What I work on now, as short cards. */
+export const FOCUS = [
+  { title: 'AI platforms', body: 'Shared foundations that let many teams ship models without rebuilding the plumbing each time.' },
+  { title: 'MLOps and LLMOps', body: 'Pipelines, model governance, observability and the operational reliability that production AI needs.' },
+  { title: 'Agentic AI', body: 'Agents that do real work inside enterprise systems, built with the same engineering rigour as any service.' },
+  { title: 'Vision in manufacturing', body: 'Computer vision and video analytics that run on factory floors, where latency and uptime are not optional.' },
+] as const;
+
+/** Career start, for the build-time "years in production ML" figure. */
+export const CAREER_START = '2018-06';
 
 /** Legacy Medium archive — not actively writing there anymore. */
 export const MEDIUM_URL = 'https://medium.com/@bansimaddali';

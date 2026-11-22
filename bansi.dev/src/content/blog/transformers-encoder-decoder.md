@@ -79,6 +79,158 @@ The **decoder** produces the translation one word at a time. It's the same block
 
 So a decoder block is: causal self-attention, then cross-attention into the encoder, then the FFN, each with its own residual and norm.
 
+<figure>
+  <svg viewBox="0 0 720 262" role="img" aria-label="The original Transformer: an encoder stack reads the English sentence; a decoder stack with causal self-attention, cross-attention and feed-forward writes German. The encoder's keys and values feed the decoder's cross-attention.">
+    <defs><marker id="eh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker><marker id="eha" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/></marker></defs>
+    <g font-family="ui-monospace, Menlo, monospace" font-size="12" fill="currentColor">
+      <rect x="30" y="50" width="270" height="150" rx="12" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4"/>
+      <text x="165" y="68" text-anchor="middle" font-size="10.5" fill="var(--muted)">encoder × 6</text>
+      <rect x="50" y="80" width="230" height="40" rx="8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <text x="165" y="105" text-anchor="middle">self-attention · sees all</text>
+      <rect x="50" y="140" width="230" height="40" rx="8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <text x="165" y="165" text-anchor="middle">feed-forward</text>
+      <text x="165" y="250" text-anchor="middle" font-size="11" fill="var(--muted)">"I sat on the river bank"</text>
+      <line x1="165" y1="234" x2="165" y2="204" stroke="currentColor" stroke-width="1.3" marker-end="url(#eh)"/>
+      <rect x="420" y="34" width="270" height="186" rx="12" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4"/>
+      <text x="555" y="50" text-anchor="middle" font-size="10.5" fill="var(--muted)">decoder × 6</text>
+      <rect x="440" y="60" width="230" height="40" rx="8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <text x="555" y="85" text-anchor="middle">causal self-attention</text>
+      <rect x="440" y="115" width="230" height="40" rx="8" fill="none" stroke="var(--accent)" stroke-width="1.5"/>
+      <text x="555" y="140" text-anchor="middle" fill="var(--accent)">cross-attention</text>
+      <rect x="440" y="170" width="230" height="40" rx="8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <text x="555" y="195" text-anchor="middle">feed-forward</text>
+      <text x="555" y="252" text-anchor="middle" font-size="11" fill="var(--muted)">German written so far</text>
+      <line x1="555" y1="238" x2="555" y2="224" stroke="currentColor" stroke-width="1.3" marker-end="url(#eh)"/>
+      <line x1="555" y1="34" x2="555" y2="8" stroke="currentColor" stroke-width="1.3" marker-end="url(#eh)"/>
+      <text x="566" y="18" font-size="10.5" fill="var(--muted)">next German word</text>
+      <path d="M 300 100 C 360 100, 380 135, 436 135" fill="none" stroke="var(--accent)" stroke-width="1.5" marker-end="url(#eha)"/>
+      <text x="368" y="94" text-anchor="middle" font-size="11" fill="var(--accent)">keys, values</text>
+      <text x="360" y="160" text-anchor="middle" font-size="10" fill="var(--muted)">queries come</text>
+      <text x="360" y="174" text-anchor="middle" font-size="10" fill="var(--muted)">from the decoder</text>
+    </g>
+  </svg>
+  <figcaption>The original design. The encoder reads the whole source; every decoder block reaches into it through cross-attention.</figcaption>
+</figure>
+
+### The mask, with numbers
+
+The only difference between encoder and decoder self-attention is which cells of the score grid are allowed. Here are the two patterns over a five-word sentence:
+
+<figure>
+  <svg viewBox="0 0 720 230" role="img" aria-label="Two 5 by 5 attention grids over the words the cat sat on mat. The encoder grid is fully shaded. The decoder grid is shaded only on and below the diagonal; cells above are minus infinity.">
+    <defs></defs>
+    <g font-family="ui-monospace, Menlo, monospace" font-size="12" fill="currentColor">
+      <rect x="110" y="40" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="140" y="40" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="170" y="40" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="200" y="40" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="230" y="40" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="110" y="70" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="140" y="70" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="170" y="70" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="200" y="70" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="230" y="70" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="110" y="100" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="140" y="100" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="170" y="100" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="200" y="100" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="230" y="100" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="110" y="130" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="140" y="130" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="170" y="130" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="200" y="130" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="230" y="130" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="110" y="160" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="140" y="160" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="170" y="160" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="200" y="160" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="230" y="160" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <path d="M110 40 V190 M140 40 V190 M170 40 V190 M200 40 V190 M230 40 V190 M260 40 V190 M110 40 H260 M110 70 H260 M110 100 H260 M110 130 H260 M110 160 H260 M110 190 H260" fill="none" stroke="var(--muted)" stroke-width="0.8"/>
+      <text x="102" y="59.0" text-anchor="end" font-size="10.5">the</text>
+      <text x="125.0" y="32" text-anchor="middle" font-size="10.5">the</text>
+      <text x="102" y="89.0" text-anchor="end" font-size="10.5">cat</text>
+      <text x="155.0" y="32" text-anchor="middle" font-size="10.5">cat</text>
+      <text x="102" y="119.0" text-anchor="end" font-size="10.5">sat</text>
+      <text x="185.0" y="32" text-anchor="middle" font-size="10.5">sat</text>
+      <text x="102" y="149.0" text-anchor="end" font-size="10.5">on</text>
+      <text x="215.0" y="32" text-anchor="middle" font-size="10.5">on</text>
+      <text x="102" y="179.0" text-anchor="end" font-size="10.5">mat</text>
+      <text x="245.0" y="32" text-anchor="middle" font-size="10.5">mat</text>
+      <rect x="470" y="40" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <text x="515.0" y="59.0" text-anchor="middle" font-size="10.5" fill="var(--muted)">−∞</text>
+      <text x="545.0" y="59.0" text-anchor="middle" font-size="10.5" fill="var(--muted)">−∞</text>
+      <text x="575.0" y="59.0" text-anchor="middle" font-size="10.5" fill="var(--muted)">−∞</text>
+      <text x="605.0" y="59.0" text-anchor="middle" font-size="10.5" fill="var(--muted)">−∞</text>
+      <rect x="470" y="70" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="500" y="70" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <text x="545.0" y="89.0" text-anchor="middle" font-size="10.5" fill="var(--muted)">−∞</text>
+      <text x="575.0" y="89.0" text-anchor="middle" font-size="10.5" fill="var(--muted)">−∞</text>
+      <text x="605.0" y="89.0" text-anchor="middle" font-size="10.5" fill="var(--muted)">−∞</text>
+      <rect x="470" y="100" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="500" y="100" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="530" y="100" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <text x="575.0" y="119.0" text-anchor="middle" font-size="10.5" fill="var(--muted)">−∞</text>
+      <text x="605.0" y="119.0" text-anchor="middle" font-size="10.5" fill="var(--muted)">−∞</text>
+      <rect x="470" y="130" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="500" y="130" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="530" y="130" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="560" y="130" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <text x="605.0" y="149.0" text-anchor="middle" font-size="10.5" fill="var(--muted)">−∞</text>
+      <rect x="470" y="160" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="500" y="160" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="530" y="160" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="560" y="160" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <rect x="590" y="160" width="30" height="30" fill="var(--accent)" fill-opacity="0.35"/>
+      <path d="M470 40 V190 M500 40 V190 M530 40 V190 M560 40 V190 M590 40 V190 M620 40 V190 M470 40 H620 M470 70 H620 M470 100 H620 M470 130 H620 M470 160 H620 M470 190 H620" fill="none" stroke="var(--muted)" stroke-width="0.8"/>
+      <text x="462" y="59.0" text-anchor="end" font-size="10.5">the</text>
+      <text x="485.0" y="32" text-anchor="middle" font-size="10.5">the</text>
+      <text x="462" y="89.0" text-anchor="end" font-size="10.5">cat</text>
+      <text x="515.0" y="32" text-anchor="middle" font-size="10.5">cat</text>
+      <text x="462" y="119.0" text-anchor="end" font-size="10.5">sat</text>
+      <text x="545.0" y="32" text-anchor="middle" font-size="10.5">sat</text>
+      <text x="462" y="149.0" text-anchor="end" font-size="10.5">on</text>
+      <text x="575.0" y="32" text-anchor="middle" font-size="10.5">on</text>
+      <text x="462" y="179.0" text-anchor="end" font-size="10.5">mat</text>
+      <text x="605.0" y="32" text-anchor="middle" font-size="10.5">mat</text>
+      <text x="185" y="215" text-anchor="middle" font-size="11.5">encoder: bidirectional</text>
+      <text x="545" y="215" text-anchor="middle" font-size="11.5" fill="var(--accent)">decoder: causal</text>
+      <text x="360" y="100" text-anchor="middle" font-size="10.5" fill="var(--muted)">row: who asks</text>
+      <text x="360" y="116" text-anchor="middle" font-size="10.5" fill="var(--muted)">column: who is seen</text>
+    </g>
+  </svg>
+  <figcaption>Shaded = allowed to look. The encoder lets every word see every word. The decoder's mask blanks out the future, so each row sees only itself and what came before.</figcaption>
+</figure>
+
+Now watch the mask act on real numbers. Take three tokens with these raw scores (row = the token asking, column = the token being looked at):
+
+| scores | the | cat | sat |
+|---|---|---|---|
+| **the** | 2.0 | 1.0 | 0.5 |
+| **cat** | 1.0 | 3.0 | 0.0 |
+| **sat** | 0.5 | 2.0 | 1.0 |
+
+**Without a mask** (encoder), softmax each row as it is:
+
+| weights | the | cat | sat |
+|---|---|---|---|
+| **the** | 0.63 | 0.23 | 0.14 |
+| **cat** | 0.11 | 0.84 | 0.04 |
+| **sat** | 0.14 | 0.63 | 0.23 |
+
+**With the causal mask** (decoder), every cell above the diagonal becomes −∞ first. Since e<sup>−∞</sup> = 0, those cells drop out of the softmax entirely:
+
+| weights | the | cat | sat |
+|---|---|---|---|
+| **the** | 1.00 | 0 | 0 |
+| **cat** | 0.12 | 0.88 | 0 |
+| **sat** | 0.14 | 0.63 | 0.23 |
+
+Three things to notice:
+
+- **"the" can only see itself**, so it gets all the weight, 1.00. The first token in a decoder always attends only to itself.
+- **"cat" loses its view of "sat"**, and the 0.04 it had there doesn't vanish. It's redistributed: 0.11 becomes 0.12, 0.84 becomes 0.88. Softmax always re-normalizes whatever is left.
+- **"sat" doesn't change at all.** The last token has no future to hide, so its row is identical with or without the mask.
+
 ## Three families
 
 Once the paper was out, people started taking it apart. Three families came out, and you can name each by which half it kept:
@@ -96,6 +248,18 @@ A decoder-only model has no encoder, so there's nothing to cross-attend to. Its 
 For a few years, it wasn't obvious which family would win. BERT dominated benchmarks in 2018 and 2019. T5 made a strong case that everything should be encoder-decoder. Today, almost every frontier LLM is decoder-only. Four reasons, roughly in order of importance:
 
 **Every token is a training signal.** A decoder learns by predicting the next token at *every* position, all at once, thanks to the causal mask. A 1,000-token document gives you 1,000 predictions. BERT's masked-language objective hides about 15% of tokens and learns only from those. Same data, a fraction of the signal.
+
+Take *"the cat sat on the mat"*. One forward pass of a decoder, thanks to the mask above, is five training examples at once:
+
+| the model sees | and must predict |
+|---|---|
+| the | cat |
+| the cat | sat |
+| the cat sat | on |
+| the cat sat on | the |
+| the cat sat on the | mat |
+
+BERT, on the same sentence, might hide *"sat"* and learn from that one blank. Five lessons against one, on every sentence, across trillions of tokens.
 
 **One stack, one objective, scales simply.** No split between source and target, no decision about how to divide parameters between two stacks, no special input format. Just text in, next token out. When the strategy became "make it bigger and feed it more," the simplest architecture was the easiest to make bigger.
 
@@ -162,6 +326,29 @@ print(f"{sum(p.numel() for p in model.parameters()):,} parameters")   # 1,082,11
 ```
 
 That first `True` is the whole decoder idea, tested. We changed the last four tokens, and the model's outputs for the first eight didn't move at all. That's the property that lets one forward pass train on every position at once, and it's the same property the KV cache will exploit later.
+
+### Where the parameters live
+
+That last print says 1,082,112. Here's where every one of them comes from, with `d = 128`, a vocabulary of 1,000, and a context of 256. Each `nn.Linear(a, b)` holds `a × b` weights plus `b` biases:
+
+| inside one block | arithmetic | parameters |
+|---|---|---|
+| `qkv` projection | 128 × 384 + 384 | 49,536 |
+| output `proj` | 128 × 128 + 128 | 16,512 |
+| FFN, both layers | (128 × 512 + 512) + (512 × 128 + 128) | **131,712** |
+| two LayerNorms | 2 × (128 + 128) | 512 |
+| **one block** | | **198,272** |
+
+| whole model | arithmetic | parameters |
+|---|---|---|
+| 4 blocks | 4 × 198,272 | 793,088 |
+| token embedding | 1,000 × 128 | 128,000 |
+| position embedding | 256 × 128 | 32,768 |
+| final LayerNorm | 128 + 128 | 256 |
+| output head | 128 × 1,000 | 128,000 |
+| **total** | | **1,082,112** |
+
+Look at the FFN line: 131,712 of the block's 198,272 parameters, about 66%. That's the "two-thirds" claim from earlier, now in real numbers. Attention decides who talks to whom, but most of the model's memory is in the feed-forward layers.
 
 Scale `d`, `h`, `layers` and `vocab` up by a couple of orders of magnitude, train on a few trillion tokens, and this is structurally a GPT. The real models swap in a few upgrades (RMSNorm, a gated FFN called SwiGLU, and grouped-query attention), but the skeleton is exactly this.
 

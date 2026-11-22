@@ -9,6 +9,8 @@ import {
   MEDIUM_ARCHIVE,
   EXPERIENCE,
   EDUCATION,
+  FOCUS,
+  CAREER_START,
 } from '../consts';
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -21,40 +23,44 @@ const fmtMonth = (s: string) => {
 const rangeLabel = (start: string, end: string | null) =>
   `${fmtMonth(start)} – ${end ? fmtMonth(end) : 'Present'}`;
 
-// Duration computed at build time, so "Present" roles never go stale.
-const duration = (start: string, end: string | null) => {
-  const now = new Date();
+// Durations are computed at build time, so "Present" roles never go stale.
+const now = new Date();
+const monthsBetween = (start: string, end: string | null) => {
   const toYM = (s: string | null, isEnd: boolean) => {
     if (!s) return { y: now.getUTCFullYear(), m: now.getUTCMonth() };
     const [y, m] = s.split('-').map(Number);
     return { y, m: m ? m - 1 : isEnd ? 11 : 0 };
   };
-  const yearOnly = !start.includes('-') && (!end || !end.includes('-'));
   const a = toYM(start, false);
   const b = toYM(end, true);
-  if (yearOnly) {
-    const yy = b.y - a.y;
+  return (b.y - a.y) * 12 + (b.m - a.m);
+};
+
+const duration = (start: string, end: string | null) => {
+  if (!start.includes('-')) {
+    const yy = Number(end) - Number(start);
     return `${yy} yr${yy !== 1 ? 's' : ''}`;
   }
-  const months = (b.y - a.y) * 12 + (b.m - a.m);
+  const months = monthsBetween(start, end);
   if (months < 12) return `${Math.max(1, months)} mos`;
   const y = Math.round(months / 12);
   return `${y} yr${y !== 1 ? 's' : ''}`;
 };
 
+const years = Math.floor(monthsBetween(CAREER_START, null) / 12);
+
 const fmt = (iso: string) =>
   new Date(iso).toLocaleDateString('en-US', { year: 'numeric', month: 'short', timeZone: 'UTC' });
 
-const groups = [
-  { label: 'Current', items: EXPERIENCE.filter((e) => e.end === null) },
-  { label: 'Past', items: EXPERIENCE.filter((e) => e.end !== null) },
-  { label: 'Education', items: EDUCATION },
-];
+// Top floor first. Floors narrow as you go down: scope grew with every role.
+const floors = [...EXPERIENCE, ...EDUCATION];
+const width = (i: number) => 100 - i * (42 / (floors.length - 1));
+const floorNo = (i: number) => (i === floors.length - 1 ? 'G' : `F${floors.length - 1 - i}`);
 ---
 
 <Base
   title="About"
-  description="Machine learning engineer working on computer vision, MLOps, and GenAI."
+  description="Staff AI Engineer building production AI systems: platforms, MLOps and LLMOps, agents, and computer vision."
 >
   <div class="split">
     <aside class="split__side side-intro">
@@ -69,9 +75,9 @@ const groups = [
       <p class="eyebrow">About</p>
       <h1>{SITE.author}</h1>
       <p>
-        Machine learning engineer with 7.5+ years of experience building and
-        operating production ML systems: computer vision, MLOps on GCP and
-        Azure, and more recently GenAI.
+        Staff AI Engineer at Micron Technology. For {years}+ years I have been
+        taking machine learning from prototype to production: computer vision,
+        MLOps on GCP and Azure, and now LLMs and agents.
       </p>
       <p>
         {SITE.domain} is where I write about that work. Opinions here are mine
@@ -85,40 +91,82 @@ const groups = [
     </aside>
 
     <div class="split__main prose">
-      <h2>Career</h2>
-      <div class="cv">
-        {groups.map((g) => (
-          <section class="cv__group">
-            <p class="cv__glabel">{g.label}</p>
-            <ol class="cv__list">
-              {g.items.map((it) => (
-                <li class={`cv__item${it.end === null ? ' is-now' : ''}`}>
-                  <span class="cv__mark" aria-hidden="true">
-                    {it.logo ? (
-                      <img src={it.logo} alt="" loading="lazy" />
-                    ) : (
-                      <svg class="cv__mark-edu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M2 8.5 12 4l10 4.5-10 4.5z" />
-                        <path d="M6 10.6V15c0 1.3 2.7 2.4 6 2.4s6-1.1 6-2.4v-4.4" />
-                        <path d="M22 8.5V14" />
-                      </svg>
-                    )}
-                  </span>
-                  <div class="cv__body">
-                    <div class="cv__row">
-                      <h3 class="cv__role">{it.role}</h3>
-                      <span class="cv__dur">{duration(it.start, it.end)}</span>
-                    </div>
-                    <p class="cv__org">{it.org}</p>
-                    <p class="cv__meta">{rangeLabel(it.start, it.end)} · {it.location}</p>
-                    {it.note && <p class="cv__note">{it.note}</p>}
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </section>
+      <h2>What I work on</h2>
+      <div class="focus">
+        {FOCUS.map((f, i) => (
+          <div class="focus__card">
+            <span class="focus__no">0{i + 1}</span>
+            <h3>{f.title}</h3>
+            <p>{f.body}</p>
+          </div>
         ))}
       </div>
+
+      <h2>One floor up, every time</h2>
+      <p class="floors__lede">
+        Looking back, every role moved me one floor up. First I built a model on
+        a device. Then services around models, systems around services, and
+        platforms around systems. Now the job is deciding what the platforms
+        should be. Read it from the top, or start at the ground floor.
+      </p>
+
+      <ol class="floors">
+        {floors.map((f, i) => (
+          <li
+            class={`floor${f.end === null ? ' is-now' : ''}${i === floors.length - 1 ? ' is-ground' : ''}`}
+            style={`--w: ${width(i).toFixed(1)}%`}
+          >
+            <div class="floor__tag">
+              <span class="floor__no">{floorNo(i)}</span>
+              <span class="floor__scope">{f.scope}</span>
+            </div>
+            <div class="floor__body">
+              <div class="floor__row">
+                <h3 class="floor__role">{f.role}</h3>
+                {f.end === null && <span class="floor__here">you are here</span>}
+              </div>
+              <p class="floor__org">
+                {f.logo ? <img src={f.logo} alt={f.org} title={f.org} loading="lazy" /> : f.org}
+              </p>
+              <p class="floor__meta">
+                {rangeLabel(f.start, f.end)} · {duration(f.start, f.end)} · {f.location}
+              </p>
+              {f.note && <p class="floor__note">{f.note}</p>}
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      <h2>Where the writing comes from</h2>
+      <p>
+        In college, my favourite job had nothing to do with grades. It was
+        explaining an entire semester's subject to my friends an hour before the
+        exam. Compressing a semester into an hour only works if you understand the
+        subject by intuition, not by formula, and that turned out to be the most
+        useful skill I learned there.
+      </p>
+      <p>
+        This blog is that same hour, for whatever I am learning now. It's why the
+        posts lean on small worked examples and diagrams, and why most of them end
+        with code you can run yourself.
+      </p>
+
+      <h2>Recognition</h2>
+      <p>
+        Twenty honours and awards so far. The two most recent, both from January 2026:
+      </p>
+      <ul>
+        <li>
+          <strong>Innovation</strong>, for a video analytics solution that gave
+          near real-time operational insight and was delivered quickly by reusing
+          existing analytics capabilities.
+        </li>
+        <li>
+          <strong>Customer Focus</strong>, for catching a platform incompatibility
+          in production and escalating it early, before it could reach downstream
+          systems.
+        </li>
+      </ul>
 
       <h2>Skills</h2>
       <ul class="timeline">
