@@ -1,23 +1,23 @@
 ---
 title: 'Encoder, Decoder, and the One That Won'
-description: 'How attention gets stacked into encoders and decoders, what BERT, T5 and GPT each kept, and why modern LLMs quietly threw the encoder away. Part 2 of the Transformer family.'
+description: 'How attention gets stacked into encoders and decoders, what BERT, T5 and GPT each kept, and why most modern LLMs dropped the encoder. Part 2 of the Transformer family.'
 pubDate: 2026-09-24
 tags: ['transformers']
 draft: false
 ---
 
-In [part one](/blog/attention-intuitively/) we built attention: every word sends out a query, compares it against every key, and takes home a weighted blend of values. It's the core idea. But one attention layer is not a model, any more than one gear is a watch.
+In [part one](/blog/attention-intuitively/) we built attention: each word sends out a query, compares it with every key, and gets back a weighted blend of the values. A model needs more than that one operation, though.
 
-This post is about the watch. How attention gets wrapped into a **block**, how blocks get stacked into an **encoder** and a **decoder**, and why, after all that careful two-part design in the original paper, nearly every LLM you use today kept only one half.
+This post covers the rest of the structure: how attention is wrapped into a **block**, how blocks are stacked into an **encoder** and a **decoder**, and why most of today's LLMs use only the decoder half of the original design.
 
 ## A block: communicate, then compute
 
-Every Transformer, whatever the family, is a stack of identical blocks. Each block does exactly two things, in order:
+Every Transformer is a stack of identical blocks. Each block does two things, in this order:
 
-1. **Attention**: tokens look at each other and pull in context. This is the *communication* step.
-2. **Feed-forward network (FFN)**: each token, on its own, runs through a small two-layer MLP. This is the *computation* step.
+1. **Attention**: tokens look at each other and pull in context. This is the only step where information moves between tokens.
+2. **Feed-forward network (FFN)**: each token goes through a small two-layer MLP on its own. No token sees any other token here.
 
-Around each of those sits a **residual connection** and a **LayerNorm**:
+Each of the two steps is wrapped in a **residual connection** and a **LayerNorm**:
 
 <figure>
   <svg viewBox="0 0 760 150" role="img" aria-label="Input x goes through LayerNorm and attention, is added back to x, then through LayerNorm and a feed-forward network, and is added back again. Repeated N times.">
@@ -56,28 +56,28 @@ Around each of those sits a **residual connection** and a **LayerNorm**:
   <figcaption>One block. Attention lets tokens talk; the feed-forward network lets each one think. Stack N of them.</figcaption>
 </figure>
 
-Each piece earns its place:
+What each piece is for:
 
-- **Residual connections** (`x + f(x)`) mean every block only has to learn a *correction* to what came in, not rebuild it from scratch. They also give gradients a straight highway back to the first layer, which is why you can stack dozens of these without training falling apart.
-- **LayerNorm** keeps each token's vector at a sane scale as it passes through layer after layer. Modern models put it *before* each sub-layer (pre-norm, as drawn) rather than after, as the original paper did. GPT-2 made that switch, and it trains far more stably at depth.
-- **The FFN** is where most of the parameters live, usually about two-thirds of them. It expands each token to four times its width, applies a nonlinearity, and shrinks it back. If attention decides *what to gather*, the FFN decides *what to do with it*.
+- **Residual connections** (`x + f(x)`) mean a block only has to learn a correction to its input, not reproduce the whole thing. They also give the gradient a direct path back to the early layers, which is a large part of why you can stack dozens of blocks and still train them.
+- **LayerNorm** keeps each token's vector at a stable scale from layer to layer. The original paper applied it after each sub-layer; GPT-2 moved it to before (pre-norm, as drawn above), and almost every model since has done the same because it trains more reliably when the stack is deep.
+- **The FFN** widens each token's vector to four times its size, applies a nonlinearity, and projects it back down. It holds most of the parameters, around two-thirds of each block, and we'll count them exactly at the end of this post.
 
-> Attention is the only place tokens interact. Everything else in a Transformer happens to each token independently. Keep that in mind and the whole architecture gets simpler.
+It helps to keep the split in mind: attention is where tokens exchange information, and everything else happens to each token separately.
 
 ## The encoder: reading
 
-The original Transformer (Vaswani et al., 2017) was built for translation: English in, German out. So it had two stacks, six blocks each.
+The original Transformer (Vaswani et al., 2017) was built for translation, English to German, and had two stacks of six blocks each.
 
-The **encoder** reads the source sentence. Its attention is **bidirectional**: every word can attend to every other word, left and right. When the encoder processes *"bank"* in *"I sat on the river bank"*, it can see *"river"* before it and use it. The output is one context-rich vector per input word. Nothing is generated. The encoder's only job is to *understand*.
+The **encoder** reads the source sentence. Its attention is **bidirectional**, meaning every word can attend to every other word, before or after it. When it processes *"bank"* in *"I sat on the river bank"*, it can use *"river"* to work out which meaning of bank is meant. Its output is one context-aware vector per input word. It doesn't generate anything.
 
 ## The decoder: writing
 
-The **decoder** produces the translation one word at a time. It's the same block with two changes:
+The **decoder** writes the translation one word at a time. It uses the same block with two changes:
 
-1. **Its self-attention is causal.** A word can only attend to the words before it. This is the mask from part one: future positions get −∞ before the softmax. It has to be this way, because at generation time the future doesn't exist yet.
-2. **It has an extra attention layer: cross-attention.** Here the decoder's queries look at the *encoder's* keys and values. This is how the German being written consults the English being translated. Self-attention reads your own output so far; cross-attention reads the source.
+1. **Its self-attention is causal.** A word can only attend to itself and the words before it. This is the mask from part one: positions in the future are set to −∞ before the softmax. At generation time those words haven't been written yet, so the model has to be trained without them too.
+2. **It adds a cross-attention layer.** Here the queries come from the decoder, and the keys and values come from the encoder's output. This is how the German being written looks back at the English source. Self-attention looks at the output written so far; cross-attention looks at the input.
 
-So a decoder block is: causal self-attention, then cross-attention into the encoder, then the FFN, each with its own residual and norm.
+So one decoder block is causal self-attention, then cross-attention into the encoder, then the FFN, each with its own residual connection and norm.
 
 <figure>
   <svg viewBox="0 0 720 262" role="img" aria-label="The original Transformer: an encoder stack reads the English sentence; a decoder stack with causal self-attention, cross-attention and feed-forward writes German. The encoder's keys and values feed the decoder's cross-attention.">
@@ -114,7 +114,7 @@ So a decoder block is: causal self-attention, then cross-attention into the enco
 
 ### The mask, with numbers
 
-The only difference between encoder and decoder self-attention is which cells of the score grid are allowed. Here are the two patterns over a five-word sentence:
+Encoder and decoder self-attention differ only in which cells of the score grid are allowed. Here are the two patterns for a five-word sentence:
 
 <figure>
   <svg viewBox="0 0 720 230" role="img" aria-label="Two 5 by 5 attention grids over the words the cat sat on mat. The encoder grid is fully shaded. The decoder grid is shaded only on and below the diagonal; cells above are minus infinity.">
@@ -201,7 +201,7 @@ The only difference between encoder and decoder self-attention is which cells of
   <figcaption>Shaded = allowed to look. The encoder lets every word see every word. The decoder's mask blanks out the future, so each row sees only itself and what came before.</figcaption>
 </figure>
 
-Now watch the mask act on real numbers. Take three tokens with these raw scores (row = the token asking, column = the token being looked at):
+To see what the mask does to actual numbers, take three tokens with these raw scores (each row is the token doing the attending, each column the token being attended to):
 
 | scores | the | cat | sat |
 |---|---|---|---|
@@ -209,7 +209,7 @@ Now watch the mask act on real numbers. Take three tokens with these raw scores 
 | **cat** | 1.0 | 3.0 | 0.0 |
 | **sat** | 0.5 | 2.0 | 1.0 |
 
-**Without a mask** (encoder), softmax each row as it is:
+**Without a mask** (encoder), apply softmax to each row as it is:
 
 | weights | the | cat | sat |
 |---|---|---|---|
@@ -217,7 +217,7 @@ Now watch the mask act on real numbers. Take three tokens with these raw scores 
 | **cat** | 0.11 | 0.84 | 0.04 |
 | **sat** | 0.14 | 0.63 | 0.23 |
 
-**With the causal mask** (decoder), every cell above the diagonal becomes −∞ first. Since e<sup>−∞</sup> = 0, those cells drop out of the softmax entirely:
+**With the causal mask** (decoder), every cell above the diagonal is set to −∞ first. Since e<sup>−∞</sup> = 0, those cells contribute nothing to the softmax:
 
 | weights | the | cat | sat |
 |---|---|---|---|
@@ -225,15 +225,15 @@ Now watch the mask act on real numbers. Take three tokens with these raw scores 
 | **cat** | 0.12 | 0.88 | 0 |
 | **sat** | 0.14 | 0.63 | 0.23 |
 
-Three things to notice:
+Comparing the two tables:
 
-- **"the" can only see itself**, so it gets all the weight, 1.00. The first token in a decoder always attends only to itself.
-- **"cat" loses its view of "sat"**, and the 0.04 it had there doesn't vanish. It's redistributed: 0.11 becomes 0.12, 0.84 becomes 0.88. Softmax always re-normalizes whatever is left.
-- **"sat" doesn't change at all.** The last token has no future to hide, so its row is identical with or without the mask.
+- **"the"** can only attend to itself, so it gets a weight of 1.00. The first token in a decoder always attends only to itself.
+- **"cat"** can no longer see "sat". The 0.04 it gave to "sat" is spread over what remains, so 0.11 becomes 0.12 and 0.84 becomes 0.88. Softmax always renormalizes over the allowed cells.
+- **"sat"** is unchanged. It's the last token, so there's nothing after it to hide.
 
 ## Three families
 
-Once the paper was out, people started taking it apart. Three families came out, and you can name each by which half it kept:
+After the original paper, people started building models from one half or the other. Three families came out of that, named by which parts they kept:
 
 | Family | Keeps | Attention | Classic examples | Good at |
 |---|---|---|---|---|
@@ -241,15 +241,15 @@ Once the paper was out, people started taking it apart. Three families came out,
 | **Encoder-decoder** | both | bidirectional in, causal out, cross between | the original Transformer, T5, Whisper | turning one sequence into another: translation, speech to text |
 | **Decoder-only** | the decoder, minus cross-attention | causal | GPT, Llama, Mistral, Qwen | generating text, and anything you can phrase as generating text |
 
-A decoder-only model has no encoder, so there's nothing to cross-attend to. Its block shrinks back to the simple picture above, with the causal mask on.
+A decoder-only model has no encoder, so it has nothing to cross-attend to. Its block is the simple one from the first diagram, with the causal mask applied.
 
-## Why the encoder got thrown away
+## Why most LLMs dropped the encoder
 
-For a few years, it wasn't obvious which family would win. BERT dominated benchmarks in 2018 and 2019. T5 made a strong case that everything should be encoder-decoder. Today, almost every frontier LLM is decoder-only. Four reasons, roughly in order of importance:
+For a few years it wasn't clear which family would come out ahead. BERT led most language-understanding benchmarks in 2018 and 2019, and T5 argued that every task should be framed as encoder-decoder. Today nearly every large general-purpose LLM is decoder-only. These are the main reasons, roughly in order of how much they mattered:
 
-**Every token is a training signal.** A decoder learns by predicting the next token at *every* position, all at once, thanks to the causal mask. A 1,000-token document gives you 1,000 predictions. BERT's masked-language objective hides about 15% of tokens and learns only from those. Same data, a fraction of the signal.
+**Every token gives a training signal.** A decoder is trained to predict the next token at every position, and the causal mask lets it do all of those predictions in one forward pass. A 1,000-token document gives 1,000 predictions. BERT's masked-language objective hides about 15% of the tokens and learns only from those.
 
-Take *"the cat sat on the mat"*. One forward pass of a decoder, thanks to the mask above, is five training examples at once:
+For example, with *"the cat sat on the mat"*, one forward pass of a decoder gives five training examples:
 
 | the model sees | and must predict |
 |---|---|
@@ -259,21 +259,19 @@ Take *"the cat sat on the mat"*. One forward pass of a decoder, thanks to the ma
 | the cat sat on | the |
 | the cat sat on the | mat |
 
-BERT, on the same sentence, might hide *"sat"* and learn from that one blank. Five lessons against one, on every sentence, across trillions of tokens.
+BERT, on the same sentence, might mask *"sat"* and learn from that one position. Over trillions of tokens, that difference adds up.
 
-**One stack, one objective, scales simply.** No split between source and target, no decision about how to divide parameters between two stacks, no special input format. Just text in, next token out. When the strategy became "make it bigger and feed it more," the simplest architecture was the easiest to make bigger.
+**One stack and one objective are easier to scale.** There's no split between source and target, no decision about how to divide parameters between two stacks, and no special input format. Once the main strategy became "train larger models on more data", the simplest architecture was the easiest one to grow.
 
-**Generation is the universal interface.** Classification, translation, summarization, question answering, code: all of them can be written as "here is some text, continue it." An encoder-only model needs a new head for each task. A decoder-only model needs a new *prompt*. At scale, that flexibility turned into in-context learning: the model picks up the task from examples in the prompt, with no fine-tuning at all.
+**Generation works as a general interface.** Classification, translation, summarization, question answering and code can all be phrased as "here is some text, continue it". An encoder-only model needs a new output head trained for each task; a decoder-only model can often be given the task in the prompt. At large scale this became in-context learning, where the model picks up a task from a few examples in the prompt without any fine-tuning.
 
-**Causal attention is cheap to serve.** Because no token ever looks forward, the keys and values for everything already generated never change. You can compute them once and cache them. That trick makes generation fast, and it's the start of [part four](/blog/transformers-efficient-attention/).
+**Causal attention is cheaper to serve.** Because no token attends to later tokens, the keys and values of tokens already generated never change, so they can be computed once and cached. That cache is what makes generation fast, and it's where [part four](/blog/transformers-efficient-attention/) starts.
 
-> The encoder didn't lose because it was worse at understanding. It lost because "predict the next token" turned out to be a task so general that understanding comes along for free.
-
-To be fair to encoders: they never really went away. When you search a vector database, the embeddings almost certainly came from an encoder-style model. Rerankers are usually encoders. And when the input isn't text, like audio, encoder-decoder designs such as Whisper still make a lot of sense. Decoder-only won the *chatbot*, not the whole field.
+Encoders are still widely used, though. Many embedding models behind vector search are encoder-based, and so are most cross-encoder rerankers. When the input isn't text, as in speech recognition, encoder-decoder models like Whisper are still a natural fit. Decoder-only models took over general-purpose text generation, not every task.
 
 ## Now build it yourself
 
-Here is a complete decoder-only model: a pre-norm block, stacked, with token and position embeddings and a head that predicts the next token. Since [part one](/blog/attention-intuitively/) already proved our hand-written attention matches PyTorch's, we'll use `F.scaled_dot_product_attention` directly.
+Here is a complete decoder-only model: pre-norm blocks, token and position embeddings, and an output layer that predicts the next token. [Part one](/blog/attention-intuitively/) already checked our hand-written attention against PyTorch's, so here we call `F.scaled_dot_product_attention` directly.
 
 ```python
 import torch, torch.nn as nn, torch.nn.functional as F
@@ -325,11 +323,11 @@ print(torch.allclose(la[0, 8:], lb[0, 8:], atol=1e-5))   # False: the future did
 print(f"{sum(p.numel() for p in model.parameters()):,} parameters")   # 1,082,112
 ```
 
-That first `True` is the whole decoder idea, tested. We changed the last four tokens, and the model's outputs for the first eight didn't move at all. That's the property that lets one forward pass train on every position at once, and it's the same property the KV cache will exploit later.
+The first `True` is the causal property, tested directly. We changed the last four tokens, and the outputs for the first eight tokens stayed exactly the same. This is what allows training on every position in one pass, and the KV cache in part four depends on the same property.
 
 ### Where the parameters live
 
-That last print says 1,082,112. Here's where every one of them comes from, with `d = 128`, a vocabulary of 1,000, and a context of 256. Each `nn.Linear(a, b)` holds `a × b` weights plus `b` biases:
+The last line prints 1,082,112. Here's where each of those parameters comes from, with `d = 128`, a vocabulary of 1,000 and a context length of 256. Each `nn.Linear(a, b)` has `a × b` weights plus `b` biases:
 
 | inside one block | arithmetic | parameters |
 |---|---|---|
@@ -348,8 +346,8 @@ That last print says 1,082,112. Here's where every one of them comes from, with 
 | output head | 128 × 1,000 | 128,000 |
 | **total** | | **1,082,112** |
 
-Look at the FFN line: 131,712 of the block's 198,272 parameters, about 66%. That's the "two-thirds" claim from earlier, now in real numbers. Attention decides who talks to whom, but most of the model's memory is in the feed-forward layers.
+The FFN accounts for 131,712 of the 198,272 parameters in each block, about 66%, which is where the "two-thirds" figure above comes from.
 
-Scale `d`, `h`, `layers` and `vocab` up by a couple of orders of magnitude, train on a few trillion tokens, and this is structurally a GPT. The real models swap in a few upgrades (RMSNorm, a gated FFN called SwiGLU, and grouped-query attention), but the skeleton is exactly this.
+If you increase `d`, `h`, `layers` and `vocab` by a couple of orders of magnitude and train on a few trillion tokens, you have the same structure as a GPT model. Current open models change a few components: RMSNorm instead of LayerNorm, a gated FFN called SwiGLU, grouped-query attention (part four), and a different way of handling position.
 
-Look again at one line, though: `self.pos = nn.Embedding(ctx, d)`. Why does the model need to be *told* where each token is? And why does almost no modern LLM do it this way anymore? That's [part three](/blog/transformers-positional-encoding/).
+That last change is about this line: `self.pos = nn.Embedding(ctx, d)`. Why does the model need to be told where each token is, and why do most modern LLMs no longer do it this way? That's [part three](/blog/transformers-positional-encoding/).

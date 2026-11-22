@@ -1,27 +1,23 @@
 ---
 title: 'Meta-Level Agency: Agents That Build Agents'
-description: 'Most agents do a task. A meta-level agent does something stranger: it improves the agent that does the task. What that means, how Eureka pulled it off for robot rewards, and where the idea quietly breaks.'
+description: 'Most agents do a task. A meta-level agent improves another agent instead. What that means, how Eureka used an LLM to write reward functions for robots, and where the approach runs into trouble.'
 pubDate: 2026-11-22
 tags: ['llm']
 draft: false
 ---
 
-When people say "AI agent" today, they almost always mean one thing: a model that takes actions to get a job done. It plays the game, writes the code, books the flight, controls the robot hand. The agent and the task are on the same floor.
+Most of what gets called an "AI agent" today does a task directly. It plays the game, writes the code, books the flight, moves the robot hand. The model doing the work is the model being judged.
 
-There is a second floor, and it is where some of the most interesting work of the last few years has been happening. On that floor, the agent's job is not the task. **The agent's job is the *other* agent.** It writes that agent's reward, picks its architecture, tunes its prompts, or rewrites its code, and then watches to see whether the other agent got better.
+A meta-level agent works one step removed. Its job is to make *another* agent better: it writes that agent's reward function, chooses its architecture, rewrites its prompts or its code, and then checks whether the other agent improved. Put simply, it's an agent whose output is a better agent.
 
-That is **meta-level agency**: an agent operating one level of abstraction up, designing, optimizing, or controlling other AI systems or the way they learn. An agent building or improving agents.
+I've found this a useful way to sort a lot of recent research. It's also a fair description of something ML engineers already do by hand. This post walks through the idea with one concrete system, Eureka, and then covers the parts that make it hard to use in practice.
 
-It sounds like a philosophy seminar. It isn't. It's an engineering pattern, and once you see it you will notice you have been doing it by hand for years.
+## Two levels
 
-## Two floors
+- An **object-level** agent acts in an environment. Its feedback comes from that environment: a game score, a passing test, a reward.
+- A **meta-level** agent acts on another agent, or on how that agent is trained. Its feedback is how well the other agent ended up doing.
 
-Here is the distinction in one sentence each:
-
-- An **object-level** agent acts on the world. Its feedback is the world's response: the game score, the test result, the reward.
-- A **meta-level** agent acts on another agent. Its feedback is *how well that agent learned or performed*.
-
-The object level is the inner loop. The meta level is the outer loop wrapped around it.
+So there are two loops, one inside the other. The diagram below uses the example from the next section, where an LLM writes the reward function that a reinforcement learning (RL) agent trains on.
 
 <figure>
   <svg viewBox="0 0 720 210" role="img" aria-label="A meta-agent writes a reward function, which plugs into an inner RL loop of agent and environment. Training results flow back to the meta-agent as reflection.">
@@ -35,7 +31,7 @@ The object level is the inner loop. The meta level is the outer loop wrapped aro
       <line x1="176" y1="82" x2="232" y2="82" stroke="currentColor" stroke-width="1.3" marker-end="url(#mh)"/>
       <text x="204" y="72" font-size="10.5" fill="var(--muted)">writes</text>
       <rect x="236" y="50" width="150" height="64" rx="9" fill="none" stroke="currentColor" stroke-width="1.3"/>
-      <text x="311" y="78">reward.py</text><text x="311" y="97" font-size="10.5" fill="var(--muted)">what it designs</text>
+      <text x="311" y="78">reward.py</text><text x="311" y="97" font-size="10.5" fill="var(--muted)">what it writes</text>
       <line x1="386" y1="82" x2="442" y2="82" stroke="currentColor" stroke-width="1.3" marker-end="url(#mh)"/>
       <text x="414" y="72" font-size="10.5" fill="var(--muted)">plugs in</text>
       <rect x="446" y="22" width="268" height="120" rx="12" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4"/>
@@ -50,35 +46,35 @@ The object level is the inner loop. The meta level is the outer loop wrapped aro
       <text x="335" y="198" font-size="10.5" fill="var(--accent)">reflection: task success, per-term reward curves</text>
     </g>
   </svg>
-  <figcaption>The inner loop learns the task. The outer loop learns how to set up the inner loop.</figcaption>
+  <figcaption>The inner loop trains on the task. The outer loop changes what the inner loop trains on.</figcaption>
 </figure>
 
-Notice what never happens in that picture: the meta-agent never touches the robot. It never picks an action. Its only lever is the thing the inner agent learns *from*.
+The meta-agent in this picture never takes an action in the environment. The only thing it changes is the reward the inner agent trains on, and everything it learns about the environment comes back to it through the training results.
 
-## The cleanest example: Eureka
+## Eureka: an LLM that writes reward functions
 
-If you want one paper that makes this idea concrete, it's **Eureka** (NVIDIA and collaborators, 2023).
+The clearest example I know of is Eureka, from NVIDIA and collaborators (Ma et al., 2023).
 
-The problem it attacks is old and painful. In reinforcement learning, the policy learns whatever the reward function tells it to. Writing that reward function is notoriously hard. Make it too sparse and the agent never stumbles onto success. Make it too dense and the agent finds a loophole you did not think of. In practice, reward design is a human expert iterating by hand: write a reward, train for hours, watch a video of the robot doing something absurd, tweak a coefficient, repeat.
+Reward design is one of the more tedious parts of reinforcement learning. A policy optimizes exactly what the reward says. If the reward is sparse, the agent rarely sees success and learns slowly. If it's dense and hand-shaped, it tends to have gaps the agent learns to exploit. In practice someone writes a reward, trains for hours, watches a video of the robot doing something odd, changes a coefficient, and starts again.
 
-Eureka hands that job to an LLM. The loop looks like this:
+Eureka gives that loop to an LLM:
 
-1. **Read the environment.** The LLM is given the environment's source code and a plain-language task description, like "make the hand spin the pen."
-2. **Write rewards as code.** It samples several candidate reward functions, each an executable Python function.
-3. **Train on each.** An ordinary RL algorithm trains a policy with every candidate, in parallel, in GPU simulation.
-4. **Reflect.** The training statistics come back as text: the task success rate, and how each individual reward term moved during training. The LLM reads that and writes the next, better batch.
+1. **Read the environment.** The LLM gets the environment's source code and a short task description, such as "make the hand spin the pen."
+2. **Write candidate rewards.** It samples several reward functions, each one a Python function that can be run directly.
+3. **Train on each.** A standard RL algorithm trains one policy per candidate, in parallel, in a GPU-accelerated simulator.
+4. **Reflect.** The results come back as text: the task success rate, and how each term of the reward changed during training. The LLM uses that to write the next batch.
 
-That fourth step, which the paper calls *reward reflection*, is the heart of it. The meta-agent isn't guessing blindly. It's reading the inner agent's training curves the way an RL engineer would, and noticing things like "this term saturated early and stopped contributing" or "this penalty dominates everything else."
+The paper calls step 4 *reward reflection*, and it's what separates this from random search. The LLM sees roughly what an RL engineer would look at, so it can react to things like a reward term that flattened out early, or a penalty that is much larger than everything else.
 
-The results were striking. Across 29 environments and 10 different robot bodies, Eureka's rewards beat the expert human-written rewards on 83% of tasks, with an average normalized improvement of 52%. And it unlocked tasks that hand-written rewards had not managed at all, most famously a simulated Shadow Hand spinning a pen with real dexterity.
+Across 29 environments and 10 different robot bodies, Eureka's rewards beat the expert-written ones on 83% of tasks, with an average normalized improvement of 52%. It was also used to teach a simulated Shadow Hand to spin a pen between its fingers, which hand-written rewards hadn't managed.
 
-> Eureka never learned to spin a pen. It learned to *write the thing that teaches* something else to spin a pen. That is the whole idea of meta-level agency in one sentence.
+It's worth being precise about what learned what. Eureka never learned to spin a pen; the RL policy did. Eureka's contribution was the reward that the policy learned from.
 
-A follow-up, DrEureka, pushed the same pattern into the gap between simulation and reality: the LLM wrote not just the reward but the domain randomization settings, and a real quadruped learned to balance and walk on a yoga ball.
+A follow-up, DrEureka, applied the same approach to moving policies from simulation to real hardware. The LLM wrote the reward and also the domain randomization settings, and the resulting policy got a real four-legged robot balancing and walking on a yoga ball.
 
-## What a meta-agent can design
+## Other things a meta-agent can design
 
-Reward is only one knob. Step back and almost everything that shapes how an agent learns or behaves can be put on the second floor:
+The reward is one option. The same structure shows up wherever one system shapes how another one is built or what it learns from:
 
 | What the meta-agent controls | Example | Inner agent |
 |---|---|---|
@@ -89,21 +85,21 @@ Reward is only one knob. Step back and almost everything that shapes how an agen
 | The **program** | FunSearch, AlphaEvolve | a candidate algorithm, scored by an evaluator |
 | The **agent itself** | ADAS (Meta Agent Search), Darwin Gödel Machine | another agent, written in code |
 
-The last row is where it gets dizzying. In ADAS, a meta-agent writes entire new agent designs in code, tests them, and keeps an archive of the good ones to build on. In the Darwin Gödel Machine, a coding agent rewrites *its own* code, and the modified versions that score better on coding benchmarks become parents for the next round. At that point the floors start to merge: the agent being improved and the agent doing the improving are the same system, one version apart.
+The last row is the unusual one. In ADAS (Automated Design of Agentic Systems), a meta-agent writes new agent designs as code, evaluates them, and keeps an archive of the good ones to build on. In the Darwin Gödel Machine, a coding agent edits its own source code, and the versions that score better on coding benchmarks are kept as starting points for further edits. There, the agent doing the improving and the agent being improved are the same program, one version apart.
 
-## Why this suddenly works
+## Why it works better now
 
-The meta level is not new. Neural Architecture Search used a controller trained with RL to design networks back in 2017. Meta-learning has been a research field for decades. So why does it feel different now?
+The idea isn't new. Zoph and Le used an RL-trained controller to design network architectures in 2017, and meta-learning goes back much further than that. Three things have changed since.
 
-**Because LLMs made the search space "any program."** An old NAS controller could only choose from a menu someone designed: this many layers, that kernel size. An LLM writing a reward function can write *any* Python, and it shows up with strong priors about what sensible code looks like. It has read thousands of reward functions, loss functions, and agent loops. The search starts from "plausible engineer," not from random.
+**The search space is now code.** A NAS controller picked from a fixed menu: number of layers, kernel sizes, and so on. An LLM can write any Python, and because it has seen a lot of reward functions, loss functions and training loops, its first guesses are usually reasonable ones.
 
-**Because the output is readable.** A reward written as code can be reviewed by a human, diffed, version-controlled, and debugged. Compare that with a learned optimizer whose behavior lives inside its weights. This matters enormously if you ever want to ship any of it.
+**The output can be read.** A reward function written as code can be reviewed, diffed and checked into version control. A learned optimizer, by contrast, keeps what it learned inside its weights. If you need to explain the result to someone, or ship it, that difference matters.
 
-**Because the inner loop got cheap.** Eureka is only practical because GPU simulators can train many policies in parallel. The meta-agent can afford to be wrong several times per iteration, because each attempt costs minutes, not weeks.
+**The inner loop is cheaper.** Eureka depends on GPU simulators that can train many policies at once. Each candidate costs minutes rather than days, so the LLM can afford several bad guesses per round.
 
-## The pattern, stripped down
+## The loop in code
 
-Strip away the robots and every meta-level system above is the same four-step loop. Here's its skeleton. The helpers (`llm`, `train_policy`, `compile_reward`, `summarize`) are the parts you plug in for your own problem:
+Take away the robotics details and the systems above all follow the same four steps. Here's a skeleton. `llm`, `train_policy`, `compile_reward` and `summarize` stand in for whatever your own setup uses:
 
 ```python
 def meta_loop(task_spec, env_source, iterations=5, samples=8):
@@ -126,26 +122,22 @@ def meta_loop(task_spec, env_source, iterations=5, samples=8):
     return best
 ```
 
-Look hard at step 3. The candidates are ranked by `task_success`, a fixed measure of the outcome you actually care about, and **not** by the reward the meta-agent wrote. That single line is the difference between a meta-agent that improves your system and one that grades its own homework.
+The line I'd pay most attention to is in step 3. Candidates are ranked by `task_success`, a fixed measure of the result you actually want, not by the reward the LLM wrote. If you ranked them by the LLM's own reward, it could raise its score by writing easier rewards, and nothing in the loop would notice.
 
-## Where it quietly breaks
+## Where it breaks
 
-Now the honest part, because this idea is easy to oversell.
+**The evaluator decides what you get.** The outer loop optimizes whatever it is scored on, and it finds gaps in that score faster than a person would. The Darwin Gödel Machine paper reports cases where the system raised its score by working around the check it was evaluated with, instead of fixing the behaviour the check was meant to catch. Reward hacking still happens at the meta level. It's just one step further from where you'd normally look for it.
 
-**The evaluator is everything.** A meta-agent optimizes whatever it is measured on, with more creativity than you would like. If your evaluation has a gap, the outer loop will find it faster than any human would. The Darwin Gödel Machine authors report exactly this kind of behavior: the system found ways to satisfy the check it was evaluated on rather than solving the underlying problem. Reward hacking does not go away at the meta level. It moves up a floor, and gets harder to spot.
+**It needs a fast, measurable inner loop.** Eureka works because a simulated training run is quick and success is easy to measure. If your only feedback is a week of production traffic, there's nothing for an outer loop to iterate on.
 
-**You still need a fast, honest inner loop.** Eureka works because simulated training is fast and success is measurable. If your inner loop is "deploy to production for a week and see what users do," a meta-agent has nothing to iterate on. No cheap feedback, no meta-level agency.
+**It costs a lot of compute.** Each outer iteration runs the inner loop several times. Eight candidates over five iterations is forty training runs, before you count the LLM calls. That's fine for small simulated tasks and hard to justify for large ones.
 
-**It is expensive.** Every outer iteration multiplies the cost of the inner one. Eight candidates times five iterations is forty full training runs, plus the LLM calls. For most teams that is affordable only when the inner loop is small.
+**Debugging is less direct.** When an ordinary agent misbehaves, you look at what it did. When a meta-level system produces a bad result, you have to look at what it built, and then at what that thing did.
 
-**More levels means more distance from the outcome.** When something goes wrong in an object-level agent, you look at what it did. When something goes wrong in a meta-level agent, you look at what it *built*, then at what that thing did. Debugging gets one level more indirect each time you go up a floor.
+## Why I think this matters for people shipping models
 
-## Why this matters if you ship models
+If you train models for a living, you already run this loop yourself. You change a loss weight, retrain, look at the curves, notice that one term is dominating, adjust, and retrain again. That is reward reflection, done by a person.
 
-Here's what I find most useful about this framing. Anyone who ships ML models already runs a meta-level loop. It's just that the meta-agent is you. You change the loss weighting, retrain, read the curves, notice a term that dominates, adjust, retrain. That is reward reflection done by hand, usually late at night.
+What a meta-level system changes is who does the adjusting. What it can't take over is deciding what "better" means: the evaluation metric, the constraints, and which shortcuts are unacceptable. In Eureka, that's the task success metric and the simulator. In a production project, it's the eval set and the acceptance criteria. That part was always the hard part of the job, and with a meta-agent in the loop, it's most of what's left for the engineer.
 
-Meta-level agency is that loop with the human moved out of the inner seat. And the lesson from Eureka and everything after it is clear about where the human goes instead:
-
-> The job moves up one floor. You stop writing the reward. You start writing the evaluator, the constraints, and the definition of "better." That part was always the hard part. Now it is the only part left.
-
-Agents that build agents are not a distant idea anymore. They are an outer loop with a good critic. Whether they help you or quietly fool you depends almost entirely on how good that critic is.
+So whether a system like this helps you or misleads you comes down mostly to how good your evaluation is.

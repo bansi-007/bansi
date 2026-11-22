@@ -132,4 +132,4 @@ print(torch.allclose(mine, ref, atol=1e-5))          # True
 
 When that prints `True`, you've built the exact operation running inside every LLM you've ever used. Everything else in the Transformer family (encoders, decoders, positional schemes, the efficiency tricks) is scaffolding around this one idea.
 
-Next in the series: [how the original Transformer wires two of these stacks together into an encoder and a decoder, and why modern LLMs quietly threw the encoder away](/blog/transformers-encoder-decoder/).
+Next in the series: [how the original Transformer wires two of these stacks together into an encoder and a decoder, and why most modern LLMs dropped the encoder](/blog/transformers-encoder-decoder/).

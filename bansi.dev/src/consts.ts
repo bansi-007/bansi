@@ -109,7 +109,7 @@ export const FOCUS = [
   { title: 'AI platforms', body: 'Shared foundations that let many teams ship models without rebuilding the plumbing each time.' },
   { title: 'MLOps and LLMOps', body: 'Pipelines, model governance, observability and the operational reliability that production AI needs.' },
   { title: 'Agentic AI', body: 'Agents that do real work inside enterprise systems, built with the same engineering rigour as any service.' },
-  { title: 'Vision in manufacturing', body: 'Computer vision and video analytics that run on factory floors, where latency and uptime are not optional.' },
+  { title: 'Vision in manufacturing', body: 'Computer vision and video analytics that run on factory floors, where latency and uptime requirements are strict.' },
 ] as const;
 
 /** Career start, for the build-time "years in production ML" figure. */

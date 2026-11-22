@@ -1,22 +1,22 @@
 ---
 title: 'Making Attention Affordable: KV Cache, GQA, and FlashAttention'
-description: 'Attention is quadratic and generation is starved for memory. The tricks that make long-context LLMs practical, each one built from scratch. Part 4, and the finale, of the Transformer family.'
+description: 'Attention cost grows with the square of the context, and generating text is limited by memory bandwidth. The techniques that make long-context LLMs practical, each one worked through with numbers and code. Part 4, the last in the Transformer family.'
 pubDate: 2026-11-05
 tags: ['transformers']
 draft: false
 ---
 
-Back in [part one](/blog/attention-intuitively/) I flagged one line and promised to come back to it: `Q·Kᵀ` is an `n × n` matrix. Every token scores every other token. Double the context and you quadruple the work.
+In [part one](/blog/attention-intuitively/) I pointed at one detail and said we'd come back to it: `Q·Kᵀ` is an `n × n` matrix, because every token scores every other token. Doubling the context quadruples that work.
 
-That single fact shapes almost every engineering decision in a modern LLM. This final part of the series is about the tricks that make attention affordable. None of them change what the model computes. They change *how*, and *how often*, and *where in memory*.
+A lot of the engineering in modern LLMs exists to deal with that. This last part of the series covers the main techniques. None of them change what the model computes; they change how often it's computed, and where in memory the data lives while it happens.
 
 ## Two different bottlenecks
 
-People say "attention is slow" as if it's one problem. It's two, and they need different fixes.
+"Attention is slow" is really two separate problems, and they need different fixes.
 
-**Prefill** is when the model reads your prompt. All the tokens are known, so it processes them in one big parallel pass. The cost here is the `n × n` score matrix itself: the compute to fill it in, and the memory to hold it. This is the quadratic problem.
+**Prefill** is when the model reads your prompt. All the tokens are known up front, so the model processes them in one parallel pass. The cost here is the `n × n` score matrix: the compute to fill it, and the memory to hold it. This is the quadratic part.
 
-To feel how fast it grows, count the numbers in one head's score matrix, stored at 16 bits (2 bytes) each:
+Here's how fast it grows. Count the entries in one head's score matrix, at 16 bits (2 bytes) each:
 
 | context | scores (n × n) | memory, one head, one layer |
 |---|---|---|
@@ -24,17 +24,17 @@ To feel how fast it grows, count the numbers in one head's score matrix, stored 
 | 32,768 | 1.07 billion | 2 GiB |
 | 131,072 (128K) | 17.2 billion | **32 GiB** |
 
-Thirty-two times more context, 1,024 times more memory. And a real model has dozens of heads in each of dozens of layers.
+Thirty-two times the context needs 1,024 times the memory, and a real model has dozens of heads in each of dozens of layers.
 
-**Decode** is when the model writes its answer, one token at a time. Each new token is a tiny amount of arithmetic, but it has to attend to everything that came before. The GPU spends most of its time not computing but *waiting for data to arrive from memory*. Decode is **memory-bound**.
+**Decode** is when the model writes its answer, one token at a time. Each new token needs very little arithmetic, but it has to attend to everything before it, which means reading a lot of stored data. The GPU spends most of the decode step waiting for that data to arrive from memory rather than computing. Decode is **memory-bound**.
 
-> Prefill is limited by how fast you can compute. Decode is limited by how fast you can move bytes. Most of the tricks below are about moving fewer bytes.
+In short, prefill is limited by compute and decode by memory bandwidth. Most of the techniques below reduce how much data has to be stored or moved.
 
-## The KV cache: never recompute the past
+## The KV cache: don't recompute the past
 
-Say the model has written 500 tokens and is about to write the 501st. Naively, it would run all 501 tokens through every layer again. Wasteful, because of the property we tested in [part two](/blog/transformers-encoder-decoder/): with a causal mask, **the past never sees the future**. The keys and values for tokens 1 through 500 are exactly what they were one step ago.
+Say the model has generated 500 tokens and is about to generate the 501st. The naive approach runs all 501 tokens through every layer again. That's unnecessary because of the property we tested in [part two](/blog/transformers-encoder-decoder/): with a causal mask, earlier tokens never attend to later ones. So the keys and values for tokens 1 to 500 are exactly what they were at the previous step.
 
-So you compute them once and keep them. At every step, the new token computes only its own query, key and value, appends its K and V to the cache, and attends over the whole cache. The work per new token goes from re-processing everything to processing one token.
+So they're computed once and stored. At each step, the new token computes only its own query, key and value, adds its key and value to the cache, and attends over the whole cache. The work per step drops from reprocessing the whole sequence to processing one token.
 
 <figure>
   <svg viewBox="0 0 720 212" role="img" aria-label="Three rows. Prefill computes keys and values for The cat sat. Step 1 reads those three from the cache and computes only on. Step 2 reads four and computes only the.">
@@ -77,30 +77,30 @@ So you compute them once and keep them. At every step, the new token computes on
   <figcaption>Each decode step does fresh work for one token. Everything before it comes out of the cache.</figcaption>
 </figure>
 
-That's the **KV cache**, and every serving system uses it. But it trades compute for memory, and the memory adds up fast. For every token, every layer stores a key and a value for every head:
+This is the **KV cache**, and every LLM serving system uses one. It saves compute at the cost of memory, and that memory grows quickly. For every token, every layer stores a key and a value for every key/value head:
 
 ```
 cache bytes = 2 (K and V) × layers × kv_heads × head_dim × tokens × bytes per number
 ```
 
-Take a model shaped like Llama 3 8B: 32 layers, 32 attention heads, a head dimension of 128, stored in 16-bit precision. At an 8,192-token context, if every head keeps its own keys and values, that's **4 GiB of cache, for one conversation**. Plugging into the formula:
+Take a model shaped like Llama 3 8B: 32 layers, 32 attention heads, a head dimension of 128, stored in 16-bit precision. At an 8,192-token context, if every head kept its own keys and values, the cache would be **4 GiB for a single conversation**:
 
 ```
 2 × 32 layers × 32 heads × 128 dims × 2 bytes  =  524,288 bytes  =  512 KiB per token
 512 KiB × 8,192 tokens                          =  4 GiB
 ```
 
-Half a megabyte for every single token. A short paragraph of 100 tokens costs 50 MiB of cache. Serve 20 users at once and the cache needs more memory than the model's own weights.
+That's half a megabyte per token, so even a 100-token paragraph takes 50 MiB. At 4 GiB per conversation, about four concurrent users would need as much memory for their caches as the model's weights take up (around 16 GB in 16-bit).
 
-This is why long context is expensive to *serve*, not just to train. And it's what the next trick is about.
+This is why long contexts are expensive to serve, not just to train, and it's the problem the next technique addresses.
 
-## MQA and GQA: let heads share keys
+## MQA and GQA: sharing keys and values between heads
 
-In [part one](/blog/attention-intuitively/) we gave every attention head its own queries, keys and values. That's what lets heads specialize. But look at what the cache stores: only keys and values. Queries are used once and thrown away.
+In [part one](/blog/attention-intuitively/), each attention head had its own queries, keys and values, which is what lets different heads learn different patterns. But the cache only stores keys and values. Queries are used once and discarded.
 
-**Multi-query attention** (MQA, Shazeer, 2019) asked: what if all the heads keep their own queries, but share *one* set of keys and values? The cache shrinks by the number of heads, often 32× or more. The catch is that quality drops a little, because heads lose some of their ability to specialize.
+**Multi-query attention** (MQA, Shazeer, 2019) keeps a separate query per head but has all the heads share a single set of keys and values. The cache shrinks by a factor equal to the number of heads, often 32 or more. The cost is some loss of quality, since the heads now have less room to specialize.
 
-**Grouped-query attention** (GQA, Ainslie et al., 2023) is the compromise everyone settled on. Split the query heads into groups, and give each group one shared key/value head. Llama 3 8B has 32 query heads and 8 key/value heads, so every 4 query heads share one K/V.
+**Grouped-query attention** (GQA, Ainslie et al., 2023) sits between the two. The query heads are split into groups, and each group shares one key/value head. Llama 3 8B has 32 query heads and 8 key/value heads, so each key/value head serves 4 query heads.
 
 <figure>
   <svg viewBox="0 0 730 182" role="img" aria-label="Three panels with 8 query heads each. In multi-head attention each query head has its own key-value head. In grouped-query attention groups of four share one. In multi-query attention all eight share one.">
@@ -183,15 +183,15 @@ In [part one](/blog/attention-intuitively/) we gave every attention head its own
 | Grouped-query (GQA) | 8 | 1 GiB |
 | Multi-query (MQA) | 1 | 0.125 GiB |
 
-GQA gets most of MQA's memory savings with nearly all of multi-head quality. It's used in Llama 2 70B, every Llama 3 model, and Mistral 7B, and it's now the default choice for new models.
+GQA keeps most of MQA's memory savings while staying close to full multi-head quality. Llama 2 70B, all the Llama 3 models and Mistral 7B use it, and it's the most common choice in recent open models.
 
-## FlashAttention: same math, fewer trips to memory
+## FlashAttention: the same result with less memory traffic
 
-KV caching and GQA shrink what you *store*. FlashAttention (Dao et al., 2022) attacks how attention *moves data*, and it's the reason long-context training is practical at all.
+The KV cache and GQA reduce how much is stored. FlashAttention (Dao et al., 2022) reduces how much data attention moves around, and it's a major reason long-context training became affordable.
 
-A GPU has two kinds of memory that matter here. **HBM** is the big main memory, tens of gigabytes and comparatively slow. **SRAM** is on the chip itself, only a few megabytes but much faster. The naive way to compute attention writes the full `n × n` score matrix out to HBM, reads it back to run softmax, writes the result, and reads *that* back to multiply by V. At long contexts, most of the time goes into that traffic, not the math.
+Two kinds of GPU memory matter here. **HBM** is the main memory: tens of gigabytes, and relatively slow to read and write. **SRAM** is on the chip itself: much faster, but far smaller, on the order of tens of megabytes across the whole GPU. The straightforward way to compute attention writes the full `n × n` score matrix to HBM, reads it back to apply softmax, writes the result, and reads that back again to multiply by V. At long context lengths, most of the time goes into those reads and writes rather than the arithmetic.
 
-FlashAttention never builds the full matrix. It takes a block of queries, streams the keys and values through in tiles small enough to fit in SRAM, and keeps a running result as it goes:
+FlashAttention never stores the full matrix. It takes a block of queries, streams the keys and values through in tiles small enough to fit in SRAM, and keeps a running result:
 
 <figure>
   <svg viewBox="0 0 720 200" role="img" aria-label="An attention score grid of queries by keys. One band of query rows is highlighted, and a single tile in it is processed at a time, updating a running max, running sum and running output.">
@@ -217,34 +217,32 @@ FlashAttention never builds the full matrix. It takes a block of queries, stream
   <figcaption>FlashAttention walks the score grid one tile at a time. Only three small running quantities per query survive between tiles.</figcaption>
 </figure>
 
-The hard part is softmax. Softmax needs the maximum and the sum over *all* scores in a row, and you don't have all the scores at once. The fix is the **online softmax**: keep a running maximum and a running sum, and whenever a new tile raises the maximum, rescale everything you've accumulated so far to match. At the end, divide once.
+The difficulty is softmax. Each row's softmax needs the maximum score and the sum of exponentials over the whole row, and with tiling you only see part of the row at a time. FlashAttention uses an **online softmax**: it keeps a running maximum and a running sum, and whenever a new tile has a higher maximum, it rescales what it has accumulated so far. It divides by the sum once at the end.
 
 ### The online softmax, by hand
 
-One query, four keys. The scores are `[1, 3, 2, 5]` and, to keep the arithmetic readable, the values are plain numbers `[10, 20, 30, 40]`. We process them in two tiles of two.
+One query and four keys. The scores are `[1, 3, 2, 5]`, and to keep the arithmetic readable the values are single numbers, `[10, 20, 30, 40]`. We process them in two tiles of two.
 
-**Tile 1**, scores `[1, 3]`. The running max is `m = 3`. Exponentiate relative to it: e<sup>1−3</sup> = 0.135 and e<sup>3−3</sup> = 1. So the running sum is `l = 1.135` and the running output is `acc = 0.135 × 10 + 1 × 20 = 21.35`.
+**Tile 1**, scores `[1, 3]`. The running maximum is `m = 3`. Taking exponentials relative to it gives e<sup>1−3</sup> = 0.135 and e<sup>3−3</sup> = 1. So the running sum is `l = 1.135`, and the running output is `acc = 0.135 × 10 + 1 × 20 = 21.35`.
 
-**Tile 2**, scores `[2, 5]`. The max jumps from 3 to 5, so everything from tile 1 was measured against the wrong max. The correction factor is `fix = e^(3−5) = 0.135`. Scale the old totals down by it, then add the new tile, measured against the new max:
+**Tile 2**, scores `[2, 5]`. The maximum rises from 3 to 5, so the tile 1 numbers were computed relative to the wrong maximum. The correction factor is `fix = e^(3−5) = 0.135`. Multiply the old totals by it, then add the new tile, computed relative to the new maximum:
 
 | | from tile 1 | × fix | + tile 2 | running total |
 |---|---|---|---|---|
 | `l` | 1.135 | 0.154 | e<sup>2−5</sup> + e<sup>5−5</sup> = 0.050 + 1 | **1.203** |
 | `acc` | 21.35 | 2.89 | 0.050 × 30 + 1 × 40 = 41.49 | **44.38** |
 
-**Finish:** `acc / l = 44.38 / 1.203 = 36.88`.
+**Result:** `acc / l = 44.38 / 1.203 = 36.88`.
 
-**Check it the naive way:** softmax of all four scores is `[0.015, 0.113, 0.041, 0.831]`, and 0.015 × 10 + 0.113 × 20 + 0.041 × 30 + 0.831 × 40 = **36.88**. Same answer, and we never held all four scores at once.
+**Checked directly:** the softmax of all four scores is `[0.015, 0.113, 0.041, 0.831]`, and 0.015 × 10 + 0.113 × 20 + 0.041 × 30 + 0.831 × 40 = **36.88**. It's the same answer, computed without ever holding all four scores at once.
 
-> FlashAttention is not an approximation. It computes exactly the same numbers as the naive version. It just never writes the big matrix down.
+FlashAttention is exact, not an approximation: it produces the same numbers as the straightforward method, without ever writing the full score matrix to memory. The memory needed for attention becomes linear in sequence length instead of quadratic, and the computation gets considerably faster because it isn't waiting on HBM. FlashAttention-2 and FlashAttention-3 improved the implementation further for newer GPUs. PyTorch's `F.scaled_dot_product_attention`, which we've used since part one, picks a FlashAttention kernel automatically when the hardware and inputs support it.
 
-The result: memory for the scores goes from quadratic to linear in sequence length, and attention gets several times faster because it stops waiting on HBM. FlashAttention-2 and FlashAttention-3 pushed the same idea further on newer GPUs. And PyTorch's `F.scaled_dot_product_attention`, the function we've been calling since part one, will quietly use a FlashAttention kernel when your hardware and inputs allow.
+## Sliding-window attention
 
-## Sliding windows: don't look at everything
+The last technique is to limit how far back each token looks. With sliding-window attention, each token attends only to the most recent `w` tokens, itself included. Mistral 7B uses a window of 4,096.
 
-The last trick is the most direct: **don't attend to everything.** With sliding-window attention, each token only attends to the previous `w` tokens. Mistral 7B uses a 4,096-token window.
-
-That sounds like it would cut off long-range information, but stacking layers rescues it. Layer 1 sees 4,096 tokens back. Layer 2 sees tokens that already looked 4,096 back, so information can travel about twice as far. After many layers, information can flow across far more than one window, while the cost of each layer stays fixed.
+That looks like it would lose long-range information, but stacking layers recovers much of it. In layer 1, a token sees 4,096 tokens back. In layer 2, it sees tokens that each saw 4,096 back in layer 1, so information can come from roughly twice as far. Over many layers the reach grows well past one window, while each layer's cost stays fixed.
 
 <figure>
   <svg viewBox="0 0 720 222" role="img" aria-label="Left: an 8 by 8 causal grid where each row attends only to itself and the two previous tokens. Right: four rows of dots showing that after three layers, the last token can draw on seven input tokens.">
@@ -332,11 +330,11 @@ That sounds like it would cut off long-range information, but stacking layers re
   <figcaption>Left: each token looks at only the last 3. Right: stacking layers widens the cone, so information still travels far.</figcaption>
 </figure>
 
-The arithmetic is simple: each layer adds `w − 1` tokens of reach, so after `L` layers a token can draw on about `L × (w − 1) + 1` tokens. With the tiny window of 3 in the picture, 3 layers reach 7 tokens. With Mistral's window of 4,096 and its 32 layers, that's roughly 131,000 tokens of theoretical reach, while each layer only ever scores 4,096 positions per token. Some models mix the two, alternating sliding-window layers with full-attention layers.
+Each layer extends the reach by `w − 1` tokens, so after `L` layers a token can draw on about `L × (w − 1) + 1` tokens. With the window of 3 in the diagram, 3 layers reach 7 tokens. With Mistral's window of 4,096 and its 32 layers, the theoretical reach is about 131,000 tokens, although each layer only scores 4,096 positions per token. Some models alternate sliding-window layers with full-attention layers.
 
 ## Now build it yourself
 
-Three pieces. First, the cache arithmetic, so the table above stops being a claim:
+Three pieces. First, the cache formula as a function, so you can check the table above:
 
 ```python
 def kv_cache_gib(layers, kv_heads, head_dim, tokens, batch=1, bytes_per=2):
@@ -348,7 +346,7 @@ print(kv_cache_gib(32, 8, 128, 8192))    # 1.0    8 shared K/V heads (GQA)
 print(kv_cache_gib(32, 1, 128, 8192))    # 0.125  one shared K/V head (MQA)
 ```
 
-Second, the core of FlashAttention: tiled attention with an online softmax, checked against the naive version.
+Second, the core of FlashAttention: tiled attention with an online softmax, compared against the straightforward version.
 
 ```python
 import torch
@@ -374,9 +372,9 @@ ref = torch.softmax(q @ k.T / 64**0.5, dim=-1) @ v
 print(torch.allclose(tiled_attention(q, k, v), ref, atol=1e-5))   # True: exact, not approximate
 ```
 
-The line to stare at is `fix = torch.exp(m - m_new)`. When a new tile contains a bigger score than anything seen so far, everything accumulated was computed against the old maximum, and this factor corrects it. That one line is why the tiles can be processed in sequence without ever seeing the whole row. The real kernel does this in fused GPU code with the tiles held in SRAM, but the math is exactly this.
+The important line is `fix = torch.exp(m - m_new)`. When a tile contains a score larger than any seen so far, everything accumulated up to that point was computed against the old maximum, and this factor corrects it. That's what allows the tiles to be processed one after another without ever seeing the whole row. The real kernel does the same arithmetic in fused GPU code with the tiles held in SRAM.
 
-Third, grouped-query attention, which is shorter than it sounds:
+Third, grouped-query attention, which takes only a few lines:
 
 ```python
 import torch.nn.functional as F
@@ -389,15 +387,15 @@ def gqa(q, k, v):
     return F.scaled_dot_product_attention(q, k, v, is_causal=True)
 ```
 
-Only the 8 K/V heads ever go into the cache. The repeat happens on the fly, at attention time.
+Only the 8 key/value heads are stored in the cache. They're repeated to match the 32 query heads at the moment attention is computed.
 
-## The family, assembled
+## The whole series in one place
 
-That's the series. Put the four parts together and you can read the architecture of a modern open LLM layer by layer:
+Put the four parts together and you can follow the architecture of a typical modern open LLM layer by layer:
 
-1. **[Attention](/blog/attention-intuitively/)**: a soft dictionary lookup. Queries against keys, scaled, softmaxed, used to blend values. Several heads in parallel, each specializing.
-2. **[The block and the decoder](/blog/transformers-encoder-decoder/)**: attention to communicate, a feed-forward network to compute, residuals and pre-norm around both, stacked deep. Causal, decoder-only, because "predict the next token" turned out to be the most general task there is.
-3. **[Position](/blog/transformers-positional-encoding/)**: RoPE rotates queries and keys so the attention score sees only the distance between tokens. Stretch the rotation angles carefully and the context grows.
-4. **Efficiency**: a KV cache so the past is never recomputed, GQA so that cache stays small, FlashAttention so the score matrix never touches slow memory, and sometimes a sliding window so not everything needs scoring.
+1. **[Attention](/blog/attention-intuitively/)**: a soft dictionary lookup. Queries are compared against keys, scaled, passed through softmax, and used to blend the values. Several heads run in parallel and learn different patterns.
+2. **[The block and the decoder](/blog/transformers-encoder-decoder/)**: attention to share information between tokens, a feed-forward network to process each token, residual connections and pre-norm around both, stacked many times. Most large LLMs are causal and decoder-only, largely because next-token prediction turned out to train well and to cover a very wide range of tasks.
+3. **[Position](/blog/transformers-positional-encoding/)**: RoPE rotates queries and keys so that the attention score depends only on the distance between tokens. Rescaling the rotation angles is one of the main ways context windows are extended.
+4. **Efficiency**: a KV cache so earlier tokens aren't recomputed, GQA to keep that cache small, FlashAttention so the score matrix never goes to slow memory, and in some models a sliding window to limit how much is scored.
 
-Every one of these pieces you have now written yourself and checked against the real thing. That's the point of the series. When you next read a model card that says *"decoder-only, RoPE, GQA with 8 KV heads, 128K context,"* it shouldn't read like jargon. It should read like a list of design decisions, each with a reason you can explain.
+Across the four posts you've implemented attention, a full decoder-only model, RoPE, tiled attention and GQA, and checked each one against PyTorch or against the expected property. So when a model card lists *"decoder-only, RoPE, GQA with 8 KV heads, 128K context"*, you should be able to say what each of those choices does and why it was made.

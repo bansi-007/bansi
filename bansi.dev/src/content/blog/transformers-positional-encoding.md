@@ -1,20 +1,20 @@
 ---
 title: 'Where Is Each Word? Positional Encoding, From Sines to RoPE'
-description: "Attention has no idea what order words come in. How Transformers get position back, from the original sine waves to RoPE, the rotation trick inside almost every modern LLM. Part 3 of the Transformer family."
+description: "The attention operation by itself ignores word order. How Transformers add position back, from the original sine waves to RoPE, the rotation scheme used in most open LLMs today. Part 3 of the Transformer family."
 pubDate: 2026-10-15
 tags: ['transformers']
 draft: false
 ---
 
-*"Dog bites man"* and *"man bites dog"* are the same three words. One is a Tuesday; the other is the news. The only difference is order.
+*"Dog bites man"* and *"man bites dog"* use the same three words, and only one of them is news. The difference is entirely in the order.
 
-Here's the uncomfortable fact this post is about: **attention, on its own, cannot tell those two sentences apart.** Everything we built in [part one](/blog/attention-intuitively/) and [part two](/blog/transformers-encoder-decoder/) treats its input as a *set* of tokens, not a sequence. So every Transformer needs some way of putting order back in. How it does that turns out to decide how long a context the model can handle, and why "128K context" is harder than just changing a number.
+The attention operation from [part one](/blog/attention-intuitively/) can't see that difference. It treats its input as a *set* of tokens, not a sequence. So every Transformer adds position information some other way, and the method it uses ends up limiting how long a context the model can handle. That's why going from a 4K to a 128K context window involves more than changing a config value.
 
-## Attention can't count
+## Attention ignores order
 
-Look at the attention formula again: `softmax(QKᵀ/√dₖ)·V`. Every token scores every other token by content alone. Nothing in it says *where* a token is. Shuffle the input and each token gets exactly the same answer it got before. The outputs just come out shuffled the same way.
+Look at the formula again: `softmax(QKᵀ/√dₖ)·V`. Each token scores every other token by content alone, and nothing in the formula refers to where a token is. If you shuffle the input, each token gets the same result it got before; the outputs simply come out in the shuffled order.
 
-You can check it in four lines:
+You can check this in a few lines:
 
 ```python
 import torch, torch.nn.functional as F
@@ -26,20 +26,20 @@ out_shuffled = F.scaled_dot_product_attention(x[:, perm], x[:, perm], x[:, perm]
 print(torch.allclose(out[:, perm], out_shuffled, atol=1e-6))   # True: same answers, just reordered
 ```
 
-The formal word is **permutation-equivariant**. The practical word is *blind*. So position has to be put in from outside.
+The technical term is **permutation-equivariant**: reorder the input and the output is reordered in the same way, but otherwise unchanged. (A causal mask, as in part two, does leak some order information, because each token sees a different number of earlier tokens. Mainstream models still add position explicitly rather than rely on that.)
 
-## Fix one: add a position vector
+## Adding a position vector
 
-The original Transformer's answer was direct: before the first block, **add** a vector to each token's embedding that encodes its position. Token at position 7 gets "position 7" mixed into it, and from then on the model can, in principle, work out order.
+The original Transformer's approach was to **add** a vector that encodes position to each token's embedding, before the first block. The token at position 7 has a "position 7" vector added to it, and the layers above can learn to use that.
 
-The vectors they chose were sine and cosine waves at different frequencies:
+The vectors were built from sine and cosine waves at different frequencies:
 
 ```
 PE(pos, 2i)   = sin(pos / 10000^(2i/d))
 PE(pos, 2i+1) = cos(pos / 10000^(2i/d))
 ```
 
-The intuition is a clock with many hands. The first pair of dimensions is a second hand, spinning fast. Later pairs are minute hands, hour hands, day hands, each slower than the last. Read all the hands together and you know exactly what time it is, meaning which position you're at. And because it's built from sines and cosines, the shift from one position to another is a fixed linear transformation, which the authors hoped the model could learn to use.
+A clock with several hands is a good way to picture it. The first pair of dimensions turns quickly, like a second hand. Each later pair turns more slowly, like minute and hour hands. Reading all the hands together tells you the exact time, which here means the exact position. The authors also chose sines and cosines because moving from one position to another is then a fixed linear transformation, which they expected the model could learn to use.
 
 <figure>
   <svg viewBox="0 0 720 210" role="img" aria-label="Three sine waves at decreasing frequencies across positions 0 to 48, with a vertical line at position 20 marking where each wave is read.">
@@ -65,7 +65,7 @@ The intuition is a clock with many hands. The first pair of dimensions is a seco
   <figcaption>Each pair of dimensions is a wave at its own speed. A position's encoding is the reading of every wave at that point, like reading every hand of a clock.</figcaption>
 </figure>
 
-Here are the actual numbers for a tiny `d = 4`. There are two hands: the first pair has frequency 1, and the second has frequency 1/100, because 10000<sup>2/4</sup> = 100. So each position gets `[sin(pos), cos(pos), sin(pos/100), cos(pos/100)]`:
+Here are the actual values for a small `d = 4`. There are two pairs: the first has frequency 1, and the second has frequency 1/100, because 10000<sup>2/4</sup> = 100. So each position gets `[sin(pos), cos(pos), sin(pos/100), cos(pos/100)]`:
 
 | position | sin(pos) | cos(pos) | sin(pos/100) | cos(pos/100) |
 |---|---|---|---|---|
@@ -74,25 +74,23 @@ Here are the actual numbers for a tiny `d = 4`. There are two hands: the first p
 | 2 | 0.909 | −0.416 | 0.020 | 1.000 |
 | 3 | 0.141 | −0.990 | 0.030 | 1.000 |
 
-The fast pair swings wildly from one position to the next, so it tells neighbours apart. The slow pair has barely moved; it only becomes useful across hundreds of positions, where the fast pair has wrapped around many times and repeats itself. Together, no two positions get the same vector.
+The fast pair changes a lot between neighbouring positions, so it separates them well. The slow pair hardly moves over these four positions. It becomes useful over hundreds of positions, where the fast pair has gone round many times and its values start repeating. With both pairs together, no two positions end up with the same vector.
 
-The simpler alternative, used by BERT and GPT-2 (and our `TinyGPT` from part two), is a **learned** position embedding: a table with one trainable vector per position. It works well, with one hard limit. If the table has 1,024 rows, position 1,025 simply doesn't exist. The model has never seen it, and there's nothing to look up.
+The simpler option, used by BERT and GPT-2 and by the `TinyGPT` in part two, is a **learned** position embedding: a table with one trainable vector per position. It works well within its range, but the range is fixed. If the table has 1,024 rows, there is no vector for position 1,025, and the model can't handle inputs that long.
 
-## What we actually want: distance
+## Relative distance matters more
 
-Both of those encode **absolute** position: "I am token 4,017." But think about what actually matters when reading. The verb wants its subject, which is usually a few words back. A closing bracket wants the matching opening bracket. A pronoun wants a recent noun.
+Both approaches encode **absolute** position, as in "this is token 4,017". When you look at what a model needs while reading, though, it's mostly relative. A verb needs its subject, usually a few words earlier. A closing bracket needs the opening bracket that matches it. A pronoun usually refers to a recent noun. *"The cat sat"* means the same thing on page 1 and on page 300.
 
-**What matters is almost always relative: how far apart two words are, not where either one sits in the document.** *"The cat sat"* means the same thing at the start of a book and on page 300.
+With absolute positions added to the input, the model has to learn to compare positions itself, separately for every distance. It's more efficient to put relative distance directly into the attention score.
 
-Adding absolute positions to the input forces the model to *learn* to subtract them, and to do that for every distance separately. The better idea is to build relative distance straight into the attention score.
+## RoPE: rotate instead of add
 
-## RoPE: rotate, don't add
+**Rotary Position Embedding** (RoPE, Su et al., 2021) is used in Llama, Mistral, Qwen and most other open LLMs.
 
-**Rotary Position Embedding** (RoPE, Su et al., 2021) is the scheme inside Llama, Mistral, Qwen, and most open LLMs you can name. It has one elegant idea.
+Instead of adding a vector to the token, RoPE **rotates** the query and key vectors by an angle that depends on position. Each vector is split into pairs of dimensions, each pair is treated as a point in 2-D, and that point is rotated by `position × θ`.
 
-Don't add anything to the token. Instead, **rotate** the query and the key by an angle proportional to their position. Split each vector into pairs of dimensions, treat each pair as a point on a 2-D plane, and turn it by `position × θ`.
-
-Now remember what attention does with a query and a key: a dot product. And the dot product of two rotated vectors depends only on the **angle between them**. Rotate the query by `5θ` and the key by `2θ`, and the score sees a `3θ` difference. Rotate them by `105θ` and `102θ` and the score sees... the same `3θ`.
+Attention combines a query and a key with a dot product, and when both vectors have been rotated, the dot product depends only on the difference between their rotation angles. Rotate the query by `5θ` and the key by `2θ`, and the score depends on the `3θ` between them. Rotate them by `105θ` and `102θ`, and the difference is still `3θ`, so the score is the same.
 
 <figure>
   <svg viewBox="0 0 720 225" role="img" aria-label="Two circles. On the left, a key at position 2 and a query at position 5 with a gap angle between them. On the right, the same pair at positions 102 and 105, rotated around the circle but with the same gap angle.">
@@ -126,13 +124,13 @@ Now remember what attention does with a query and a key: a dot product. And the 
   <figcaption>RoPE turns position into an angle. Move both tokens along the sequence and the pair rotates together; the gap between them, and so the attention score, stays the same.</figcaption>
 </figure>
 
-> RoPE gets relative position for free. Each token only ever encodes its own absolute position, as a rotation. But the moment a query meets a key in the dot product, the absolutes cancel and only the distance survives.
+So each token is rotated according to its own absolute position, but in the attention score only the distance between the query and the key matters.
 
 ### RoPE with actual numbers
 
-Take the smallest possible case: 2-D vectors, one rotation speed of θ = 20° per position, and a query and key that are both `(1, 0)`. With identical content, the only thing that can change the score is position.
+Take the smallest case: 2-D vectors, a rotation of θ = 20° per position, and a query and key that are both `(1, 0)`. Since they have the same content, any change in the score comes from position.
 
-Rotating a vector `(x, y)` by an angle `a` gives `(x·cos a − y·sin a, x·sin a + y·cos a)`. Since `(1, 0)` rotated by `a` is just `(cos a, sin a)`:
+Rotating a vector `(x, y)` by an angle `a` gives `(x·cos a − y·sin a, x·sin a + y·cos a)`. For `(1, 0)` that's just `(cos a, sin a)`:
 
 | query at | key at | query angle | key angle | rotated q | rotated k | score q·k |
 |---|---|---|---|---|---|---|
@@ -142,18 +140,18 @@ Rotating a vector `(x, y)` by an angle `a` gives `(x·cos a − y·sin a, x·sin
 
 (Angles wrap around: 105 × 20° = 2,100°, which is 300° after five full turns.)
 
-The first two rows have completely different vectors and exactly the same score. Both pairs are 60° apart, and cos 60° = 0.5. The third pair is 140° apart, and cos 140° = −0.766. A real model does exactly this, just with 32 or 64 pairs of dimensions, each rotating at its own speed.
+The first two rows have different vectors but the same score, because both pairs are 60° apart and cos 60° = 0.5. The third pair is 140° apart, and cos 140° = −0.766. A real model does the same thing with 32 or 64 pairs of dimensions, each rotating at a different speed.
 
-A few details make it work in practice:
+Some details that matter in practice:
 
-- **Many frequencies, like the clock.** Each pair of dimensions rotates at its own speed, using the same `10000^(-2i/d)` schedule as the original sinusoids. Fast pairs resolve small distances precisely. Slow pairs tell "near" from "far" across thousands of tokens.
-- **Only queries and keys get rotated.** Values are left alone. Position should affect *who you listen to*, not *what they say*.
-- **It's applied in every layer**, not just once at the input, so position information never fades as the vectors pass through dozens of blocks.
-- **Rotation never changes a vector's length.** Content and position stay separate: the length carries "how strongly," the angle carries "where."
+- **Each pair has its own frequency.** The speeds follow the same `10000^(-2i/d)` schedule as the sine encoding. Fast pairs distinguish small distances precisely; slow pairs distinguish near from far across thousands of tokens.
+- **Only queries and keys are rotated.** Values are not, because position should affect which tokens are attended to, not the information they pass on.
+- **It's applied in every layer**, not only at the input, so the attention in each layer gets position information directly.
+- **Rotation doesn't change a vector's length**, so it changes the angles between queries and keys without inflating or shrinking the scores.
 
-## ALiBi: just penalize distance
+## ALiBi: a penalty for distance
 
-There's an even blunter idea, **ALiBi** (Press et al., 2021): skip position vectors entirely, and subtract a penalty from each attention score proportional to the distance between the two tokens. Far-away tokens get pushed down; nearby ones are favored. Each head gets its own penalty slope, so some heads look locally and some look far.
+**ALiBi** (Press et al., 2021) is simpler still. It adds no position vectors at all. Instead it subtracts a penalty from each attention score, proportional to the distance between the two tokens, so distant tokens are down-weighted and nearby ones favoured. Each head has its own slope, so some heads focus locally and others look further back.
 
 <figure>
   <svg viewBox="0 0 720 222" role="img" aria-label="A 5 by 5 causal grid of ALiBi biases: zero on the diagonal, minus 0.5 one step back, down to minus 2.0 four steps back.">
@@ -210,19 +208,19 @@ There's an even blunter idea, **ALiBi** (Press et al., 2021): skip position vect
   <figcaption>ALiBi in one picture. No position vectors at all: each score just gets a penalty that grows with distance.</figcaption>
 </figure>
 
-With numbers: two earlier tokens both have a raw score of 2.0 against the current one, so their content matches equally well. One is 1 step back, the other 4 steps back. With a slope of 0.5, they become 2.0 − 0.5 = **1.5** and 2.0 − 2.0 = **0.0**. After softmax, the near token gets e<sup>1.5</sup> ≈ 4.5 times the weight of the far one. Same content, different distance, very different attention.
+For example, two earlier tokens both have a raw score of 2.0 against the current token, so their content matches equally well. One is 1 position back and the other is 4 positions back. With a slope of 0.5, their scores become 2.0 − 0.5 = **1.5** and 2.0 − 2.0 = **0.0**. After softmax, the nearer token gets e<sup>1.5</sup> ≈ 4.5 times the weight of the further one.
 
-ALiBi's selling point was its title: *train short, test long*. Because a penalty for distance 5,000 is just a bigger number, not an unseen embedding, the model degrades gracefully on inputs longer than it was trained on. RoPE ended up being the more widely adopted scheme, but ALiBi showed clearly that position doesn't have to be a vector at all.
+The ALiBi paper's title was *Train Short, Test Long*. Since the penalty for a distance of 5,000 is just a larger number, and not a position the model has never seen, ALiBi models degrade gradually on inputs longer than their training length instead of failing outright. RoPE became the more common choice, but ALiBi showed that position information can work without any position vectors.
 
-## Stretching the context
+## Extending the context window
 
-Here's why this matters right now. Suppose a model was trained with RoPE on sequences of 4,096 tokens, and you want it to read 32,000.
+Suppose a model was trained with RoPE on 4,096-token sequences and you want it to handle 32,768.
 
-At position 20,000, the slow-rotating dimensions reach angles they **never reached in training**. The model is in unfamiliar territory, and quality falls off a cliff.
+At position 20,000, the slowly rotating dimensions reach angles they never reached during training, and output quality drops sharply. The common fixes all bring those angles back into the range the model has seen:
 
-The fixes all work by bringing those angles back into familiar range:
+- **Position interpolation** scales every position down. Dividing by 8 maps position 32,768 to 4,096, so every angle stays within the trained range. The trade-off is that neighbouring tokens end up closer together than the model is used to, which a short fine-tune on long documents corrects.
+- **NTK-aware scaling and YaRN** are more selective. They leave the fast, high-frequency dimensions mostly unchanged, since those handle local detail and never left their range, and stretch mainly the slow ones.
 
-- **Position interpolation** squeezes the positions. Treat position 32,000 as if it were 4,096 by scaling every position down by 8×. All angles stay in the trained range, at the cost of packing nearby tokens closer together. A short fine-tune lets the model adjust.
 <figure>
   <svg viewBox="0 0 720 160" role="img" aria-label="Two bars. The top bar shows positions up to 32,768 with only the first eighth trained. The bottom bar shows that after dividing positions by 8, all of them fall in the trained range; position 20,000 becomes 2,500.">
     <defs></defs>
@@ -243,15 +241,13 @@ The fixes all work by bringing those angles back into familiar range:
   <figcaption>Position interpolation: squeeze a long sequence into the angle range the model was trained on.</figcaption>
 </figure>
 
-  In numbers: trained on 4,096, extending to 32,768, so the scale is 32,768 ÷ 4,096 = 8. Position 20,000 is treated as 2,500, a position the model knows well. The cost shows up between neighbours: 20,000 and 20,001 become 2,500 and 2,500.125, one-eighth of a step apart, which is why a short fine-tune helps the model get used to the tighter spacing.
+With numbers: trained on 4,096 and extended to 32,768, the scale factor is 32,768 ÷ 4,096 = 8. Position 20,000 is treated as 2,500, which is well inside the trained range. The cost shows up between neighbours: positions 20,000 and 20,001 become 2,500 and 2,500.125, only an eighth of a position apart. That's the spacing the fine-tune helps the model adjust to.
 
-- **NTK-aware scaling and YaRN** are smarter about it. They leave the fast, high-frequency dimensions alone, since those handle local detail and never ran out of range, and stretch only the slow ones.
-
-This is a big part of why context windows jumped from 4K to 128K and beyond in a couple of years. Much of it didn't need new architectures. It was smarter arithmetic on the rotation angles, plus some fine-tuning on long documents.
+Methods like these are a large part of how context windows grew from 4K to 128K and beyond within a couple of years. Much of that came from adjusting rotation angles and fine-tuning on long documents, not from new architectures.
 
 ## Now build it yourself
 
-RoPE in fifteen lines, followed by the property that makes it work:
+Here's RoPE in about fifteen lines, followed by a check of the property described above:
 
 ```python
 import torch
@@ -277,8 +273,8 @@ print(torch.allclose(s1, s3, atol=1e-4))   # False: a different distance, a diff
 print(torch.allclose(rope(q, 7).norm(), q.norm()))  # True: rotation never changes length
 ```
 
-The first `True` is the figure above, proved in code. Same query, same key, moved a hundred positions down the sequence, and the attention score doesn't change.
+The first `True` is the circle diagram checked in code: the same query and key, moved a hundred positions along the sequence, give the same attention score.
 
-To use it in the `TinyGPT` from part two, delete the `self.pos` embedding and apply `rope` to `q` and `k` inside `attn`, right before the attention call, with `pos = torch.arange(T)`. That's the change Llama made to the GPT recipe.
+To use this in the `TinyGPT` from part two, remove the `self.pos` embedding and apply `rope` to `q` and `k` inside `attn`, just before the attention call, with `pos = torch.arange(T)`. That is how Llama and most other open models handle position.
 
-We now have the whole architecture: attention, blocks, the decoder-only stack, and positions. What's left is the bill. Attention compares every token with every other token, and at 128K tokens that's a very big number. [Part four](/blog/transformers-efficient-attention/) is about how anyone affords to run these things.
+That completes the architecture: attention, blocks, the decoder-only stack, and position. What's left is cost. Attention compares every token with every other token, and at 128K tokens that's a very large number of comparisons. [Part four](/blog/transformers-efficient-attention/) covers how models are made practical to run.
