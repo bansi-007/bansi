@@ -110,10 +110,8 @@ Now remember what attention does with a query and a key: a dot product. And the 
       <text x="212" y="26" fill="var(--accent)">q @ 5</text>
       <text x="222" y="70" font-size="10.5" fill="var(--accent)">3θ</text>
       <text x="180" y="214" text-anchor="middle" font-size="11" fill="var(--muted)">positions 5 and 2</text>
-
       <text x="360" y="106" text-anchor="middle" font-size="11" fill="var(--muted)">same gap</text>
       <text x="360" y="122" text-anchor="middle" font-size="11" fill="var(--muted)">= same score</text>
-
       <circle cx="540" cy="110" r="80" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="3 4"/>
       <circle cx="540" cy="110" r="2.5"/>
       <line x1="540" y1="110" x2="470.7" y2="70" stroke="currentColor" stroke-width="1.6" marker-end="url(#rh)"/>
