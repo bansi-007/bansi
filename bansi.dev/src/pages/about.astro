@@ -99,6 +99,7 @@ const current = stages[stages.length - 1];
       />
       <p class="eyebrow">About</p>
       <h1>{SITE.author}</h1>
+      <p class="side-intro__tagline">Writes Sense on Nonsense When Bored</p>
       <p>
         Staff AI Engineer at Micron Technology. For {years}+ years I have been
         taking machine learning from prototype to production: computer vision,
@@ -129,7 +130,7 @@ const current = stages[stages.length - 1];
           <dt>trained on</dt>
           <dd>{years}+ years of production ML: computer vision, MLOps on GCP and Azure, LLMs and agents</dd>
           <dt>intended use</dt>
-          <dd class="mcard__chips">{FOCUS.map((f) => <span>{f.title}</span>)}</dd>
+          <dd class="mcard__chips">{FOCUS.map((f) => <a href={`#use-${f.key}`}>{f.title}</a>)}</dd>
           <dt>languages</dt>
           <dd>English, Telugu</dd>
           <dt>deployed in</dt>
@@ -138,13 +139,66 @@ const current = stages[stages.length - 1];
       </section>
 
       <h2>Intended use</h2>
-      <div class="focus">
+      <p class="use__lede">
+        The kinds of problems this model is built for, the tools it usually reaches
+        for, and the checkpoints where it learned them.
+      </p>
+      <div class="use">
         {FOCUS.map((f, i) => (
-          <div class="focus__card">
-            <span class="focus__no">0{i + 1}</span>
-            <h3>{f.title}</h3>
-            <p>{f.body}</p>
-          </div>
+          <article class="use__card" id={`use-${f.key}`}>
+            <header class="use__head">
+              <span class="use__glyph" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  {f.key === 'platforms' && (
+                    <>
+                      <path d="M16 5 28 11 16 17 4 11z" />
+                      <path d="M4 16l12 6 12-6" />
+                      <path d="M4 21l12 6 12-6" />
+                    </>
+                  )}
+                  {f.key === 'mlops' && (
+                    <>
+                      <circle cx="16" cy="16" r="10" />
+                      <path d="M24.92 8.01 24.66 11l-2.72-1.27" />
+                      <circle cx="16" cy="6" r="2.6" fill="currentColor" stroke="none" />
+                      <circle cx="7.34" cy="21" r="2.6" fill="currentColor" stroke="none" />
+                      <circle cx="24.66" cy="21" r="2.6" fill="currentColor" stroke="none" />
+                    </>
+                  )}
+                  {f.key === 'agents' && (
+                    <>
+                      <circle cx="16" cy="16" r="4.5" />
+                      <path d="M16 11.5V6M12.2 18.4 7.5 21.5M19.8 18.4l4.7 3.1" />
+                      <rect x="13" y="2" width="6" height="4" rx="1" />
+                      <rect x="3" y="20.5" width="6" height="4" rx="1" />
+                      <rect x="23" y="20.5" width="6" height="4" rx="1" />
+                    </>
+                  )}
+                  {f.key === 'vision' && (
+                    <>
+                      <path d="M4 10V4h6M22 4h6v6M28 22v6h-6M10 28H4v-6" />
+                      <rect x="10" y="10" width="12" height="12" rx="1" />
+                      <path d="M10 8.5h7" />
+                      <circle cx="16" cy="16" r="1.5" fill="currentColor" stroke="none" />
+                    </>
+                  )}
+                </svg>
+              </span>
+              <h3>{f.title}</h3>
+              <span class="use__no">0{i + 1}</span>
+            </header>
+            <p class="use__body">{f.body}</p>
+            <div class="use__row">
+              <span class="use__label">stack</span>
+              <span class="use__stack">{f.stack.map((s) => <span>{s}</span>)}</span>
+            </div>
+            <div class="use__row">
+              <span class="use__label">evidence</span>
+              <span class="use__ev">
+                {f.ckpts.map((n) => <a href={`#ckpt-0${n}`}>ckpt-0{n}</a>)}
+              </span>
+            </div>
+          </article>
         ))}
       </div>
 
@@ -190,7 +244,7 @@ const current = stages[stages.length - 1];
       <h2>Checkpoints</h2>
       <ol class="ckpts">
         {stages.map((s) => (
-          <li class={`ckpt${s.end === null ? ' is-now' : ''}`}>
+          <li class={`ckpt${s.end === null ? ' is-now' : ''}`} id={s.ckpt}>
             <div class="ckpt__tag">
               <span class="ckpt__id">{s.ckpt}</span>
               <span class="ckpt__scope">{s.level === 0 ? 'base' : s.scope}</span>

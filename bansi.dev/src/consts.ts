@@ -104,12 +104,39 @@ export const EDUCATION = [
   },
 ] as const;
 
-/** What I work on now, as short cards. */
+/**
+ * What I work on now. `ckpts` are checkpoint numbers on the About page
+ * (1 = intern … 6 = current role) where that kind of work happened.
+ */
 export const FOCUS = [
-  { title: 'AI platforms', body: 'Shared foundations that let many teams ship models without rebuilding the plumbing each time.' },
-  { title: 'MLOps and LLMOps', body: 'Pipelines, model governance, observability and the operational reliability that production AI needs.' },
-  { title: 'Agentic AI', body: 'Agents that do real work inside enterprise systems, built with the same engineering rigour as any service.' },
-  { title: 'Vision in manufacturing', body: 'Computer vision and video analytics that run on factory floors, where latency and uptime requirements are strict.' },
+  {
+    key: 'platforms',
+    title: 'AI platforms',
+    body: 'Shared platforms, APIs and services that let teams take models to production without rebuilding the same infrastructure every time.',
+    stack: ['Vertex AI', 'GKE', 'Cloud Run', 'Azure ML', 'REST APIs'],
+    ckpts: [4, 6],
+  },
+  {
+    key: 'mlops',
+    title: 'MLOps and LLMOps',
+    body: 'Pipelines, CI/CD, model registry, monitoring and governance, so a model behaves in production the way it did in evaluation.',
+    stack: ['CI/CD', 'Model registry', 'Monitoring', 'Docker', 'Azure DevOps'],
+    ckpts: [3, 4, 5, 6],
+  },
+  {
+    key: 'agents',
+    title: 'Agentic AI',
+    body: 'LLM agents and retrieval pipelines that work inside enterprise systems, built, tested and monitored like any other production service.',
+    stack: ['LLM integration', 'RAG', 'Agentic workflows', 'Document intelligence'],
+    ckpts: [4, 6],
+  },
+  {
+    key: 'vision',
+    title: 'Vision in manufacturing',
+    body: 'Computer vision and video analytics for wafer and SEM defect detection and factory operations, where latency and uptime both matter.',
+    stack: ['PyTorch', 'YOLO', 'EfficientNet', 'OpenCV', 'ONNX'],
+    ckpts: [1, 4],
+  },
 ] as const;
 
 /** Career start, for the build-time "years in production ML" figure. */
