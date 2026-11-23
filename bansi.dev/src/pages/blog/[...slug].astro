@@ -2,6 +2,7 @@
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
+import { ANALYTICS } from '../../consts';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
@@ -35,6 +36,9 @@ const minutes = Math.max(1, Math.round(words / 220));
         <div class="post-header__meta">
           <FormattedDate date={post.data.pubDate} />
           <span class="dot-sep">{minutes} min read</span>
+          {ANALYTICS.goatcounter && (
+            <span class="dot-sep post-reads" data-reads hidden></span>
+          )}
           {
             post.data.updatedDate && (
               <span class="dot-sep">
@@ -79,6 +83,26 @@ const minutes = Math.max(1, Math.round(words / 220));
     }
   </div>
 </Base>
+
+{ANALYTICS.goatcounter && (
+  <script is:inline define:vars={{ gc: ANALYTICS.goatcounter }}>
+    // Public read count for this post, from GoatCounter's counter API.
+    (() => {
+      const el = document.querySelector('[data-reads]');
+      if (!el) return;
+      const path = location.pathname;
+      fetch(`https://${gc}.goatcounter.com/counter/${encodeURIComponent(path)}.json`)
+        .then((r) => (r.ok ? r.json() : null))
+        .then((d) => {
+          const n = d ? Number(String(d.count).replace(/[^0-9]/g, '')) : 0;
+          if (!n) return;
+          el.textContent = `${n.toLocaleString('en-US')} ${n === 1 ? 'read' : 'reads'}`;
+          el.hidden = false;
+        })
+        .catch(() => {});
+    })();
+  </script>
+)}
 
 <script>
   // Scroll-spy: highlight the TOC entry for the section currently in view.

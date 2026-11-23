@@ -1,6 +1,6 @@
 ---
 import Topbar from '../components/Topbar.astro';
-import { SITE } from '../consts';
+import { SITE, ANALYTICS } from '../consts';
 import '../styles/global.css';
 
 interface Props {
@@ -20,6 +20,7 @@ const {
 
 const pageTitle = title ? `${title} — ${SITE.title}` : `${SITE.title} — ${SITE.domain}`;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://bansi.dev');
+const prod = import.meta.env.PROD;
 ---
 
 <!doctype html>
@@ -62,6 +63,19 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://bansi.dev')
         }
       })();
     </script>
+
+    {/* Private dashboard: Vercel Web Analytics (no cookies). Served by Vercel once enabled. */}
+    {prod && <script is:inline defer src="/_vercel/insights/script.js"></script>}
+
+    {/* Public per-post read counts: GoatCounter (no cookies). */}
+    {prod && ANALYTICS.goatcounter && (
+      <script
+        is:inline
+        async
+        data-goatcounter={`https://${ANALYTICS.goatcounter}.goatcounter.com/count`}
+        src="https://gc.zgo.at/count.js"
+      ></script>
+    )}
   </head>
 
   <body>

@@ -7,6 +7,17 @@ export const SITE = {
   email: 'bansi.d.maddali@gmail.com',
 } as const;
 
+/**
+ * Analytics. Vercel Web Analytics is the private dashboard (enable it once in
+ * the Vercel project). GoatCounter powers the public "reads" count on posts:
+ * set `goatcounter` to your site code (the `xyz` in xyz.goatcounter.com) and
+ * turn on "Allow adding visitor counts on your website" in its settings.
+ * Leave it empty and no counter script or read count is rendered.
+ */
+export const ANALYTICS = {
+  goatcounter: '',
+} as const;
+
 /** Homepage hero. */
 export const INTRO = {
   headline: 'Notes on machine learning that runs in production.',
