@@ -52,10 +52,35 @@ const years = Math.floor(monthsBetween(CAREER_START, null) / 12);
 const fmt = (iso: string) =>
   new Date(iso).toLocaleDateString('en-US', { year: 'numeric', month: 'short', timeZone: 'UTC' });
 
-// Top floor first. Floors narrow as you go down: scope grew with every role.
-const floors = [...EXPERIENCE, ...EDUCATION];
-const width = (i: number) => 100 - i * (42 / (floors.length - 1));
-const floorNo = (i: number) => (i === floors.length - 1 ? 'G' : `F${floors.length - 1 - i}`);
+// ---- Career as a training run ---------------------------------------------
+// Education is pretraining; each role is a checkpoint; y = scope of the work.
+const LEVELS = ['pretraining', 'device', 'service', 'system', 'platform', 'integration', 'end-to-end'];
+const nowT = now.getUTCFullYear() + now.getUTCMonth() / 12;
+const toT = (s: string | null, isEnd = false) => {
+  if (!s) return nowT;
+  const [y, m] = s.split('-').map(Number);
+  return y + (m ? m - 1 : isEnd ? 5 : 0) / 12;
+};
+const stages = [...EDUCATION, ...[...EXPERIENCE].reverse()].map((s, i) => ({
+  ...s,
+  ckpt: i === 0 ? 'pretraining' : `ckpt-${String(i).padStart(2, '0')}`,
+  level: LEVELS.indexOf(s.scope === 'foundation' ? 'pretraining' : s.scope),
+}));
+
+const T0 = 2014;
+const T1 = nowT + 0.35;
+const X0 = 104;
+const X1 = 700;
+const xOf = (t: number) => X0 + ((t - T0) / (T1 - T0)) * (X1 - X0);
+const yOf = (lvl: number) => 226 - lvl * 30;
+
+let curve = `M ${xOf(toT(stages[0].start)).toFixed(1)} ${yOf(0)}`;
+for (const s of stages.slice(1)) curve += ` H ${xOf(toT(s.start)).toFixed(1)} V ${yOf(s.level)}`;
+curve += ` H ${xOf(nowT).toFixed(1)}`;
+
+const preEnd = xOf(toT(stages[0].end, true));
+const yearTicks = Array.from({ length: Math.floor(nowT) - T0 + 1 }, (_, i) => T0 + i).filter((y) => y % 2 === 0);
+const current = stages[stages.length - 1];
 ---
 
 <Base
@@ -91,7 +116,28 @@ const floorNo = (i: number) => (i === floors.length - 1 ? 'G' : `F${floors.lengt
     </aside>
 
     <div class="split__main prose">
-      <h2>What I work on</h2>
+      <section class="mcard" aria-label="Model card">
+        <div class="mcard__head">
+          <span>model card</span>
+          <span>bansi-dath-maddali</span>
+        </div>
+        <dl class="mcard__rows">
+          <dt>role</dt>
+          <dd>{current.role}, {current.org}</dd>
+          <dt>base model</dt>
+          <dd>{EDUCATION[0].role}, {EDUCATION[0].org}</dd>
+          <dt>trained on</dt>
+          <dd>{years}+ years of production ML: computer vision, MLOps on GCP and Azure, LLMs and agents</dd>
+          <dt>intended use</dt>
+          <dd class="mcard__chips">{FOCUS.map((f) => <span>{f.title}</span>)}</dd>
+          <dt>languages</dt>
+          <dd>English, Telugu</dd>
+          <dt>deployed in</dt>
+          <dd>{current.location}</dd>
+        </dl>
+      </section>
+
+      <h2>Intended use</h2>
       <div class="focus">
         {FOCUS.map((f, i) => (
           <div class="focus__card">
@@ -102,36 +148,65 @@ const floorNo = (i: number) => (i === floors.length - 1 ? 'G' : `F${floors.lengt
         ))}
       </div>
 
-      <h2>One floor up, every time</h2>
-      <p class="floors__lede">
-        Looking back, each role moved me one level up in scope. I started with a
-        model on a single device, then built services around models, systems
-        around services, and platforms around systems. Today the work is mostly
-        deciding what those platforms should look like.
+      <h2>The training run</h2>
+      <p class="run__lede">
+        If my career were a training run, college would be pretraining and each
+        role a checkpoint. The metric that kept going up is scope: from one model
+        on one device to owning AI systems end to end, from design to production.
       </p>
 
-      <ol class="floors">
-        {floors.map((f, i) => (
-          <li
-            class={`floor${f.end === null ? ' is-now' : ''}${i === floors.length - 1 ? ' is-ground' : ''}`}
-            style={`--w: ${width(i).toFixed(1)}%`}
-          >
-            <div class="floor__tag">
-              <span class="floor__no">{floorNo(i)}</span>
-              <span class="floor__scope">{f.scope}</span>
+      <figure class="run">
+        <div class="run__scroll">
+        <svg viewBox="0 0 720 262" role="img" aria-label={`Career as a step curve from ${T0} to now. Scope rises from pretraining through device, service, system, platform and integration to strategy.`}>
+          <g font-family="ui-monospace, Menlo, monospace" font-size="11" fill="currentColor">
+            <rect x={xOf(T0)} y="30" width={(preEnd - xOf(T0)).toFixed(1)} height="206" fill="var(--accent)" fill-opacity="0.07" />
+            <text x={((xOf(T0) + preEnd) / 2).toFixed(1)} y="22" text-anchor="middle" font-size="10.5" fill="var(--accent)">pretraining</text>
+            {LEVELS.map((l, i) => (
+              <>
+                <line x1={X0} x2={X1} y1={yOf(i)} y2={yOf(i)} stroke="var(--rule)" stroke-dasharray="2 4" />
+                <text x={X0 - 10} y={yOf(i) + 4} text-anchor="end" font-size="10.5" fill="var(--muted)">{l}</text>
+              </>
+            ))}
+            <line x1={X0} x2={X1} y1="236" y2="236" stroke="var(--muted)" stroke-width="0.8" />
+            {yearTicks.map((y) => (
+              <text x={xOf(y).toFixed(1)} y="252" text-anchor="middle" font-size="10.5" fill="var(--muted)">{y}</text>
+            ))}
+            <path d={curve} fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round" />
+            {stages.slice(1, -1).map((s) => (
+              <>
+                <circle cx={xOf(toT(s.start)).toFixed(1)} cy={yOf(s.level)} r="4" fill="var(--bg)" stroke="var(--accent)" stroke-width="1.6" />
+                <text x={(xOf(toT(s.start)) - 6).toFixed(1)} y={yOf(s.level) - 8} text-anchor="end" font-size="9.5" fill="var(--muted)">{s.ckpt}</text>
+              </>
+            ))}
+            <circle class="run__now" cx={xOf(nowT).toFixed(1)} cy={yOf(current.level)} r="5" fill="var(--accent)" />
+            <circle cx={xOf(toT(current.start)).toFixed(1)} cy={yOf(current.level)} r="4" fill="var(--bg)" stroke="var(--accent)" stroke-width="1.6" />
+            <text x={(xOf(toT(current.start)) - 8).toFixed(1)} y={yOf(current.level) - 10} text-anchor="end" font-size="10.5" fill="var(--accent)">{current.ckpt} · now, still training</text>
+          </g>
+        </svg>
+        </div>
+        <figcaption>Scope of the work over time. Each step up is a new role.</figcaption>
+      </figure>
+
+      <h2>Checkpoints</h2>
+      <ol class="ckpts">
+        {stages.map((s) => (
+          <li class={`ckpt${s.end === null ? ' is-now' : ''}`}>
+            <div class="ckpt__tag">
+              <span class="ckpt__id">{s.ckpt}</span>
+              <span class="ckpt__scope">{s.level === 0 ? 'base' : s.scope}</span>
             </div>
-            <div class="floor__body">
-              <div class="floor__row">
-                <h3 class="floor__role">{f.role}</h3>
-                {f.end === null && <span class="floor__here">you are here</span>}
+            <div class="ckpt__body">
+              <div class="ckpt__row">
+                <h3 class="ckpt__role">{s.role}</h3>
+                {s.end === null && <span class="ckpt__status">current role · still training</span>}
               </div>
-              <p class="floor__org">
-                {f.logo ? <img src={f.logo} alt={f.org} title={f.org} loading="lazy" /> : f.org}
+              <p class="ckpt__org">
+                {s.logo ? <img src={s.logo} alt={s.org} title={s.org} loading="lazy" /> : s.org}
               </p>
-              <p class="floor__meta">
-                {rangeLabel(f.start, f.end)} · {duration(f.start, f.end)} · {f.location}
+              <p class="ckpt__meta">
+                {rangeLabel(s.start, s.end)} · {duration(s.start, s.end)} · {s.location}
               </p>
-              {f.note && <p class="floor__note">{f.note}</p>}
+              {s.note && <p class="ckpt__note">{s.note}</p>}
             </div>
           </li>
         ))}

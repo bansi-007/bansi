@@ -29,14 +29,14 @@ export const SOCIALS = [
  */
 export const EXPERIENCE = [
   {
-    scope: 'strategy',
+    scope: 'end-to-end',
     role: 'Staff AI Engineer',
     org: 'Micron Technology',
     logo: '/images/logos/micron.svg',
     location: 'Hyderabad, India',
     start: '2026-09',
     end: null,
-    note: 'AI strategy and architecture for platforms, MLOps, LLMOps and agentic AI across manufacturing and enterprise workflows.',
+    note: 'Owns AI systems end to end, from architecture and design through production deployment and operations, across AI platforms, MLOps, LLMOps and agentic AI. Sets the technical direction and engineering standards they are built to.',
   },
   {
     scope: 'integration',
